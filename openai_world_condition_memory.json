@@ -1,0 +1,174 @@
+{
+  "version": "5-memory-1.0",
+  "created_at_utc": "2026-04-27T01:46:00+00:00",
+  "updated_at_utc": "2026-04-27T01:47:10+00:00",
+  "run_count": 1,
+  "provider_role_scores": {
+    "grounder": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7293,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "expander": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.6712,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "symbolizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.6923,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "stabilizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8944,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "compressor": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8431,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "integrator": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8799,
+        "last_model": "gpt-5.5"
+      }
+    }
+  },
+  "stage_scores": {
+    "現実の制度と手触り": {
+      "count": 1,
+      "mean_reward": 0.7293,
+      "last_role": "grounder"
+    },
+    "気象としての不可能": {
+      "count": 1,
+      "mean_reward": 0.6712,
+      "last_role": "expander"
+    },
+    "生活上の摩擦": {
+      "count": 1,
+      "mean_reward": 0.6923,
+      "last_role": "symbolizer"
+    },
+    "無目的な定着": {
+      "count": 1,
+      "mean_reward": 0.8944,
+      "last_role": "stabilizer"
+    },
+    "反叙情的な骨格": {
+      "count": 1,
+      "mean_reward": 0.8431,
+      "last_role": "compressor"
+    },
+    "再統合：PRM accepted pathから最終稿へ": {
+      "count": 1,
+      "mean_reward": 0.8799,
+      "last_role": "integrator"
+    }
+  },
+  "operator_scores": {
+    "establish_public_mundane_reality": {
+      "count": 1,
+      "mean_reward": 0.7293,
+      "last_role": "grounder"
+    },
+    "make_magic_a_weather_condition_not_a_message": {
+      "count": 1,
+      "mean_reward": 0.6712,
+      "last_role": "expander"
+    },
+    "convert_magic_into_logistical_consequences": {
+      "count": 1,
+      "mean_reward": 0.6923,
+      "last_role": "symbolizer"
+    },
+    "stabilize_magic_as_world_law": {
+      "count": 1,
+      "mean_reward": 0.8944,
+      "last_role": "stabilizer"
+    },
+    "compress_without_emotional_closure": {
+      "count": 1,
+      "mean_reward": 0.8431,
+      "last_role": "compressor"
+    },
+    "aggregate_high_reward_path": {
+      "count": 1,
+      "mean_reward": 0.8799,
+      "last_role": "integrator"
+    }
+  },
+  "symbol_scores": {
+    "祖母": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "筆跡": {
+      "count": 5,
+      "mean_reward": 0.80358,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "雨": {
+      "count": 4,
+      "mean_reward": 0.7468,
+      "last_seen_stage": "無目的な定着"
+    },
+    "インクは雨の日に伸びますから": {
+      "count": 5,
+      "mean_reward": 0.8078,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "田": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "ティッシュ": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "ボールペン": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "振込用紙": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "使用目的": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "角形二号": {
+      "count": 6,
+      "mean_reward": 0.78503,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "市役所": {
+      "count": 4,
+      "mean_reward": 0.77162,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    }
+  },
+  "notes": [
+    "run 1: mean_reward=0.7850; final_symbols=使用目的, 祖母, 筆跡, ティッシュ, ボールペン, 振込用紙"
+  ]
+}

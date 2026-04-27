@@ -1,0 +1,3806 @@
+{
+  "script": "chain_of_magic_realism.py",
+  "version": "5.0",
+  "started_at_utc": "2026-04-27T01:47:10+00:00",
+  "language": "Japanese",
+  "seed": "雨が祖母の筆跡を覚えていた。",
+  "providers": [
+    "openai"
+  ],
+  "routing": "role",
+  "role_providers": {
+    "grounder": "anthropic",
+    "expander": "mistral",
+    "symbolizer": "mistral",
+    "stabilizer": "anthropic",
+    "compressor": "google",
+    "integrator": "openai",
+    "recursive": "openai"
+  },
+  "models": {
+    "openai": "gpt-5.5"
+  },
+  "constraints": {
+    "max_drift": 0.82,
+    "min_drift": 0.18,
+    "max_repetition": 0.28,
+    "min_recurrence": 0.15,
+    "min_novelty": 0.18,
+    "max_collapse": 0.55,
+    "required_prefix": null,
+    "symbol_limit": 12
+  },
+  "prm": {
+    "mode": "heuristic",
+    "candidates": 1,
+    "accept_threshold": 0.62,
+    "repair_threshold": 0.5,
+    "judge_provider": null,
+    "judge_model": null,
+    "hybrid_llm_weight": 0.45,
+    "include_prompts": false
+  },
+  "beam": {
+    "enabled": false,
+    "beam_width": 1,
+    "beam_branching": 1,
+    "archive_limit": 8
+  },
+  "beam_archive": [
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai>s3-c1-openai>s4-c1-openai>s5-c1-openai>s6-c1-openai",
+      "stage_index": 6,
+      "score": 0.82705,
+      "rewards": [
+        0.7293,
+        0.6712,
+        0.6923,
+        0.8944,
+        0.8431,
+        0.8799
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "使用目的",
+        "祖母",
+        "筆跡",
+        "ティッシュ",
+        "ボールペン",
+        "振込用紙",
+        "角形二号",
+        "市役所",
+        "田",
+        "インクは雨の日に伸びますから",
+        "雨",
+        "番号札"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。  市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏名欄を見て、「田の内側が太っていますけど、読めます」と言い、赤いゴム印を押した。\n\n...[clipped]...\n\n内だが余白が足りないと言った。私は宛名を一段上に書き直し、差出人欄の払いを吸取紙で押さえた。  夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai>s3-c1-openai>s4-c1-openai>s5-c1-openai",
+      "stage_index": 5,
+      "score": 0.79247,
+      "rewards": [
+        0.7293,
+        0.6712,
+        0.6923,
+        0.8944,
+        0.8431
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "ボールペン",
+        "使用目的",
+        "市役所",
+        "筆跡",
+        "インクは雨の日に伸びますから",
+        "田",
+        "ティッシュ",
+        "振込用紙",
+        "角形二号",
+        "雨",
+        "番号札"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。  市役所の入口では、傘立ての横にティッシュと吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう貼り紙が出ていた。窓口の人は、氏名欄の「田」の内側が太る場合があります、と慣れた声で言い、見本欄にボールペンで小さな四角を描いた。祖母の字に似ているかどうかは問題にされず、読めるか、訂正印が\n\n...[clipped]...\n\n連絡帳には雨用の欄があり、家で書いた字に祖母の細い線が重なった場合、先生が青いスタンプを横に押した。説明はそれで足りた。  夕方、町内の紙は一斉に柔らかくなり、伝票も回覧板も乾く順番をずらした。祖母の筆跡は、知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai>s3-c1-openai>s4-c1-openai",
+      "stage_index": 4,
+      "score": 0.78338,
+      "rewards": [
+        0.7293,
+        0.6712,
+        0.6923,
+        0.8944
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "筆跡",
+        "インクは雨の日に伸びますから",
+        "田",
+        "ボールペン",
+        "ティッシュ",
+        "振込用紙",
+        "使用目的",
+        "角形二号",
+        "雨",
+        "市役所",
+        "番号札"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "雨の日、祖母の筆跡はどの紙にも少しずつ混じるものとして扱われるようになった。   市役所の入口には傘立ての横に吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう、貼り紙が増えた。   窓口の人は「田」の内側が太る場合があります、と慣れた声で言い、見本欄に定規で小さな四角を描いてくれた。   郵便局では振込用紙の使用目的を六文字以内にする日があり、ボー\n\n...[clipped]...\n\nの底で波打ち、差出人欄の左下に小さな払いを増やしたので、郵便局員は重さを量り直してから別納の箱へ入れた。   誰もそれを特別に見上げたりせず、濡れた床に滑り止めのマットを敷くのと同じ手つきで、余白を広めに取り、控えを一枚多く作った。   夕方、雨脚が強くなると町内の紙は一斉に柔らかくなり、祖母の筆跡だけが、乾く順番を知っているように端から静かに浮き上がった。"
+    },
+    {
+      "path_id": "root>s1-c1-openai",
+      "stage_index": 1,
+      "score": 0.6893,
+      "rewards": [
+        0.7293
+      ],
+      "providers": [
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "筆跡",
+        "雨",
+        "インクは雨の日に伸びますから",
+        "田",
+        "ティッシュ",
+        "ボールペン",
+        "振込用紙",
+        "使用目的",
+        "角形二号",
+        "市役所",
+        "番号札"
+      ],
+      "unresolved_conflicts": 1,
+      "final_text_preview": "市役所の一階は、濡れた傘の匂いと番号札の音でいっぱいだった。   雨が祖母の筆跡を覚えていたので、申請書の空欄に落ちた水滴は、古い帳面の「田」の角のように四角く滲んだ。   私は窓口で住民票の写しを二通頼み、硬貨を皿にのせた。   職員は赤いゴム印を押し、乾いていない欄をティッシュで軽く押さえた。   隣では小学生の母親が給食費の振込用紙を書き直していて、ボールペンの先が雨音に合わせて紙をつついていた。   祖母の名前を書く欄はなく、ただ世帯、住所、使用目的を正しく埋めればよかった。   帰りに商店街の文具店へ寄り、濡れた封筒を入れ替えるために白い角形二号を買った。   店主はレジ袋を断った私に、伝票の控えだけを渡し、「インクは雨の日に伸びますから」と言った。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai",
+      "stage_index": 2,
+      "score": 0.64033,
+      "rewards": [
+        0.7293,
+        0.6712
+      ],
+      "providers": [
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "筆跡",
+        "ティッシュ",
+        "田",
+        "ボールペン",
+        "角形二号",
+        "振込用紙",
+        "雨",
+        "市役所",
+        "使用目的",
+        "インクは雨の日に伸びますから",
+        "番号札"
+      ],
+      "unresolved_conflicts": 2,
+      "final_text_preview": "市役所を出ると、雨はさっきより細かくなり、商店街のアーケードの下まで祖母の筆跡を運んできていた。   八百屋の値札では「大根」のはらいが誰かの古い癖で長く伸び、肉屋の注文票には見覚えのない「田」がいくつも浮いて、店員が濡れた指でそれを端へ寄せていた。   文具店の入口には、雨天用にティッシュの箱が置かれ、客は買ったばかりのボールペンを試し書きしてから、余分な\n\n...[clipped]...\n\n癖が出てしまったらしく、窓口の人が予備の用紙を三枚出していた。   誰も大声を上げず、濡れた床の黄色い注意札をよけるように、他人の昔の筆跡をよけて書き直していた。   私の封筒にも、差出人の枠の左下に祖母の小さな払いがつき、雨粒がそこだけ黒く重くなった。   それをティッシュで押さえると、紙の繊維の中で祖母の字は少しだけ伸び、あとは普通の雨染みとして残った。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai>s3-c1-openai",
+      "stage_index": 3,
+      "score": 0.61657,
+      "rewards": [
+        0.7293,
+        0.6712,
+        0.6923
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "インクは雨の日に伸びますから",
+        "田",
+        "ボールペン",
+        "ティッシュ",
+        "振込用紙",
+        "使用目的",
+        "角形二号",
+        "雨",
+        "市役所",
+        "番号札",
+        "筆跡"
+      ],
+      "unresolved_conflicts": 3,
+      "final_text_preview": "翌朝も雨で、祖母の筆跡は乾ききらないまま町内の紙に薄く残っていた。   クリーニング店で受け取った領収書は、金額の「一」の端だけが祖母の癖で下がり、店員はレジの下から赤い訂正印を出して二度押した。   市役所の申請書では、住所欄の「田」が知らないうちに四角く太り、窓口の人が「ここ、読めますけど念のため」と言って、番号札の裏に書き直し方を鉛筆で示した。   ス\n\n...[clipped]...\n\nの使用目的を短く書くよう勧められ、「インクは雨の日に伸びますから」と窓口の人がボールペンの先をティッシュで拭いた。   私の角形二号は鞄の中で少し波打ち、差出人欄の左下にまた小さな払いを作ったが、誰もそれを私への知らせとは受け取らなかった。   ただ、書類は一枚ずつ余分に必要になり、乾いた指で押さえる場所が増え、雨の日の用事はいつもより半時間ほど長くなった。"
+    }
+  ],
+  "memory_profile_path": "openai_world_condition_memory.json",
+  "memory_profile_before": {
+    "version": "5-memory-1.0",
+    "run_count": 0,
+    "updated_at_utc": "2026-04-27T01:46:00+00:00",
+    "top_provider_roles": [],
+    "top_stages": [],
+    "top_operators": [],
+    "top_symbols": []
+  },
+  "memory_profile_after": {
+    "version": "5-memory-1.0",
+    "run_count": 1,
+    "updated_at_utc": "2026-04-27T01:47:10+00:00",
+    "top_provider_roles": [
+      {
+        "role": "stabilizer",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.8944
+      },
+      {
+        "role": "integrator",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.8799
+      },
+      {
+        "role": "compressor",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.8431
+      },
+      {
+        "role": "grounder",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.7293
+      },
+      {
+        "role": "symbolizer",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.6923
+      },
+      {
+        "role": "expander",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.6712
+      }
+    ],
+    "top_stages": [
+      {
+        "key": "無目的な定着",
+        "count": 1,
+        "mean_reward": 0.8944
+      },
+      {
+        "key": "再統合：PRM accepted pathから最終稿へ",
+        "count": 1,
+        "mean_reward": 0.8799
+      },
+      {
+        "key": "反叙情的な骨格",
+        "count": 1,
+        "mean_reward": 0.8431
+      },
+      {
+        "key": "現実の制度と手触り",
+        "count": 1,
+        "mean_reward": 0.7293
+      },
+      {
+        "key": "生活上の摩擦",
+        "count": 1,
+        "mean_reward": 0.6923
+      },
+      {
+        "key": "気象としての不可能",
+        "count": 1,
+        "mean_reward": 0.6712
+      }
+    ],
+    "top_operators": [
+      {
+        "key": "stabilize_magic_as_world_law",
+        "count": 1,
+        "mean_reward": 0.8944
+      },
+      {
+        "key": "aggregate_high_reward_path",
+        "count": 1,
+        "mean_reward": 0.8799
+      },
+      {
+        "key": "compress_without_emotional_closure",
+        "count": 1,
+        "mean_reward": 0.8431
+      },
+      {
+        "key": "establish_public_mundane_reality",
+        "count": 1,
+        "mean_reward": 0.7293
+      },
+      {
+        "key": "convert_magic_into_logistical_consequences",
+        "count": 1,
+        "mean_reward": 0.6923
+      },
+      {
+        "key": "make_magic_a_weather_condition_not_a_message",
+        "count": 1,
+        "mean_reward": 0.6712
+      }
+    ],
+    "top_symbols": [
+      {
+        "key": "インクは雨の日に伸びますから",
+        "count": 5,
+        "mean_reward": 0.8078
+      },
+      {
+        "key": "筆跡",
+        "count": 5,
+        "mean_reward": 0.80358
+      },
+      {
+        "key": "祖母",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "田",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "ティッシュ",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "ボールペン",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "振込用紙",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "使用目的",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "角形二号",
+        "count": 6,
+        "mean_reward": 0.78503
+      },
+      {
+        "key": "市役所",
+        "count": 4,
+        "mean_reward": 0.77162
+      },
+      {
+        "key": "雨",
+        "count": 4,
+        "mean_reward": 0.7468
+      }
+    ]
+  },
+  "final": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。\n\n市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏名欄を見て、「田の内側が太っていますけど、読めます」と言い、赤いゴム印を押した。祖母の字に似ているかどうかは問題にされず、訂正印が要るか、控えをもう一枚取るかだけが確認された。\n\n隣の窓口では、小学生の母親が給食費の振込用紙を書き直していた。使用目的の欄に、本人の丸い字より先に古い払いが出てしまったらしく、ボールペンの先が雨音に合わせて紙をつついていた。職員は予備の用紙を三枚出し、濡れた欄をティッシュで軽く押さえた。\n\n商店街のアーケードの下まで、雨は細かく吹き込んでいた。八百屋の値札では「大根」のはらいが長く伸び、肉屋の注文票には見覚えのある「田」が浮いて、店員が濡れた指で端へ寄せていた。誰も大声を上げず、床の黄色い注意札をよけるのと同じ手つきで、他人の昔の筆跡をよけて書き直していた。\n\n文具店で白い角形二号を買うと、店主は紙袋に入れる前に封筒の差出人欄を確かめた。左下に祖母の小さな払いがつき、そこだけ雨粒が黒く重くなっていた。「インクは雨の日に伸びますから」と店主は言い、伝票の控えの滲んだ部分を爪で押さえた。レジ袋は断り、控えだけを財布にしまった。\n\n郵便局では、雨量の多い日は振込用紙の使用目的を六文字以内にする決まりがあった。鎖につながれたボールペンは先を拭かれて光り、台の隅には湿った紙くずが丸まっていた。係は私の角形二号を量り直し、封筒は規格内だが余白が足りないと言った。私は宛名を一段上に書き直し、差出人欄の払いを吸取紙で押さえた。\n\n夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+  "final_state": {
+    "seed": "雨が祖母の筆跡を覚えていた。",
+    "text": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。\n\n市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏名欄を見て、「田の内側が太っていますけど、読めます」と言い、赤いゴム印を押した。祖母の字に似ているかどうかは問題にされず、訂正印が要るか、控えをもう一枚取るかだけが確認された。\n\n隣の窓口では、小学生の母親が給食費の振込用紙を書き直していた。使用目的の欄に、本人の丸い字より先に古い払いが出てしまったらしく、ボールペンの先が雨音に合わせて紙をつついていた。職員は予備の用紙を三枚出し、濡れた欄をティッシュで軽く押さえた。\n\n商店街のアーケードの下まで、雨は細かく吹き込んでいた。八百屋の値札では「大根」のはらいが長く伸び、肉屋の注文票には見覚えのある「田」が浮いて、店員が濡れた指で端へ寄せていた。誰も大声を上げず、床の黄色い注意札をよけるのと同じ手つきで、他人の昔の筆跡をよけて書き直していた。\n\n文具店で白い角形二号を買うと、店主は紙袋に入れる前に封筒の差出人欄を確かめた。左下に祖母の小さな払いがつき、そこだけ雨粒が黒く重くなっていた。「インクは雨の日に伸びますから」と店主は言い、伝票の控えの滲んだ部分を爪で押さえた。レジ袋は断り、控えだけを財布にしまった。\n\n郵便局では、雨量の多い日は振込用紙の使用目的を六文字以内にする決まりがあった。鎖につながれたボールペンは先を拭かれて光り、台の隅には湿った紙くずが丸まっていた。係は私の角形二号を量り直し、封筒は規格内だが余白が足りないと言った。私は宛名を一段上に書き直し、差出人欄の払いを吸取紙で押さえた。\n\n夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+    "symbols": [
+      "使用目的",
+      "祖母",
+      "筆跡",
+      "ティッシュ",
+      "ボールペン",
+      "振込用紙",
+      "角形二号",
+      "市役所",
+      "田",
+      "インクは雨の日に伸びますから",
+      "雨",
+      "番号札"
+    ],
+    "constraints": {
+      "max_drift": 0.82,
+      "min_drift": 0.18,
+      "max_repetition": 0.28,
+      "min_recurrence": 0.15,
+      "min_novelty": 0.18,
+      "max_collapse": 0.55,
+      "required_prefix": null,
+      "symbol_limit": 12
+    },
+    "metrics": {
+      "char_len": 904.0,
+      "unit_count": 185.0,
+      "similarity": 0.3965,
+      "surface_drift": 0.6035,
+      "lexical_drift": 0.5414,
+      "drift_score": 0.5818,
+      "novelty_score": 0.3946,
+      "repetition_score": 0.173,
+      "recurrence_score": 0.9167,
+      "entropy_score": 0.9847,
+      "collapse_score": 0.0974,
+      "compression_ratio": 1.4604
+    },
+    "control_notes": [],
+    "memory_notes": [
+      "path_score=0.82705",
+      "last_provider=openai",
+      "last_reward=0.8799"
+    ],
+    "rpm_trace": {
+      "axes": [
+        "text",
+        "symbols",
+        "constraints",
+        "drift",
+        "recurrence",
+        "reward",
+        "operator"
+      ],
+      "matrix": [
+        {
+          "row_index": 1,
+          "stage_name": "現実の制度と手触り",
+          "role": "grounder",
+          "operator": "establish_public_mundane_reality",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s1-c1-openai",
+          "status": "accepted",
+          "text_preview": "市役所の一階は、濡れた傘の匂いと番号札の音でいっぱいだった。   雨が祖母の筆跡を覚えていたので、申請書の空欄に落ちた水滴は、古い帳面の「田」の角のように四角く滲んだ。   私は窓口で住民票の写しを二通頼み、硬貨を皿にのせた。   職員は赤いゴム印を押し、乾いていない欄をティッシ\n\n...[clipped]...\n\n紙をつついていた。   祖母の名前を書く欄はなく、ただ世帯、住所、使用目的を正しく埋めればよかった。   帰りに商店街の文具店へ寄り、濡れた封筒を入れ替えるために白い角形二号を買った。   店主はレジ袋を断った私に、伝票の控えだけを渡し、「インクは雨の日に伸びますから」と言った。",
+          "reward_score": 0.7293,
+          "symbols_before": [
+            "筆跡",
+            "雨",
+            "祖母"
+          ],
+          "symbols_after": [
+            "祖母",
+            "筆跡",
+            "雨",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_gained": [
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_lost": [],
+          "metrics_before": {},
+          "metrics_after": {
+            "char_len": 334.0,
+            "unit_count": 63.0,
+            "similarity": 0.0795,
+            "surface_drift": 0.9205,
+            "lexical_drift": 0.9722,
+            "drift_score": 0.9386,
+            "novelty_score": 0.9524,
+            "repetition_score": 0.0635,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9925,
+            "collapse_score": 0.1134,
+            "compression_ratio": 23.8571
+          },
+          "metric_delta": {
+            "drift_score": 0.9386,
+            "novelty_score": 0.9524,
+            "repetition_score": 0.0635,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9925,
+            "collapse_score": 0.1134,
+            "compression_ratio": 23.8571
+          },
+          "operator_effects": {
+            "drift_score": "increase",
+            "novelty_score": "increase",
+            "repetition_score": "increase",
+            "recurrence_score": "increase",
+            "entropy_score": "increase",
+            "collapse_score": "increase",
+            "compression_ratio": "increase",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "medium",
+            "reward_axis:drift_control": "low",
+            "reward_axis:integration": "medium",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r01-01",
+            "r01-02",
+            "r01-03",
+            "r01-04"
+          ],
+          "conflict_ids": [
+            "c01-01-high_drift"
+          ]
+        },
+        {
+          "row_index": 2,
+          "stage_name": "気象としての不可能",
+          "role": "expander",
+          "operator": "make_magic_a_weather_condition_not_a_message",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s2-c1-openai",
+          "status": "accepted",
+          "text_preview": "市役所を出ると、雨はさっきより細かくなり、商店街のアーケードの下まで祖母の筆跡を運んできていた。   八百屋の値札では「大根」のはらいが誰かの古い癖で長く伸び、肉屋の注文票には見覚えのない「田」がいくつも浮いて、店員が濡れた指でそれを端へ寄せていた。   文具店の入口には、雨天用\n\n...[clipped]...\n\nげず、濡れた床の黄色い注意札をよけるように、他人の昔の筆跡をよけて書き直していた。   私の封筒にも、差出人の枠の左下に祖母の小さな払いがつき、雨粒がそこだけ黒く重くなった。   それをティッシュで押さえると、紙の繊維の中で祖母の字は少しだけ伸び、あとは普通の雨染みとして残った。",
+          "reward_score": 0.6712,
+          "symbols_before": [
+            "祖母",
+            "筆跡",
+            "雨",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_after": [
+            "祖母",
+            "筆跡",
+            "ティッシュ",
+            "田",
+            "ボールペン",
+            "角形二号",
+            "振込用紙",
+            "雨",
+            "市役所",
+            "使用目的",
+            "インクは雨の日に伸びますから",
+            "番号札"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [
+            "インクは雨の日に伸びますから",
+            "番号札"
+          ],
+          "metrics_before": {
+            "char_len": 334.0,
+            "unit_count": 63.0,
+            "similarity": 0.0795,
+            "surface_drift": 0.9205,
+            "lexical_drift": 0.9722,
+            "drift_score": 0.9386,
+            "novelty_score": 0.9524,
+            "repetition_score": 0.0635,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9925,
+            "collapse_score": 0.1134,
+            "compression_ratio": 23.8571
+          },
+          "metrics_after": {
+            "char_len": 474.0,
+            "unit_count": 98.0,
+            "similarity": 0.1253,
+            "surface_drift": 0.8747,
+            "lexical_drift": 0.8594,
+            "drift_score": 0.8693,
+            "novelty_score": 0.7347,
+            "repetition_score": 0.1122,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9894,
+            "collapse_score": 0.0633,
+            "compression_ratio": 1.4192
+          },
+          "metric_delta": {
+            "drift_score": -0.0693,
+            "novelty_score": -0.2177,
+            "repetition_score": 0.0487,
+            "recurrence_score": 0.0,
+            "entropy_score": -0.0031,
+            "collapse_score": -0.0501,
+            "compression_ratio": -22.4379
+          },
+          "operator_effects": {
+            "drift_score": "decrease",
+            "novelty_score": "decrease",
+            "repetition_score": "increase",
+            "recurrence_score": "stable",
+            "entropy_score": "stable",
+            "collapse_score": "decrease",
+            "compression_ratio": "decrease",
+            "reward": "medium",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "medium",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "low"
+          },
+          "rule_ids": [
+            "r02-01",
+            "r02-02",
+            "r02-03",
+            "r02-04"
+          ],
+          "conflict_ids": [
+            "c02-01-high_drift"
+          ]
+        },
+        {
+          "row_index": 3,
+          "stage_name": "生活上の摩擦",
+          "role": "symbolizer",
+          "operator": "convert_magic_into_logistical_consequences",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s3-c1-openai",
+          "status": "accepted",
+          "text_preview": "翌朝も雨で、祖母の筆跡は乾ききらないまま町内の紙に薄く残っていた。   クリーニング店で受け取った領収書は、金額の「一」の端だけが祖母の癖で下がり、店員はレジの下から赤い訂正印を出して二度押した。   市役所の申請書では、住所欄の「田」が知らないうちに四角く太り、窓口の人が「ここ\n\n...[clipped]...\n\nールペンの先をティッシュで拭いた。   私の角形二号は鞄の中で少し波打ち、差出人欄の左下にまた小さな払いを作ったが、誰もそれを私への知らせとは受け取らなかった。   ただ、書類は一枚ずつ余分に必要になり、乾いた指で押さえる場所が増え、雨の日の用事はいつもより半時間ほど長くなった。",
+          "reward_score": 0.6923,
+          "symbols_before": [
+            "祖母",
+            "筆跡",
+            "ティッシュ",
+            "田",
+            "ボールペン",
+            "角形二号",
+            "振込用紙",
+            "雨",
+            "市役所",
+            "使用目的",
+            "インクは雨の日に伸びますから",
+            "番号札"
+          ],
+          "symbols_after": [
+            "祖母",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札",
+            "筆跡"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 474.0,
+            "unit_count": 98.0,
+            "similarity": 0.1253,
+            "surface_drift": 0.8747,
+            "lexical_drift": 0.8594,
+            "drift_score": 0.8693,
+            "novelty_score": 0.7347,
+            "repetition_score": 0.1122,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9894,
+            "collapse_score": 0.0633,
+            "compression_ratio": 1.4192
+          },
+          "metrics_after": {
+            "char_len": 629.0,
+            "unit_count": 132.0,
+            "similarity": 0.0872,
+            "surface_drift": 0.9128,
+            "lexical_drift": 0.8907,
+            "drift_score": 0.9051,
+            "novelty_score": 0.7955,
+            "repetition_score": 0.1212,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9871,
+            "collapse_score": 0.0686,
+            "compression_ratio": 1.327
+          },
+          "metric_delta": {
+            "drift_score": 0.0358,
+            "novelty_score": 0.0608,
+            "repetition_score": 0.009,
+            "recurrence_score": 0.0,
+            "entropy_score": -0.0023,
+            "collapse_score": 0.0053,
+            "compression_ratio": -0.0922
+          },
+          "operator_effects": {
+            "drift_score": "increase",
+            "novelty_score": "increase",
+            "repetition_score": "stable",
+            "recurrence_score": "stable",
+            "entropy_score": "stable",
+            "collapse_score": "stable",
+            "compression_ratio": "decrease",
+            "reward": "medium",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "medium",
+            "reward_axis:drift_control": "medium",
+            "reward_axis:integration": "medium",
+            "reward_axis:closure": "low"
+          },
+          "rule_ids": [
+            "r03-01",
+            "r03-02",
+            "r03-03",
+            "r03-04"
+          ],
+          "conflict_ids": [
+            "c03-01-high_drift"
+          ]
+        },
+        {
+          "row_index": 4,
+          "stage_name": "無目的な定着",
+          "role": "stabilizer",
+          "operator": "stabilize_magic_as_world_law",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s4-c1-openai",
+          "status": "accepted",
+          "text_preview": "雨の日、祖母の筆跡はどの紙にも少しずつ混じるものとして扱われるようになった。   市役所の入口には傘立ての横に吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう、貼り紙が増えた。   窓口の人は「田」の内側が太る場合があります、と慣れた声で言い、見本欄に定規で小さな四角を\n\n...[clipped]...\n\nてから別納の箱へ入れた。   誰もそれを特別に見上げたりせず、濡れた床に滑り止めのマットを敷くのと同じ手つきで、余白を広めに取り、控えを一枚多く作った。   夕方、雨脚が強くなると町内の紙は一斉に柔らかくなり、祖母の筆跡だけが、乾く順番を知っているように端から静かに浮き上がった。",
+          "reward_score": 0.8944,
+          "symbols_before": [
+            "祖母",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 629.0,
+            "unit_count": 132.0,
+            "similarity": 0.0872,
+            "surface_drift": 0.9128,
+            "lexical_drift": 0.8907,
+            "drift_score": 0.9051,
+            "novelty_score": 0.7955,
+            "repetition_score": 0.1212,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9871,
+            "collapse_score": 0.0686,
+            "compression_ratio": 1.327
+          },
+          "metrics_after": {
+            "char_len": 580.0,
+            "unit_count": 116.0,
+            "similarity": 0.1714,
+            "surface_drift": 0.8286,
+            "lexical_drift": 0.7923,
+            "drift_score": 0.8159,
+            "novelty_score": 0.5948,
+            "repetition_score": 0.0948,
+            "recurrence_score": 0.625,
+            "entropy_score": 0.9912,
+            "collapse_score": 0.0535,
+            "compression_ratio": 0.9221
+          },
+          "metric_delta": {
+            "drift_score": -0.0892,
+            "novelty_score": -0.2007,
+            "repetition_score": -0.0264,
+            "recurrence_score": 0.0417,
+            "entropy_score": 0.0041,
+            "collapse_score": -0.0151,
+            "compression_ratio": -0.4049
+          },
+          "operator_effects": {
+            "drift_score": "decrease",
+            "novelty_score": "decrease",
+            "repetition_score": "stable",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "stable",
+            "compression_ratio": "decrease",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "low"
+          },
+          "rule_ids": [
+            "r04-01",
+            "r04-02",
+            "r04-03",
+            "r04-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 5,
+          "stage_name": "反叙情的な骨格",
+          "role": "compressor",
+          "operator": "compress_without_emotional_closure",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s5-c1-openai",
+          "status": "accepted",
+          "text_preview": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。  市役所の入口では、傘立ての横にティッシュと吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう貼り紙が出ていた。窓口の人は、氏名欄の「田」の内側が太る場合があります、と慣れた声で言い、見本欄にボールペンで\n\n...[clipped]...\n\nタンプを横に押した。説明はそれで足りた。  夕方、町内の紙は一斉に柔らかくなり、伝票も回覧板も乾く順番をずらした。祖母の筆跡は、知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+          "reward_score": 0.8431,
+          "symbols_before": [
+            "祖母",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_after": [
+            "祖母",
+            "ボールペン",
+            "使用目的",
+            "市役所",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "振込用紙",
+            "角形二号",
+            "雨",
+            "番号札"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 580.0,
+            "unit_count": 116.0,
+            "similarity": 0.1714,
+            "surface_drift": 0.8286,
+            "lexical_drift": 0.7923,
+            "drift_score": 0.8159,
+            "novelty_score": 0.5948,
+            "repetition_score": 0.0948,
+            "recurrence_score": 0.625,
+            "entropy_score": 0.9912,
+            "collapse_score": 0.0535,
+            "compression_ratio": 0.9221
+          },
+          "metrics_after": {
+            "char_len": 619.0,
+            "unit_count": 126.0,
+            "similarity": 0.5241,
+            "surface_drift": 0.4759,
+            "lexical_drift": 0.5306,
+            "drift_score": 0.4951,
+            "novelty_score": 0.3333,
+            "repetition_score": 0.119,
+            "recurrence_score": 0.75,
+            "entropy_score": 0.9887,
+            "collapse_score": 0.0672,
+            "compression_ratio": 1.0672
+          },
+          "metric_delta": {
+            "drift_score": -0.3208,
+            "novelty_score": -0.2615,
+            "repetition_score": 0.0242,
+            "recurrence_score": 0.125,
+            "entropy_score": -0.0025,
+            "collapse_score": 0.0137,
+            "compression_ratio": 0.1451
+          },
+          "operator_effects": {
+            "drift_score": "decrease",
+            "novelty_score": "decrease",
+            "repetition_score": "stable",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "stable",
+            "compression_ratio": "increase",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r05-01",
+            "r05-02",
+            "r05-03",
+            "r05-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 6,
+          "stage_name": "再統合：PRM accepted pathから最終稿へ",
+          "role": "integrator",
+          "operator": "aggregate_high_reward_path",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s6-c1-openai",
+          "status": "accepted",
+          "text_preview": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。  市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏\n\n...[clipped]...\n\nで押さえた。  夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+          "reward_score": 0.8799,
+          "symbols_before": [
+            "祖母",
+            "ボールペン",
+            "使用目的",
+            "市役所",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "振込用紙",
+            "角形二号",
+            "雨",
+            "番号札"
+          ],
+          "symbols_after": [
+            "使用目的",
+            "祖母",
+            "筆跡",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "角形二号",
+            "市役所",
+            "田",
+            "インクは雨の日に伸びますから",
+            "雨",
+            "番号札"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 619.0,
+            "unit_count": 126.0,
+            "similarity": 0.5241,
+            "surface_drift": 0.4759,
+            "lexical_drift": 0.5306,
+            "drift_score": 0.4951,
+            "novelty_score": 0.3333,
+            "repetition_score": 0.119,
+            "recurrence_score": 0.75,
+            "entropy_score": 0.9887,
+            "collapse_score": 0.0672,
+            "compression_ratio": 1.0672
+          },
+          "metrics_after": {
+            "char_len": 904.0,
+            "unit_count": 185.0,
+            "similarity": 0.3965,
+            "surface_drift": 0.6035,
+            "lexical_drift": 0.5414,
+            "drift_score": 0.5818,
+            "novelty_score": 0.3946,
+            "repetition_score": 0.173,
+            "recurrence_score": 0.9167,
+            "entropy_score": 0.9847,
+            "collapse_score": 0.0974,
+            "compression_ratio": 1.4604
+          },
+          "metric_delta": {
+            "drift_score": 0.0867,
+            "novelty_score": 0.0613,
+            "repetition_score": 0.054,
+            "recurrence_score": 0.1667,
+            "entropy_score": -0.004,
+            "collapse_score": 0.0302,
+            "compression_ratio": 0.3932
+          },
+          "operator_effects": {
+            "drift_score": "increase",
+            "novelty_score": "increase",
+            "repetition_score": "increase",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "stable",
+            "compression_ratio": "increase",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r06-01",
+            "r06-02",
+            "r06-03",
+            "r06-04"
+          ],
+          "conflict_ids": []
+        }
+      ],
+      "inferred_rules": [
+        {
+          "rule_id": "r04-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'stabilize_magic_as_world_law' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:stable.",
+          "confidence": 0.9419,
+          "support": [
+            "s4-c1-openai",
+            "reward=0.894"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r06-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'使用目的' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+          "confidence": 0.9348,
+          "support": [
+            "s6-c1-openai",
+            "aggregate_high_reward_path"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r06-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+          "confidence": 0.9348,
+          "support": [
+            "s6-c1-openai",
+            "aggregate_high_reward_path"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r06-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'筆跡' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+          "confidence": 0.9348,
+          "support": [
+            "s6-c1-openai",
+            "aggregate_high_reward_path"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r06-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'aggregate_high_reward_path' acts on the state as collapse_score:stable, compression_ratio:increase, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:increase, repetition_score:increase.",
+          "confidence": 0.9339,
+          "support": [
+            "s6-c1-openai",
+            "reward=0.880"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r05-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'compress_without_emotional_closure' acts on the state as collapse_score:stable, compression_ratio:increase, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:stable.",
+          "confidence": 0.9137,
+          "support": [
+            "s5-c1-openai",
+            "reward=0.843"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r05-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' remains after compression during 反叙情的な骨格.",
+          "confidence": 0.8654,
+          "support": [
+            "s5-c1-openai",
+            "compress_without_emotional_closure"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r05-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'ボールペン' remains after compression during 反叙情的な骨格.",
+          "confidence": 0.8654,
+          "support": [
+            "s5-c1-openai",
+            "compress_without_emotional_closure"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r05-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'使用目的' remains after compression during 反叙情的な骨格.",
+          "confidence": 0.8654,
+          "support": [
+            "s5-c1-openai",
+            "compress_without_emotional_closure"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r01-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'establish_public_mundane_reality' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:increase, entropy_score:increase, novelty_score:increase, recurrence_score:increase, repetition_score:increase.",
+          "confidence": 0.8511,
+          "support": [
+            "s1-c1-openai",
+            "reward=0.729"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r04-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' helps keep the drift legible during 無目的な定着.",
+          "confidence": 0.8371,
+          "support": [
+            "s4-c1-openai",
+            "stabilize_magic_as_world_law"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r04-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'筆跡' helps keep the drift legible during 無目的な定着.",
+          "confidence": 0.8371,
+          "support": [
+            "s4-c1-openai",
+            "stabilize_magic_as_world_law"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r04-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'インクは雨の日に伸びますから' helps keep the drift legible during 無目的な定着.",
+          "confidence": 0.8371,
+          "support": [
+            "s4-c1-openai",
+            "stabilize_magic_as_world_law"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r03-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'convert_magic_into_logistical_consequences' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:stable, repetition_score:stable.",
+          "confidence": 0.8308,
+          "support": [
+            "s3-c1-openai",
+            "reward=0.692"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r02-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'make_magic_a_weather_condition_not_a_message' acts on the state as collapse_score:decrease, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:increase.",
+          "confidence": 0.8192,
+          "support": [
+            "s2-c1-openai",
+            "reward=0.671"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r01-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' anchors the scene in concrete reality during 現実の制度と手触り.",
+          "confidence": 0.7729,
+          "support": [
+            "s1-c1-openai",
+            "establish_public_mundane_reality"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r01-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'筆跡' anchors the scene in concrete reality during 現実の制度と手触り.",
+          "confidence": 0.7729,
+          "support": [
+            "s1-c1-openai",
+            "establish_public_mundane_reality"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r01-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'雨' anchors the scene in concrete reality during 現実の制度と手触り.",
+          "confidence": 0.7729,
+          "support": [
+            "s1-c1-openai",
+            "establish_public_mundane_reality"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r03-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' becomes a recurring symbolic circuit during 生活上の摩擦.",
+          "confidence": 0.7618,
+          "support": [
+            "s3-c1-openai",
+            "convert_magic_into_logistical_consequences"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r03-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'インクは雨の日に伸びますから' becomes a recurring symbolic circuit during 生活上の摩擦.",
+          "confidence": 0.7618,
+          "support": [
+            "s3-c1-openai",
+            "convert_magic_into_logistical_consequences"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r03-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'田' becomes a recurring symbolic circuit during 生活上の摩擦.",
+          "confidence": 0.7618,
+          "support": [
+            "s3-c1-openai",
+            "convert_magic_into_logistical_consequences"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r02-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' survives an impossible perturbation during 気象としての不可能.",
+          "confidence": 0.7555,
+          "support": [
+            "s2-c1-openai",
+            "make_magic_a_weather_condition_not_a_message"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r02-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'筆跡' survives an impossible perturbation during 気象としての不可能.",
+          "confidence": 0.7555,
+          "support": [
+            "s2-c1-openai",
+            "make_magic_a_weather_condition_not_a_message"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r02-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'ティッシュ' survives an impossible perturbation during 気象としての不可能.",
+          "confidence": 0.7555,
+          "support": [
+            "s2-c1-openai",
+            "make_magic_a_weather_condition_not_a_message"
+          ],
+          "stage_indices": [
+            2
+          ]
+        }
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "c01-01-high_drift",
+          "type": "high_drift",
+          "severity": 0.6589,
+          "description": "The accepted transition moved too far from the previous state.",
+          "evidence": {
+            "drift_score": 0.9386,
+            "max_drift": 0.82
+          },
+          "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "resolved": true
+        },
+        {
+          "conflict_id": "c02-01-high_drift",
+          "type": "high_drift",
+          "severity": 0.2739,
+          "description": "The accepted transition moved too far from the previous state.",
+          "evidence": {
+            "drift_score": 0.8693,
+            "max_drift": 0.82
+          },
+          "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "resolved": true
+        },
+        {
+          "conflict_id": "c03-01-high_drift",
+          "type": "high_drift",
+          "severity": 0.4728,
+          "description": "The accepted transition moved too far from the previous state.",
+          "evidence": {
+            "drift_score": 0.9051,
+            "max_drift": 0.82
+          },
+          "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "resolved": true
+        }
+      ],
+      "repair_plans": [
+        {
+          "conflict_id": "c01-01-high_drift",
+          "stage_index": 1,
+          "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "applied_by_candidate_id": null
+        },
+        {
+          "conflict_id": "c02-01-high_drift",
+          "stage_index": 2,
+          "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "applied_by_candidate_id": null
+        },
+        {
+          "conflict_id": "c03-01-high_drift",
+          "stage_index": 3,
+          "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "applied_by_candidate_id": null
+        }
+      ],
+      "stable_symbols": [
+        "祖母",
+        "筆跡",
+        "雨",
+        "インクは雨の日に伸びますから",
+        "田",
+        "ティッシュ",
+        "ボールペン",
+        "振込用紙",
+        "使用目的",
+        "角形二号",
+        "市役所",
+        "番号札"
+      ],
+      "unstable_symbols": [],
+      "drift_vector": {
+        "mean_drift": 0.7676,
+        "last_drift": 0.5818,
+        "mean_recurrence": 0.6736,
+        "last_recurrence": 0.9167,
+        "mean_reward": 0.785,
+        "last_reward": 0.8799
+      },
+      "notes": [
+        "matrix_rows=6",
+        "rules=24",
+        "unresolved_conflicts=0"
+      ]
+    },
+    "step_history": [
+      {
+        "index": 1,
+        "name": "現実の制度と手触り",
+        "role": "grounder",
+        "operator": "establish_public_mundane_reality",
+        "accepted": {
+          "candidate_id": "s1-c1-openai",
+          "stage_index": 1,
+          "stage_name": "現実の制度と手触り",
+          "role": "grounder",
+          "operator": "establish_public_mundane_reality",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "市役所の一階は、濡れた傘の匂いと番号札の音でいっぱいだった。  \n雨が祖母の筆跡を覚えていたので、申請書の空欄に落ちた水滴は、古い帳面の「田」の角のように四角く滲んだ。  \n私は窓口で住民票の写しを二通頼み、硬貨を皿にのせた。  \n職員は赤いゴム印を押し、乾いていない欄をティッシュで軽く押さえた。  \n隣では小学生の母親が給食費の振込用紙を書き直していて、ボールペンの先が雨音に合わせて紙をつついていた。  \n祖母の名前を書く欄はなく、ただ世帯、住所、使用目的を正しく埋めればよかった。  \n帰りに商店街の文具店へ寄り、濡れた封筒を入れ替えるために白い角形二号を買った。  \n店主はレジ袋を断った私に、伝票の控えだけを渡し、「インクは雨の日に伸びますから」と言った。",
+          "metrics": {
+            "char_len": 334.0,
+            "unit_count": 63.0,
+            "similarity": 0.0795,
+            "surface_drift": 0.9205,
+            "lexical_drift": 0.9722,
+            "drift_score": 0.9386,
+            "novelty_score": 0.9524,
+            "repetition_score": 0.0635,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9925,
+            "collapse_score": 0.1134,
+            "compression_ratio": 23.8571
+          },
+          "symbols_before": [
+            "筆跡",
+            "雨",
+            "祖母"
+          ],
+          "symbols_after": [
+            "祖母",
+            "筆跡",
+            "雨",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "市役所",
+            "番号札"
+          ],
+          "reward": {
+            "score": 0.7293,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9236,
+              "controlled_perturbation": 0.0952,
+              "symbol_recurrence": 0.7083,
+              "drift_control": 0.3411,
+              "novelty": 0.9524,
+              "repetition_control": 0.7732,
+              "collapse_control": 0.7938,
+              "integration": 0.651,
+              "closure": 0.5038
+            },
+            "reasons": [
+              "drift too high (0.939)"
+            ],
+            "repair_prompt": "Repair this visible output for stage '現実の制度と手触り' / role 'grounder'. Main issues: drift too high (0.939). Weak reward axes: controlled_perturbation=0.10, drift_control=0.34, closure=0.50. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "grounding": 0.3,
+                "drift_control": 0.24,
+                "collapse_control": 0.16,
+                "novelty": 0.1,
+                "symbol_recurrence": 0.1,
+                "repetition_control": 0.1,
+                "integration": 0.0,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 484,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 318,
+            "output_tokens_details": {
+              "reasoning_tokens": 29
+            },
+            "total_tokens": 802
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": [
+          "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+          "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+        ]
+      },
+      {
+        "index": 2,
+        "name": "気象としての不可能",
+        "role": "expander",
+        "operator": "make_magic_a_weather_condition_not_a_message",
+        "accepted": {
+          "candidate_id": "s2-c1-openai",
+          "stage_index": 2,
+          "stage_name": "気象としての不可能",
+          "role": "expander",
+          "operator": "make_magic_a_weather_condition_not_a_message",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "市役所を出ると、雨はさっきより細かくなり、商店街のアーケードの下まで祖母の筆跡を運んできていた。  \n八百屋の値札では「大根」のはらいが誰かの古い癖で長く伸び、肉屋の注文票には見覚えのない「田」がいくつも浮いて、店員が濡れた指でそれを端へ寄せていた。  \n文具店の入口には、雨天用にティッシュの箱が置かれ、客は買ったばかりのボールペンを試し書きしてから、余分な筆跡が混じらない封筒を選んでいた。  \n店主は白い角形二号を紙袋に入れながら、「今日は古い字が多いですね」とだけ言い、伝票の控えの滲んだ部分を爪で押さえた。  \n郵便局では振込用紙の使用目的欄に、本人の字より先に亡くなった父親の癖が出てしまったらしく、窓口の人が予備の用紙を三枚出していた。  \n誰も大声を上げず、濡れた床の黄色い注意札をよけるように、他人の昔の筆跡をよけて書き直していた。  \n私の封筒にも、差出人の枠の左下に祖母の小さな払いがつき、雨粒がそこだけ黒く重くなった。  \nそれをティッシュで押さえると、紙の繊維の中で祖母の字は少しだけ伸び、あとは普通の雨染みとして残った。",
+          "metrics": {
+            "char_len": 474.0,
+            "unit_count": 98.0,
+            "similarity": 0.1253,
+            "surface_drift": 0.8747,
+            "lexical_drift": 0.8594,
+            "drift_score": 0.8693,
+            "novelty_score": 0.7347,
+            "repetition_score": 0.1122,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9894,
+            "collapse_score": 0.0633,
+            "compression_ratio": 1.4192
+          },
+          "symbols_before": [
+            "祖母",
+            "筆跡",
+            "雨",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_after": [
+            "祖母",
+            "筆跡",
+            "ティッシュ",
+            "田",
+            "ボールペン",
+            "角形二号",
+            "振込用紙",
+            "雨",
+            "市役所",
+            "使用目的",
+            "インクは雨の日に伸びますから",
+            "番号札"
+          ],
+          "reward": {
+            "score": 0.6712,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9733,
+              "controlled_perturbation": 0.3902,
+              "symbol_recurrence": 0.6583,
+              "drift_control": 0.7261,
+              "novelty": 0.7347,
+              "repetition_control": 0.5993,
+              "collapse_control": 0.8849,
+              "integration": 0.7557,
+              "closure": 0.4503
+            },
+            "reasons": [
+              "drift too high (0.869)"
+            ],
+            "repair_prompt": "Repair this visible output for stage '気象としての不可能' / role 'expander'. Main issues: drift too high (0.869). Weak reward axes: controlled_perturbation=0.39, closure=0.45, repetition_control=0.60. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "controlled_perturbation": 0.28,
+                "novelty": 0.2,
+                "drift_control": 0.18,
+                "grounding": 0.12,
+                "symbol_recurrence": 0.12,
+                "collapse_control": 0.1,
+                "repetition_control": 0.0,
+                "integration": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1288,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 489,
+            "output_tokens_details": {
+              "reasoning_tokens": 74
+            },
+            "total_tokens": 1777
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": [
+          "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+          "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "RPM conflict c02-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+        ]
+      },
+      {
+        "index": 3,
+        "name": "生活上の摩擦",
+        "role": "symbolizer",
+        "operator": "convert_magic_into_logistical_consequences",
+        "accepted": {
+          "candidate_id": "s3-c1-openai",
+          "stage_index": 3,
+          "stage_name": "生活上の摩擦",
+          "role": "symbolizer",
+          "operator": "convert_magic_into_logistical_consequences",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "翌朝も雨で、祖母の筆跡は乾ききらないまま町内の紙に薄く残っていた。  \nクリーニング店で受け取った領収書は、金額の「一」の端だけが祖母の癖で下がり、店員はレジの下から赤い訂正印を出して二度押した。  \n市役所の申請書では、住所欄の「田」が知らないうちに四角く太り、窓口の人が「ここ、読めますけど念のため」と言って、番号札の裏に書き直し方を鉛筆で示した。  \nスーパーの値札にも古いはらいが混じり、百九十八円の八がほどけた紐のように見えて、客が一度かごに入れた豆腐を棚へ戻した。  \n保育園の連絡帳には、母親の丸い字の途中へ祖母の細い線が入り、先生は天気の欄に貼るシールを一枚はがして、その上から「くもり時々雨」と書いた。  \n町内会の回覧板は角が湿って、次の家の印鑑欄に別の時代の名前のようなものが滲んだため、班長がビニール袋を二重にして持ってきた。  \n薬局の店先の看板では「処方せん受付」の「方」だけが祖母の筆圧になり、白衣の人が脚立にのぼって濡れた布で何度もこすった。  \n郵便局では振込用紙の使用目的を短く書くよう勧められ、「インクは雨の日に伸びますから」と窓口の人がボールペンの先をティッシュで拭いた。  \n私の角形二号は鞄の中で少し波打ち、差出人欄の左下にまた小さな払いを作ったが、誰もそれを私への知らせとは受け取らなかった。  \nただ、書類は一枚ずつ余分に必要になり、乾いた指で押さえる場所が増え、雨の日の用事はいつもより半時間ほど長くなった。",
+          "metrics": {
+            "char_len": 629.0,
+            "unit_count": 132.0,
+            "similarity": 0.0872,
+            "surface_drift": 0.9128,
+            "lexical_drift": 0.8907,
+            "drift_score": 0.9051,
+            "novelty_score": 0.7955,
+            "repetition_score": 0.1212,
+            "recurrence_score": 0.5833,
+            "entropy_score": 0.9871,
+            "collapse_score": 0.0686,
+            "compression_ratio": 1.327
+          },
+          "symbols_before": [
+            "祖母",
+            "筆跡",
+            "ティッシュ",
+            "田",
+            "ボールペン",
+            "角形二号",
+            "振込用紙",
+            "雨",
+            "市役所",
+            "使用目的",
+            "インクは雨の日に伸びますから",
+            "番号札"
+          ],
+          "symbols_after": [
+            "祖母",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札",
+            "筆跡"
+          ],
+          "reward": {
+            "score": 0.6923,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9705,
+              "controlled_perturbation": 0.1572,
+              "symbol_recurrence": 0.7083,
+              "drift_control": 0.5272,
+              "novelty": 0.7955,
+              "repetition_control": 0.5671,
+              "collapse_control": 0.8753,
+              "integration": 0.7189,
+              "closure": 0.4355
+            },
+            "reasons": [
+              "drift too high (0.905)"
+            ],
+            "repair_prompt": "Repair this visible output for stage '生活上の摩擦' / role 'symbolizer'. Main issues: drift too high (0.905). Weak reward axes: controlled_perturbation=0.16, closure=0.44, drift_control=0.53. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "symbol_recurrence": 0.32,
+                "repetition_control": 0.2,
+                "novelty": 0.14,
+                "integration": 0.14,
+                "drift_control": 0.1,
+                "collapse_control": 0.1,
+                "grounding": 0.0,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1671,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 674,
+            "output_tokens_details": {
+              "reasoning_tokens": 134
+            },
+            "total_tokens": 2345
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": [
+          "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+          "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "RPM conflict c02-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "RPM conflict c03-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+        ]
+      },
+      {
+        "index": 4,
+        "name": "無目的な定着",
+        "role": "stabilizer",
+        "operator": "stabilize_magic_as_world_law",
+        "accepted": {
+          "candidate_id": "s4-c1-openai",
+          "stage_index": 4,
+          "stage_name": "無目的な定着",
+          "role": "stabilizer",
+          "operator": "stabilize_magic_as_world_law",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "雨の日、祖母の筆跡はどの紙にも少しずつ混じるものとして扱われるようになった。  \n市役所の入口には傘立ての横に吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう、貼り紙が増えた。  \n窓口の人は「田」の内側が太る場合があります、と慣れた声で言い、見本欄に定規で小さな四角を描いてくれた。  \n郵便局では振込用紙の使用目的を六文字以内にする日があり、ボールペンは鎖でつながれたまま、先をティッシュで拭かれて光っていた。  \n「インクは雨の日に伸びますから」と言う係の声も、印鑑マットのやわらかい音も、待合の湿ったコートの匂いにまぎれていた。  \nスーパーの値札は午後になると貼り替えられ、数字のはらいが古く傾いた棚だけ、店員が透明なテープを重ねて押さえた。  \n保育園の連絡帳には雨用の欄ができ、家で書いた字と祖母の細い線が重なった場合は、先生が青いスタンプを横に押した。  \n私の角形二号も鞄の底で波打ち、差出人欄の左下に小さな払いを増やしたので、郵便局員は重さを量り直してから別納の箱へ入れた。  \n誰もそれを特別に見上げたりせず、濡れた床に滑り止めのマットを敷くのと同じ手つきで、余白を広めに取り、控えを一枚多く作った。  \n夕方、雨脚が強くなると町内の紙は一斉に柔らかくなり、祖母の筆跡だけが、乾く順番を知っているように端から静かに浮き上がった。",
+          "metrics": {
+            "char_len": 580.0,
+            "unit_count": 116.0,
+            "similarity": 0.1714,
+            "surface_drift": 0.8286,
+            "lexical_drift": 0.7923,
+            "drift_score": 0.8159,
+            "novelty_score": 0.5948,
+            "repetition_score": 0.0948,
+            "recurrence_score": 0.625,
+            "entropy_score": 0.9912,
+            "collapse_score": 0.0535,
+            "compression_ratio": 0.9221
+          },
+          "symbols_before": [
+            "祖母",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札"
+          ],
+          "reward": {
+            "score": 0.8944,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9775,
+              "controlled_perturbation": 0.3224,
+              "symbol_recurrence": 0.7375,
+              "drift_control": 1.0,
+              "novelty": 0.5948,
+              "repetition_control": 0.6614,
+              "collapse_control": 0.9027,
+              "integration": 0.8694,
+              "closure": 0.4991
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '無目的な定着' / role 'stabilizer'. Main issues: score below target. Weak reward axes: controlled_perturbation=0.32, closure=0.50, novelty=0.59. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "drift_control": 0.3,
+                "integration": 0.22,
+                "collapse_control": 0.18,
+                "symbol_recurrence": 0.14,
+                "grounding": 0.1,
+                "repetition_control": 0.06,
+                "novelty": 0.0,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1937,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 580,
+            "output_tokens_details": {
+              "reasoning_tokens": 77
+            },
+            "total_tokens": 2517
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 5,
+        "name": "反叙情的な骨格",
+        "role": "compressor",
+        "operator": "compress_without_emotional_closure",
+        "accepted": {
+          "candidate_id": "s5-c1-openai",
+          "stage_index": 5,
+          "stage_name": "反叙情的な骨格",
+          "role": "compressor",
+          "operator": "compress_without_emotional_closure",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。\n\n市役所の入口では、傘立ての横にティッシュと吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう貼り紙が出ていた。窓口の人は、氏名欄の「田」の内側が太る場合があります、と慣れた声で言い、見本欄にボールペンで小さな四角を描いた。祖母の字に似ているかどうかは問題にされず、読めるか、訂正印が要るか、控えをもう一枚取るかだけが確認された。\n\n郵便局では、雨量の多い日は振込用紙の使用目的を六文字以内にする決まりがあった。鎖につながれたボールペンは先を拭かれて光り、台の隅には湿った紙くずが丸まっていた。「インクは雨の日に伸びますから」と係は言い、角形二号の差出人欄に出た細い払いを見て、重さを量り直した。封筒は規格内だったが、別納の箱に入れるには余白が足りず、私は宛名を一段上に書き直した。\n\nスーパーの値札は午後になると貼り替えられた。数字の端が古い棚の方へ傾き、店員が透明なテープを重ねて押さえた。保育園の連絡帳には雨用の欄があり、家で書いた字に祖母の細い線が重なった場合、先生が青いスタンプを横に押した。説明はそれで足りた。\n\n夕方、町内の紙は一斉に柔らかくなり、伝票も回覧板も乾く順番をずらした。祖母の筆跡は、知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+          "metrics": {
+            "char_len": 619.0,
+            "unit_count": 126.0,
+            "similarity": 0.5241,
+            "surface_drift": 0.4759,
+            "lexical_drift": 0.5306,
+            "drift_score": 0.4951,
+            "novelty_score": 0.3333,
+            "repetition_score": 0.119,
+            "recurrence_score": 0.75,
+            "entropy_score": 0.9887,
+            "collapse_score": 0.0672,
+            "compression_ratio": 1.0672
+          },
+          "symbols_before": [
+            "祖母",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ボールペン",
+            "ティッシュ",
+            "振込用紙",
+            "使用目的",
+            "角形二号",
+            "雨",
+            "市役所",
+            "番号札"
+          ],
+          "symbols_after": [
+            "祖母",
+            "ボールペン",
+            "使用目的",
+            "市役所",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "振込用紙",
+            "角形二号",
+            "雨",
+            "番号札"
+          ],
+          "reward": {
+            "score": 0.8431,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9801,
+              "controlled_perturbation": 0.9165,
+              "symbol_recurrence": 0.825,
+              "drift_control": 1.0,
+              "novelty": 0.3333,
+              "repetition_control": 0.575,
+              "collapse_control": 0.8778,
+              "integration": 0.9257,
+              "closure": 0.5492
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '反叙情的な骨格' / role 'compressor'. Main issues: score below target. Weak reward axes: novelty=0.33, closure=0.55, repetition_control=0.57. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "integration": 0.26,
+                "collapse_control": 0.18,
+                "symbol_recurrence": 0.18,
+                "drift_control": 0.14,
+                "repetition_control": 0.1,
+                "grounding": 0.08,
+                "novelty": 0.06,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1702,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 592,
+            "output_tokens_details": {
+              "reasoning_tokens": 55
+            },
+            "total_tokens": 2294
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 6,
+        "name": "再統合：PRM accepted pathから最終稿へ",
+        "role": "integrator",
+        "operator": "aggregate_high_reward_path",
+        "accepted": {
+          "candidate_id": "s6-c1-openai",
+          "stage_index": 6,
+          "stage_name": "再統合：PRM accepted pathから最終稿へ",
+          "role": "integrator",
+          "operator": "aggregate_high_reward_path",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。\n\n市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏名欄を見て、「田の内側が太っていますけど、読めます」と言い、赤いゴム印を押した。祖母の字に似ているかどうかは問題にされず、訂正印が要るか、控えをもう一枚取るかだけが確認された。\n\n隣の窓口では、小学生の母親が給食費の振込用紙を書き直していた。使用目的の欄に、本人の丸い字より先に古い払いが出てしまったらしく、ボールペンの先が雨音に合わせて紙をつついていた。職員は予備の用紙を三枚出し、濡れた欄をティッシュで軽く押さえた。\n\n商店街のアーケードの下まで、雨は細かく吹き込んでいた。八百屋の値札では「大根」のはらいが長く伸び、肉屋の注文票には見覚えのある「田」が浮いて、店員が濡れた指で端へ寄せていた。誰も大声を上げず、床の黄色い注意札をよけるのと同じ手つきで、他人の昔の筆跡をよけて書き直していた。\n\n文具店で白い角形二号を買うと、店主は紙袋に入れる前に封筒の差出人欄を確かめた。左下に祖母の小さな払いがつき、そこだけ雨粒が黒く重くなっていた。「インクは雨の日に伸びますから」と店主は言い、伝票の控えの滲んだ部分を爪で押さえた。レジ袋は断り、控えだけを財布にしまった。\n\n郵便局では、雨量の多い日は振込用紙の使用目的を六文字以内にする決まりがあった。鎖につながれたボールペンは先を拭かれて光り、台の隅には湿った紙くずが丸まっていた。係は私の角形二号を量り直し、封筒は規格内だが余白が足りないと言った。私は宛名を一段上に書き直し、差出人欄の払いを吸取紙で押さえた。\n\n夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+          "metrics": {
+            "char_len": 904.0,
+            "unit_count": 185.0,
+            "similarity": 0.3965,
+            "surface_drift": 0.6035,
+            "lexical_drift": 0.5414,
+            "drift_score": 0.5818,
+            "novelty_score": 0.3946,
+            "repetition_score": 0.173,
+            "recurrence_score": 0.9167,
+            "entropy_score": 0.9847,
+            "collapse_score": 0.0974,
+            "compression_ratio": 1.4604
+          },
+          "symbols_before": [
+            "祖母",
+            "ボールペン",
+            "使用目的",
+            "市役所",
+            "筆跡",
+            "インクは雨の日に伸びますから",
+            "田",
+            "ティッシュ",
+            "振込用紙",
+            "角形二号",
+            "雨",
+            "番号札"
+          ],
+          "symbols_after": [
+            "使用目的",
+            "祖母",
+            "筆跡",
+            "ティッシュ",
+            "ボールペン",
+            "振込用紙",
+            "角形二号",
+            "市役所",
+            "田",
+            "インクは雨の日に伸びますから",
+            "雨",
+            "番号札"
+          ],
+          "reward": {
+            "score": 0.8799,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9592,
+              "controlled_perturbation": 0.7559,
+              "symbol_recurrence": 0.9417,
+              "drift_control": 1.0,
+              "novelty": 0.3946,
+              "repetition_control": 0.3821,
+              "collapse_control": 0.8229,
+              "integration": 0.9386,
+              "closure": 0.6003
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '再統合：PRM accepted pathから最終稿へ' / role 'integrator'. Main issues: score below target. Weak reward axes: repetition_control=0.38, novelty=0.39, closure=0.60. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "integration": 0.32,
+                "symbol_recurrence": 0.18,
+                "drift_control": 0.16,
+                "collapse_control": 0.14,
+                "grounding": 0.1,
+                "novelty": 0.06,
+                "repetition_control": 0.04,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 4418,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 843,
+            "output_tokens_details": {
+              "reasoning_tokens": 47
+            },
+            "total_tokens": 5261
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      }
+    ],
+    "path_id": "root>s1-c1-openai>s2-c1-openai>s3-c1-openai>s4-c1-openai>s5-c1-openai>s6-c1-openai",
+    "path_score": 0.82705
+  },
+  "rpm_trace": {
+    "axes": [
+      "text",
+      "symbols",
+      "constraints",
+      "drift",
+      "recurrence",
+      "reward",
+      "operator"
+    ],
+    "matrix": [
+      {
+        "row_index": 1,
+        "stage_name": "現実の制度と手触り",
+        "role": "grounder",
+        "operator": "establish_public_mundane_reality",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s1-c1-openai",
+        "status": "accepted",
+        "text_preview": "市役所の一階は、濡れた傘の匂いと番号札の音でいっぱいだった。   雨が祖母の筆跡を覚えていたので、申請書の空欄に落ちた水滴は、古い帳面の「田」の角のように四角く滲んだ。   私は窓口で住民票の写しを二通頼み、硬貨を皿にのせた。   職員は赤いゴム印を押し、乾いていない欄をティッシ\n\n...[clipped]...\n\n紙をつついていた。   祖母の名前を書く欄はなく、ただ世帯、住所、使用目的を正しく埋めればよかった。   帰りに商店街の文具店へ寄り、濡れた封筒を入れ替えるために白い角形二号を買った。   店主はレジ袋を断った私に、伝票の控えだけを渡し、「インクは雨の日に伸びますから」と言った。",
+        "reward_score": 0.7293,
+        "symbols_before": [
+          "筆跡",
+          "雨",
+          "祖母"
+        ],
+        "symbols_after": [
+          "祖母",
+          "筆跡",
+          "雨",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_gained": [
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_lost": [],
+        "metrics_before": {},
+        "metrics_after": {
+          "char_len": 334.0,
+          "unit_count": 63.0,
+          "similarity": 0.0795,
+          "surface_drift": 0.9205,
+          "lexical_drift": 0.9722,
+          "drift_score": 0.9386,
+          "novelty_score": 0.9524,
+          "repetition_score": 0.0635,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9925,
+          "collapse_score": 0.1134,
+          "compression_ratio": 23.8571
+        },
+        "metric_delta": {
+          "drift_score": 0.9386,
+          "novelty_score": 0.9524,
+          "repetition_score": 0.0635,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9925,
+          "collapse_score": 0.1134,
+          "compression_ratio": 23.8571
+        },
+        "operator_effects": {
+          "drift_score": "increase",
+          "novelty_score": "increase",
+          "repetition_score": "increase",
+          "recurrence_score": "increase",
+          "entropy_score": "increase",
+          "collapse_score": "increase",
+          "compression_ratio": "increase",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "medium",
+          "reward_axis:drift_control": "low",
+          "reward_axis:integration": "medium",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r01-01",
+          "r01-02",
+          "r01-03",
+          "r01-04"
+        ],
+        "conflict_ids": [
+          "c01-01-high_drift"
+        ]
+      },
+      {
+        "row_index": 2,
+        "stage_name": "気象としての不可能",
+        "role": "expander",
+        "operator": "make_magic_a_weather_condition_not_a_message",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s2-c1-openai",
+        "status": "accepted",
+        "text_preview": "市役所を出ると、雨はさっきより細かくなり、商店街のアーケードの下まで祖母の筆跡を運んできていた。   八百屋の値札では「大根」のはらいが誰かの古い癖で長く伸び、肉屋の注文票には見覚えのない「田」がいくつも浮いて、店員が濡れた指でそれを端へ寄せていた。   文具店の入口には、雨天用\n\n...[clipped]...\n\nげず、濡れた床の黄色い注意札をよけるように、他人の昔の筆跡をよけて書き直していた。   私の封筒にも、差出人の枠の左下に祖母の小さな払いがつき、雨粒がそこだけ黒く重くなった。   それをティッシュで押さえると、紙の繊維の中で祖母の字は少しだけ伸び、あとは普通の雨染みとして残った。",
+        "reward_score": 0.6712,
+        "symbols_before": [
+          "祖母",
+          "筆跡",
+          "雨",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_after": [
+          "祖母",
+          "筆跡",
+          "ティッシュ",
+          "田",
+          "ボールペン",
+          "角形二号",
+          "振込用紙",
+          "雨",
+          "市役所",
+          "使用目的",
+          "インクは雨の日に伸びますから",
+          "番号札"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [
+          "インクは雨の日に伸びますから",
+          "番号札"
+        ],
+        "metrics_before": {
+          "char_len": 334.0,
+          "unit_count": 63.0,
+          "similarity": 0.0795,
+          "surface_drift": 0.9205,
+          "lexical_drift": 0.9722,
+          "drift_score": 0.9386,
+          "novelty_score": 0.9524,
+          "repetition_score": 0.0635,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9925,
+          "collapse_score": 0.1134,
+          "compression_ratio": 23.8571
+        },
+        "metrics_after": {
+          "char_len": 474.0,
+          "unit_count": 98.0,
+          "similarity": 0.1253,
+          "surface_drift": 0.8747,
+          "lexical_drift": 0.8594,
+          "drift_score": 0.8693,
+          "novelty_score": 0.7347,
+          "repetition_score": 0.1122,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9894,
+          "collapse_score": 0.0633,
+          "compression_ratio": 1.4192
+        },
+        "metric_delta": {
+          "drift_score": -0.0693,
+          "novelty_score": -0.2177,
+          "repetition_score": 0.0487,
+          "recurrence_score": 0.0,
+          "entropy_score": -0.0031,
+          "collapse_score": -0.0501,
+          "compression_ratio": -22.4379
+        },
+        "operator_effects": {
+          "drift_score": "decrease",
+          "novelty_score": "decrease",
+          "repetition_score": "increase",
+          "recurrence_score": "stable",
+          "entropy_score": "stable",
+          "collapse_score": "decrease",
+          "compression_ratio": "decrease",
+          "reward": "medium",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "medium",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "low"
+        },
+        "rule_ids": [
+          "r02-01",
+          "r02-02",
+          "r02-03",
+          "r02-04"
+        ],
+        "conflict_ids": [
+          "c02-01-high_drift"
+        ]
+      },
+      {
+        "row_index": 3,
+        "stage_name": "生活上の摩擦",
+        "role": "symbolizer",
+        "operator": "convert_magic_into_logistical_consequences",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s3-c1-openai",
+        "status": "accepted",
+        "text_preview": "翌朝も雨で、祖母の筆跡は乾ききらないまま町内の紙に薄く残っていた。   クリーニング店で受け取った領収書は、金額の「一」の端だけが祖母の癖で下がり、店員はレジの下から赤い訂正印を出して二度押した。   市役所の申請書では、住所欄の「田」が知らないうちに四角く太り、窓口の人が「ここ\n\n...[clipped]...\n\nールペンの先をティッシュで拭いた。   私の角形二号は鞄の中で少し波打ち、差出人欄の左下にまた小さな払いを作ったが、誰もそれを私への知らせとは受け取らなかった。   ただ、書類は一枚ずつ余分に必要になり、乾いた指で押さえる場所が増え、雨の日の用事はいつもより半時間ほど長くなった。",
+        "reward_score": 0.6923,
+        "symbols_before": [
+          "祖母",
+          "筆跡",
+          "ティッシュ",
+          "田",
+          "ボールペン",
+          "角形二号",
+          "振込用紙",
+          "雨",
+          "市役所",
+          "使用目的",
+          "インクは雨の日に伸びますから",
+          "番号札"
+        ],
+        "symbols_after": [
+          "祖母",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札",
+          "筆跡"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 474.0,
+          "unit_count": 98.0,
+          "similarity": 0.1253,
+          "surface_drift": 0.8747,
+          "lexical_drift": 0.8594,
+          "drift_score": 0.8693,
+          "novelty_score": 0.7347,
+          "repetition_score": 0.1122,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9894,
+          "collapse_score": 0.0633,
+          "compression_ratio": 1.4192
+        },
+        "metrics_after": {
+          "char_len": 629.0,
+          "unit_count": 132.0,
+          "similarity": 0.0872,
+          "surface_drift": 0.9128,
+          "lexical_drift": 0.8907,
+          "drift_score": 0.9051,
+          "novelty_score": 0.7955,
+          "repetition_score": 0.1212,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9871,
+          "collapse_score": 0.0686,
+          "compression_ratio": 1.327
+        },
+        "metric_delta": {
+          "drift_score": 0.0358,
+          "novelty_score": 0.0608,
+          "repetition_score": 0.009,
+          "recurrence_score": 0.0,
+          "entropy_score": -0.0023,
+          "collapse_score": 0.0053,
+          "compression_ratio": -0.0922
+        },
+        "operator_effects": {
+          "drift_score": "increase",
+          "novelty_score": "increase",
+          "repetition_score": "stable",
+          "recurrence_score": "stable",
+          "entropy_score": "stable",
+          "collapse_score": "stable",
+          "compression_ratio": "decrease",
+          "reward": "medium",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "medium",
+          "reward_axis:drift_control": "medium",
+          "reward_axis:integration": "medium",
+          "reward_axis:closure": "low"
+        },
+        "rule_ids": [
+          "r03-01",
+          "r03-02",
+          "r03-03",
+          "r03-04"
+        ],
+        "conflict_ids": [
+          "c03-01-high_drift"
+        ]
+      },
+      {
+        "row_index": 4,
+        "stage_name": "無目的な定着",
+        "role": "stabilizer",
+        "operator": "stabilize_magic_as_world_law",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s4-c1-openai",
+        "status": "accepted",
+        "text_preview": "雨の日、祖母の筆跡はどの紙にも少しずつ混じるものとして扱われるようになった。   市役所の入口には傘立ての横に吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう、貼り紙が増えた。   窓口の人は「田」の内側が太る場合があります、と慣れた声で言い、見本欄に定規で小さな四角を\n\n...[clipped]...\n\nてから別納の箱へ入れた。   誰もそれを特別に見上げたりせず、濡れた床に滑り止めのマットを敷くのと同じ手つきで、余白を広めに取り、控えを一枚多く作った。   夕方、雨脚が強くなると町内の紙は一斉に柔らかくなり、祖母の筆跡だけが、乾く順番を知っているように端から静かに浮き上がった。",
+        "reward_score": 0.8944,
+        "symbols_before": [
+          "祖母",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 629.0,
+          "unit_count": 132.0,
+          "similarity": 0.0872,
+          "surface_drift": 0.9128,
+          "lexical_drift": 0.8907,
+          "drift_score": 0.9051,
+          "novelty_score": 0.7955,
+          "repetition_score": 0.1212,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9871,
+          "collapse_score": 0.0686,
+          "compression_ratio": 1.327
+        },
+        "metrics_after": {
+          "char_len": 580.0,
+          "unit_count": 116.0,
+          "similarity": 0.1714,
+          "surface_drift": 0.8286,
+          "lexical_drift": 0.7923,
+          "drift_score": 0.8159,
+          "novelty_score": 0.5948,
+          "repetition_score": 0.0948,
+          "recurrence_score": 0.625,
+          "entropy_score": 0.9912,
+          "collapse_score": 0.0535,
+          "compression_ratio": 0.9221
+        },
+        "metric_delta": {
+          "drift_score": -0.0892,
+          "novelty_score": -0.2007,
+          "repetition_score": -0.0264,
+          "recurrence_score": 0.0417,
+          "entropy_score": 0.0041,
+          "collapse_score": -0.0151,
+          "compression_ratio": -0.4049
+        },
+        "operator_effects": {
+          "drift_score": "decrease",
+          "novelty_score": "decrease",
+          "repetition_score": "stable",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "stable",
+          "compression_ratio": "decrease",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "low"
+        },
+        "rule_ids": [
+          "r04-01",
+          "r04-02",
+          "r04-03",
+          "r04-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 5,
+        "stage_name": "反叙情的な骨格",
+        "role": "compressor",
+        "operator": "compress_without_emotional_closure",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s5-c1-openai",
+        "status": "accepted",
+        "text_preview": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。  市役所の入口では、傘立ての横にティッシュと吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう貼り紙が出ていた。窓口の人は、氏名欄の「田」の内側が太る場合があります、と慣れた声で言い、見本欄にボールペンで\n\n...[clipped]...\n\nタンプを横に押した。説明はそれで足りた。  夕方、町内の紙は一斉に柔らかくなり、伝票も回覧板も乾く順番をずらした。祖母の筆跡は、知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+        "reward_score": 0.8431,
+        "symbols_before": [
+          "祖母",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_after": [
+          "祖母",
+          "ボールペン",
+          "使用目的",
+          "市役所",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "振込用紙",
+          "角形二号",
+          "雨",
+          "番号札"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 580.0,
+          "unit_count": 116.0,
+          "similarity": 0.1714,
+          "surface_drift": 0.8286,
+          "lexical_drift": 0.7923,
+          "drift_score": 0.8159,
+          "novelty_score": 0.5948,
+          "repetition_score": 0.0948,
+          "recurrence_score": 0.625,
+          "entropy_score": 0.9912,
+          "collapse_score": 0.0535,
+          "compression_ratio": 0.9221
+        },
+        "metrics_after": {
+          "char_len": 619.0,
+          "unit_count": 126.0,
+          "similarity": 0.5241,
+          "surface_drift": 0.4759,
+          "lexical_drift": 0.5306,
+          "drift_score": 0.4951,
+          "novelty_score": 0.3333,
+          "repetition_score": 0.119,
+          "recurrence_score": 0.75,
+          "entropy_score": 0.9887,
+          "collapse_score": 0.0672,
+          "compression_ratio": 1.0672
+        },
+        "metric_delta": {
+          "drift_score": -0.3208,
+          "novelty_score": -0.2615,
+          "repetition_score": 0.0242,
+          "recurrence_score": 0.125,
+          "entropy_score": -0.0025,
+          "collapse_score": 0.0137,
+          "compression_ratio": 0.1451
+        },
+        "operator_effects": {
+          "drift_score": "decrease",
+          "novelty_score": "decrease",
+          "repetition_score": "stable",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "stable",
+          "compression_ratio": "increase",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r05-01",
+          "r05-02",
+          "r05-03",
+          "r05-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 6,
+        "stage_name": "再統合：PRM accepted pathから最終稿へ",
+        "role": "integrator",
+        "operator": "aggregate_high_reward_path",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s6-c1-openai",
+        "status": "accepted",
+        "text_preview": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。  市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏\n\n...[clipped]...\n\nで押さえた。  夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+        "reward_score": 0.8799,
+        "symbols_before": [
+          "祖母",
+          "ボールペン",
+          "使用目的",
+          "市役所",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "振込用紙",
+          "角形二号",
+          "雨",
+          "番号札"
+        ],
+        "symbols_after": [
+          "使用目的",
+          "祖母",
+          "筆跡",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "角形二号",
+          "市役所",
+          "田",
+          "インクは雨の日に伸びますから",
+          "雨",
+          "番号札"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 619.0,
+          "unit_count": 126.0,
+          "similarity": 0.5241,
+          "surface_drift": 0.4759,
+          "lexical_drift": 0.5306,
+          "drift_score": 0.4951,
+          "novelty_score": 0.3333,
+          "repetition_score": 0.119,
+          "recurrence_score": 0.75,
+          "entropy_score": 0.9887,
+          "collapse_score": 0.0672,
+          "compression_ratio": 1.0672
+        },
+        "metrics_after": {
+          "char_len": 904.0,
+          "unit_count": 185.0,
+          "similarity": 0.3965,
+          "surface_drift": 0.6035,
+          "lexical_drift": 0.5414,
+          "drift_score": 0.5818,
+          "novelty_score": 0.3946,
+          "repetition_score": 0.173,
+          "recurrence_score": 0.9167,
+          "entropy_score": 0.9847,
+          "collapse_score": 0.0974,
+          "compression_ratio": 1.4604
+        },
+        "metric_delta": {
+          "drift_score": 0.0867,
+          "novelty_score": 0.0613,
+          "repetition_score": 0.054,
+          "recurrence_score": 0.1667,
+          "entropy_score": -0.004,
+          "collapse_score": 0.0302,
+          "compression_ratio": 0.3932
+        },
+        "operator_effects": {
+          "drift_score": "increase",
+          "novelty_score": "increase",
+          "repetition_score": "increase",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "stable",
+          "compression_ratio": "increase",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r06-01",
+          "r06-02",
+          "r06-03",
+          "r06-04"
+        ],
+        "conflict_ids": []
+      }
+    ],
+    "inferred_rules": [
+      {
+        "rule_id": "r04-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'stabilize_magic_as_world_law' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:stable.",
+        "confidence": 0.9419,
+        "support": [
+          "s4-c1-openai",
+          "reward=0.894"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r06-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'使用目的' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+        "confidence": 0.9348,
+        "support": [
+          "s6-c1-openai",
+          "aggregate_high_reward_path"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r06-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+        "confidence": 0.9348,
+        "support": [
+          "s6-c1-openai",
+          "aggregate_high_reward_path"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r06-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'筆跡' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+        "confidence": 0.9348,
+        "support": [
+          "s6-c1-openai",
+          "aggregate_high_reward_path"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r06-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'aggregate_high_reward_path' acts on the state as collapse_score:stable, compression_ratio:increase, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:increase, repetition_score:increase.",
+        "confidence": 0.9339,
+        "support": [
+          "s6-c1-openai",
+          "reward=0.880"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r05-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'compress_without_emotional_closure' acts on the state as collapse_score:stable, compression_ratio:increase, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:stable.",
+        "confidence": 0.9137,
+        "support": [
+          "s5-c1-openai",
+          "reward=0.843"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r05-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' remains after compression during 反叙情的な骨格.",
+        "confidence": 0.8654,
+        "support": [
+          "s5-c1-openai",
+          "compress_without_emotional_closure"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r05-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'ボールペン' remains after compression during 反叙情的な骨格.",
+        "confidence": 0.8654,
+        "support": [
+          "s5-c1-openai",
+          "compress_without_emotional_closure"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r05-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'使用目的' remains after compression during 反叙情的な骨格.",
+        "confidence": 0.8654,
+        "support": [
+          "s5-c1-openai",
+          "compress_without_emotional_closure"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r01-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'establish_public_mundane_reality' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:increase, entropy_score:increase, novelty_score:increase, recurrence_score:increase, repetition_score:increase.",
+        "confidence": 0.8511,
+        "support": [
+          "s1-c1-openai",
+          "reward=0.729"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r04-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' helps keep the drift legible during 無目的な定着.",
+        "confidence": 0.8371,
+        "support": [
+          "s4-c1-openai",
+          "stabilize_magic_as_world_law"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r04-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'筆跡' helps keep the drift legible during 無目的な定着.",
+        "confidence": 0.8371,
+        "support": [
+          "s4-c1-openai",
+          "stabilize_magic_as_world_law"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r04-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'インクは雨の日に伸びますから' helps keep the drift legible during 無目的な定着.",
+        "confidence": 0.8371,
+        "support": [
+          "s4-c1-openai",
+          "stabilize_magic_as_world_law"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r03-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'convert_magic_into_logistical_consequences' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:stable, repetition_score:stable.",
+        "confidence": 0.8308,
+        "support": [
+          "s3-c1-openai",
+          "reward=0.692"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r02-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'make_magic_a_weather_condition_not_a_message' acts on the state as collapse_score:decrease, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:increase.",
+        "confidence": 0.8192,
+        "support": [
+          "s2-c1-openai",
+          "reward=0.671"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r01-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' anchors the scene in concrete reality during 現実の制度と手触り.",
+        "confidence": 0.7729,
+        "support": [
+          "s1-c1-openai",
+          "establish_public_mundane_reality"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r01-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'筆跡' anchors the scene in concrete reality during 現実の制度と手触り.",
+        "confidence": 0.7729,
+        "support": [
+          "s1-c1-openai",
+          "establish_public_mundane_reality"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r01-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'雨' anchors the scene in concrete reality during 現実の制度と手触り.",
+        "confidence": 0.7729,
+        "support": [
+          "s1-c1-openai",
+          "establish_public_mundane_reality"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r03-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' becomes a recurring symbolic circuit during 生活上の摩擦.",
+        "confidence": 0.7618,
+        "support": [
+          "s3-c1-openai",
+          "convert_magic_into_logistical_consequences"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r03-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'インクは雨の日に伸びますから' becomes a recurring symbolic circuit during 生活上の摩擦.",
+        "confidence": 0.7618,
+        "support": [
+          "s3-c1-openai",
+          "convert_magic_into_logistical_consequences"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r03-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'田' becomes a recurring symbolic circuit during 生活上の摩擦.",
+        "confidence": 0.7618,
+        "support": [
+          "s3-c1-openai",
+          "convert_magic_into_logistical_consequences"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r02-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' survives an impossible perturbation during 気象としての不可能.",
+        "confidence": 0.7555,
+        "support": [
+          "s2-c1-openai",
+          "make_magic_a_weather_condition_not_a_message"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r02-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'筆跡' survives an impossible perturbation during 気象としての不可能.",
+        "confidence": 0.7555,
+        "support": [
+          "s2-c1-openai",
+          "make_magic_a_weather_condition_not_a_message"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r02-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'ティッシュ' survives an impossible perturbation during 気象としての不可能.",
+        "confidence": 0.7555,
+        "support": [
+          "s2-c1-openai",
+          "make_magic_a_weather_condition_not_a_message"
+        ],
+        "stage_indices": [
+          2
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "conflict_id": "c01-01-high_drift",
+        "type": "high_drift",
+        "severity": 0.6589,
+        "description": "The accepted transition moved too far from the previous state.",
+        "evidence": {
+          "drift_score": 0.9386,
+          "max_drift": 0.82
+        },
+        "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "resolved": true
+      },
+      {
+        "conflict_id": "c02-01-high_drift",
+        "type": "high_drift",
+        "severity": 0.2739,
+        "description": "The accepted transition moved too far from the previous state.",
+        "evidence": {
+          "drift_score": 0.8693,
+          "max_drift": 0.82
+        },
+        "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "resolved": true
+      },
+      {
+        "conflict_id": "c03-01-high_drift",
+        "type": "high_drift",
+        "severity": 0.4728,
+        "description": "The accepted transition moved too far from the previous state.",
+        "evidence": {
+          "drift_score": 0.9051,
+          "max_drift": 0.82
+        },
+        "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "resolved": true
+      }
+    ],
+    "repair_plans": [
+      {
+        "conflict_id": "c01-01-high_drift",
+        "stage_index": 1,
+        "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "applied_by_candidate_id": null
+      },
+      {
+        "conflict_id": "c02-01-high_drift",
+        "stage_index": 2,
+        "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "applied_by_candidate_id": null
+      },
+      {
+        "conflict_id": "c03-01-high_drift",
+        "stage_index": 3,
+        "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "applied_by_candidate_id": null
+      }
+    ],
+    "stable_symbols": [
+      "祖母",
+      "筆跡",
+      "雨",
+      "インクは雨の日に伸びますから",
+      "田",
+      "ティッシュ",
+      "ボールペン",
+      "振込用紙",
+      "使用目的",
+      "角形二号",
+      "市役所",
+      "番号札"
+    ],
+    "unstable_symbols": [],
+    "drift_vector": {
+      "mean_drift": 0.7676,
+      "last_drift": 0.5818,
+      "mean_recurrence": 0.6736,
+      "last_recurrence": 0.9167,
+      "mean_reward": 0.785,
+      "last_reward": 0.8799
+    },
+    "notes": [
+      "matrix_rows=6",
+      "rules=24",
+      "unresolved_conflicts=0"
+    ]
+  },
+  "steps": [
+    {
+      "index": 1,
+      "name": "現実の制度と手触り",
+      "role": "grounder",
+      "operator": "establish_public_mundane_reality",
+      "accepted": {
+        "candidate_id": "s1-c1-openai",
+        "stage_index": 1,
+        "stage_name": "現実の制度と手触り",
+        "role": "grounder",
+        "operator": "establish_public_mundane_reality",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "市役所の一階は、濡れた傘の匂いと番号札の音でいっぱいだった。  \n雨が祖母の筆跡を覚えていたので、申請書の空欄に落ちた水滴は、古い帳面の「田」の角のように四角く滲んだ。  \n私は窓口で住民票の写しを二通頼み、硬貨を皿にのせた。  \n職員は赤いゴム印を押し、乾いていない欄をティッシュで軽く押さえた。  \n隣では小学生の母親が給食費の振込用紙を書き直していて、ボールペンの先が雨音に合わせて紙をつついていた。  \n祖母の名前を書く欄はなく、ただ世帯、住所、使用目的を正しく埋めればよかった。  \n帰りに商店街の文具店へ寄り、濡れた封筒を入れ替えるために白い角形二号を買った。  \n店主はレジ袋を断った私に、伝票の控えだけを渡し、「インクは雨の日に伸びますから」と言った。",
+        "metrics": {
+          "char_len": 334.0,
+          "unit_count": 63.0,
+          "similarity": 0.0795,
+          "surface_drift": 0.9205,
+          "lexical_drift": 0.9722,
+          "drift_score": 0.9386,
+          "novelty_score": 0.9524,
+          "repetition_score": 0.0635,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9925,
+          "collapse_score": 0.1134,
+          "compression_ratio": 23.8571
+        },
+        "symbols_before": [
+          "筆跡",
+          "雨",
+          "祖母"
+        ],
+        "symbols_after": [
+          "祖母",
+          "筆跡",
+          "雨",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "市役所",
+          "番号札"
+        ],
+        "reward": {
+          "score": 0.7293,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9236,
+            "controlled_perturbation": 0.0952,
+            "symbol_recurrence": 0.7083,
+            "drift_control": 0.3411,
+            "novelty": 0.9524,
+            "repetition_control": 0.7732,
+            "collapse_control": 0.7938,
+            "integration": 0.651,
+            "closure": 0.5038
+          },
+          "reasons": [
+            "drift too high (0.939)"
+          ],
+          "repair_prompt": "Repair this visible output for stage '現実の制度と手触り' / role 'grounder'. Main issues: drift too high (0.939). Weak reward axes: controlled_perturbation=0.10, drift_control=0.34, closure=0.50. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "grounding": 0.3,
+              "drift_control": 0.24,
+              "collapse_control": 0.16,
+              "novelty": 0.1,
+              "symbol_recurrence": 0.1,
+              "repetition_control": 0.1,
+              "integration": 0.0,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 484,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 318,
+          "output_tokens_details": {
+            "reasoning_tokens": 29
+          },
+          "total_tokens": 802
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": [
+        "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+        "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+      ]
+    },
+    {
+      "index": 2,
+      "name": "気象としての不可能",
+      "role": "expander",
+      "operator": "make_magic_a_weather_condition_not_a_message",
+      "accepted": {
+        "candidate_id": "s2-c1-openai",
+        "stage_index": 2,
+        "stage_name": "気象としての不可能",
+        "role": "expander",
+        "operator": "make_magic_a_weather_condition_not_a_message",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "市役所を出ると、雨はさっきより細かくなり、商店街のアーケードの下まで祖母の筆跡を運んできていた。  \n八百屋の値札では「大根」のはらいが誰かの古い癖で長く伸び、肉屋の注文票には見覚えのない「田」がいくつも浮いて、店員が濡れた指でそれを端へ寄せていた。  \n文具店の入口には、雨天用にティッシュの箱が置かれ、客は買ったばかりのボールペンを試し書きしてから、余分な筆跡が混じらない封筒を選んでいた。  \n店主は白い角形二号を紙袋に入れながら、「今日は古い字が多いですね」とだけ言い、伝票の控えの滲んだ部分を爪で押さえた。  \n郵便局では振込用紙の使用目的欄に、本人の字より先に亡くなった父親の癖が出てしまったらしく、窓口の人が予備の用紙を三枚出していた。  \n誰も大声を上げず、濡れた床の黄色い注意札をよけるように、他人の昔の筆跡をよけて書き直していた。  \n私の封筒にも、差出人の枠の左下に祖母の小さな払いがつき、雨粒がそこだけ黒く重くなった。  \nそれをティッシュで押さえると、紙の繊維の中で祖母の字は少しだけ伸び、あとは普通の雨染みとして残った。",
+        "metrics": {
+          "char_len": 474.0,
+          "unit_count": 98.0,
+          "similarity": 0.1253,
+          "surface_drift": 0.8747,
+          "lexical_drift": 0.8594,
+          "drift_score": 0.8693,
+          "novelty_score": 0.7347,
+          "repetition_score": 0.1122,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9894,
+          "collapse_score": 0.0633,
+          "compression_ratio": 1.4192
+        },
+        "symbols_before": [
+          "祖母",
+          "筆跡",
+          "雨",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_after": [
+          "祖母",
+          "筆跡",
+          "ティッシュ",
+          "田",
+          "ボールペン",
+          "角形二号",
+          "振込用紙",
+          "雨",
+          "市役所",
+          "使用目的",
+          "インクは雨の日に伸びますから",
+          "番号札"
+        ],
+        "reward": {
+          "score": 0.6712,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9733,
+            "controlled_perturbation": 0.3902,
+            "symbol_recurrence": 0.6583,
+            "drift_control": 0.7261,
+            "novelty": 0.7347,
+            "repetition_control": 0.5993,
+            "collapse_control": 0.8849,
+            "integration": 0.7557,
+            "closure": 0.4503
+          },
+          "reasons": [
+            "drift too high (0.869)"
+          ],
+          "repair_prompt": "Repair this visible output for stage '気象としての不可能' / role 'expander'. Main issues: drift too high (0.869). Weak reward axes: controlled_perturbation=0.39, closure=0.45, repetition_control=0.60. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "controlled_perturbation": 0.28,
+              "novelty": 0.2,
+              "drift_control": 0.18,
+              "grounding": 0.12,
+              "symbol_recurrence": 0.12,
+              "collapse_control": 0.1,
+              "repetition_control": 0.0,
+              "integration": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1288,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 489,
+          "output_tokens_details": {
+            "reasoning_tokens": 74
+          },
+          "total_tokens": 1777
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": [
+        "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+        "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "RPM conflict c02-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+      ]
+    },
+    {
+      "index": 3,
+      "name": "生活上の摩擦",
+      "role": "symbolizer",
+      "operator": "convert_magic_into_logistical_consequences",
+      "accepted": {
+        "candidate_id": "s3-c1-openai",
+        "stage_index": 3,
+        "stage_name": "生活上の摩擦",
+        "role": "symbolizer",
+        "operator": "convert_magic_into_logistical_consequences",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "翌朝も雨で、祖母の筆跡は乾ききらないまま町内の紙に薄く残っていた。  \nクリーニング店で受け取った領収書は、金額の「一」の端だけが祖母の癖で下がり、店員はレジの下から赤い訂正印を出して二度押した。  \n市役所の申請書では、住所欄の「田」が知らないうちに四角く太り、窓口の人が「ここ、読めますけど念のため」と言って、番号札の裏に書き直し方を鉛筆で示した。  \nスーパーの値札にも古いはらいが混じり、百九十八円の八がほどけた紐のように見えて、客が一度かごに入れた豆腐を棚へ戻した。  \n保育園の連絡帳には、母親の丸い字の途中へ祖母の細い線が入り、先生は天気の欄に貼るシールを一枚はがして、その上から「くもり時々雨」と書いた。  \n町内会の回覧板は角が湿って、次の家の印鑑欄に別の時代の名前のようなものが滲んだため、班長がビニール袋を二重にして持ってきた。  \n薬局の店先の看板では「処方せん受付」の「方」だけが祖母の筆圧になり、白衣の人が脚立にのぼって濡れた布で何度もこすった。  \n郵便局では振込用紙の使用目的を短く書くよう勧められ、「インクは雨の日に伸びますから」と窓口の人がボールペンの先をティッシュで拭いた。  \n私の角形二号は鞄の中で少し波打ち、差出人欄の左下にまた小さな払いを作ったが、誰もそれを私への知らせとは受け取らなかった。  \nただ、書類は一枚ずつ余分に必要になり、乾いた指で押さえる場所が増え、雨の日の用事はいつもより半時間ほど長くなった。",
+        "metrics": {
+          "char_len": 629.0,
+          "unit_count": 132.0,
+          "similarity": 0.0872,
+          "surface_drift": 0.9128,
+          "lexical_drift": 0.8907,
+          "drift_score": 0.9051,
+          "novelty_score": 0.7955,
+          "repetition_score": 0.1212,
+          "recurrence_score": 0.5833,
+          "entropy_score": 0.9871,
+          "collapse_score": 0.0686,
+          "compression_ratio": 1.327
+        },
+        "symbols_before": [
+          "祖母",
+          "筆跡",
+          "ティッシュ",
+          "田",
+          "ボールペン",
+          "角形二号",
+          "振込用紙",
+          "雨",
+          "市役所",
+          "使用目的",
+          "インクは雨の日に伸びますから",
+          "番号札"
+        ],
+        "symbols_after": [
+          "祖母",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札",
+          "筆跡"
+        ],
+        "reward": {
+          "score": 0.6923,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9705,
+            "controlled_perturbation": 0.1572,
+            "symbol_recurrence": 0.7083,
+            "drift_control": 0.5272,
+            "novelty": 0.7955,
+            "repetition_control": 0.5671,
+            "collapse_control": 0.8753,
+            "integration": 0.7189,
+            "closure": 0.4355
+          },
+          "reasons": [
+            "drift too high (0.905)"
+          ],
+          "repair_prompt": "Repair this visible output for stage '生活上の摩擦' / role 'symbolizer'. Main issues: drift too high (0.905). Weak reward axes: controlled_perturbation=0.16, closure=0.44, drift_control=0.53. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "symbol_recurrence": 0.32,
+              "repetition_control": 0.2,
+              "novelty": 0.14,
+              "integration": 0.14,
+              "drift_control": 0.1,
+              "collapse_control": 0.1,
+              "grounding": 0.0,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1671,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 674,
+          "output_tokens_details": {
+            "reasoning_tokens": 134
+          },
+          "total_tokens": 2345
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": [
+        "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+        "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "RPM conflict c02-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "RPM conflict c03-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+      ]
+    },
+    {
+      "index": 4,
+      "name": "無目的な定着",
+      "role": "stabilizer",
+      "operator": "stabilize_magic_as_world_law",
+      "accepted": {
+        "candidate_id": "s4-c1-openai",
+        "stage_index": 4,
+        "stage_name": "無目的な定着",
+        "role": "stabilizer",
+        "operator": "stabilize_magic_as_world_law",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "雨の日、祖母の筆跡はどの紙にも少しずつ混じるものとして扱われるようになった。  \n市役所の入口には傘立ての横に吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう、貼り紙が増えた。  \n窓口の人は「田」の内側が太る場合があります、と慣れた声で言い、見本欄に定規で小さな四角を描いてくれた。  \n郵便局では振込用紙の使用目的を六文字以内にする日があり、ボールペンは鎖でつながれたまま、先をティッシュで拭かれて光っていた。  \n「インクは雨の日に伸びますから」と言う係の声も、印鑑マットのやわらかい音も、待合の湿ったコートの匂いにまぎれていた。  \nスーパーの値札は午後になると貼り替えられ、数字のはらいが古く傾いた棚だけ、店員が透明なテープを重ねて押さえた。  \n保育園の連絡帳には雨用の欄ができ、家で書いた字と祖母の細い線が重なった場合は、先生が青いスタンプを横に押した。  \n私の角形二号も鞄の底で波打ち、差出人欄の左下に小さな払いを増やしたので、郵便局員は重さを量り直してから別納の箱へ入れた。  \n誰もそれを特別に見上げたりせず、濡れた床に滑り止めのマットを敷くのと同じ手つきで、余白を広めに取り、控えを一枚多く作った。  \n夕方、雨脚が強くなると町内の紙は一斉に柔らかくなり、祖母の筆跡だけが、乾く順番を知っているように端から静かに浮き上がった。",
+        "metrics": {
+          "char_len": 580.0,
+          "unit_count": 116.0,
+          "similarity": 0.1714,
+          "surface_drift": 0.8286,
+          "lexical_drift": 0.7923,
+          "drift_score": 0.8159,
+          "novelty_score": 0.5948,
+          "repetition_score": 0.0948,
+          "recurrence_score": 0.625,
+          "entropy_score": 0.9912,
+          "collapse_score": 0.0535,
+          "compression_ratio": 0.9221
+        },
+        "symbols_before": [
+          "祖母",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札"
+        ],
+        "reward": {
+          "score": 0.8944,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9775,
+            "controlled_perturbation": 0.3224,
+            "symbol_recurrence": 0.7375,
+            "drift_control": 1.0,
+            "novelty": 0.5948,
+            "repetition_control": 0.6614,
+            "collapse_control": 0.9027,
+            "integration": 0.8694,
+            "closure": 0.4991
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '無目的な定着' / role 'stabilizer'. Main issues: score below target. Weak reward axes: controlled_perturbation=0.32, closure=0.50, novelty=0.59. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "drift_control": 0.3,
+              "integration": 0.22,
+              "collapse_control": 0.18,
+              "symbol_recurrence": 0.14,
+              "grounding": 0.1,
+              "repetition_control": 0.06,
+              "novelty": 0.0,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1937,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 580,
+          "output_tokens_details": {
+            "reasoning_tokens": 77
+          },
+          "total_tokens": 2517
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 5,
+      "name": "反叙情的な骨格",
+      "role": "compressor",
+      "operator": "compress_without_emotional_closure",
+      "accepted": {
+        "candidate_id": "s5-c1-openai",
+        "stage_index": 5,
+        "stage_name": "反叙情的な骨格",
+        "role": "compressor",
+        "operator": "compress_without_emotional_closure",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。\n\n市役所の入口では、傘立ての横にティッシュと吸取紙が置かれ、番号札を取る前に申請書の四隅を押さえるよう貼り紙が出ていた。窓口の人は、氏名欄の「田」の内側が太る場合があります、と慣れた声で言い、見本欄にボールペンで小さな四角を描いた。祖母の字に似ているかどうかは問題にされず、読めるか、訂正印が要るか、控えをもう一枚取るかだけが確認された。\n\n郵便局では、雨量の多い日は振込用紙の使用目的を六文字以内にする決まりがあった。鎖につながれたボールペンは先を拭かれて光り、台の隅には湿った紙くずが丸まっていた。「インクは雨の日に伸びますから」と係は言い、角形二号の差出人欄に出た細い払いを見て、重さを量り直した。封筒は規格内だったが、別納の箱に入れるには余白が足りず、私は宛名を一段上に書き直した。\n\nスーパーの値札は午後になると貼り替えられた。数字の端が古い棚の方へ傾き、店員が透明なテープを重ねて押さえた。保育園の連絡帳には雨用の欄があり、家で書いた字に祖母の細い線が重なった場合、先生が青いスタンプを横に押した。説明はそれで足りた。\n\n夕方、町内の紙は一斉に柔らかくなり、伝票も回覧板も乾く順番をずらした。祖母の筆跡は、知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+        "metrics": {
+          "char_len": 619.0,
+          "unit_count": 126.0,
+          "similarity": 0.5241,
+          "surface_drift": 0.4759,
+          "lexical_drift": 0.5306,
+          "drift_score": 0.4951,
+          "novelty_score": 0.3333,
+          "repetition_score": 0.119,
+          "recurrence_score": 0.75,
+          "entropy_score": 0.9887,
+          "collapse_score": 0.0672,
+          "compression_ratio": 1.0672
+        },
+        "symbols_before": [
+          "祖母",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ボールペン",
+          "ティッシュ",
+          "振込用紙",
+          "使用目的",
+          "角形二号",
+          "雨",
+          "市役所",
+          "番号札"
+        ],
+        "symbols_after": [
+          "祖母",
+          "ボールペン",
+          "使用目的",
+          "市役所",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "振込用紙",
+          "角形二号",
+          "雨",
+          "番号札"
+        ],
+        "reward": {
+          "score": 0.8431,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9801,
+            "controlled_perturbation": 0.9165,
+            "symbol_recurrence": 0.825,
+            "drift_control": 1.0,
+            "novelty": 0.3333,
+            "repetition_control": 0.575,
+            "collapse_control": 0.8778,
+            "integration": 0.9257,
+            "closure": 0.5492
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '反叙情的な骨格' / role 'compressor'. Main issues: score below target. Weak reward axes: novelty=0.33, closure=0.55, repetition_control=0.57. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "integration": 0.26,
+              "collapse_control": 0.18,
+              "symbol_recurrence": 0.18,
+              "drift_control": 0.14,
+              "repetition_control": 0.1,
+              "grounding": 0.08,
+              "novelty": 0.06,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1702,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 592,
+          "output_tokens_details": {
+            "reasoning_tokens": 55
+          },
+          "total_tokens": 2294
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 6,
+      "name": "再統合：PRM accepted pathから最終稿へ",
+      "role": "integrator",
+      "operator": "aggregate_high_reward_path",
+      "accepted": {
+        "candidate_id": "s6-c1-openai",
+        "stage_index": 6,
+        "stage_name": "再統合：PRM accepted pathから最終稿へ",
+        "role": "integrator",
+        "operator": "aggregate_high_reward_path",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "雨の日、祖母の筆跡は町の紙に少しずつ混じるものとして扱われていた。\n\n市役所の一階は、濡れた傘の匂いと番号札の乾いた音でいっぱいだった。入口の傘立ての横にはティッシュと吸取紙が置かれ、申請書の四隅を押さえてから窓口へ進むよう貼り紙が出ていた。私が住民票の写しを二通頼むと、職員は氏名欄を見て、「田の内側が太っていますけど、読めます」と言い、赤いゴム印を押した。祖母の字に似ているかどうかは問題にされず、訂正印が要るか、控えをもう一枚取るかだけが確認された。\n\n隣の窓口では、小学生の母親が給食費の振込用紙を書き直していた。使用目的の欄に、本人の丸い字より先に古い払いが出てしまったらしく、ボールペンの先が雨音に合わせて紙をつついていた。職員は予備の用紙を三枚出し、濡れた欄をティッシュで軽く押さえた。\n\n商店街のアーケードの下まで、雨は細かく吹き込んでいた。八百屋の値札では「大根」のはらいが長く伸び、肉屋の注文票には見覚えのある「田」が浮いて、店員が濡れた指で端へ寄せていた。誰も大声を上げず、床の黄色い注意札をよけるのと同じ手つきで、他人の昔の筆跡をよけて書き直していた。\n\n文具店で白い角形二号を買うと、店主は紙袋に入れる前に封筒の差出人欄を確かめた。左下に祖母の小さな払いがつき、そこだけ雨粒が黒く重くなっていた。「インクは雨の日に伸びますから」と店主は言い、伝票の控えの滲んだ部分を爪で押さえた。レジ袋は断り、控えだけを財布にしまった。\n\n郵便局では、雨量の多い日は振込用紙の使用目的を六文字以内にする決まりがあった。鎖につながれたボールペンは先を拭かれて光り、台の隅には湿った紙くずが丸まっていた。係は私の角形二号を量り直し、封筒は規格内だが余白が足りないと言った。私は宛名を一段上に書き直し、差出人欄の払いを吸取紙で押さえた。\n\n夕方、町内の紙は一斉に柔らかくなった。伝票も回覧板も、保育園の連絡帳も、乾く順番を少しずつずらした。祖母の筆跡は知らせでも返事でもなく、端から静かに浮き上がった。私は市役所でもらった訂正用の用紙を鞄に入れ、郵便局の閉まる前にもう一度、使用目的の欄だけ書きに行った。",
+        "metrics": {
+          "char_len": 904.0,
+          "unit_count": 185.0,
+          "similarity": 0.3965,
+          "surface_drift": 0.6035,
+          "lexical_drift": 0.5414,
+          "drift_score": 0.5818,
+          "novelty_score": 0.3946,
+          "repetition_score": 0.173,
+          "recurrence_score": 0.9167,
+          "entropy_score": 0.9847,
+          "collapse_score": 0.0974,
+          "compression_ratio": 1.4604
+        },
+        "symbols_before": [
+          "祖母",
+          "ボールペン",
+          "使用目的",
+          "市役所",
+          "筆跡",
+          "インクは雨の日に伸びますから",
+          "田",
+          "ティッシュ",
+          "振込用紙",
+          "角形二号",
+          "雨",
+          "番号札"
+        ],
+        "symbols_after": [
+          "使用目的",
+          "祖母",
+          "筆跡",
+          "ティッシュ",
+          "ボールペン",
+          "振込用紙",
+          "角形二号",
+          "市役所",
+          "田",
+          "インクは雨の日に伸びますから",
+          "雨",
+          "番号札"
+        ],
+        "reward": {
+          "score": 0.8799,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9592,
+            "controlled_perturbation": 0.7559,
+            "symbol_recurrence": 0.9417,
+            "drift_control": 1.0,
+            "novelty": 0.3946,
+            "repetition_control": 0.3821,
+            "collapse_control": 0.8229,
+            "integration": 0.9386,
+            "closure": 0.6003
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '再統合：PRM accepted pathから最終稿へ' / role 'integrator'. Main issues: score below target. Weak reward axes: repetition_control=0.38, novelty=0.39, closure=0.60. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "integration": 0.32,
+              "symbol_recurrence": 0.18,
+              "drift_control": 0.16,
+              "collapse_control": 0.14,
+              "grounding": 0.1,
+              "novelty": 0.06,
+              "repetition_control": 0.04,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 4418,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 843,
+          "output_tokens_details": {
+            "reasoning_tokens": 47
+          },
+          "total_tokens": 5261
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    }
+  ]
+}
