@@ -1,0 +1,191 @@
+{
+  "version": "5-memory-1.0",
+  "created_at_utc": "2026-04-26T18:00:36+00:00",
+  "updated_at_utc": "2026-04-26T18:00:36+00:00",
+  "run_count": 1,
+  "provider_role_scores": {
+    "grounder": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7423,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "expander": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.6899,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "symbolizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.495,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "stabilizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7038,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "compressor": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.6639,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "integrator": {
+      "anthropic": {
+        "count": 1,
+        "mean_reward": 0.6442,
+        "last_model": "claude-opus-4-7"
+      }
+    },
+    "recursive": {
+      "google": {
+        "count": 1,
+        "mean_reward": 0.5866,
+        "last_model": "gemini-3-flash-preview"
+      }
+    }
+  },
+  "stage_scores": {
+    "現実の足場": {
+      "count": 1,
+      "mean_reward": 0.7423,
+      "last_role": "grounder"
+    },
+    "摂動：ありえない事実": {
+      "count": 1,
+      "mean_reward": 0.6899,
+      "last_role": "expander"
+    },
+    "象徴の反復": {
+      "count": 1,
+      "mean_reward": 0.495,
+      "last_role": "symbolizer"
+    },
+    "安定化：語りの重力": {
+      "count": 1,
+      "mean_reward": 0.7038,
+      "last_role": "stabilizer"
+    },
+    "圧縮：骨格を残す": {
+      "count": 1,
+      "mean_reward": 0.6639,
+      "last_role": "compressor"
+    },
+    "再統合：PRM accepted pathから最終稿へ": {
+      "count": 1,
+      "mean_reward": 0.6442,
+      "last_role": "integrator"
+    },
+    "再帰クロージャ：Seedへの帰還": {
+      "count": 1,
+      "mean_reward": 0.5866,
+      "last_role": "recursive"
+    }
+  },
+  "operator_scores": {
+    "increase_grounding_and_stabilize_viewpoint": {
+      "count": 1,
+      "mean_reward": 0.7423,
+      "last_role": "grounder"
+    },
+    "inject_one_impossible_fact_without_explanation": {
+      "count": 1,
+      "mean_reward": 0.6899,
+      "last_role": "expander"
+    },
+    "amplify_symbolic_recurrence_by_variation": {
+      "count": 1,
+      "mean_reward": 0.495,
+      "last_role": "symbolizer"
+    },
+    "reduce_drift_while_preserving_magic": {
+      "count": 1,
+      "mean_reward": 0.7038,
+      "last_role": "stabilizer"
+    },
+    "compress_to_dense_visible_bone_structure": {
+      "count": 1,
+      "mean_reward": 0.6639,
+      "last_role": "compressor"
+    },
+    "aggregate_high_reward_path": {
+      "count": 1,
+      "mean_reward": 0.6442,
+      "last_role": "integrator"
+    },
+    "close_loop_to_seed": {
+      "count": 1,
+      "mean_reward": 0.5866,
+      "last_role": "recursive"
+    }
+  },
+  "symbol_scores": {
+    "祖母": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "筆跡": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "雨": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "食器棚": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "夕方": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "台所": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "木箱": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "硯箱": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "戸棚": {
+      "count": 7,
+      "mean_reward": 0.64653,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "雨粒": {
+      "count": 2,
+      "mean_reward": 0.59245,
+      "last_seen_stage": "象徴の反復"
+    },
+    "障子": {
+      "count": 4,
+      "mean_reward": 0.64962,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    }
+  },
+  "notes": [
+    "run 1: mean_reward=0.6465; final_symbols=祖母, 筆跡, 障子, 硯箱, 戸棚, 雨"
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "version": "5-memory-1.0",
+  "created_at_utc": "2026-04-27T00:12:15+00:00",
+  "updated_at_utc": "2026-04-27T00:13:35+00:00",
+  "run_count": 1,
+  "provider_role_scores": {
+    "grounder": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7024,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "expander": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8156,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "symbolizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7341,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "stabilizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8609,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "compressor": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7535,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "integrator": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8449,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "recursive": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7272,
+        "last_model": "gpt-5.5"
+      }
+    }
+  },
+  "stage_scores": {
+    "現実の足場": {
+      "count": 1,
+      "mean_reward": 0.7024,
+      "last_role": "grounder"
+    },
+    "摂動：ありえない事実": {
+      "count": 1,
+      "mean_reward": 0.8156,
+      "last_role": "expander"
+    },
+    "象徴の反復": {
+      "count": 1,
+      "mean_reward": 0.7341,
+      "last_role": "symbolizer"
+    },
+    "安定化：語りの重力": {
+      "count": 1,
+      "mean_reward": 0.8609,
+      "last_role": "stabilizer"
+    },
+    "圧縮：骨格を残す": {
+      "count": 1,
+      "mean_reward": 0.7535,
+      "last_role": "compressor"
+    },
+    "再統合：PRM accepted pathから最終稿へ": {
+      "count": 1,
+      "mean_reward": 0.8449,
+      "last_role": "integrator"
+    },
+    "再帰クロージャ：Seedへの帰還": {
+      "count": 1,
+      "mean_reward": 0.7272,
+      "last_role": "recursive"
+    }
+  },
+  "operator_scores": {
+    "increase_grounding_and_stabilize_viewpoint": {
+      "count": 1,
+      "mean_reward": 0.7024,
+      "last_role": "grounder"
+    },
+    "inject_one_impossible_fact_without_explanation": {
+      "count": 1,
+      "mean_reward": 0.8156,
+      "last_role": "expander"
+    },
+    "amplify_symbolic_recurrence_by_variation": {
+      "count": 1,
+      "mean_reward": 0.7341,
+      "last_role": "symbolizer"
+    },
+    "reduce_drift_while_preserving_magic": {
+      "count": 1,
+      "mean_reward": 0.8609,
+      "last_role": "stabilizer"
+    },
+    "compress_to_dense_visible_bone_structure": {
+      "count": 1,
+      "mean_reward": 0.7535,
+      "last_role": "compressor"
+    },
+    "aggregate_high_reward_path": {
+      "count": 1,
+      "mean_reward": 0.8449,
+      "last_role": "integrator"
+    },
+    "close_loop_to_seed": {
+      "count": 1,
+      "mean_reward": 0.7272,
+      "last_role": "recursive"
+    }
+  },
+  "symbol_scores": {
+    "祖母": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "雨": {
+      "count": 6,
+      "mean_reward": 0.78408,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "筆跡": {
+      "count": 2,
+      "mean_reward": 0.77365,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "元気でいますか": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "ガラス": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "台所": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "ブリキ": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "洗面器": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "裸電球": {
+      "count": 7,
+      "mean_reward": 0.77694,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "六月": {
+      "count": 6,
+      "mean_reward": 0.76562,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    },
+    "夕方": {
+      "count": 4,
+      "mean_reward": 0.79102,
+      "last_seen_stage": "圧縮：骨格を残す"
+    },
+    "軒先": {
+      "count": 3,
+      "mean_reward": 0.76873,
+      "last_seen_stage": "再帰クロージャ：Seedへの帰還"
+    }
+  },
+  "notes": [
+    "run 1: mean_reward=0.7769; final_symbols=祖母, 洗面器, 台所, 元気でいますか, ブリキ, ガラス"
+  ]
+}

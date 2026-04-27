@@ -1,0 +1,32 @@
+[
+  {
+    "name": "現実の足場",
+    "role": "grounder",
+    "operator": "increase_grounding_and_stabilize_viewpoint",
+    "instruction": "Seedを、手触り・音・匂い・場所・時間がわかる小さな現実の場面へ変換する。まだ魔法を大きくしすぎない。語り手・視点・季節を安定させる。6〜10文。"
+  },
+  {
+    "name": "摂動：ありえない事実",
+    "role": "expander",
+    "operator": "inject_one_impossible_fact_without_explanation",
+    "instruction": "前段の場面に、ただ一つの不可能な出来事を日常的な口調で混ぜる。登場人物は驚きすぎず、生活の一部として扱う。因果を説明しない。6〜10文。"
+  },
+  {
+    "name": "象徴の反復",
+    "role": "symbolizer",
+    "operator": "amplify_symbolic_recurrence_by_variation",
+    "instruction": "状態に記録されたsymbolsとRPMのstable_symbolsから1〜3個を選び、記憶・喪失・予感の回路として反復させる。同じ語を機械的に連呼せず、形・音・動作を変えながら戻す。8〜12文。"
+  },
+  {
+    "name": "安定化：語りの重力",
+    "role": "stabilizer",
+    "operator": "reduce_drift_while_preserving_magic",
+    "instruction": "前段までの美しいズレを残しながら、語り手・時制・場所・人物関係の破綻を減らす。RPMのunresolved conflictsがあれば、説明ではなく描写で修復する。8〜12文。"
+  },
+  {
+    "name": "圧縮：骨格を残す",
+    "role": "compressor",
+    "operator": "compress_to_dense_visible_bone_structure",
+    "instruction": "場面の核・反復象徴・不可能な事実・RPMで高confidenceなruleだけを残し、短編冒頭として強い骨格へ圧縮する。要約ではなく、密度の高い可視稿として書く。350〜700字程度。"
+  }
+]

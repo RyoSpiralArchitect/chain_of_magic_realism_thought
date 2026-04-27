@@ -1,0 +1,4748 @@
+{
+  "script": "chain_of_magic_realism.py",
+  "version": "5.0",
+  "started_at_utc": "2026-04-27T00:13:35+00:00",
+  "language": "Japanese",
+  "seed": "雨が祖母の筆跡を覚えていた。",
+  "providers": [
+    "openai"
+  ],
+  "routing": "role",
+  "role_providers": {
+    "grounder": "anthropic",
+    "expander": "mistral",
+    "symbolizer": "mistral",
+    "stabilizer": "anthropic",
+    "compressor": "google",
+    "integrator": "openai",
+    "recursive": "openai"
+  },
+  "models": {
+    "openai": "gpt-5.5"
+  },
+  "constraints": {
+    "max_drift": 0.82,
+    "min_drift": 0.18,
+    "max_repetition": 0.28,
+    "min_recurrence": 0.15,
+    "min_novelty": 0.18,
+    "max_collapse": 0.55,
+    "required_prefix": null,
+    "symbol_limit": 12
+  },
+  "prm": {
+    "mode": "heuristic",
+    "candidates": 1,
+    "accept_threshold": 0.62,
+    "repair_threshold": 0.5,
+    "judge_provider": null,
+    "judge_model": null,
+    "hybrid_llm_weight": 0.45,
+    "include_prompts": false
+  },
+  "beam": {
+    "enabled": false,
+    "beam_width": 1,
+    "beam_branching": 1,
+    "archive_limit": 8
+  },
+  "beam_archive": [
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai-r1>s3-c1-openai>s4-c1-openai>s5-c1-openai>s6-c1-openai",
+      "stage_index": 6,
+      "score": 0.80266,
+      "rewards": [
+        0.7024,
+        0.8156,
+        0.7341,
+        0.8609,
+        0.7535,
+        0.8449
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "洗面器",
+        "台所",
+        "ガラス",
+        "軒先",
+        "筆跡",
+        "元気でいますか",
+        "雨",
+        "ブリキ",
+        "裸電球",
+        "六月",
+        "夕方"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い金属の底で丸くなり、流し台の下まで転がって、また暗がりに吸われた。畳は湿り、昼に出汁を取った煮干しの匂いと、古い木の匂いが混じっていた。  窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「\n\n...[clipped]...\n\n墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。  雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字、急いだ字、途中でかすれた字。どれも祖母のものだった。  雨が祖母の筆跡を覚えていた。  私は息をひそめ、次の一行が浮かぶのを待っていた。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai-r1>s3-c1-openai>s4-c1-openai",
+      "stage_index": 4,
+      "score": 0.79468,
+      "rewards": [
+        0.7024,
+        0.8156,
+        0.7341,
+        0.8609
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "洗面器",
+        "祖母",
+        "ガラス",
+        "夕方",
+        "元気でいますか",
+        "雨",
+        "ブリキ",
+        "裸電球",
+        "六月",
+        "台所",
+        "軒先",
+        "筆跡"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。   雨は軒先から落ち、ブリキの洗面器をぽつぽつと叩いていた。   濡れた木の匂いと、昼に使った煮干しの匂いが、流しのあたりに残っていた。   窓ガラスを下りる雨すじは、途中で細く曲がり、祖母の手紙にあった「元気でいますか」の字に似ていた。   その手紙はもう仏壇の引き出しにしまってあり、返事を書く相手はい\n\n...[clipped]...\n\nどき祖母の筆跡で短い言葉が浮かんだ。   「戸をしめて」と読めたので、私は立って勝手口の掛け金を下ろした。   裸電球はつけず、ガラス瓶や欠けた茶碗が、夕方の暗さの中で輪郭だけになっていった。   棚の上の硯箱には墨じみが残り、蓋の隙間からまだ湿った匂いがした。   雨は屋根を伝って洗面器に戻るたび、少しずつ違う字になり、私は膝を抱えて次の一行を待っていた。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai-r1",
+      "stage_index": 2,
+      "score": 0.76963,
+      "rewards": [
+        0.7024,
+        0.8156
+      ],
+      "providers": [
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "洗面器",
+        "台所",
+        "元気でいますか",
+        "雨",
+        "ブリキ",
+        "ガラス",
+        "裸電球",
+        "六月",
+        "夕方",
+        "軒先",
+        "筆跡"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。   軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。   横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。   窓ガラスを伝う雨すじは、曲がるたびに少し震え、祖母の手紙にあった「元気でいますか」の細い払\n\n...[clipped]...\n\nまた水にほどけた。   私は濡れた指を布巾で拭き、言われたとおり勝手口の掛け金を下ろした。   裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。   雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。   それからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai-r1>s3-c1-openai>s4-c1-openai>s5-c1-openai",
+      "stage_index": 5,
+      "score": 0.76268,
+      "rewards": [
+        0.7024,
+        0.8156,
+        0.7341,
+        0.8609,
+        0.7535
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "洗面器",
+        "ガラス",
+        "夕方",
+        "台所",
+        "元気でいますか",
+        "雨",
+        "ブリキ",
+        "裸電球",
+        "六月",
+        "軒先",
+        "筆跡"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "六月の夕方、祖母の家の台所で、私は雨の字を待っていた。  軒先から落ちるしずくが、ブリキの洗面器を叩く。ぽつ、ぽつ、と音がして、水面に細い線がほどける。その線は窓ガラスを下りる雨すじと同じ癖で曲がり、祖母の手紙にあった「元気でいますか」の筆跡になった。  祖母はもういない。手紙は仏壇の引き出しにしまってある。返事を書く相手も、叱られる相手もいない。それでも雨は祖母の字を覚えていて、洗面器の底に短い言葉を浮かべた。  戸をしめて。  私は立ち上がり、勝手口の掛け金を下ろした。濡れた木と煮干しの匂いが、暗くなりかけた台所に残っていた。裸電球はつけなかった。ガラス瓶も欠けた茶碗も、夕方の中で輪郭だけになった。  洗面器に戻る雨は、そのたび少し違う字を書いた。私は膝を抱え、次に祖母が何を言うのかを待っていた。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai-r1>s3-c1-openai>s4-c1-openai>s5-c1-openai>s6-c1-openai>s7-c1-openai",
+      "stage_index": 7,
+      "score": 0.75327,
+      "rewards": [
+        0.7024,
+        0.8156,
+        0.7341,
+        0.8609,
+        0.7535,
+        0.8449,
+        0.7272
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "洗面器",
+        "台所",
+        "元気でいますか",
+        "ブリキ",
+        "ガラス",
+        "六月",
+        "軒先",
+        "雨",
+        "裸電球",
+        "夕方",
+        "水面"
+      ],
+      "unresolved_conflicts": 1,
+      "final_text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。  窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいま\n\n...[clipped]...\n\nて水面に、長い一行が浮かんだ。  元気でいますか。  私は返事のかわりに、濡れた指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。  それでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。  祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。"
+    },
+    {
+      "path_id": "root>s1-c1-openai>s2-c1-openai-r1>s3-c1-openai",
+      "stage_index": 3,
+      "score": 0.74968,
+      "rewards": [
+        0.7024,
+        0.8156,
+        0.7341
+      ],
+      "providers": [
+        "openai",
+        "openai",
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "洗面器",
+        "ガラス",
+        "夕方",
+        "元気でいますか",
+        "ブリキ",
+        "裸電球",
+        "六月",
+        "台所",
+        "軒先",
+        "筆跡",
+        "雨"
+      ],
+      "unresolved_conflicts": 0,
+      "final_text_preview": "六月の夕方、祖母の台所は、濡れた木と煮干しの匂いで低く満ちていた。   軒先から落ちるしずくはブリキの洗面器を叩き、ぽつ、ぽつ、という音の間に、遠い咳払いのような沈黙を挟んだ。   窓ガラスを下りる雨すじは、まっすぐには進まず、何度もためらってから細く曲がり、祖母の手紙の「元気でいますか」の払いに戻っていった。   私はその字を思い出すたび、封筒の端を裂いた\n\n...[clipped]...\n\nが、夕方の暗さに少しずつ沈んでいった。   硯箱の蓋の墨じみは乾いた海苔のように縮み、その黒さの奥で、祖母の筆の先だけがまだ濡れているように見えた。   雨は屋根を渡り、樋を伝い、洗面器に戻ってくるたび、少しずつ別の筆跡になっていた。   それは別れた日の字ではなく、これから届くはずのない手紙の字で、私は冷えた膝を抱えたまま、その一行が現れるのを待っていた。"
+    },
+    {
+      "path_id": "root>s1-c1-openai",
+      "stage_index": 1,
+      "score": 0.67196,
+      "rewards": [
+        0.7024
+      ],
+      "providers": [
+        "openai"
+      ],
+      "symbols": [
+        "祖母",
+        "雨",
+        "筆跡",
+        "元気でいますか",
+        "ガラス",
+        "台所",
+        "ブリキ",
+        "洗面器",
+        "裸電球",
+        "六月",
+        "夕方",
+        "軒先"
+      ],
+      "unresolved_conflicts": 1,
+      "final_text_preview": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。   軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。   流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。   窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。   私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。   雨が祖母の筆跡を覚えていたのだと、そのとき自然に思った。   台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。   煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。"
+    }
+  ],
+  "memory_profile_path": "openai_single_memory.json",
+  "memory_profile_before": {
+    "version": "5-memory-1.0",
+    "run_count": 0,
+    "updated_at_utc": "2026-04-27T00:12:15+00:00",
+    "top_provider_roles": [],
+    "top_stages": [],
+    "top_operators": [],
+    "top_symbols": []
+  },
+  "memory_profile_after": {
+    "version": "5-memory-1.0",
+    "run_count": 1,
+    "updated_at_utc": "2026-04-27T00:13:35+00:00",
+    "top_provider_roles": [
+      {
+        "role": "stabilizer",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.8609
+      },
+      {
+        "role": "integrator",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.8449
+      },
+      {
+        "role": "expander",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.8156
+      },
+      {
+        "role": "compressor",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.7535
+      },
+      {
+        "role": "symbolizer",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.7341
+      },
+      {
+        "role": "recursive",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.7272
+      },
+      {
+        "role": "grounder",
+        "provider": "openai",
+        "count": 1,
+        "mean_reward": 0.7024
+      }
+    ],
+    "top_stages": [
+      {
+        "key": "安定化：語りの重力",
+        "count": 1,
+        "mean_reward": 0.8609
+      },
+      {
+        "key": "再統合：PRM accepted pathから最終稿へ",
+        "count": 1,
+        "mean_reward": 0.8449
+      },
+      {
+        "key": "摂動：ありえない事実",
+        "count": 1,
+        "mean_reward": 0.8156
+      },
+      {
+        "key": "圧縮：骨格を残す",
+        "count": 1,
+        "mean_reward": 0.7535
+      },
+      {
+        "key": "象徴の反復",
+        "count": 1,
+        "mean_reward": 0.7341
+      },
+      {
+        "key": "再帰クロージャ：Seedへの帰還",
+        "count": 1,
+        "mean_reward": 0.7272
+      },
+      {
+        "key": "現実の足場",
+        "count": 1,
+        "mean_reward": 0.7024
+      }
+    ],
+    "top_operators": [
+      {
+        "key": "reduce_drift_while_preserving_magic",
+        "count": 1,
+        "mean_reward": 0.8609
+      },
+      {
+        "key": "aggregate_high_reward_path",
+        "count": 1,
+        "mean_reward": 0.8449
+      },
+      {
+        "key": "inject_one_impossible_fact_without_explanation",
+        "count": 1,
+        "mean_reward": 0.8156
+      },
+      {
+        "key": "compress_to_dense_visible_bone_structure",
+        "count": 1,
+        "mean_reward": 0.7535
+      },
+      {
+        "key": "amplify_symbolic_recurrence_by_variation",
+        "count": 1,
+        "mean_reward": 0.7341
+      },
+      {
+        "key": "close_loop_to_seed",
+        "count": 1,
+        "mean_reward": 0.7272
+      },
+      {
+        "key": "increase_grounding_and_stabilize_viewpoint",
+        "count": 1,
+        "mean_reward": 0.7024
+      }
+    ],
+    "top_symbols": [
+      {
+        "key": "夕方",
+        "count": 4,
+        "mean_reward": 0.79102
+      },
+      {
+        "key": "雨",
+        "count": 6,
+        "mean_reward": 0.78408
+      },
+      {
+        "key": "祖母",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "元気でいますか",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "ガラス",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "台所",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "ブリキ",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "洗面器",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "裸電球",
+        "count": 7,
+        "mean_reward": 0.77694
+      },
+      {
+        "key": "筆跡",
+        "count": 2,
+        "mean_reward": 0.77365
+      },
+      {
+        "key": "軒先",
+        "count": 3,
+        "mean_reward": 0.76873
+      },
+      {
+        "key": "六月",
+        "count": 6,
+        "mean_reward": 0.76562
+      }
+    ]
+  },
+  "final": "六月の夕方、私は祖母の家の台所にひとりで座っていた。\n\n雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。\n\n窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいますか」の払いに似ていた。少し震えて、最後に力を抜く癖。祖母はどんな短い葉書にも、終わりの一画だけは息を吐くように書いた。\n\nその手紙は仏壇の引き出しにしまってある。封筒の端は、私が急いで開けたせいで斜めに裂けていた。返事を書く相手はもういない。叱られる相手もいない。台所の棚には、欠けた茶碗と、赤い糸の刺さった針山と、白く塩を吹いた梅干しの瓶が、そのまま残っていた。\n\n洗面器の底に雨水がたまり、灰色の光を揺らしていた。しずくがひとつ落ちるたび、水面に細い線が寄り集まり、短い言葉になった。\n\n戸をしめて。\n\n私は立ち上がり、勝手口へ行った。板戸のそばは外の湿り気で冷たく、掛け金には赤い錆が浮いていた。指先に金の匂いがついた。掛け金を下ろすと、かちん、と小さく鳴り、その音の向こうで雨が少し強くなった。\n\n戻ると、洗面器の字はほどけていた。水面には軒先の暗い線だけが映っていた。裸電球はつけなかった。外の灰色の明るさで、ガラス瓶の肩や茶碗の欠けがかろうじて見え、台所のものはひとつずつ輪郭だけになっていった。\n\n棚の上には祖母の硯箱が置かれたままだった。蓋のふちに墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。\n\n雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字。急いだ字。途中でかすれた字。どれも祖母のものだった。怒るときの字も、買い物を頼むときの字も、私の名前を書くときの、少し丸くなる字もあった。\n\nやがて水面に、長い一行が浮かんだ。\n\n元気でいますか。\n\n私は返事のかわりに、濡れた指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。\n\nそれでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。\n\n祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。",
+  "final_state": {
+    "seed": "雨が祖母の筆跡を覚えていた。",
+    "text": "六月の夕方、私は祖母の家の台所にひとりで座っていた。\n\n雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。\n\n窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいますか」の払いに似ていた。少し震えて、最後に力を抜く癖。祖母はどんな短い葉書にも、終わりの一画だけは息を吐くように書いた。\n\nその手紙は仏壇の引き出しにしまってある。封筒の端は、私が急いで開けたせいで斜めに裂けていた。返事を書く相手はもういない。叱られる相手もいない。台所の棚には、欠けた茶碗と、赤い糸の刺さった針山と、白く塩を吹いた梅干しの瓶が、そのまま残っていた。\n\n洗面器の底に雨水がたまり、灰色の光を揺らしていた。しずくがひとつ落ちるたび、水面に細い線が寄り集まり、短い言葉になった。\n\n戸をしめて。\n\n私は立ち上がり、勝手口へ行った。板戸のそばは外の湿り気で冷たく、掛け金には赤い錆が浮いていた。指先に金の匂いがついた。掛け金を下ろすと、かちん、と小さく鳴り、その音の向こうで雨が少し強くなった。\n\n戻ると、洗面器の字はほどけていた。水面には軒先の暗い線だけが映っていた。裸電球はつけなかった。外の灰色の明るさで、ガラス瓶の肩や茶碗の欠けがかろうじて見え、台所のものはひとつずつ輪郭だけになっていった。\n\n棚の上には祖母の硯箱が置かれたままだった。蓋のふちに墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。\n\n雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字。急いだ字。途中でかすれた字。どれも祖母のものだった。怒るときの字も、買い物を頼むときの字も、私の名前を書くときの、少し丸くなる字もあった。\n\nやがて水面に、長い一行が浮かんだ。\n\n元気でいますか。\n\n私は返事のかわりに、濡れた指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。\n\nそれでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。\n\n祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。",
+    "symbols": [
+      "祖母",
+      "洗面器",
+      "台所",
+      "元気でいますか",
+      "ブリキ",
+      "ガラス",
+      "六月",
+      "軒先",
+      "雨",
+      "裸電球",
+      "夕方",
+      "水面"
+    ],
+    "constraints": {
+      "max_drift": 0.82,
+      "min_drift": 0.18,
+      "max_repetition": 0.28,
+      "min_recurrence": 0.15,
+      "min_novelty": 0.18,
+      "max_collapse": 0.55,
+      "required_prefix": null,
+      "symbol_limit": 12
+    },
+    "metrics": {
+      "char_len": 1028.0,
+      "unit_count": 195.0,
+      "similarity": 0.8511,
+      "surface_drift": 0.1489,
+      "lexical_drift": 0.2092,
+      "drift_score": 0.17,
+      "novelty_score": 0.1333,
+      "repetition_score": 0.2513,
+      "recurrence_score": 0.9167,
+      "entropy_score": 0.9717,
+      "collapse_score": 0.1425,
+      "compression_ratio": 1.2023
+    },
+    "control_notes": [
+      "Drift is low: introduce one controlled mutation that changes the scene without replacing its ground.",
+      "Novelty is low: add fresh concrete detail rather than paraphrasing the prior stage.",
+      "RPM conflict c07-01-symbol_loss: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition."
+    ],
+    "memory_notes": [
+      "path_score=0.75327",
+      "last_provider=openai",
+      "last_reward=0.7272"
+    ],
+    "rpm_trace": {
+      "axes": [
+        "text",
+        "symbols",
+        "constraints",
+        "drift",
+        "recurrence",
+        "reward",
+        "operator"
+      ],
+      "matrix": [
+        {
+          "row_index": 1,
+          "stage_name": "現実の足場",
+          "role": "grounder",
+          "operator": "increase_grounding_and_stabilize_viewpoint",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s1-c1-openai",
+          "status": "accepted",
+          "text_preview": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。   軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。   流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。   窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖\n\n...[clipped]...\n\n 私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。   雨が祖母の筆跡を覚えていたのだと、そのとき自然に思った。   台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。   煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。",
+          "reward_score": 0.7024,
+          "symbols_before": [
+            "祖母",
+            "雨",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "雨",
+            "筆跡",
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "symbols_gained": [
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "symbols_lost": [],
+          "metrics_before": {},
+          "metrics_after": {
+            "char_len": 310.0,
+            "unit_count": 56.0,
+            "similarity": 0.0858,
+            "surface_drift": 0.9142,
+            "lexical_drift": 0.9516,
+            "drift_score": 0.9273,
+            "novelty_score": 0.8929,
+            "repetition_score": 0.1071,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.9847,
+            "collapse_score": 0.1546,
+            "compression_ratio": 22.1429
+          },
+          "metric_delta": {
+            "drift_score": 0.9273,
+            "novelty_score": 0.8929,
+            "repetition_score": 0.1071,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.9847,
+            "collapse_score": 0.1546,
+            "compression_ratio": 22.1429
+          },
+          "operator_effects": {
+            "drift_score": "increase",
+            "novelty_score": "increase",
+            "repetition_score": "increase",
+            "recurrence_score": "increase",
+            "entropy_score": "increase",
+            "collapse_score": "increase",
+            "compression_ratio": "increase",
+            "reward": "medium",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "low",
+            "reward_axis:integration": "medium",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r01-01",
+            "r01-02",
+            "r01-03",
+            "r01-04"
+          ],
+          "conflict_ids": [
+            "c01-01-high_drift"
+          ]
+        },
+        {
+          "row_index": 2,
+          "stage_name": "摂動：ありえない事実",
+          "role": "expander",
+          "operator": "inject_one_impossible_fact_without_explanation",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s2-c1-openai-r1",
+          "status": "accepted",
+          "text_preview": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。   軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。   横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。   窓ガラスを\n\n...[clipped]...\n\n下ろした。   裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。   雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。   それからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。",
+          "reward_score": 0.8156,
+          "symbols_before": [
+            "祖母",
+            "雨",
+            "筆跡",
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "ガラス",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 310.0,
+            "unit_count": 56.0,
+            "similarity": 0.0858,
+            "surface_drift": 0.9142,
+            "lexical_drift": 0.9516,
+            "drift_score": 0.9273,
+            "novelty_score": 0.8929,
+            "repetition_score": 0.1071,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.9847,
+            "collapse_score": 0.1546,
+            "compression_ratio": 22.1429
+          },
+          "metrics_after": {
+            "char_len": 416.0,
+            "unit_count": 78.0,
+            "similarity": 0.5286,
+            "surface_drift": 0.4714,
+            "lexical_drift": 0.5732,
+            "drift_score": 0.507,
+            "novelty_score": 0.4231,
+            "repetition_score": 0.141,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.982,
+            "collapse_score": 0.1029,
+            "compression_ratio": 1.3419
+          },
+          "metric_delta": {
+            "drift_score": -0.4203,
+            "novelty_score": -0.4698,
+            "repetition_score": 0.0339,
+            "recurrence_score": 0.0,
+            "entropy_score": -0.0027,
+            "collapse_score": -0.0517,
+            "compression_ratio": -20.801
+          },
+          "operator_effects": {
+            "drift_score": "decrease",
+            "novelty_score": "decrease",
+            "repetition_score": "stable",
+            "recurrence_score": "stable",
+            "entropy_score": "stable",
+            "collapse_score": "decrease",
+            "compression_ratio": "decrease",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r02-01",
+            "r02-02",
+            "r02-03",
+            "r02-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 3,
+          "stage_name": "象徴の反復",
+          "role": "symbolizer",
+          "operator": "amplify_symbolic_recurrence_by_variation",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s3-c1-openai",
+          "status": "accepted",
+          "text_preview": "六月の夕方、祖母の台所は、濡れた木と煮干しの匂いで低く満ちていた。   軒先から落ちるしずくはブリキの洗面器を叩き、ぽつ、ぽつ、という音の間に、遠い咳払いのような沈黙を挟んだ。   窓ガラスを下りる雨すじは、まっすぐには進まず、何度もためらってから細く曲がり、祖母の手紙の「元気で\n\n...[clipped]...\n\n縮み、その黒さの奥で、祖母の筆の先だけがまだ濡れているように見えた。   雨は屋根を渡り、樋を伝い、洗面器に戻ってくるたび、少しずつ別の筆跡になっていた。   それは別れた日の字ではなく、これから届くはずのない手紙の字で、私は冷えた膝を抱えたまま、その一行が現れるのを待っていた。",
+          "reward_score": 0.7341,
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "ガラス",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡",
+            "雨"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 416.0,
+            "unit_count": 78.0,
+            "similarity": 0.5286,
+            "surface_drift": 0.4714,
+            "lexical_drift": 0.5732,
+            "drift_score": 0.507,
+            "novelty_score": 0.4231,
+            "repetition_score": 0.141,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.982,
+            "collapse_score": 0.1029,
+            "compression_ratio": 1.3419
+          },
+          "metrics_after": {
+            "char_len": 532.0,
+            "unit_count": 103.0,
+            "similarity": 0.3545,
+            "surface_drift": 0.6455,
+            "lexical_drift": 0.7083,
+            "drift_score": 0.6675,
+            "novelty_score": 0.534,
+            "repetition_score": 0.1456,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9859,
+            "collapse_score": 0.0822,
+            "compression_ratio": 1.2788
+          },
+          "metric_delta": {
+            "drift_score": 0.1605,
+            "novelty_score": 0.1109,
+            "repetition_score": 0.0046,
+            "recurrence_score": 0.0416,
+            "entropy_score": 0.0039,
+            "collapse_score": -0.0207,
+            "compression_ratio": -0.0631
+          },
+          "operator_effects": {
+            "drift_score": "increase",
+            "novelty_score": "increase",
+            "repetition_score": "stable",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "stable",
+            "compression_ratio": "decrease",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r03-01",
+            "r03-02",
+            "r03-03",
+            "r03-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 4,
+          "stage_name": "安定化：語りの重力",
+          "role": "stabilizer",
+          "operator": "reduce_drift_while_preserving_magic",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s4-c1-openai",
+          "status": "accepted",
+          "text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。   雨は軒先から落ち、ブリキの洗面器をぽつぽつと叩いていた。   濡れた木の匂いと、昼に使った煮干しの匂いが、流しのあたりに残っていた。   窓ガラスを下りる雨すじは、途中で細く曲がり、祖母の手紙にあった「元気でいますか」の字\n\n...[clipped]...\n\n勝手口の掛け金を下ろした。   裸電球はつけず、ガラス瓶や欠けた茶碗が、夕方の暗さの中で輪郭だけになっていった。   棚の上の硯箱には墨じみが残り、蓋の隙間からまだ湿った匂いがした。   雨は屋根を伝って洗面器に戻るたび、少しずつ違う字になり、私は膝を抱えて次の一行を待っていた。",
+          "reward_score": 0.8609,
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡",
+            "雨"
+          ],
+          "symbols_after": [
+            "洗面器",
+            "祖母",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 532.0,
+            "unit_count": 103.0,
+            "similarity": 0.3545,
+            "surface_drift": 0.6455,
+            "lexical_drift": 0.7083,
+            "drift_score": 0.6675,
+            "novelty_score": 0.534,
+            "repetition_score": 0.1456,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9859,
+            "collapse_score": 0.0822,
+            "compression_ratio": 1.2788
+          },
+          "metrics_after": {
+            "char_len": 385.0,
+            "unit_count": 78.0,
+            "similarity": 0.4102,
+            "surface_drift": 0.5898,
+            "lexical_drift": 0.7273,
+            "drift_score": 0.6379,
+            "novelty_score": 0.4615,
+            "repetition_score": 0.1538,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9842,
+            "collapse_score": 0.1303,
+            "compression_ratio": 0.7237
+          },
+          "metric_delta": {
+            "drift_score": -0.0296,
+            "novelty_score": -0.0725,
+            "repetition_score": 0.0082,
+            "recurrence_score": 0.0,
+            "entropy_score": -0.0017,
+            "collapse_score": 0.0481,
+            "compression_ratio": -0.5551
+          },
+          "operator_effects": {
+            "drift_score": "stable",
+            "novelty_score": "decrease",
+            "repetition_score": "stable",
+            "recurrence_score": "stable",
+            "entropy_score": "stable",
+            "collapse_score": "increase",
+            "compression_ratio": "decrease",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r04-01",
+            "r04-02",
+            "r04-03",
+            "r04-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 5,
+          "stage_name": "圧縮：骨格を残す",
+          "role": "compressor",
+          "operator": "compress_to_dense_visible_bone_structure",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s5-c1-openai",
+          "status": "accepted",
+          "text_preview": "六月の夕方、祖母の家の台所で、私は雨の字を待っていた。  軒先から落ちるしずくが、ブリキの洗面器を叩く。ぽつ、ぽつ、と音がして、水面に細い線がほどける。その線は窓ガラスを下りる雨すじと同じ癖で曲がり、祖母の手紙にあった「元気でいますか」の筆跡になった。  祖母はもういない。手紙は\n\n...[clipped]...\n\n。  私は立ち上がり、勝手口の掛け金を下ろした。濡れた木と煮干しの匂いが、暗くなりかけた台所に残っていた。裸電球はつけなかった。ガラス瓶も欠けた茶碗も、夕方の中で輪郭だけになった。  洗面器に戻る雨は、そのたび少し違う字を書いた。私は膝を抱え、次に祖母が何を言うのかを待っていた。",
+          "reward_score": 0.7535,
+          "symbols_before": [
+            "洗面器",
+            "祖母",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 385.0,
+            "unit_count": 78.0,
+            "similarity": 0.4102,
+            "surface_drift": 0.5898,
+            "lexical_drift": 0.7273,
+            "drift_score": 0.6379,
+            "novelty_score": 0.4615,
+            "repetition_score": 0.1538,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9842,
+            "collapse_score": 0.1303,
+            "compression_ratio": 0.7237
+          },
+          "metrics_after": {
+            "char_len": 355.0,
+            "unit_count": 68.0,
+            "similarity": 0.5092,
+            "surface_drift": 0.4908,
+            "lexical_drift": 0.6163,
+            "drift_score": 0.5347,
+            "novelty_score": 0.3088,
+            "repetition_score": 0.2206,
+            "recurrence_score": 0.75,
+            "entropy_score": 0.9726,
+            "collapse_score": 0.1888,
+            "compression_ratio": 0.9221
+          },
+          "metric_delta": {
+            "drift_score": -0.1032,
+            "novelty_score": -0.1527,
+            "repetition_score": 0.0668,
+            "recurrence_score": 0.0417,
+            "entropy_score": -0.0116,
+            "collapse_score": 0.0585,
+            "compression_ratio": 0.1984
+          },
+          "operator_effects": {
+            "drift_score": "decrease",
+            "novelty_score": "decrease",
+            "repetition_score": "increase",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "increase",
+            "compression_ratio": "increase",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r05-01",
+            "r05-02",
+            "r05-03",
+            "r05-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 6,
+          "stage_name": "再統合：PRM accepted pathから最終稿へ",
+          "role": "integrator",
+          "operator": "aggregate_high_reward_path",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s6-c1-openai",
+          "status": "accepted",
+          "text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い金属の底で丸くなり、流し台の下まで転がって、また暗がりに吸われた。畳は湿り、昼に出汁を取った煮干しの匂いと、古い木の匂いが混じっていた。  窓ガラスを下りる\n\n...[clipped]...\n\nした。私はそのそばに座り、冷えた膝を両手で包んだ。  雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字、急いだ字、途中でかすれた字。どれも祖母のものだった。  雨が祖母の筆跡を覚えていた。  私は息をひそめ、次の一行が浮かぶのを待っていた。",
+          "reward_score": 0.8449,
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "ガラス",
+            "軒先",
+            "筆跡",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "夕方"
+          ],
+          "symbols_gained": [],
+          "symbols_lost": [],
+          "metrics_before": {
+            "char_len": 355.0,
+            "unit_count": 68.0,
+            "similarity": 0.5092,
+            "surface_drift": 0.4908,
+            "lexical_drift": 0.6163,
+            "drift_score": 0.5347,
+            "novelty_score": 0.3088,
+            "repetition_score": 0.2206,
+            "recurrence_score": 0.75,
+            "entropy_score": 0.9726,
+            "collapse_score": 0.1888,
+            "compression_ratio": 0.9221
+          },
+          "metrics_after": {
+            "char_len": 855.0,
+            "unit_count": 164.0,
+            "similarity": 0.3565,
+            "surface_drift": 0.6435,
+            "lexical_drift": 0.7071,
+            "drift_score": 0.6658,
+            "novelty_score": 0.5793,
+            "repetition_score": 0.2195,
+            "recurrence_score": 0.7917,
+            "entropy_score": 0.9728,
+            "collapse_score": 0.1248,
+            "compression_ratio": 2.4085
+          },
+          "metric_delta": {
+            "drift_score": 0.1311,
+            "novelty_score": 0.2705,
+            "repetition_score": -0.0011,
+            "recurrence_score": 0.0417,
+            "entropy_score": 0.0002,
+            "collapse_score": -0.064,
+            "compression_ratio": 1.4864
+          },
+          "operator_effects": {
+            "drift_score": "increase",
+            "novelty_score": "increase",
+            "repetition_score": "stable",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "decrease",
+            "compression_ratio": "increase",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r06-01",
+            "r06-02",
+            "r06-03",
+            "r06-04"
+          ],
+          "conflict_ids": []
+        },
+        {
+          "row_index": 7,
+          "stage_name": "再帰クロージャ：Seedへの帰還",
+          "role": "recursive",
+          "operator": "close_loop_to_seed",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "candidate_id": "s7-c1-openai",
+          "status": "accepted",
+          "text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。  窓ガラスを下りる雨すじは、\n\n...[clipped]...\n\n指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。  それでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。  祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。",
+          "reward_score": 0.7272,
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "ガラス",
+            "軒先",
+            "筆跡",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "夕方"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "ブリキ",
+            "ガラス",
+            "六月",
+            "軒先",
+            "雨",
+            "裸電球",
+            "夕方",
+            "水面"
+          ],
+          "symbols_gained": [
+            "水面"
+          ],
+          "symbols_lost": [
+            "筆跡"
+          ],
+          "metrics_before": {
+            "char_len": 855.0,
+            "unit_count": 164.0,
+            "similarity": 0.3565,
+            "surface_drift": 0.6435,
+            "lexical_drift": 0.7071,
+            "drift_score": 0.6658,
+            "novelty_score": 0.5793,
+            "repetition_score": 0.2195,
+            "recurrence_score": 0.7917,
+            "entropy_score": 0.9728,
+            "collapse_score": 0.1248,
+            "compression_ratio": 2.4085
+          },
+          "metrics_after": {
+            "char_len": 1028.0,
+            "unit_count": 195.0,
+            "similarity": 0.8511,
+            "surface_drift": 0.1489,
+            "lexical_drift": 0.2092,
+            "drift_score": 0.17,
+            "novelty_score": 0.1333,
+            "repetition_score": 0.2513,
+            "recurrence_score": 0.9167,
+            "entropy_score": 0.9717,
+            "collapse_score": 0.1425,
+            "compression_ratio": 1.2023
+          },
+          "metric_delta": {
+            "drift_score": -0.4958,
+            "novelty_score": -0.446,
+            "repetition_score": 0.0318,
+            "recurrence_score": 0.125,
+            "entropy_score": -0.0011,
+            "collapse_score": 0.0177,
+            "compression_ratio": -1.2062
+          },
+          "operator_effects": {
+            "drift_score": "decrease",
+            "novelty_score": "decrease",
+            "repetition_score": "stable",
+            "recurrence_score": "increase",
+            "entropy_score": "stable",
+            "collapse_score": "stable",
+            "compression_ratio": "decrease",
+            "reward": "high",
+            "reward_axis:grounding": "high",
+            "reward_axis:symbol_recurrence": "high",
+            "reward_axis:drift_control": "high",
+            "reward_axis:integration": "high",
+            "reward_axis:closure": "medium"
+          },
+          "rule_ids": [
+            "r07-01",
+            "r07-02",
+            "r07-03",
+            "r07-04"
+          ],
+          "conflict_ids": [
+            "c07-01-symbol_loss"
+          ]
+        }
+      ],
+      "inferred_rules": [
+        {
+          "rule_id": "r04-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'reduce_drift_while_preserving_magic' acts on the state as collapse_score:increase, compression_ratio:decrease, drift_score:stable, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:stable.",
+          "confidence": 0.9235,
+          "support": [
+            "s4-c1-openai",
+            "reward=0.861"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r06-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'aggregate_high_reward_path' acts on the state as collapse_score:decrease, compression_ratio:increase, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:increase, repetition_score:stable.",
+          "confidence": 0.9147,
+          "support": [
+            "s6-c1-openai",
+            "reward=0.845"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r02-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'inject_one_impossible_fact_without_explanation' acts on the state as collapse_score:decrease, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:stable.",
+          "confidence": 0.8986,
+          "support": [
+            "s2-c1-openai-r1",
+            "reward=0.816"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r07-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' returns the seed in transformed form during 再帰クロージャ：Seedへの帰還.",
+          "confidence": 0.889,
+          "support": [
+            "s7-c1-openai",
+            "close_loop_to_seed"
+          ],
+          "stage_indices": [
+            7
+          ]
+        },
+        {
+          "rule_id": "r07-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'洗面器' returns the seed in transformed form during 再帰クロージャ：Seedへの帰還.",
+          "confidence": 0.889,
+          "support": [
+            "s7-c1-openai",
+            "close_loop_to_seed"
+          ],
+          "stage_indices": [
+            7
+          ]
+        },
+        {
+          "rule_id": "r07-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'台所' returns the seed in transformed form during 再帰クロージャ：Seedへの帰還.",
+          "confidence": 0.889,
+          "support": [
+            "s7-c1-openai",
+            "close_loop_to_seed"
+          ],
+          "stage_indices": [
+            7
+          ]
+        },
+        {
+          "rule_id": "r06-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+          "confidence": 0.8806,
+          "support": [
+            "s6-c1-openai",
+            "aggregate_high_reward_path"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r06-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'洗面器' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+          "confidence": 0.8806,
+          "support": [
+            "s6-c1-openai",
+            "aggregate_high_reward_path"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r06-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'台所' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+          "confidence": 0.8806,
+          "support": [
+            "s6-c1-openai",
+            "aggregate_high_reward_path"
+          ],
+          "stage_indices": [
+            6
+          ]
+        },
+        {
+          "rule_id": "r05-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'compress_to_dense_visible_bone_structure' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:increase.",
+          "confidence": 0.8644,
+          "support": [
+            "s5-c1-openai",
+            "reward=0.753"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r04-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'洗面器' helps keep the drift legible during 安定化：語りの重力.",
+          "confidence": 0.8562,
+          "support": [
+            "s4-c1-openai",
+            "reduce_drift_while_preserving_magic"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r04-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' helps keep the drift legible during 安定化：語りの重力.",
+          "confidence": 0.8562,
+          "support": [
+            "s4-c1-openai",
+            "reduce_drift_while_preserving_magic"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r04-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'ガラス' helps keep the drift legible during 安定化：語りの重力.",
+          "confidence": 0.8562,
+          "support": [
+            "s4-c1-openai",
+            "reduce_drift_while_preserving_magic"
+          ],
+          "stage_indices": [
+            4
+          ]
+        },
+        {
+          "rule_id": "r03-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'amplify_symbolic_recurrence_by_variation' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:increase, repetition_score:stable.",
+          "confidence": 0.8538,
+          "support": [
+            "s3-c1-openai",
+            "reward=0.734"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r07-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'close_loop_to_seed' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:stable.",
+          "confidence": 0.85,
+          "support": [
+            "s7-c1-openai",
+            "reward=0.727"
+          ],
+          "stage_indices": [
+            7
+          ]
+        },
+        {
+          "rule_id": "r05-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' remains after compression during 圧縮：骨格を残す.",
+          "confidence": 0.8385,
+          "support": [
+            "s5-c1-openai",
+            "compress_to_dense_visible_bone_structure"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r05-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'洗面器' remains after compression during 圧縮：骨格を残す.",
+          "confidence": 0.8385,
+          "support": [
+            "s5-c1-openai",
+            "compress_to_dense_visible_bone_structure"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r05-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'ガラス' remains after compression during 圧縮：骨格を残す.",
+          "confidence": 0.8385,
+          "support": [
+            "s5-c1-openai",
+            "compress_to_dense_visible_bone_structure"
+          ],
+          "stage_indices": [
+            5
+          ]
+        },
+        {
+          "rule_id": "r01-04",
+          "kind": "operator_effect",
+          "statement": "Operator 'increase_grounding_and_stabilize_viewpoint' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:increase, entropy_score:increase, novelty_score:increase, recurrence_score:increase, repetition_score:increase.",
+          "confidence": 0.8363,
+          "support": [
+            "s1-c1-openai",
+            "reward=0.702"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r02-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' survives an impossible perturbation during 摂動：ありえない事実.",
+          "confidence": 0.828,
+          "support": [
+            "s2-c1-openai-r1",
+            "inject_one_impossible_fact_without_explanation"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r02-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'洗面器' survives an impossible perturbation during 摂動：ありえない事実.",
+          "confidence": 0.828,
+          "support": [
+            "s2-c1-openai-r1",
+            "inject_one_impossible_fact_without_explanation"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r02-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'台所' survives an impossible perturbation during 摂動：ありえない事実.",
+          "confidence": 0.828,
+          "support": [
+            "s2-c1-openai-r1",
+            "inject_one_impossible_fact_without_explanation"
+          ],
+          "stage_indices": [
+            2
+          ]
+        },
+        {
+          "rule_id": "r03-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' becomes a recurring symbolic circuit during 象徴の反復.",
+          "confidence": 0.8181,
+          "support": [
+            "s3-c1-openai",
+            "amplify_symbolic_recurrence_by_variation"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r03-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'洗面器' becomes a recurring symbolic circuit during 象徴の反復.",
+          "confidence": 0.8181,
+          "support": [
+            "s3-c1-openai",
+            "amplify_symbolic_recurrence_by_variation"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r03-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'ガラス' becomes a recurring symbolic circuit during 象徴の反復.",
+          "confidence": 0.8181,
+          "support": [
+            "s3-c1-openai",
+            "amplify_symbolic_recurrence_by_variation"
+          ],
+          "stage_indices": [
+            3
+          ]
+        },
+        {
+          "rule_id": "r01-01",
+          "kind": "symbolic_recurrence",
+          "statement": "'祖母' anchors the scene in concrete reality during 現実の足場.",
+          "confidence": 0.7941,
+          "support": [
+            "s1-c1-openai",
+            "increase_grounding_and_stabilize_viewpoint"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r01-02",
+          "kind": "symbolic_recurrence",
+          "statement": "'雨' anchors the scene in concrete reality during 現実の足場.",
+          "confidence": 0.7941,
+          "support": [
+            "s1-c1-openai",
+            "increase_grounding_and_stabilize_viewpoint"
+          ],
+          "stage_indices": [
+            1
+          ]
+        },
+        {
+          "rule_id": "r01-03",
+          "kind": "symbolic_recurrence",
+          "statement": "'筆跡' anchors the scene in concrete reality during 現実の足場.",
+          "confidence": 0.7941,
+          "support": [
+            "s1-c1-openai",
+            "increase_grounding_and_stabilize_viewpoint"
+          ],
+          "stage_indices": [
+            1
+          ]
+        }
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "c01-01-high_drift",
+          "type": "high_drift",
+          "severity": 0.5961,
+          "description": "The accepted transition moved too far from the previous state.",
+          "evidence": {
+            "drift_score": 0.9273,
+            "max_drift": 0.82
+          },
+          "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "resolved": true
+        },
+        {
+          "conflict_id": "c07-01-symbol_loss",
+          "type": "symbol_loss",
+          "severity": 0.0833,
+          "description": "Symbols that should recur disappeared during a recurrence-sensitive stage.",
+          "evidence": {
+            "symbols": [
+              "筆跡"
+            ],
+            "role": "recursive"
+          },
+          "repair_instruction": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+          "resolved": false
+        }
+      ],
+      "repair_plans": [
+        {
+          "conflict_id": "c01-01-high_drift",
+          "stage_index": 1,
+          "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+          "applied_by_candidate_id": null
+        },
+        {
+          "conflict_id": "c07-01-symbol_loss",
+          "stage_index": 7,
+          "instruction": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+          "applied_by_candidate_id": null
+        }
+      ],
+      "stable_symbols": [
+        "祖母",
+        "雨",
+        "元気でいますか",
+        "ガラス",
+        "台所",
+        "ブリキ",
+        "洗面器",
+        "裸電球",
+        "六月",
+        "夕方",
+        "軒先",
+        "筆跡"
+      ],
+      "unstable_symbols": [
+        "水面"
+      ],
+      "drift_vector": {
+        "mean_drift": 0.5872,
+        "last_drift": 0.17,
+        "mean_recurrence": 0.7441,
+        "last_recurrence": 0.9167,
+        "mean_reward": 0.7769,
+        "last_reward": 0.7272
+      },
+      "notes": [
+        "matrix_rows=7",
+        "rules=28",
+        "unresolved_conflicts=1"
+      ]
+    },
+    "step_history": [
+      {
+        "index": 1,
+        "name": "現実の足場",
+        "role": "grounder",
+        "operator": "increase_grounding_and_stabilize_viewpoint",
+        "accepted": {
+          "candidate_id": "s1-c1-openai",
+          "stage_index": 1,
+          "stage_name": "現実の足場",
+          "role": "grounder",
+          "operator": "increase_grounding_and_stabilize_viewpoint",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。  \n流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。  \n窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。  \n雨が祖母の筆跡を覚えていたのだと、そのとき自然に思った。  \n台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。  \n煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。",
+          "metrics": {
+            "char_len": 310.0,
+            "unit_count": 56.0,
+            "similarity": 0.0858,
+            "surface_drift": 0.9142,
+            "lexical_drift": 0.9516,
+            "drift_score": 0.9273,
+            "novelty_score": 0.8929,
+            "repetition_score": 0.1071,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.9847,
+            "collapse_score": 0.1546,
+            "compression_ratio": 22.1429
+          },
+          "symbols_before": [
+            "祖母",
+            "雨",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "雨",
+            "筆跡",
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "reward": {
+            "score": 0.7024,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.8759,
+              "controlled_perturbation": 0.1161,
+              "symbol_recurrence": 0.7667,
+              "drift_control": 0.4039,
+              "novelty": 0.8929,
+              "repetition_control": 0.6175,
+              "collapse_control": 0.7189,
+              "integration": 0.6774,
+              "closure": 0.5546
+            },
+            "reasons": [
+              "drift too high (0.927)"
+            ],
+            "repair_prompt": "Repair this visible output for stage '現実の足場' / role 'grounder'. Main issues: drift too high (0.927). Weak reward axes: controlled_perturbation=0.12, drift_control=0.40, closure=0.55. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "grounding": 0.3,
+                "drift_control": 0.24,
+                "collapse_control": 0.16,
+                "novelty": 0.1,
+                "symbol_recurrence": 0.1,
+                "repetition_control": 0.1,
+                "integration": 0.0,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 445,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 330,
+            "output_tokens_details": {
+              "reasoning_tokens": 51
+            },
+            "total_tokens": 775
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": [
+          "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+          "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+        ]
+      },
+      {
+        "index": 2,
+        "name": "摂動：ありえない事実",
+        "role": "expander",
+        "operator": "inject_one_impossible_fact_without_explanation",
+        "accepted": {
+          "candidate_id": "s2-c1-openai-r1",
+          "stage_index": 2,
+          "stage_name": "摂動：ありえない事実",
+          "role": "expander",
+          "operator": "inject_one_impossible_fact_without_explanation",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。  \n横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。  \n窓ガラスを伝う雨すじは、曲がるたびに少し震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n洗面器の底にたまった雨水には、しずくが落ちるたび、祖母の字で「戸をしめて」と一行だけ浮かび、また水にほどけた。  \n私は濡れた指を布巾で拭き、言われたとおり勝手口の掛け金を下ろした。  \n裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。  \n雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。  \nそれからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。",
+          "metrics": {
+            "char_len": 416.0,
+            "unit_count": 78.0,
+            "similarity": 0.5286,
+            "surface_drift": 0.4714,
+            "lexical_drift": 0.5732,
+            "drift_score": 0.507,
+            "novelty_score": 0.4231,
+            "repetition_score": 0.141,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.982,
+            "collapse_score": 0.1029,
+            "compression_ratio": 1.3419
+          },
+          "symbols_before": [
+            "祖母",
+            "雨",
+            "筆跡",
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "ガラス",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先",
+            "筆跡"
+          ],
+          "reward": {
+            "score": 0.8156,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9563,
+              "controlled_perturbation": 0.9389,
+              "symbol_recurrence": 0.7667,
+              "drift_control": 1.0,
+              "novelty": 0.4231,
+              "repetition_control": 0.4964,
+              "collapse_control": 0.8129,
+              "integration": 0.8628,
+              "closure": 0.644
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '摂動：ありえない事実' / role 'expander'. Main issues: score below target. Weak reward axes: novelty=0.42, repetition_control=0.50, closure=0.64. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "controlled_perturbation": 0.28,
+                "novelty": 0.2,
+                "drift_control": 0.18,
+                "grounding": 0.12,
+                "symbol_recurrence": 0.12,
+                "collapse_control": 0.1,
+                "repetition_control": 0.0,
+                "integration": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1066,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 697,
+            "output_tokens_details": {
+              "reasoning_tokens": 311
+            },
+            "total_tokens": 1763
+          },
+          "repaired_from": "s2-c1-openai",
+          "repair_attempt": 1
+        },
+        "rejected": [
+          {
+            "candidate_id": "s2-c1-openai",
+            "stage_index": 2,
+            "stage_name": "摂動：ありえない事実",
+            "role": "expander",
+            "operator": "inject_one_impossible_fact_without_explanation",
+            "provider": "openai",
+            "model": "gpt-5.5",
+            "output": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。  \n流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。  \n窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n洗面器にたまった雨水の底で、その「元気でいますか」が、墨の黒さのままゆっくりほどけたり結び直されたりしていた。  \n私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。  \n台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。  \n煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。",
+            "metrics": {
+              "char_len": 337.0,
+              "unit_count": 58.0,
+              "similarity": 0.8628,
+              "surface_drift": 0.1372,
+              "lexical_drift": 0.1481,
+              "drift_score": 0.141,
+              "novelty_score": 0.069,
+              "repetition_score": 0.1379,
+              "recurrence_score": 0.7083,
+              "entropy_score": 0.9868,
+              "collapse_score": 0.1532,
+              "compression_ratio": 1.0871
+            },
+            "symbols_before": [
+              "祖母",
+              "雨",
+              "筆跡",
+              "元気でいますか",
+              "ガラス",
+              "台所",
+              "ブリキ",
+              "洗面器",
+              "裸電球",
+              "六月",
+              "夕方",
+              "軒先"
+            ],
+            "symbols_after": [
+              "元気でいますか",
+              "祖母",
+              "洗面器",
+              "ガラス",
+              "台所",
+              "雨",
+              "ブリキ",
+              "裸電球",
+              "六月",
+              "夕方",
+              "軒先",
+              "筆跡"
+            ],
+            "reward": {
+              "score": 0.5019,
+              "accept": false,
+              "repairable": true,
+              "metric_scores": {
+                "grounding": 0.9109,
+                "controlled_perturbation": 0.2611,
+                "symbol_recurrence": 0.7708,
+                "drift_control": 0.7833,
+                "novelty": 0.069,
+                "repetition_control": 0.5075,
+                "collapse_control": 0.7215,
+                "integration": 0.786,
+                "closure": 0.4445
+              },
+              "reasons": [
+                "drift too low (0.141); step may be paraphrase",
+                "novelty low (0.069)"
+              ],
+              "repair_prompt": "Repair this visible output for stage '摂動：ありえない事実' / role 'expander'. Main issues: drift too low (0.141); step may be paraphrase; novelty low (0.069). Weak reward axes: novelty=0.07, controlled_perturbation=0.26, closure=0.44. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+              "judge": "heuristic",
+              "raw": {
+                "weights": {
+                  "controlled_perturbation": 0.28,
+                  "novelty": 0.2,
+                  "drift_control": 0.18,
+                  "grounding": 0.12,
+                  "symbol_recurrence": 0.12,
+                  "collapse_control": 0.1,
+                  "repetition_control": 0.0,
+                  "integration": 0.0,
+                  "closure": 0.0
+                }
+              }
+            },
+            "prompt": null,
+            "usage": {
+              "input_tokens": 1222,
+              "input_tokens_details": {
+                "cached_tokens": 0
+              },
+              "output_tokens": 440,
+              "output_tokens_details": {
+                "reasoning_tokens": 141
+              },
+              "total_tokens": 1662
+            },
+            "repaired_from": null,
+            "repair_attempt": 0
+          }
+        ],
+        "repaired": [
+          {
+            "candidate_id": "s2-c1-openai-r1",
+            "stage_index": 2,
+            "stage_name": "摂動：ありえない事実",
+            "role": "expander",
+            "operator": "inject_one_impossible_fact_without_explanation",
+            "provider": "openai",
+            "model": "gpt-5.5",
+            "output": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。  \n横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。  \n窓ガラスを伝う雨すじは、曲がるたびに少し震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n洗面器の底にたまった雨水には、しずくが落ちるたび、祖母の字で「戸をしめて」と一行だけ浮かび、また水にほどけた。  \n私は濡れた指を布巾で拭き、言われたとおり勝手口の掛け金を下ろした。  \n裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。  \n雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。  \nそれからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。",
+            "metrics": {
+              "char_len": 416.0,
+              "unit_count": 78.0,
+              "similarity": 0.5286,
+              "surface_drift": 0.4714,
+              "lexical_drift": 0.5732,
+              "drift_score": 0.507,
+              "novelty_score": 0.4231,
+              "repetition_score": 0.141,
+              "recurrence_score": 0.6667,
+              "entropy_score": 0.982,
+              "collapse_score": 0.1029,
+              "compression_ratio": 1.3419
+            },
+            "symbols_before": [
+              "祖母",
+              "雨",
+              "筆跡",
+              "元気でいますか",
+              "ガラス",
+              "台所",
+              "ブリキ",
+              "洗面器",
+              "裸電球",
+              "六月",
+              "夕方",
+              "軒先"
+            ],
+            "symbols_after": [
+              "祖母",
+              "洗面器",
+              "台所",
+              "元気でいますか",
+              "雨",
+              "ブリキ",
+              "ガラス",
+              "裸電球",
+              "六月",
+              "夕方",
+              "軒先",
+              "筆跡"
+            ],
+            "reward": {
+              "score": 0.8156,
+              "accept": true,
+              "repairable": true,
+              "metric_scores": {
+                "grounding": 0.9563,
+                "controlled_perturbation": 0.9389,
+                "symbol_recurrence": 0.7667,
+                "drift_control": 1.0,
+                "novelty": 0.4231,
+                "repetition_control": 0.4964,
+                "collapse_control": 0.8129,
+                "integration": 0.8628,
+                "closure": 0.644
+              },
+              "reasons": [],
+              "repair_prompt": "Repair this visible output for stage '摂動：ありえない事実' / role 'expander'. Main issues: score below target. Weak reward axes: novelty=0.42, repetition_control=0.50, closure=0.64. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+              "judge": "heuristic",
+              "raw": {
+                "weights": {
+                  "controlled_perturbation": 0.28,
+                  "novelty": 0.2,
+                  "drift_control": 0.18,
+                  "grounding": 0.12,
+                  "symbol_recurrence": 0.12,
+                  "collapse_control": 0.1,
+                  "repetition_control": 0.0,
+                  "integration": 0.0,
+                  "closure": 0.0
+                }
+              }
+            },
+            "prompt": null,
+            "usage": {
+              "input_tokens": 1066,
+              "input_tokens_details": {
+                "cached_tokens": 0
+              },
+              "output_tokens": 697,
+              "output_tokens_details": {
+                "reasoning_tokens": 311
+              },
+              "total_tokens": 1763
+            },
+            "repaired_from": "s2-c1-openai",
+            "repair_attempt": 1
+          }
+        ],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 3,
+        "name": "象徴の反復",
+        "role": "symbolizer",
+        "operator": "amplify_symbolic_recurrence_by_variation",
+        "accepted": {
+          "candidate_id": "s3-c1-openai",
+          "stage_index": 3,
+          "stage_name": "象徴の反復",
+          "role": "symbolizer",
+          "operator": "amplify_symbolic_recurrence_by_variation",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、祖母の台所は、濡れた木と煮干しの匂いで低く満ちていた。  \n軒先から落ちるしずくはブリキの洗面器を叩き、ぽつ、ぽつ、という音の間に、遠い咳払いのような沈黙を挟んだ。  \n窓ガラスを下りる雨すじは、まっすぐには進まず、何度もためらってから細く曲がり、祖母の手紙の「元気でいますか」の払いに戻っていった。  \n私はその字を思い出すたび、封筒の端を裂いた朝の紙のざらつきと、もう返事を出せないことを一緒に思い出した。  \n洗面器の底では、雨水が薄い灰色に揺れ、しずくが落ちるたびに祖母の字で「戸をしめて」と浮かび、すぐにほどけた。  \n私は勝手口の掛け金を下ろし、金具が噛み合う小さな音を聞いて、何かが家の外に残されるのを感じた。  \n裸電球はつけないまま、流しのガラス瓶、欠けた茶碗、針山の赤い糸が、夕方の暗さに少しずつ沈んでいった。  \n硯箱の蓋の墨じみは乾いた海苔のように縮み、その黒さの奥で、祖母の筆の先だけがまだ濡れているように見えた。  \n雨は屋根を渡り、樋を伝い、洗面器に戻ってくるたび、少しずつ別の筆跡になっていた。  \nそれは別れた日の字ではなく、これから届くはずのない手紙の字で、私は冷えた膝を抱えたまま、その一行が現れるのを待っていた。",
+          "metrics": {
+            "char_len": 532.0,
+            "unit_count": 103.0,
+            "similarity": 0.3545,
+            "surface_drift": 0.6455,
+            "lexical_drift": 0.7083,
+            "drift_score": 0.6675,
+            "novelty_score": 0.534,
+            "repetition_score": 0.1456,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9859,
+            "collapse_score": 0.0822,
+            "compression_ratio": 1.2788
+          },
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "ガラス",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡",
+            "雨"
+          ],
+          "reward": {
+            "score": 0.7341,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9652,
+              "controlled_perturbation": 0.5972,
+              "symbol_recurrence": 0.7958,
+              "drift_control": 1.0,
+              "novelty": 0.534,
+              "repetition_control": 0.48,
+              "collapse_control": 0.8505,
+              "integration": 0.8829,
+              "closure": 0.5166
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '象徴の反復' / role 'symbolizer'. Main issues: score below target. Weak reward axes: repetition_control=0.48, closure=0.52, novelty=0.53. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "symbol_recurrence": 0.32,
+                "repetition_control": 0.2,
+                "novelty": 0.14,
+                "integration": 0.14,
+                "drift_control": 0.1,
+                "collapse_control": 0.1,
+                "grounding": 0.0,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1408,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 587,
+            "output_tokens_details": {
+              "reasoning_tokens": 107
+            },
+            "total_tokens": 1995
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 4,
+        "name": "安定化：語りの重力",
+        "role": "stabilizer",
+        "operator": "reduce_drift_while_preserving_magic",
+        "accepted": {
+          "candidate_id": "s4-c1-openai",
+          "stage_index": 4,
+          "stage_name": "安定化：語りの重力",
+          "role": "stabilizer",
+          "operator": "reduce_drift_while_preserving_magic",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  \n雨は軒先から落ち、ブリキの洗面器をぽつぽつと叩いていた。  \n濡れた木の匂いと、昼に使った煮干しの匂いが、流しのあたりに残っていた。  \n窓ガラスを下りる雨すじは、途中で細く曲がり、祖母の手紙にあった「元気でいますか」の字に似ていた。  \nその手紙はもう仏壇の引き出しにしまってあり、返事を書く相手はいなかった。  \n洗面器の底にたまった雨水には、ときどき祖母の筆跡で短い言葉が浮かんだ。  \n「戸をしめて」と読めたので、私は立って勝手口の掛け金を下ろした。  \n裸電球はつけず、ガラス瓶や欠けた茶碗が、夕方の暗さの中で輪郭だけになっていった。  \n棚の上の硯箱には墨じみが残り、蓋の隙間からまだ湿った匂いがした。  \n雨は屋根を伝って洗面器に戻るたび、少しずつ違う字になり、私は膝を抱えて次の一行を待っていた。",
+          "metrics": {
+            "char_len": 385.0,
+            "unit_count": 78.0,
+            "similarity": 0.4102,
+            "surface_drift": 0.5898,
+            "lexical_drift": 0.7273,
+            "drift_score": 0.6379,
+            "novelty_score": 0.4615,
+            "repetition_score": 0.1538,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9842,
+            "collapse_score": 0.1303,
+            "compression_ratio": 0.7237
+          },
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡",
+            "雨"
+          ],
+          "symbols_after": [
+            "洗面器",
+            "祖母",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡"
+          ],
+          "reward": {
+            "score": 0.8609,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9471,
+              "controlled_perturbation": 0.652,
+              "symbol_recurrence": 0.7958,
+              "drift_control": 1.0,
+              "novelty": 0.4615,
+              "repetition_control": 0.4507,
+              "collapse_control": 0.7631,
+              "integration": 0.8653,
+              "closure": 0.5405
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '安定化：語りの重力' / role 'stabilizer'. Main issues: score below target. Weak reward axes: repetition_control=0.45, novelty=0.46, closure=0.54. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "drift_control": 0.3,
+                "integration": 0.22,
+                "collapse_control": 0.18,
+                "symbol_recurrence": 0.14,
+                "grounding": 0.1,
+                "repetition_control": 0.06,
+                "novelty": 0.0,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1594,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 405,
+            "output_tokens_details": {
+              "reasoning_tokens": 69
+            },
+            "total_tokens": 1999
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 5,
+        "name": "圧縮：骨格を残す",
+        "role": "compressor",
+        "operator": "compress_to_dense_visible_bone_structure",
+        "accepted": {
+          "candidate_id": "s5-c1-openai",
+          "stage_index": 5,
+          "stage_name": "圧縮：骨格を残す",
+          "role": "compressor",
+          "operator": "compress_to_dense_visible_bone_structure",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、祖母の家の台所で、私は雨の字を待っていた。\n\n軒先から落ちるしずくが、ブリキの洗面器を叩く。ぽつ、ぽつ、と音がして、水面に細い線がほどける。その線は窓ガラスを下りる雨すじと同じ癖で曲がり、祖母の手紙にあった「元気でいますか」の筆跡になった。\n\n祖母はもういない。手紙は仏壇の引き出しにしまってある。返事を書く相手も、叱られる相手もいない。それでも雨は祖母の字を覚えていて、洗面器の底に短い言葉を浮かべた。\n\n戸をしめて。\n\n私は立ち上がり、勝手口の掛け金を下ろした。濡れた木と煮干しの匂いが、暗くなりかけた台所に残っていた。裸電球はつけなかった。ガラス瓶も欠けた茶碗も、夕方の中で輪郭だけになった。\n\n洗面器に戻る雨は、そのたび少し違う字を書いた。私は膝を抱え、次に祖母が何を言うのかを待っていた。",
+          "metrics": {
+            "char_len": 355.0,
+            "unit_count": 68.0,
+            "similarity": 0.5092,
+            "surface_drift": 0.4908,
+            "lexical_drift": 0.6163,
+            "drift_score": 0.5347,
+            "novelty_score": 0.3088,
+            "repetition_score": 0.2206,
+            "recurrence_score": 0.75,
+            "entropy_score": 0.9726,
+            "collapse_score": 0.1888,
+            "compression_ratio": 0.9221
+          },
+          "symbols_before": [
+            "洗面器",
+            "祖母",
+            "ガラス",
+            "夕方",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "台所",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "軒先",
+            "筆跡"
+          ],
+          "reward": {
+            "score": 0.7535,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9409,
+              "controlled_perturbation": 0.8431,
+              "symbol_recurrence": 0.825,
+              "drift_control": 1.0,
+              "novelty": 0.3088,
+              "repetition_control": 0.2121,
+              "collapse_control": 0.6567,
+              "integration": 0.8913,
+              "closure": 0.5575
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '圧縮：骨格を残す' / role 'compressor'. Main issues: score below target. Weak reward axes: repetition_control=0.21, novelty=0.31, closure=0.56. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "integration": 0.26,
+                "collapse_control": 0.18,
+                "symbol_recurrence": 0.18,
+                "drift_control": 0.14,
+                "repetition_control": 0.1,
+                "grounding": 0.08,
+                "novelty": 0.06,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1496,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 359,
+            "output_tokens_details": {
+              "reasoning_tokens": 45
+            },
+            "total_tokens": 1855
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 6,
+        "name": "再統合：PRM accepted pathから最終稿へ",
+        "role": "integrator",
+        "operator": "aggregate_high_reward_path",
+        "accepted": {
+          "candidate_id": "s6-c1-openai",
+          "stage_index": 6,
+          "stage_name": "再統合：PRM accepted pathから最終稿へ",
+          "role": "integrator",
+          "operator": "aggregate_high_reward_path",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所にひとりで座っていた。\n\n雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い金属の底で丸くなり、流し台の下まで転がって、また暗がりに吸われた。畳は湿り、昼に出汁を取った煮干しの匂いと、古い木の匂いが混じっていた。\n\n窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいますか」の払いに似ていた。少し震えて、最後に力を抜く癖。祖母はどんな短い葉書にも、終わりの一画だけは息を吐くように書いた。\n\nその手紙は仏壇の引き出しにしまってある。封筒の端は、私が急いで開けたせいで斜めに裂けていた。返事を書く相手はもういない。叱られる相手もいない。台所の棚には、欠けた茶碗と、赤い糸の刺さった針山と、白く塩を吹いた梅干しの瓶がそのまま残っていた。\n\n洗面器の底に雨水がたまり、灰色の光を揺らしていた。しずくがひとつ落ちるたび、水面に細い線が寄り集まり、祖母の筆跡で短い言葉になった。\n\n戸をしめて。\n\n私は立ち上がり、勝手口へ行った。板戸のそばは外の湿り気で冷たく、掛け金には赤い錆が浮いていた。指先に金の匂いがついた。掛け金を下ろすと、かちん、と小さく鳴り、その音の向こうで雨が少し強くなった。\n\n戻ると、洗面器の字はもうほどけていた。水面には軒先の暗い線だけが映っていた。裸電球はつけなかった。外の灰色の明るさで、ガラス瓶の肩や茶碗の欠けがかろうじて見え、台所のものはひとつずつ輪郭だけになっていった。\n\n棚の上には祖母の硯箱が置かれたままだった。蓋のふちに墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。\n\n雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字、急いだ字、途中でかすれた字。どれも祖母のものだった。\n\n雨が祖母の筆跡を覚えていた。\n\n私は息をひそめ、次の一行が浮かぶのを待っていた。",
+          "metrics": {
+            "char_len": 855.0,
+            "unit_count": 164.0,
+            "similarity": 0.3565,
+            "surface_drift": 0.6435,
+            "lexical_drift": 0.7071,
+            "drift_score": 0.6658,
+            "novelty_score": 0.5793,
+            "repetition_score": 0.2195,
+            "recurrence_score": 0.7917,
+            "entropy_score": 0.9728,
+            "collapse_score": 0.1248,
+            "compression_ratio": 2.4085
+          },
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "夕方",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "軒先",
+            "筆跡"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "ガラス",
+            "軒先",
+            "筆跡",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "夕方"
+          ],
+          "reward": {
+            "score": 0.8449,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9451,
+              "controlled_perturbation": 0.6004,
+              "symbol_recurrence": 0.8542,
+              "drift_control": 1.0,
+              "novelty": 0.5793,
+              "repetition_control": 0.2161,
+              "collapse_control": 0.7731,
+              "integration": 0.8907,
+              "closure": 0.6941
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '再統合：PRM accepted pathから最終稿へ' / role 'integrator'. Main issues: score below target. Weak reward axes: repetition_control=0.22, novelty=0.58, controlled_perturbation=0.60. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "integration": 0.32,
+                "symbol_recurrence": 0.18,
+                "drift_control": 0.16,
+                "collapse_control": 0.14,
+                "grounding": 0.1,
+                "novelty": 0.06,
+                "repetition_control": 0.04,
+                "controlled_perturbation": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 3882,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 799,
+            "output_tokens_details": {
+              "reasoning_tokens": 41
+            },
+            "total_tokens": 4681
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": []
+      },
+      {
+        "index": 7,
+        "name": "再帰クロージャ：Seedへの帰還",
+        "role": "recursive",
+        "operator": "close_loop_to_seed",
+        "accepted": {
+          "candidate_id": "s7-c1-openai",
+          "stage_index": 7,
+          "stage_name": "再帰クロージャ：Seedへの帰還",
+          "role": "recursive",
+          "operator": "close_loop_to_seed",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所にひとりで座っていた。\n\n雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。\n\n窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいますか」の払いに似ていた。少し震えて、最後に力を抜く癖。祖母はどんな短い葉書にも、終わりの一画だけは息を吐くように書いた。\n\nその手紙は仏壇の引き出しにしまってある。封筒の端は、私が急いで開けたせいで斜めに裂けていた。返事を書く相手はもういない。叱られる相手もいない。台所の棚には、欠けた茶碗と、赤い糸の刺さった針山と、白く塩を吹いた梅干しの瓶が、そのまま残っていた。\n\n洗面器の底に雨水がたまり、灰色の光を揺らしていた。しずくがひとつ落ちるたび、水面に細い線が寄り集まり、短い言葉になった。\n\n戸をしめて。\n\n私は立ち上がり、勝手口へ行った。板戸のそばは外の湿り気で冷たく、掛け金には赤い錆が浮いていた。指先に金の匂いがついた。掛け金を下ろすと、かちん、と小さく鳴り、その音の向こうで雨が少し強くなった。\n\n戻ると、洗面器の字はほどけていた。水面には軒先の暗い線だけが映っていた。裸電球はつけなかった。外の灰色の明るさで、ガラス瓶の肩や茶碗の欠けがかろうじて見え、台所のものはひとつずつ輪郭だけになっていった。\n\n棚の上には祖母の硯箱が置かれたままだった。蓋のふちに墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。\n\n雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字。急いだ字。途中でかすれた字。どれも祖母のものだった。怒るときの字も、買い物を頼むときの字も、私の名前を書くときの、少し丸くなる字もあった。\n\nやがて水面に、長い一行が浮かんだ。\n\n元気でいますか。\n\n私は返事のかわりに、濡れた指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。\n\nそれでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。\n\n祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。",
+          "metrics": {
+            "char_len": 1028.0,
+            "unit_count": 195.0,
+            "similarity": 0.8511,
+            "surface_drift": 0.1489,
+            "lexical_drift": 0.2092,
+            "drift_score": 0.17,
+            "novelty_score": 0.1333,
+            "repetition_score": 0.2513,
+            "recurrence_score": 0.9167,
+            "entropy_score": 0.9717,
+            "collapse_score": 0.1425,
+            "compression_ratio": 1.2023
+          },
+          "symbols_before": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "ガラス",
+            "軒先",
+            "筆跡",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "夕方"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "ブリキ",
+            "ガラス",
+            "六月",
+            "軒先",
+            "雨",
+            "裸電球",
+            "夕方",
+            "水面"
+          ],
+          "reward": {
+            "score": 0.7272,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9383,
+              "controlled_perturbation": 0.4815,
+              "symbol_recurrence": 0.9167,
+              "drift_control": 0.9444,
+              "novelty": 0.1333,
+              "repetition_control": 0.1025,
+              "collapse_control": 0.7409,
+              "integration": 0.8948,
+              "closure": 0.5125
+            },
+            "reasons": [
+              "drift too low (0.170); step may be paraphrase"
+            ],
+            "repair_prompt": "Repair this visible output for stage '再帰クロージャ：Seedへの帰還' / role 'recursive'. Main issues: drift too low (0.170); step may be paraphrase. Weak reward axes: repetition_control=0.10, novelty=0.13, controlled_perturbation=0.48. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "closure": 0.34,
+                "integration": 0.24,
+                "symbol_recurrence": 0.16,
+                "drift_control": 0.12,
+                "collapse_control": 0.1,
+                "repetition_control": 0.04,
+                "grounding": 0.0,
+                "controlled_perturbation": 0.0,
+                "novelty": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1999,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 1028,
+            "output_tokens_details": {
+              "reasoning_tokens": 125
+            },
+            "total_tokens": 3027
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        },
+        "rejected": [],
+        "repaired": [],
+        "control_notes_for_next": [
+          "Drift is low: introduce one controlled mutation that changes the scene without replacing its ground.",
+          "Novelty is low: add fresh concrete detail rather than paraphrasing the prior stage.",
+          "RPM conflict c07-01-symbol_loss: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition."
+        ]
+      }
+    ],
+    "path_id": "root>s1-c1-openai>s2-c1-openai-r1>s3-c1-openai>s4-c1-openai>s5-c1-openai>s6-c1-openai>s7-c1-openai",
+    "path_score": 0.75327
+  },
+  "rpm_trace": {
+    "axes": [
+      "text",
+      "symbols",
+      "constraints",
+      "drift",
+      "recurrence",
+      "reward",
+      "operator"
+    ],
+    "matrix": [
+      {
+        "row_index": 1,
+        "stage_name": "現実の足場",
+        "role": "grounder",
+        "operator": "increase_grounding_and_stabilize_viewpoint",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s1-c1-openai",
+        "status": "accepted",
+        "text_preview": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。   軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。   流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。   窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖\n\n...[clipped]...\n\n 私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。   雨が祖母の筆跡を覚えていたのだと、そのとき自然に思った。   台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。   煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。",
+        "reward_score": 0.7024,
+        "symbols_before": [
+          "祖母",
+          "雨",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "雨",
+          "筆跡",
+          "元気でいますか",
+          "ガラス",
+          "台所",
+          "ブリキ",
+          "洗面器",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先"
+        ],
+        "symbols_gained": [
+          "元気でいますか",
+          "ガラス",
+          "台所",
+          "ブリキ",
+          "洗面器",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先"
+        ],
+        "symbols_lost": [],
+        "metrics_before": {},
+        "metrics_after": {
+          "char_len": 310.0,
+          "unit_count": 56.0,
+          "similarity": 0.0858,
+          "surface_drift": 0.9142,
+          "lexical_drift": 0.9516,
+          "drift_score": 0.9273,
+          "novelty_score": 0.8929,
+          "repetition_score": 0.1071,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.9847,
+          "collapse_score": 0.1546,
+          "compression_ratio": 22.1429
+        },
+        "metric_delta": {
+          "drift_score": 0.9273,
+          "novelty_score": 0.8929,
+          "repetition_score": 0.1071,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.9847,
+          "collapse_score": 0.1546,
+          "compression_ratio": 22.1429
+        },
+        "operator_effects": {
+          "drift_score": "increase",
+          "novelty_score": "increase",
+          "repetition_score": "increase",
+          "recurrence_score": "increase",
+          "entropy_score": "increase",
+          "collapse_score": "increase",
+          "compression_ratio": "increase",
+          "reward": "medium",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "low",
+          "reward_axis:integration": "medium",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r01-01",
+          "r01-02",
+          "r01-03",
+          "r01-04"
+        ],
+        "conflict_ids": [
+          "c01-01-high_drift"
+        ]
+      },
+      {
+        "row_index": 2,
+        "stage_name": "摂動：ありえない事実",
+        "role": "expander",
+        "operator": "inject_one_impossible_fact_without_explanation",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s2-c1-openai-r1",
+        "status": "accepted",
+        "text_preview": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。   軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。   横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。   窓ガラスを\n\n...[clipped]...\n\n下ろした。   裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。   雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。   それからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。",
+        "reward_score": 0.8156,
+        "symbols_before": [
+          "祖母",
+          "雨",
+          "筆跡",
+          "元気でいますか",
+          "ガラス",
+          "台所",
+          "ブリキ",
+          "洗面器",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "ガラス",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 310.0,
+          "unit_count": 56.0,
+          "similarity": 0.0858,
+          "surface_drift": 0.9142,
+          "lexical_drift": 0.9516,
+          "drift_score": 0.9273,
+          "novelty_score": 0.8929,
+          "repetition_score": 0.1071,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.9847,
+          "collapse_score": 0.1546,
+          "compression_ratio": 22.1429
+        },
+        "metrics_after": {
+          "char_len": 416.0,
+          "unit_count": 78.0,
+          "similarity": 0.5286,
+          "surface_drift": 0.4714,
+          "lexical_drift": 0.5732,
+          "drift_score": 0.507,
+          "novelty_score": 0.4231,
+          "repetition_score": 0.141,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.982,
+          "collapse_score": 0.1029,
+          "compression_ratio": 1.3419
+        },
+        "metric_delta": {
+          "drift_score": -0.4203,
+          "novelty_score": -0.4698,
+          "repetition_score": 0.0339,
+          "recurrence_score": 0.0,
+          "entropy_score": -0.0027,
+          "collapse_score": -0.0517,
+          "compression_ratio": -20.801
+        },
+        "operator_effects": {
+          "drift_score": "decrease",
+          "novelty_score": "decrease",
+          "repetition_score": "stable",
+          "recurrence_score": "stable",
+          "entropy_score": "stable",
+          "collapse_score": "decrease",
+          "compression_ratio": "decrease",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r02-01",
+          "r02-02",
+          "r02-03",
+          "r02-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 3,
+        "stage_name": "象徴の反復",
+        "role": "symbolizer",
+        "operator": "amplify_symbolic_recurrence_by_variation",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s3-c1-openai",
+        "status": "accepted",
+        "text_preview": "六月の夕方、祖母の台所は、濡れた木と煮干しの匂いで低く満ちていた。   軒先から落ちるしずくはブリキの洗面器を叩き、ぽつ、ぽつ、という音の間に、遠い咳払いのような沈黙を挟んだ。   窓ガラスを下りる雨すじは、まっすぐには進まず、何度もためらってから細く曲がり、祖母の手紙の「元気で\n\n...[clipped]...\n\n縮み、その黒さの奥で、祖母の筆の先だけがまだ濡れているように見えた。   雨は屋根を渡り、樋を伝い、洗面器に戻ってくるたび、少しずつ別の筆跡になっていた。   それは別れた日の字ではなく、これから届くはずのない手紙の字で、私は冷えた膝を抱えたまま、その一行が現れるのを待っていた。",
+        "reward_score": 0.7341,
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "ガラス",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡",
+          "雨"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 416.0,
+          "unit_count": 78.0,
+          "similarity": 0.5286,
+          "surface_drift": 0.4714,
+          "lexical_drift": 0.5732,
+          "drift_score": 0.507,
+          "novelty_score": 0.4231,
+          "repetition_score": 0.141,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.982,
+          "collapse_score": 0.1029,
+          "compression_ratio": 1.3419
+        },
+        "metrics_after": {
+          "char_len": 532.0,
+          "unit_count": 103.0,
+          "similarity": 0.3545,
+          "surface_drift": 0.6455,
+          "lexical_drift": 0.7083,
+          "drift_score": 0.6675,
+          "novelty_score": 0.534,
+          "repetition_score": 0.1456,
+          "recurrence_score": 0.7083,
+          "entropy_score": 0.9859,
+          "collapse_score": 0.0822,
+          "compression_ratio": 1.2788
+        },
+        "metric_delta": {
+          "drift_score": 0.1605,
+          "novelty_score": 0.1109,
+          "repetition_score": 0.0046,
+          "recurrence_score": 0.0416,
+          "entropy_score": 0.0039,
+          "collapse_score": -0.0207,
+          "compression_ratio": -0.0631
+        },
+        "operator_effects": {
+          "drift_score": "increase",
+          "novelty_score": "increase",
+          "repetition_score": "stable",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "stable",
+          "compression_ratio": "decrease",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r03-01",
+          "r03-02",
+          "r03-03",
+          "r03-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 4,
+        "stage_name": "安定化：語りの重力",
+        "role": "stabilizer",
+        "operator": "reduce_drift_while_preserving_magic",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s4-c1-openai",
+        "status": "accepted",
+        "text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。   雨は軒先から落ち、ブリキの洗面器をぽつぽつと叩いていた。   濡れた木の匂いと、昼に使った煮干しの匂いが、流しのあたりに残っていた。   窓ガラスを下りる雨すじは、途中で細く曲がり、祖母の手紙にあった「元気でいますか」の字\n\n...[clipped]...\n\n勝手口の掛け金を下ろした。   裸電球はつけず、ガラス瓶や欠けた茶碗が、夕方の暗さの中で輪郭だけになっていった。   棚の上の硯箱には墨じみが残り、蓋の隙間からまだ湿った匂いがした。   雨は屋根を伝って洗面器に戻るたび、少しずつ違う字になり、私は膝を抱えて次の一行を待っていた。",
+        "reward_score": 0.8609,
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡",
+          "雨"
+        ],
+        "symbols_after": [
+          "洗面器",
+          "祖母",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 532.0,
+          "unit_count": 103.0,
+          "similarity": 0.3545,
+          "surface_drift": 0.6455,
+          "lexical_drift": 0.7083,
+          "drift_score": 0.6675,
+          "novelty_score": 0.534,
+          "repetition_score": 0.1456,
+          "recurrence_score": 0.7083,
+          "entropy_score": 0.9859,
+          "collapse_score": 0.0822,
+          "compression_ratio": 1.2788
+        },
+        "metrics_after": {
+          "char_len": 385.0,
+          "unit_count": 78.0,
+          "similarity": 0.4102,
+          "surface_drift": 0.5898,
+          "lexical_drift": 0.7273,
+          "drift_score": 0.6379,
+          "novelty_score": 0.4615,
+          "repetition_score": 0.1538,
+          "recurrence_score": 0.7083,
+          "entropy_score": 0.9842,
+          "collapse_score": 0.1303,
+          "compression_ratio": 0.7237
+        },
+        "metric_delta": {
+          "drift_score": -0.0296,
+          "novelty_score": -0.0725,
+          "repetition_score": 0.0082,
+          "recurrence_score": 0.0,
+          "entropy_score": -0.0017,
+          "collapse_score": 0.0481,
+          "compression_ratio": -0.5551
+        },
+        "operator_effects": {
+          "drift_score": "stable",
+          "novelty_score": "decrease",
+          "repetition_score": "stable",
+          "recurrence_score": "stable",
+          "entropy_score": "stable",
+          "collapse_score": "increase",
+          "compression_ratio": "decrease",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r04-01",
+          "r04-02",
+          "r04-03",
+          "r04-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 5,
+        "stage_name": "圧縮：骨格を残す",
+        "role": "compressor",
+        "operator": "compress_to_dense_visible_bone_structure",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s5-c1-openai",
+        "status": "accepted",
+        "text_preview": "六月の夕方、祖母の家の台所で、私は雨の字を待っていた。  軒先から落ちるしずくが、ブリキの洗面器を叩く。ぽつ、ぽつ、と音がして、水面に細い線がほどける。その線は窓ガラスを下りる雨すじと同じ癖で曲がり、祖母の手紙にあった「元気でいますか」の筆跡になった。  祖母はもういない。手紙は\n\n...[clipped]...\n\n。  私は立ち上がり、勝手口の掛け金を下ろした。濡れた木と煮干しの匂いが、暗くなりかけた台所に残っていた。裸電球はつけなかった。ガラス瓶も欠けた茶碗も、夕方の中で輪郭だけになった。  洗面器に戻る雨は、そのたび少し違う字を書いた。私は膝を抱え、次に祖母が何を言うのかを待っていた。",
+        "reward_score": 0.7535,
+        "symbols_before": [
+          "洗面器",
+          "祖母",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 385.0,
+          "unit_count": 78.0,
+          "similarity": 0.4102,
+          "surface_drift": 0.5898,
+          "lexical_drift": 0.7273,
+          "drift_score": 0.6379,
+          "novelty_score": 0.4615,
+          "repetition_score": 0.1538,
+          "recurrence_score": 0.7083,
+          "entropy_score": 0.9842,
+          "collapse_score": 0.1303,
+          "compression_ratio": 0.7237
+        },
+        "metrics_after": {
+          "char_len": 355.0,
+          "unit_count": 68.0,
+          "similarity": 0.5092,
+          "surface_drift": 0.4908,
+          "lexical_drift": 0.6163,
+          "drift_score": 0.5347,
+          "novelty_score": 0.3088,
+          "repetition_score": 0.2206,
+          "recurrence_score": 0.75,
+          "entropy_score": 0.9726,
+          "collapse_score": 0.1888,
+          "compression_ratio": 0.9221
+        },
+        "metric_delta": {
+          "drift_score": -0.1032,
+          "novelty_score": -0.1527,
+          "repetition_score": 0.0668,
+          "recurrence_score": 0.0417,
+          "entropy_score": -0.0116,
+          "collapse_score": 0.0585,
+          "compression_ratio": 0.1984
+        },
+        "operator_effects": {
+          "drift_score": "decrease",
+          "novelty_score": "decrease",
+          "repetition_score": "increase",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "increase",
+          "compression_ratio": "increase",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r05-01",
+          "r05-02",
+          "r05-03",
+          "r05-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 6,
+        "stage_name": "再統合：PRM accepted pathから最終稿へ",
+        "role": "integrator",
+        "operator": "aggregate_high_reward_path",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s6-c1-openai",
+        "status": "accepted",
+        "text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い金属の底で丸くなり、流し台の下まで転がって、また暗がりに吸われた。畳は湿り、昼に出汁を取った煮干しの匂いと、古い木の匂いが混じっていた。  窓ガラスを下りる\n\n...[clipped]...\n\nした。私はそのそばに座り、冷えた膝を両手で包んだ。  雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字、急いだ字、途中でかすれた字。どれも祖母のものだった。  雨が祖母の筆跡を覚えていた。  私は息をひそめ、次の一行が浮かぶのを待っていた。",
+        "reward_score": 0.8449,
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "ガラス",
+          "軒先",
+          "筆跡",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "夕方"
+        ],
+        "symbols_gained": [],
+        "symbols_lost": [],
+        "metrics_before": {
+          "char_len": 355.0,
+          "unit_count": 68.0,
+          "similarity": 0.5092,
+          "surface_drift": 0.4908,
+          "lexical_drift": 0.6163,
+          "drift_score": 0.5347,
+          "novelty_score": 0.3088,
+          "repetition_score": 0.2206,
+          "recurrence_score": 0.75,
+          "entropy_score": 0.9726,
+          "collapse_score": 0.1888,
+          "compression_ratio": 0.9221
+        },
+        "metrics_after": {
+          "char_len": 855.0,
+          "unit_count": 164.0,
+          "similarity": 0.3565,
+          "surface_drift": 0.6435,
+          "lexical_drift": 0.7071,
+          "drift_score": 0.6658,
+          "novelty_score": 0.5793,
+          "repetition_score": 0.2195,
+          "recurrence_score": 0.7917,
+          "entropy_score": 0.9728,
+          "collapse_score": 0.1248,
+          "compression_ratio": 2.4085
+        },
+        "metric_delta": {
+          "drift_score": 0.1311,
+          "novelty_score": 0.2705,
+          "repetition_score": -0.0011,
+          "recurrence_score": 0.0417,
+          "entropy_score": 0.0002,
+          "collapse_score": -0.064,
+          "compression_ratio": 1.4864
+        },
+        "operator_effects": {
+          "drift_score": "increase",
+          "novelty_score": "increase",
+          "repetition_score": "stable",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "decrease",
+          "compression_ratio": "increase",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r06-01",
+          "r06-02",
+          "r06-03",
+          "r06-04"
+        ],
+        "conflict_ids": []
+      },
+      {
+        "row_index": 7,
+        "stage_name": "再帰クロージャ：Seedへの帰還",
+        "role": "recursive",
+        "operator": "close_loop_to_seed",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "candidate_id": "s7-c1-openai",
+        "status": "accepted",
+        "text_preview": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。  窓ガラスを下りる雨すじは、\n\n...[clipped]...\n\n指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。  それでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。  祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。",
+        "reward_score": 0.7272,
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "ガラス",
+          "軒先",
+          "筆跡",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "夕方"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "元気でいますか",
+          "ブリキ",
+          "ガラス",
+          "六月",
+          "軒先",
+          "雨",
+          "裸電球",
+          "夕方",
+          "水面"
+        ],
+        "symbols_gained": [
+          "水面"
+        ],
+        "symbols_lost": [
+          "筆跡"
+        ],
+        "metrics_before": {
+          "char_len": 855.0,
+          "unit_count": 164.0,
+          "similarity": 0.3565,
+          "surface_drift": 0.6435,
+          "lexical_drift": 0.7071,
+          "drift_score": 0.6658,
+          "novelty_score": 0.5793,
+          "repetition_score": 0.2195,
+          "recurrence_score": 0.7917,
+          "entropy_score": 0.9728,
+          "collapse_score": 0.1248,
+          "compression_ratio": 2.4085
+        },
+        "metrics_after": {
+          "char_len": 1028.0,
+          "unit_count": 195.0,
+          "similarity": 0.8511,
+          "surface_drift": 0.1489,
+          "lexical_drift": 0.2092,
+          "drift_score": 0.17,
+          "novelty_score": 0.1333,
+          "repetition_score": 0.2513,
+          "recurrence_score": 0.9167,
+          "entropy_score": 0.9717,
+          "collapse_score": 0.1425,
+          "compression_ratio": 1.2023
+        },
+        "metric_delta": {
+          "drift_score": -0.4958,
+          "novelty_score": -0.446,
+          "repetition_score": 0.0318,
+          "recurrence_score": 0.125,
+          "entropy_score": -0.0011,
+          "collapse_score": 0.0177,
+          "compression_ratio": -1.2062
+        },
+        "operator_effects": {
+          "drift_score": "decrease",
+          "novelty_score": "decrease",
+          "repetition_score": "stable",
+          "recurrence_score": "increase",
+          "entropy_score": "stable",
+          "collapse_score": "stable",
+          "compression_ratio": "decrease",
+          "reward": "high",
+          "reward_axis:grounding": "high",
+          "reward_axis:symbol_recurrence": "high",
+          "reward_axis:drift_control": "high",
+          "reward_axis:integration": "high",
+          "reward_axis:closure": "medium"
+        },
+        "rule_ids": [
+          "r07-01",
+          "r07-02",
+          "r07-03",
+          "r07-04"
+        ],
+        "conflict_ids": [
+          "c07-01-symbol_loss"
+        ]
+      }
+    ],
+    "inferred_rules": [
+      {
+        "rule_id": "r04-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'reduce_drift_while_preserving_magic' acts on the state as collapse_score:increase, compression_ratio:decrease, drift_score:stable, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:stable.",
+        "confidence": 0.9235,
+        "support": [
+          "s4-c1-openai",
+          "reward=0.861"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r06-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'aggregate_high_reward_path' acts on the state as collapse_score:decrease, compression_ratio:increase, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:increase, repetition_score:stable.",
+        "confidence": 0.9147,
+        "support": [
+          "s6-c1-openai",
+          "reward=0.845"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r02-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'inject_one_impossible_fact_without_explanation' acts on the state as collapse_score:decrease, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:stable.",
+        "confidence": 0.8986,
+        "support": [
+          "s2-c1-openai-r1",
+          "reward=0.816"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r07-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' returns the seed in transformed form during 再帰クロージャ：Seedへの帰還.",
+        "confidence": 0.889,
+        "support": [
+          "s7-c1-openai",
+          "close_loop_to_seed"
+        ],
+        "stage_indices": [
+          7
+        ]
+      },
+      {
+        "rule_id": "r07-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'洗面器' returns the seed in transformed form during 再帰クロージャ：Seedへの帰還.",
+        "confidence": 0.889,
+        "support": [
+          "s7-c1-openai",
+          "close_loop_to_seed"
+        ],
+        "stage_indices": [
+          7
+        ]
+      },
+      {
+        "rule_id": "r07-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'台所' returns the seed in transformed form during 再帰クロージャ：Seedへの帰還.",
+        "confidence": 0.889,
+        "support": [
+          "s7-c1-openai",
+          "close_loop_to_seed"
+        ],
+        "stage_indices": [
+          7
+        ]
+      },
+      {
+        "rule_id": "r06-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+        "confidence": 0.8806,
+        "support": [
+          "s6-c1-openai",
+          "aggregate_high_reward_path"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r06-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'洗面器' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+        "confidence": 0.8806,
+        "support": [
+          "s6-c1-openai",
+          "aggregate_high_reward_path"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r06-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'台所' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.",
+        "confidence": 0.8806,
+        "support": [
+          "s6-c1-openai",
+          "aggregate_high_reward_path"
+        ],
+        "stage_indices": [
+          6
+        ]
+      },
+      {
+        "rule_id": "r05-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'compress_to_dense_visible_bone_structure' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:increase.",
+        "confidence": 0.8644,
+        "support": [
+          "s5-c1-openai",
+          "reward=0.753"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r04-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'洗面器' helps keep the drift legible during 安定化：語りの重力.",
+        "confidence": 0.8562,
+        "support": [
+          "s4-c1-openai",
+          "reduce_drift_while_preserving_magic"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r04-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' helps keep the drift legible during 安定化：語りの重力.",
+        "confidence": 0.8562,
+        "support": [
+          "s4-c1-openai",
+          "reduce_drift_while_preserving_magic"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r04-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'ガラス' helps keep the drift legible during 安定化：語りの重力.",
+        "confidence": 0.8562,
+        "support": [
+          "s4-c1-openai",
+          "reduce_drift_while_preserving_magic"
+        ],
+        "stage_indices": [
+          4
+        ]
+      },
+      {
+        "rule_id": "r03-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'amplify_symbolic_recurrence_by_variation' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:increase, repetition_score:stable.",
+        "confidence": 0.8538,
+        "support": [
+          "s3-c1-openai",
+          "reward=0.734"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r07-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'close_loop_to_seed' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:stable.",
+        "confidence": 0.85,
+        "support": [
+          "s7-c1-openai",
+          "reward=0.727"
+        ],
+        "stage_indices": [
+          7
+        ]
+      },
+      {
+        "rule_id": "r05-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' remains after compression during 圧縮：骨格を残す.",
+        "confidence": 0.8385,
+        "support": [
+          "s5-c1-openai",
+          "compress_to_dense_visible_bone_structure"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r05-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'洗面器' remains after compression during 圧縮：骨格を残す.",
+        "confidence": 0.8385,
+        "support": [
+          "s5-c1-openai",
+          "compress_to_dense_visible_bone_structure"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r05-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'ガラス' remains after compression during 圧縮：骨格を残す.",
+        "confidence": 0.8385,
+        "support": [
+          "s5-c1-openai",
+          "compress_to_dense_visible_bone_structure"
+        ],
+        "stage_indices": [
+          5
+        ]
+      },
+      {
+        "rule_id": "r01-04",
+        "kind": "operator_effect",
+        "statement": "Operator 'increase_grounding_and_stabilize_viewpoint' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:increase, entropy_score:increase, novelty_score:increase, recurrence_score:increase, repetition_score:increase.",
+        "confidence": 0.8363,
+        "support": [
+          "s1-c1-openai",
+          "reward=0.702"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r02-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' survives an impossible perturbation during 摂動：ありえない事実.",
+        "confidence": 0.828,
+        "support": [
+          "s2-c1-openai-r1",
+          "inject_one_impossible_fact_without_explanation"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r02-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'洗面器' survives an impossible perturbation during 摂動：ありえない事実.",
+        "confidence": 0.828,
+        "support": [
+          "s2-c1-openai-r1",
+          "inject_one_impossible_fact_without_explanation"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r02-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'台所' survives an impossible perturbation during 摂動：ありえない事実.",
+        "confidence": 0.828,
+        "support": [
+          "s2-c1-openai-r1",
+          "inject_one_impossible_fact_without_explanation"
+        ],
+        "stage_indices": [
+          2
+        ]
+      },
+      {
+        "rule_id": "r03-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' becomes a recurring symbolic circuit during 象徴の反復.",
+        "confidence": 0.8181,
+        "support": [
+          "s3-c1-openai",
+          "amplify_symbolic_recurrence_by_variation"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r03-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'洗面器' becomes a recurring symbolic circuit during 象徴の反復.",
+        "confidence": 0.8181,
+        "support": [
+          "s3-c1-openai",
+          "amplify_symbolic_recurrence_by_variation"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r03-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'ガラス' becomes a recurring symbolic circuit during 象徴の反復.",
+        "confidence": 0.8181,
+        "support": [
+          "s3-c1-openai",
+          "amplify_symbolic_recurrence_by_variation"
+        ],
+        "stage_indices": [
+          3
+        ]
+      },
+      {
+        "rule_id": "r01-01",
+        "kind": "symbolic_recurrence",
+        "statement": "'祖母' anchors the scene in concrete reality during 現実の足場.",
+        "confidence": 0.7941,
+        "support": [
+          "s1-c1-openai",
+          "increase_grounding_and_stabilize_viewpoint"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r01-02",
+        "kind": "symbolic_recurrence",
+        "statement": "'雨' anchors the scene in concrete reality during 現実の足場.",
+        "confidence": 0.7941,
+        "support": [
+          "s1-c1-openai",
+          "increase_grounding_and_stabilize_viewpoint"
+        ],
+        "stage_indices": [
+          1
+        ]
+      },
+      {
+        "rule_id": "r01-03",
+        "kind": "symbolic_recurrence",
+        "statement": "'筆跡' anchors the scene in concrete reality during 現実の足場.",
+        "confidence": 0.7941,
+        "support": [
+          "s1-c1-openai",
+          "increase_grounding_and_stabilize_viewpoint"
+        ],
+        "stage_indices": [
+          1
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "conflict_id": "c01-01-high_drift",
+        "type": "high_drift",
+        "severity": 0.5961,
+        "description": "The accepted transition moved too far from the previous state.",
+        "evidence": {
+          "drift_score": 0.9273,
+          "max_drift": 0.82
+        },
+        "repair_instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "resolved": true
+      },
+      {
+        "conflict_id": "c07-01-symbol_loss",
+        "type": "symbol_loss",
+        "severity": 0.0833,
+        "description": "Symbols that should recur disappeared during a recurrence-sensitive stage.",
+        "evidence": {
+          "symbols": [
+            "筆跡"
+          ],
+          "role": "recursive"
+        },
+        "repair_instruction": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+        "resolved": false
+      }
+    ],
+    "repair_plans": [
+      {
+        "conflict_id": "c01-01-high_drift",
+        "stage_index": 1,
+        "instruction": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+        "applied_by_candidate_id": null
+      },
+      {
+        "conflict_id": "c07-01-symbol_loss",
+        "stage_index": 7,
+        "instruction": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+        "applied_by_candidate_id": null
+      }
+    ],
+    "stable_symbols": [
+      "祖母",
+      "雨",
+      "元気でいますか",
+      "ガラス",
+      "台所",
+      "ブリキ",
+      "洗面器",
+      "裸電球",
+      "六月",
+      "夕方",
+      "軒先",
+      "筆跡"
+    ],
+    "unstable_symbols": [
+      "水面"
+    ],
+    "drift_vector": {
+      "mean_drift": 0.5872,
+      "last_drift": 0.17,
+      "mean_recurrence": 0.7441,
+      "last_recurrence": 0.9167,
+      "mean_reward": 0.7769,
+      "last_reward": 0.7272
+    },
+    "notes": [
+      "matrix_rows=7",
+      "rules=28",
+      "unresolved_conflicts=1"
+    ]
+  },
+  "steps": [
+    {
+      "index": 1,
+      "name": "現実の足場",
+      "role": "grounder",
+      "operator": "increase_grounding_and_stabilize_viewpoint",
+      "accepted": {
+        "candidate_id": "s1-c1-openai",
+        "stage_index": 1,
+        "stage_name": "現実の足場",
+        "role": "grounder",
+        "operator": "increase_grounding_and_stabilize_viewpoint",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。  \n流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。  \n窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。  \n雨が祖母の筆跡を覚えていたのだと、そのとき自然に思った。  \n台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。  \n煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。",
+        "metrics": {
+          "char_len": 310.0,
+          "unit_count": 56.0,
+          "similarity": 0.0858,
+          "surface_drift": 0.9142,
+          "lexical_drift": 0.9516,
+          "drift_score": 0.9273,
+          "novelty_score": 0.8929,
+          "repetition_score": 0.1071,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.9847,
+          "collapse_score": 0.1546,
+          "compression_ratio": 22.1429
+        },
+        "symbols_before": [
+          "祖母",
+          "雨",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "雨",
+          "筆跡",
+          "元気でいますか",
+          "ガラス",
+          "台所",
+          "ブリキ",
+          "洗面器",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先"
+        ],
+        "reward": {
+          "score": 0.7024,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.8759,
+            "controlled_perturbation": 0.1161,
+            "symbol_recurrence": 0.7667,
+            "drift_control": 0.4039,
+            "novelty": 0.8929,
+            "repetition_control": 0.6175,
+            "collapse_control": 0.7189,
+            "integration": 0.6774,
+            "closure": 0.5546
+          },
+          "reasons": [
+            "drift too high (0.927)"
+          ],
+          "repair_prompt": "Repair this visible output for stage '現実の足場' / role 'grounder'. Main issues: drift too high (0.927). Weak reward axes: controlled_perturbation=0.12, drift_control=0.40, closure=0.55. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "grounding": 0.3,
+              "drift_control": 0.24,
+              "collapse_control": 0.16,
+              "novelty": 0.1,
+              "symbol_recurrence": 0.1,
+              "repetition_control": 0.1,
+              "integration": 0.0,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 445,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 330,
+          "output_tokens_details": {
+            "reasoning_tokens": 51
+          },
+          "total_tokens": 775
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": [
+        "Drift is high: preserve the seed's scene, narrator, and 1-2 existing symbols before adding new material.",
+        "RPM conflict c01-01-high_drift: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material."
+      ]
+    },
+    {
+      "index": 2,
+      "name": "摂動：ありえない事実",
+      "role": "expander",
+      "operator": "inject_one_impossible_fact_without_explanation",
+      "accepted": {
+        "candidate_id": "s2-c1-openai-r1",
+        "stage_index": 2,
+        "stage_name": "摂動：ありえない事実",
+        "role": "expander",
+        "operator": "inject_one_impossible_fact_without_explanation",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。  \n横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。  \n窓ガラスを伝う雨すじは、曲がるたびに少し震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n洗面器の底にたまった雨水には、しずくが落ちるたび、祖母の字で「戸をしめて」と一行だけ浮かび、また水にほどけた。  \n私は濡れた指を布巾で拭き、言われたとおり勝手口の掛け金を下ろした。  \n裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。  \n雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。  \nそれからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。",
+        "metrics": {
+          "char_len": 416.0,
+          "unit_count": 78.0,
+          "similarity": 0.5286,
+          "surface_drift": 0.4714,
+          "lexical_drift": 0.5732,
+          "drift_score": 0.507,
+          "novelty_score": 0.4231,
+          "repetition_score": 0.141,
+          "recurrence_score": 0.6667,
+          "entropy_score": 0.982,
+          "collapse_score": 0.1029,
+          "compression_ratio": 1.3419
+        },
+        "symbols_before": [
+          "祖母",
+          "雨",
+          "筆跡",
+          "元気でいますか",
+          "ガラス",
+          "台所",
+          "ブリキ",
+          "洗面器",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "ガラス",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先",
+          "筆跡"
+        ],
+        "reward": {
+          "score": 0.8156,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9563,
+            "controlled_perturbation": 0.9389,
+            "symbol_recurrence": 0.7667,
+            "drift_control": 1.0,
+            "novelty": 0.4231,
+            "repetition_control": 0.4964,
+            "collapse_control": 0.8129,
+            "integration": 0.8628,
+            "closure": 0.644
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '摂動：ありえない事実' / role 'expander'. Main issues: score below target. Weak reward axes: novelty=0.42, repetition_control=0.50, closure=0.64. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "controlled_perturbation": 0.28,
+              "novelty": 0.2,
+              "drift_control": 0.18,
+              "grounding": 0.12,
+              "symbol_recurrence": 0.12,
+              "collapse_control": 0.1,
+              "repetition_control": 0.0,
+              "integration": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1066,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 697,
+          "output_tokens_details": {
+            "reasoning_tokens": 311
+          },
+          "total_tokens": 1763
+        },
+        "repaired_from": "s2-c1-openai",
+        "repair_attempt": 1
+      },
+      "rejected": [
+        {
+          "candidate_id": "s2-c1-openai",
+          "stage_index": 2,
+          "stage_name": "摂動：ありえない事実",
+          "role": "expander",
+          "operator": "inject_one_impossible_fact_without_explanation",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所で、湿った畳の匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩いている。  \n流し台の横には、祖母が使っていた古い硯箱が置かれたままで、蓋のふちに薄く墨がしみていた。  \n窓ガラスを伝う雨すじは、曲がるところで少しだけ震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n洗面器にたまった雨水の底で、その「元気でいますか」が、墨の黒さのままゆっくりほどけたり結び直されたりしていた。  \n私は濡れた指でガラスに触れ、その冷たさに肩をすくめた。  \n台所の裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠けや針山の赤い糸が見えた。  \n煮干しと古い木の匂いの中で、私はしばらく、雨の書く音を聞いていた。",
+          "metrics": {
+            "char_len": 337.0,
+            "unit_count": 58.0,
+            "similarity": 0.8628,
+            "surface_drift": 0.1372,
+            "lexical_drift": 0.1481,
+            "drift_score": 0.141,
+            "novelty_score": 0.069,
+            "repetition_score": 0.1379,
+            "recurrence_score": 0.7083,
+            "entropy_score": 0.9868,
+            "collapse_score": 0.1532,
+            "compression_ratio": 1.0871
+          },
+          "symbols_before": [
+            "祖母",
+            "雨",
+            "筆跡",
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "symbols_after": [
+            "元気でいますか",
+            "祖母",
+            "洗面器",
+            "ガラス",
+            "台所",
+            "雨",
+            "ブリキ",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先",
+            "筆跡"
+          ],
+          "reward": {
+            "score": 0.5019,
+            "accept": false,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9109,
+              "controlled_perturbation": 0.2611,
+              "symbol_recurrence": 0.7708,
+              "drift_control": 0.7833,
+              "novelty": 0.069,
+              "repetition_control": 0.5075,
+              "collapse_control": 0.7215,
+              "integration": 0.786,
+              "closure": 0.4445
+            },
+            "reasons": [
+              "drift too low (0.141); step may be paraphrase",
+              "novelty low (0.069)"
+            ],
+            "repair_prompt": "Repair this visible output for stage '摂動：ありえない事実' / role 'expander'. Main issues: drift too low (0.141); step may be paraphrase; novelty low (0.069). Weak reward axes: novelty=0.07, controlled_perturbation=0.26, closure=0.44. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "controlled_perturbation": 0.28,
+                "novelty": 0.2,
+                "drift_control": 0.18,
+                "grounding": 0.12,
+                "symbol_recurrence": 0.12,
+                "collapse_control": 0.1,
+                "repetition_control": 0.0,
+                "integration": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1222,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 440,
+            "output_tokens_details": {
+              "reasoning_tokens": 141
+            },
+            "total_tokens": 1662
+          },
+          "repaired_from": null,
+          "repair_attempt": 0
+        }
+      ],
+      "repaired": [
+        {
+          "candidate_id": "s2-c1-openai-r1",
+          "stage_index": 2,
+          "stage_name": "摂動：ありえない事実",
+          "role": "expander",
+          "operator": "inject_one_impossible_fact_without_explanation",
+          "provider": "openai",
+          "model": "gpt-5.5",
+          "output": "六月の夕方、私は祖母の家の台所で、湿った畳と煮干しの匂いをかいでいた。  \n軒先の雨だれが、ブリキの洗面器をぽつ、ぽつ、と叩き、薄い金属の音を流し台の下まで転がした。  \n横には祖母の古い硯箱が置かれたままで、蓋のふちの墨じみは、乾いた海苔のように黒く縮んでいた。  \n窓ガラスを伝う雨すじは、曲がるたびに少し震え、祖母の手紙にあった「元気でいますか」の細い払いに似ていた。  \n洗面器の底にたまった雨水には、しずくが落ちるたび、祖母の字で「戸をしめて」と一行だけ浮かび、また水にほどけた。  \n私は濡れた指を布巾で拭き、言われたとおり勝手口の掛け金を下ろした。  \n裸電球はまだつけず、外の灰色の明るさだけで、茶碗の欠け、針山の赤い糸、梅干しの瓶の白い塩が見えた。  \n雨が祖母の筆跡を覚えていたのだと、私は硯箱のそばに座り、冷えた膝を両手で包みながら思った。  \nそれからしばらく、台所の暗さの中で、雨の書く音だけを聞いていた。",
+          "metrics": {
+            "char_len": 416.0,
+            "unit_count": 78.0,
+            "similarity": 0.5286,
+            "surface_drift": 0.4714,
+            "lexical_drift": 0.5732,
+            "drift_score": 0.507,
+            "novelty_score": 0.4231,
+            "repetition_score": 0.141,
+            "recurrence_score": 0.6667,
+            "entropy_score": 0.982,
+            "collapse_score": 0.1029,
+            "compression_ratio": 1.3419
+          },
+          "symbols_before": [
+            "祖母",
+            "雨",
+            "筆跡",
+            "元気でいますか",
+            "ガラス",
+            "台所",
+            "ブリキ",
+            "洗面器",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先"
+          ],
+          "symbols_after": [
+            "祖母",
+            "洗面器",
+            "台所",
+            "元気でいますか",
+            "雨",
+            "ブリキ",
+            "ガラス",
+            "裸電球",
+            "六月",
+            "夕方",
+            "軒先",
+            "筆跡"
+          ],
+          "reward": {
+            "score": 0.8156,
+            "accept": true,
+            "repairable": true,
+            "metric_scores": {
+              "grounding": 0.9563,
+              "controlled_perturbation": 0.9389,
+              "symbol_recurrence": 0.7667,
+              "drift_control": 1.0,
+              "novelty": 0.4231,
+              "repetition_control": 0.4964,
+              "collapse_control": 0.8129,
+              "integration": 0.8628,
+              "closure": 0.644
+            },
+            "reasons": [],
+            "repair_prompt": "Repair this visible output for stage '摂動：ありえない事実' / role 'expander'. Main issues: score below target. Weak reward axes: novelty=0.42, repetition_control=0.50, closure=0.64. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+            "judge": "heuristic",
+            "raw": {
+              "weights": {
+                "controlled_perturbation": 0.28,
+                "novelty": 0.2,
+                "drift_control": 0.18,
+                "grounding": 0.12,
+                "symbol_recurrence": 0.12,
+                "collapse_control": 0.1,
+                "repetition_control": 0.0,
+                "integration": 0.0,
+                "closure": 0.0
+              }
+            }
+          },
+          "prompt": null,
+          "usage": {
+            "input_tokens": 1066,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 697,
+            "output_tokens_details": {
+              "reasoning_tokens": 311
+            },
+            "total_tokens": 1763
+          },
+          "repaired_from": "s2-c1-openai",
+          "repair_attempt": 1
+        }
+      ],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 3,
+      "name": "象徴の反復",
+      "role": "symbolizer",
+      "operator": "amplify_symbolic_recurrence_by_variation",
+      "accepted": {
+        "candidate_id": "s3-c1-openai",
+        "stage_index": 3,
+        "stage_name": "象徴の反復",
+        "role": "symbolizer",
+        "operator": "amplify_symbolic_recurrence_by_variation",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、祖母の台所は、濡れた木と煮干しの匂いで低く満ちていた。  \n軒先から落ちるしずくはブリキの洗面器を叩き、ぽつ、ぽつ、という音の間に、遠い咳払いのような沈黙を挟んだ。  \n窓ガラスを下りる雨すじは、まっすぐには進まず、何度もためらってから細く曲がり、祖母の手紙の「元気でいますか」の払いに戻っていった。  \n私はその字を思い出すたび、封筒の端を裂いた朝の紙のざらつきと、もう返事を出せないことを一緒に思い出した。  \n洗面器の底では、雨水が薄い灰色に揺れ、しずくが落ちるたびに祖母の字で「戸をしめて」と浮かび、すぐにほどけた。  \n私は勝手口の掛け金を下ろし、金具が噛み合う小さな音を聞いて、何かが家の外に残されるのを感じた。  \n裸電球はつけないまま、流しのガラス瓶、欠けた茶碗、針山の赤い糸が、夕方の暗さに少しずつ沈んでいった。  \n硯箱の蓋の墨じみは乾いた海苔のように縮み、その黒さの奥で、祖母の筆の先だけがまだ濡れているように見えた。  \n雨は屋根を渡り、樋を伝い、洗面器に戻ってくるたび、少しずつ別の筆跡になっていた。  \nそれは別れた日の字ではなく、これから届くはずのない手紙の字で、私は冷えた膝を抱えたまま、その一行が現れるのを待っていた。",
+        "metrics": {
+          "char_len": 532.0,
+          "unit_count": 103.0,
+          "similarity": 0.3545,
+          "surface_drift": 0.6455,
+          "lexical_drift": 0.7083,
+          "drift_score": 0.6675,
+          "novelty_score": 0.534,
+          "repetition_score": 0.1456,
+          "recurrence_score": 0.7083,
+          "entropy_score": 0.9859,
+          "collapse_score": 0.0822,
+          "compression_ratio": 1.2788
+        },
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "ガラス",
+          "裸電球",
+          "六月",
+          "夕方",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡",
+          "雨"
+        ],
+        "reward": {
+          "score": 0.7341,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9652,
+            "controlled_perturbation": 0.5972,
+            "symbol_recurrence": 0.7958,
+            "drift_control": 1.0,
+            "novelty": 0.534,
+            "repetition_control": 0.48,
+            "collapse_control": 0.8505,
+            "integration": 0.8829,
+            "closure": 0.5166
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '象徴の反復' / role 'symbolizer'. Main issues: score below target. Weak reward axes: repetition_control=0.48, closure=0.52, novelty=0.53. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "symbol_recurrence": 0.32,
+              "repetition_control": 0.2,
+              "novelty": 0.14,
+              "integration": 0.14,
+              "drift_control": 0.1,
+              "collapse_control": 0.1,
+              "grounding": 0.0,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1408,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 587,
+          "output_tokens_details": {
+            "reasoning_tokens": 107
+          },
+          "total_tokens": 1995
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 4,
+      "name": "安定化：語りの重力",
+      "role": "stabilizer",
+      "operator": "reduce_drift_while_preserving_magic",
+      "accepted": {
+        "candidate_id": "s4-c1-openai",
+        "stage_index": 4,
+        "stage_name": "安定化：語りの重力",
+        "role": "stabilizer",
+        "operator": "reduce_drift_while_preserving_magic",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、私は祖母の家の台所にひとりで座っていた。  \n雨は軒先から落ち、ブリキの洗面器をぽつぽつと叩いていた。  \n濡れた木の匂いと、昼に使った煮干しの匂いが、流しのあたりに残っていた。  \n窓ガラスを下りる雨すじは、途中で細く曲がり、祖母の手紙にあった「元気でいますか」の字に似ていた。  \nその手紙はもう仏壇の引き出しにしまってあり、返事を書く相手はいなかった。  \n洗面器の底にたまった雨水には、ときどき祖母の筆跡で短い言葉が浮かんだ。  \n「戸をしめて」と読めたので、私は立って勝手口の掛け金を下ろした。  \n裸電球はつけず、ガラス瓶や欠けた茶碗が、夕方の暗さの中で輪郭だけになっていった。  \n棚の上の硯箱には墨じみが残り、蓋の隙間からまだ湿った匂いがした。  \n雨は屋根を伝って洗面器に戻るたび、少しずつ違う字になり、私は膝を抱えて次の一行を待っていた。",
+        "metrics": {
+          "char_len": 385.0,
+          "unit_count": 78.0,
+          "similarity": 0.4102,
+          "surface_drift": 0.5898,
+          "lexical_drift": 0.7273,
+          "drift_score": 0.6379,
+          "novelty_score": 0.4615,
+          "repetition_score": 0.1538,
+          "recurrence_score": 0.7083,
+          "entropy_score": 0.9842,
+          "collapse_score": 0.1303,
+          "compression_ratio": 0.7237
+        },
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡",
+          "雨"
+        ],
+        "symbols_after": [
+          "洗面器",
+          "祖母",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡"
+        ],
+        "reward": {
+          "score": 0.8609,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9471,
+            "controlled_perturbation": 0.652,
+            "symbol_recurrence": 0.7958,
+            "drift_control": 1.0,
+            "novelty": 0.4615,
+            "repetition_control": 0.4507,
+            "collapse_control": 0.7631,
+            "integration": 0.8653,
+            "closure": 0.5405
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '安定化：語りの重力' / role 'stabilizer'. Main issues: score below target. Weak reward axes: repetition_control=0.45, novelty=0.46, closure=0.54. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "drift_control": 0.3,
+              "integration": 0.22,
+              "collapse_control": 0.18,
+              "symbol_recurrence": 0.14,
+              "grounding": 0.1,
+              "repetition_control": 0.06,
+              "novelty": 0.0,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1594,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 405,
+          "output_tokens_details": {
+            "reasoning_tokens": 69
+          },
+          "total_tokens": 1999
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 5,
+      "name": "圧縮：骨格を残す",
+      "role": "compressor",
+      "operator": "compress_to_dense_visible_bone_structure",
+      "accepted": {
+        "candidate_id": "s5-c1-openai",
+        "stage_index": 5,
+        "stage_name": "圧縮：骨格を残す",
+        "role": "compressor",
+        "operator": "compress_to_dense_visible_bone_structure",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、祖母の家の台所で、私は雨の字を待っていた。\n\n軒先から落ちるしずくが、ブリキの洗面器を叩く。ぽつ、ぽつ、と音がして、水面に細い線がほどける。その線は窓ガラスを下りる雨すじと同じ癖で曲がり、祖母の手紙にあった「元気でいますか」の筆跡になった。\n\n祖母はもういない。手紙は仏壇の引き出しにしまってある。返事を書く相手も、叱られる相手もいない。それでも雨は祖母の字を覚えていて、洗面器の底に短い言葉を浮かべた。\n\n戸をしめて。\n\n私は立ち上がり、勝手口の掛け金を下ろした。濡れた木と煮干しの匂いが、暗くなりかけた台所に残っていた。裸電球はつけなかった。ガラス瓶も欠けた茶碗も、夕方の中で輪郭だけになった。\n\n洗面器に戻る雨は、そのたび少し違う字を書いた。私は膝を抱え、次に祖母が何を言うのかを待っていた。",
+        "metrics": {
+          "char_len": 355.0,
+          "unit_count": 68.0,
+          "similarity": 0.5092,
+          "surface_drift": 0.4908,
+          "lexical_drift": 0.6163,
+          "drift_score": 0.5347,
+          "novelty_score": 0.3088,
+          "repetition_score": 0.2206,
+          "recurrence_score": 0.75,
+          "entropy_score": 0.9726,
+          "collapse_score": 0.1888,
+          "compression_ratio": 0.9221
+        },
+        "symbols_before": [
+          "洗面器",
+          "祖母",
+          "ガラス",
+          "夕方",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "台所",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "軒先",
+          "筆跡"
+        ],
+        "reward": {
+          "score": 0.7535,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9409,
+            "controlled_perturbation": 0.8431,
+            "symbol_recurrence": 0.825,
+            "drift_control": 1.0,
+            "novelty": 0.3088,
+            "repetition_control": 0.2121,
+            "collapse_control": 0.6567,
+            "integration": 0.8913,
+            "closure": 0.5575
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '圧縮：骨格を残す' / role 'compressor'. Main issues: score below target. Weak reward axes: repetition_control=0.21, novelty=0.31, closure=0.56. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "integration": 0.26,
+              "collapse_control": 0.18,
+              "symbol_recurrence": 0.18,
+              "drift_control": 0.14,
+              "repetition_control": 0.1,
+              "grounding": 0.08,
+              "novelty": 0.06,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1496,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 359,
+          "output_tokens_details": {
+            "reasoning_tokens": 45
+          },
+          "total_tokens": 1855
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 6,
+      "name": "再統合：PRM accepted pathから最終稿へ",
+      "role": "integrator",
+      "operator": "aggregate_high_reward_path",
+      "accepted": {
+        "candidate_id": "s6-c1-openai",
+        "stage_index": 6,
+        "stage_name": "再統合：PRM accepted pathから最終稿へ",
+        "role": "integrator",
+        "operator": "aggregate_high_reward_path",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、私は祖母の家の台所にひとりで座っていた。\n\n雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い金属の底で丸くなり、流し台の下まで転がって、また暗がりに吸われた。畳は湿り、昼に出汁を取った煮干しの匂いと、古い木の匂いが混じっていた。\n\n窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいますか」の払いに似ていた。少し震えて、最後に力を抜く癖。祖母はどんな短い葉書にも、終わりの一画だけは息を吐くように書いた。\n\nその手紙は仏壇の引き出しにしまってある。封筒の端は、私が急いで開けたせいで斜めに裂けていた。返事を書く相手はもういない。叱られる相手もいない。台所の棚には、欠けた茶碗と、赤い糸の刺さった針山と、白く塩を吹いた梅干しの瓶がそのまま残っていた。\n\n洗面器の底に雨水がたまり、灰色の光を揺らしていた。しずくがひとつ落ちるたび、水面に細い線が寄り集まり、祖母の筆跡で短い言葉になった。\n\n戸をしめて。\n\n私は立ち上がり、勝手口へ行った。板戸のそばは外の湿り気で冷たく、掛け金には赤い錆が浮いていた。指先に金の匂いがついた。掛け金を下ろすと、かちん、と小さく鳴り、その音の向こうで雨が少し強くなった。\n\n戻ると、洗面器の字はもうほどけていた。水面には軒先の暗い線だけが映っていた。裸電球はつけなかった。外の灰色の明るさで、ガラス瓶の肩や茶碗の欠けがかろうじて見え、台所のものはひとつずつ輪郭だけになっていった。\n\n棚の上には祖母の硯箱が置かれたままだった。蓋のふちに墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。\n\n雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字、急いだ字、途中でかすれた字。どれも祖母のものだった。\n\n雨が祖母の筆跡を覚えていた。\n\n私は息をひそめ、次の一行が浮かぶのを待っていた。",
+        "metrics": {
+          "char_len": 855.0,
+          "unit_count": 164.0,
+          "similarity": 0.3565,
+          "surface_drift": 0.6435,
+          "lexical_drift": 0.7071,
+          "drift_score": 0.6658,
+          "novelty_score": 0.5793,
+          "repetition_score": 0.2195,
+          "recurrence_score": 0.7917,
+          "entropy_score": 0.9728,
+          "collapse_score": 0.1248,
+          "compression_ratio": 2.4085
+        },
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "ガラス",
+          "夕方",
+          "台所",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "軒先",
+          "筆跡"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "ガラス",
+          "軒先",
+          "筆跡",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "夕方"
+        ],
+        "reward": {
+          "score": 0.8449,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9451,
+            "controlled_perturbation": 0.6004,
+            "symbol_recurrence": 0.8542,
+            "drift_control": 1.0,
+            "novelty": 0.5793,
+            "repetition_control": 0.2161,
+            "collapse_control": 0.7731,
+            "integration": 0.8907,
+            "closure": 0.6941
+          },
+          "reasons": [],
+          "repair_prompt": "Repair this visible output for stage '再統合：PRM accepted pathから最終稿へ' / role 'integrator'. Main issues: score below target. Weak reward axes: repetition_control=0.22, novelty=0.58, controlled_perturbation=0.60. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "integration": 0.32,
+              "symbol_recurrence": 0.18,
+              "drift_control": 0.16,
+              "collapse_control": 0.14,
+              "grounding": 0.1,
+              "novelty": 0.06,
+              "repetition_control": 0.04,
+              "controlled_perturbation": 0.0,
+              "closure": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 3882,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 799,
+          "output_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "total_tokens": 4681
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": []
+    },
+    {
+      "index": 7,
+      "name": "再帰クロージャ：Seedへの帰還",
+      "role": "recursive",
+      "operator": "close_loop_to_seed",
+      "accepted": {
+        "candidate_id": "s7-c1-openai",
+        "stage_index": 7,
+        "stage_name": "再帰クロージャ：Seedへの帰還",
+        "role": "recursive",
+        "operator": "close_loop_to_seed",
+        "provider": "openai",
+        "model": "gpt-5.5",
+        "output": "六月の夕方、私は祖母の家の台所にひとりで座っていた。\n\n雨は軒先から落ち、ブリキの洗面器をぽつ、ぽつ、と叩いていた。音は薄い底で丸くなり、流し台の下まで転がって、暗がりに吸われた。畳は湿り、昼に取った出汁の煮干しの匂いと、古い木の匂いが混じっていた。\n\n窓ガラスを下りる雨すじは、途中でためらうように細く曲がった。その曲がり方が、祖母の手紙にあった「元気でいますか」の払いに似ていた。少し震えて、最後に力を抜く癖。祖母はどんな短い葉書にも、終わりの一画だけは息を吐くように書いた。\n\nその手紙は仏壇の引き出しにしまってある。封筒の端は、私が急いで開けたせいで斜めに裂けていた。返事を書く相手はもういない。叱られる相手もいない。台所の棚には、欠けた茶碗と、赤い糸の刺さった針山と、白く塩を吹いた梅干しの瓶が、そのまま残っていた。\n\n洗面器の底に雨水がたまり、灰色の光を揺らしていた。しずくがひとつ落ちるたび、水面に細い線が寄り集まり、短い言葉になった。\n\n戸をしめて。\n\n私は立ち上がり、勝手口へ行った。板戸のそばは外の湿り気で冷たく、掛け金には赤い錆が浮いていた。指先に金の匂いがついた。掛け金を下ろすと、かちん、と小さく鳴り、その音の向こうで雨が少し強くなった。\n\n戻ると、洗面器の字はほどけていた。水面には軒先の暗い線だけが映っていた。裸電球はつけなかった。外の灰色の明るさで、ガラス瓶の肩や茶碗の欠けがかろうじて見え、台所のものはひとつずつ輪郭だけになっていった。\n\n棚の上には祖母の硯箱が置かれたままだった。蓋のふちに墨じみがあり、乾いた海苔のように黒く縮んでいるのに、近づくとまだ少し湿った匂いがした。私はそのそばに座り、冷えた膝を両手で包んだ。\n\n雨は屋根を渡り、樋を伝い、洗面器に戻ってくる。そのたび、ほんの少し違う字を書いた。細い字。急いだ字。途中でかすれた字。どれも祖母のものだった。怒るときの字も、買い物を頼むときの字も、私の名前を書くときの、少し丸くなる字もあった。\n\nやがて水面に、長い一行が浮かんだ。\n\n元気でいますか。\n\n私は返事のかわりに、濡れた指先を洗面器の縁に置いた。ブリキは冷たく、祖母の手の甲みたいに薄かった。字はすぐに崩れ、雨の輪の中へ沈んでいった。\n\nそれでも次のしずくが落ちると、また払いだけが現れた。最後に力を抜く、あの癖だった。\n\n祖母の手はもうないのに、六月の雨だけが、その筆の終わりを忘れずに降っていた。",
+        "metrics": {
+          "char_len": 1028.0,
+          "unit_count": 195.0,
+          "similarity": 0.8511,
+          "surface_drift": 0.1489,
+          "lexical_drift": 0.2092,
+          "drift_score": 0.17,
+          "novelty_score": 0.1333,
+          "repetition_score": 0.2513,
+          "recurrence_score": 0.9167,
+          "entropy_score": 0.9717,
+          "collapse_score": 0.1425,
+          "compression_ratio": 1.2023
+        },
+        "symbols_before": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "ガラス",
+          "軒先",
+          "筆跡",
+          "元気でいますか",
+          "雨",
+          "ブリキ",
+          "裸電球",
+          "六月",
+          "夕方"
+        ],
+        "symbols_after": [
+          "祖母",
+          "洗面器",
+          "台所",
+          "元気でいますか",
+          "ブリキ",
+          "ガラス",
+          "六月",
+          "軒先",
+          "雨",
+          "裸電球",
+          "夕方",
+          "水面"
+        ],
+        "reward": {
+          "score": 0.7272,
+          "accept": true,
+          "repairable": true,
+          "metric_scores": {
+            "grounding": 0.9383,
+            "controlled_perturbation": 0.4815,
+            "symbol_recurrence": 0.9167,
+            "drift_control": 0.9444,
+            "novelty": 0.1333,
+            "repetition_control": 0.1025,
+            "collapse_control": 0.7409,
+            "integration": 0.8948,
+            "closure": 0.5125
+          },
+          "reasons": [
+            "drift too low (0.170); step may be paraphrase"
+          ],
+          "repair_prompt": "Repair this visible output for stage '再帰クロージャ：Seedへの帰還' / role 'recursive'. Main issues: drift too low (0.170); step may be paraphrase. Weak reward axes: repetition_control=0.10, novelty=0.13, controlled_perturbation=0.48. Keep the strongest concrete image, preserve seed-linked symbols, reduce generic abstraction, and return only the repaired literary output.",
+          "judge": "heuristic",
+          "raw": {
+            "weights": {
+              "closure": 0.34,
+              "integration": 0.24,
+              "symbol_recurrence": 0.16,
+              "drift_control": 0.12,
+              "collapse_control": 0.1,
+              "repetition_control": 0.04,
+              "grounding": 0.0,
+              "controlled_perturbation": 0.0,
+              "novelty": 0.0
+            }
+          }
+        },
+        "prompt": null,
+        "usage": {
+          "input_tokens": 1999,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 1028,
+          "output_tokens_details": {
+            "reasoning_tokens": 125
+          },
+          "total_tokens": 3027
+        },
+        "repaired_from": null,
+        "repair_attempt": 0
+      },
+      "rejected": [],
+      "repaired": [],
+      "control_notes_for_next": [
+        "Drift is low: introduce one controlled mutation that changes the scene without replacing its ground.",
+        "Novelty is low: add fresh concrete detail rather than paraphrasing the prior stage.",
+        "RPM conflict c07-01-symbol_loss: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition."
+      ]
+    }
+  ]
+}
