@@ -1,0 +1,38 @@
+[
+  {
+    "name": "日常アンカー抽出",
+    "role": "grounder",
+    "operator": "mundane_anchor_extraction",
+    "instruction": "入力から、日常的な場所・物・行為・社会的状況を具体的な場面へ展開する。魔術的要素はまだ大きく入れない。通勤、家事、書類、食事、近所、職場、駅など、現実の手触りを優先する。6〜10文。"
+  },
+  {
+    "name": "静かな不可能性",
+    "role": "expander",
+    "operator": "quiet_impossibility_injection",
+    "instruction": "日常の足場を保ったまま、小さな不可能な事実をひとつだけ入れる。それを魔法、夢、幻覚、比喩、超常現象として説明しない。人物は驚きすぎず、その事実の処理を続ける。6〜10文。"
+  },
+  {
+    "name": "社会的な馴化",
+    "role": "stabilizer",
+    "operator": "social_normalization",
+    "instruction": "人物や社会が、不可能な事実に少しだけ適応している様子を書く。驚きよりも、習慣、手続き、貼り紙、沈黙、諦め、窓口対応、近所の作法を使う。説明ではなく運用を描く。8〜12文。"
+  },
+  {
+    "name": "象徴圧の変奏",
+    "role": "symbolizer",
+    "operator": "symbolic_recurrence",
+    "instruction": "不可能な事実に関係する物・音・色・動作を反復させる。同じ言葉の反復ではなく、場所や用途を変えた変奏として戻す。抽象的な意味づけを避け、具体物の挙動で圧力を作る。8〜12文。"
+  },
+  {
+    "name": "説明抑制",
+    "role": "compressor",
+    "operator": "explanation_suppression",
+    "instruction": "超常現象の説明、夢オチ、比喩化、世界設定の説明、感情的な回収を削る。代わりに具体的な日常描写、手続き、物の扱い、移動、支払い、仕事の続きを増やす。450〜800字程度。"
+  },
+  {
+    "name": "リアリズム修復",
+    "role": "stabilizer",
+    "operator": "realism_repair",
+    "instruction": "場面がファンタジー、寓話、夢、詩的抽象に寄りすぎていないか修復する。公共交通、家事、書類、食事、近所付き合い、仕事、天気、物の重さを戻す。不可能な事実は小さく物質的なまま残す。8〜12文。"
+  }
+]

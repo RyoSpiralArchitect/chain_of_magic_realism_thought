@@ -130,6 +130,55 @@ STOP_SYMBOLS = {
     "候補", "評価", "採点", "報酬", "修復", "統合",
 }
 
+MUNDANE_OBJECT_TERMS = {
+    "kitchen", "station", "office", "street", "apartment", "school", "shop", "hospital",
+    "town hall", "bus stop", "market", "train", "ticket", "receipt", "clock", "umbrella",
+    "ledger", "shoe", "elevator", "desk", "bag", "paperwork", "form", "stamp", "card",
+    "台所", "駅", "会社", "職場", "団地", "商店街", "学校", "病院", "市役所", "役所",
+    "バス停", "市場", "電車", "改札", "切符", "領収書", "時計", "傘", "帳簿",
+    "靴", "エレベーター", "机", "鞄", "書類", "申請書", "用紙", "印鑑", "社員証",
+    "タイムカード", "弁当", "財布", "鍵", "玄関", "廊下", "窓口", "レジ", "伝票",
+}
+SOCIAL_NORMALIZATION_TERMS = {
+    "clerk", "office", "rule", "notice", "custom", "queue", "counter", "procedure",
+    "usual", "habit", "quietly", "adapt", "form", "staff",
+    "職員", "係", "店員", "駅員", "窓口", "規則", "貼り紙", "習慣", "手続き",
+    "番号札", "順番", "控え", "訂正", "印鑑", "予備", "誰も", "いつも", "普通",
+}
+IMPOSSIBLE_FACT_TERMS = {
+    "impossible", "unreal", "remembered", "forgot", "vanished", "appeared", "wrong floor",
+    "ありえない", "存在しない", "覚えて", "忘れず", "浮か", "消え", "戻っ", "ずれ",
+    "伸び", "ほどけ", "通過", "違う階", "知らない", "勝手に", "昨日の声", "名前を",
+}
+EXPLANATION_TERMS = {
+    "because", "therefore", "it meant", "the reason", "magic system", "spell", "supernatural",
+    "dream", "hallucination",
+    "なぜなら", "理由", "つまり", "要するに", "これは", "意味していた", "魔法体系",
+    "超常現象", "夢だった", "幻覚", "啓示", "救済", "慰め",
+}
+FANTASY_LORE_TERMS = {
+    "wizard", "spell", "portal", "chosen one", "prophecy", "kingdom", "dragon", "elf",
+    "魔法使い", "呪文", "異世界", "転生", "選ばれし", "勇者", "魔王", "王国",
+    "予言", "精霊", "妖精", "ドラゴン",
+}
+DREAM_REVEAL_TERMS = {
+    "it was a dream", "woke up", "hallucination", "delusion",
+    "夢だった", "目が覚め", "幻覚だった", "妄想", "白昼夢",
+}
+COSMIC_EXPLANATION_TERMS = {
+    "cosmic", "universe", "dimension", "god", "myth", "destiny",
+    "宇宙", "次元", "神々", "神話", "運命", "世界の真理", "根源", "預言",
+}
+PURPLE_ABSTRACTION_TERMS = {
+    "soul", "eternity", "infinite", "destiny", "void", "absolute",
+    "魂", "永遠", "無限", "運命", "虚無", "絶対", "深淵", "宿命", "概念", "真理",
+}
+ORDINARY_CONTINUITY_TERMS = {
+    "then", "afterward", "continued", "went", "returned", "paid", "wrote", "opened",
+    "その後", "それから", "続け", "戻", "行っ", "払", "書き直", "押し", "閉め",
+    "開け", "並び", "待ち", "仕事", "通勤", "帰り", "昼休み", "退勤",
+}
+
 
 # ---------------------------------------------------------------------------
 # Dataclasses
@@ -197,6 +246,70 @@ DEFAULT_STAGES: Tuple[StageSpec, ...] = (
 )
 
 
+SEED_INDEPENDENT_MAGIC_STAGES: Tuple[StageSpec, ...] = (
+    StageSpec(
+        name="日常アンカー抽出",
+        role="grounder",
+        operator="mundane_anchor_extraction",
+        instruction=(
+            "入力から、日常的な場所・物・行為・社会的状況を具体的な場面へ展開する。"
+            "魔術的要素はまだ大きく入れない。通勤、家事、書類、食事、近所、職場、駅など、"
+            "現実の手触りを優先する。6〜10文。"
+        ),
+    ),
+    StageSpec(
+        name="静かな不可能性",
+        role="expander",
+        operator="quiet_impossibility_injection",
+        instruction=(
+            "日常の足場を保ったまま、小さな不可能な事実をひとつだけ入れる。"
+            "それを魔法、夢、幻覚、比喩、超常現象として説明しない。人物は驚きすぎず、"
+            "その事実の処理を続ける。6〜10文。"
+        ),
+    ),
+    StageSpec(
+        name="社会的な馴化",
+        role="stabilizer",
+        operator="social_normalization",
+        instruction=(
+            "人物や社会が、不可能な事実に少しだけ適応している様子を書く。"
+            "驚きよりも、習慣、手続き、貼り紙、沈黙、諦め、窓口対応、近所の作法を使う。"
+            "説明ではなく運用を描く。8〜12文。"
+        ),
+    ),
+    StageSpec(
+        name="象徴圧の変奏",
+        role="symbolizer",
+        operator="symbolic_recurrence",
+        instruction=(
+            "不可能な事実に関係する物・音・色・動作を反復させる。"
+            "同じ言葉の反復ではなく、場所や用途を変えた変奏として戻す。"
+            "抽象的な意味づけを避け、具体物の挙動で圧力を作る。8〜12文。"
+        ),
+    ),
+    StageSpec(
+        name="説明抑制",
+        role="compressor",
+        operator="explanation_suppression",
+        instruction=(
+            "超常現象の説明、夢オチ、比喩化、世界設定の説明、感情的な回収を削る。"
+            "代わりに具体的な日常描写、手続き、物の扱い、移動、支払い、仕事の続きを増やす。"
+            "450〜800字程度。"
+        ),
+    ),
+    StageSpec(
+        name="リアリズム修復",
+        role="stabilizer",
+        operator="realism_repair",
+        instruction=(
+            "場面がファンタジー、寓話、夢、詩的抽象に寄りすぎていないか修復する。"
+            "公共交通、家事、書類、食事、近所付き合い、仕事、天気、物の重さを戻す。"
+            "不可能な事実は小さく物質的なまま残す。8〜12文。"
+        ),
+    ),
+)
+
+
 @dataclass(frozen=True)
 class ChatRequest:
     model: str
@@ -224,6 +337,32 @@ class ChainConstraints:
     max_collapse: float = 0.55
     required_prefix: Optional[str] = None
     symbol_limit: int = 12
+
+
+@dataclass(frozen=True)
+class MagicRealismPrior:
+    mundane_grounding: float = 0.18
+    impossible_fact_density: float = 0.16
+    explanatory_restraint: float = 0.14
+    social_normalization: float = 0.12
+    symbolic_recurrence: float = 0.12
+    sensory_concreteness: float = 0.12
+    ordinary_continuity: float = 0.10
+    restraint: float = 0.06
+    anti_fantasy_penalty: float = 0.25
+    anti_dream_penalty: float = 0.20
+    anti_cosmic_explanation_penalty: float = 0.18
+    anti_purple_prose_penalty: float = 0.15
+
+
+@dataclass(frozen=True)
+class PromptAnchorProfile:
+    mundane_anchors: List[str] = field(default_factory=list)
+    social_setting: str = ""
+    routine_actions: List[str] = field(default_factory=list)
+    ordinary_objects: List[str] = field(default_factory=list)
+    emotional_pressure: List[str] = field(default_factory=list)
+    impossible_fact_slots: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -347,6 +486,8 @@ class ChainState:
     metrics: Dict[str, float] = field(default_factory=dict)
     control_notes: List[str] = field(default_factory=list)
     memory_notes: List[str] = field(default_factory=list)
+    magic_prior: Optional[MagicRealismPrior] = None
+    anchor_profile: Optional[PromptAnchorProfile] = None
     rpm_trace: RPMTrace = field(default_factory=RPMTrace)
     step_history: List[ProcessStepRecord] = field(default_factory=list)
     path_id: str = "root"
@@ -397,6 +538,8 @@ class ChainRun:
     role_providers: Dict[str, str]
     models: Dict[str, str]
     constraints: Dict[str, Any]
+    magic_prior: Optional[MagicRealismPrior]
+    anchor_profile: Optional[PromptAnchorProfile]
     prm: PRMConfig
     beam: BeamConfig
     beam_archive: List[BeamPathSnapshot]
@@ -1100,6 +1243,134 @@ def observe_transition(previous: str, current: str, symbols: Sequence[str]) -> D
     }
 
 
+def term_hit_count(text: str, terms: Iterable[str]) -> int:
+    lower = str(text or "").lower()
+    return sum(1 for term in terms if term and term.lower() in lower)
+
+
+def term_score(text: str, terms: Iterable[str], target: int) -> float:
+    return clamp01(term_hit_count(text, terms) / max(1, target))
+
+
+def profile_hit_score(text: str, values: Sequence[str], target: int) -> float:
+    lower = str(text or "").lower()
+    hits = 0
+    for value in values:
+        value = str(value or "").strip()
+        if value and value.lower() in lower:
+            hits += 1
+    return clamp01(hits / max(1, target))
+
+
+def compute_magic_realism_metrics(
+    text: str,
+    state: Optional[ChainState] = None,
+    stage: Optional[StageSpec] = None,
+    transition_metrics: Optional[Dict[str, float]] = None,
+) -> Dict[str, float]:
+    profile = state.anchor_profile if state else None
+    prior = state.magic_prior if state else None
+    transition_metrics = transition_metrics or {}
+    mundane_profile = 0.0
+    social_profile = 0.0
+    object_profile = 0.0
+    continuity_profile = 0.0
+    impossible_profile = 0.0
+    if profile:
+        mundane_profile = profile_hit_score(text, profile.mundane_anchors, target=3)
+        social_profile = 0.35 if profile.social_setting and any(part in text for part in profile.social_setting.split("と")) else 0.0
+        object_profile = profile_hit_score(text, profile.ordinary_objects, target=4)
+        continuity_profile = profile_hit_score(text, profile.routine_actions, target=3)
+        impossible_profile = profile_hit_score(text, profile.impossible_fact_slots, target=1)
+
+    mundane_grounding = clamp01(0.45 * term_score(text, MUNDANE_OBJECT_TERMS, 6) + 0.35 * object_profile + 0.20 * mundane_profile)
+    quiet_impossibility = clamp01(
+        0.55 * term_score(text, IMPOSSIBLE_FACT_TERMS, 2)
+        + 0.25 * impossible_profile
+        + 0.20 * transition_metrics.get("novelty_score", 0.0)
+    )
+    explanation_density = clamp01(term_hit_count(text, EXPLANATION_TERMS) / 4.0)
+    non_explanation = clamp01(1.0 - explanation_density)
+    social_normalization = clamp01(0.65 * term_score(text, SOCIAL_NORMALIZATION_TERMS, 4) + 0.20 * social_profile + 0.15 * mundane_grounding)
+    concrete_object = clamp01(0.70 * term_score(text, MUNDANE_OBJECT_TERMS, 7) + 0.30 * object_profile)
+    symbolic_pressure = clamp01(
+        0.45 * transition_metrics.get("recurrence_score", 0.0)
+        + 0.25 * quiet_impossibility
+        + 0.20 * concrete_object
+        + 0.10 * (1.0 - transition_metrics.get("collapse_score", 0.0))
+    )
+    ordinary_continuity = clamp01(
+        0.50 * term_score(text, ORDINARY_CONTINUITY_TERMS, 4)
+        + 0.30 * continuity_profile
+        + 0.20 * mundane_grounding
+    )
+
+    fantasy_lore_penalty = clamp01(term_hit_count(text, FANTASY_LORE_TERMS) / 2.0)
+    dream_reveal_penalty = clamp01(term_hit_count(text, DREAM_REVEAL_TERMS) / 1.0)
+    cosmic_explanation_penalty = clamp01(term_hit_count(text, COSMIC_EXPLANATION_TERMS) / 2.0)
+    purple_abstraction_penalty = clamp01(term_hit_count(text, PURPLE_ABSTRACTION_TERMS) / 5.0)
+    anti_fantasy = clamp01(1.0 - fantasy_lore_penalty)
+    restraint = clamp01(1.0 - max(fantasy_lore_penalty, dream_reveal_penalty, cosmic_explanation_penalty, purple_abstraction_penalty, explanation_density * 0.6))
+
+    weights = prior or default_magic_realism_prior()
+    positive = (
+        weights.mundane_grounding * mundane_grounding
+        + weights.impossible_fact_density * quiet_impossibility
+        + weights.explanatory_restraint * non_explanation
+        + weights.social_normalization * social_normalization
+        + weights.symbolic_recurrence * symbolic_pressure
+        + weights.sensory_concreteness * concrete_object
+        + weights.ordinary_continuity * ordinary_continuity
+        + weights.restraint * restraint
+    )
+    positive_total = (
+        weights.mundane_grounding
+        + weights.impossible_fact_density
+        + weights.explanatory_restraint
+        + weights.social_normalization
+        + weights.symbolic_recurrence
+        + weights.sensory_concreteness
+        + weights.ordinary_continuity
+        + weights.restraint
+    ) or 1.0
+    penalty = (
+        weights.anti_fantasy_penalty * fantasy_lore_penalty
+        + weights.anti_dream_penalty * dream_reveal_penalty
+        + weights.anti_cosmic_explanation_penalty * cosmic_explanation_penalty
+        + weights.anti_purple_prose_penalty * purple_abstraction_penalty
+    )
+    penalty_total = (
+        weights.anti_fantasy_penalty
+        + weights.anti_dream_penalty
+        + weights.anti_cosmic_explanation_penalty
+        + weights.anti_purple_prose_penalty
+    ) or 1.0
+    magic_reward = clamp01((positive / positive_total) - 0.38 * (penalty / penalty_total))
+
+    if stage and stage.operator in {"quiet_impossibility_injection", "make_magic_a_weather_condition_not_a_message"}:
+        quiet_impossibility = clamp01(0.82 * quiet_impossibility + 0.18 * magic_reward)
+    if stage and stage.operator in {"social_normalization", "stabilize_magic_as_world_law"}:
+        social_normalization = clamp01(0.82 * social_normalization + 0.18 * magic_reward)
+
+    return {
+        "mundane_grounding_score": round(mundane_grounding, 4),
+        "quiet_impossibility_score": round(quiet_impossibility, 4),
+        "non_explanation_score": round(non_explanation, 4),
+        "social_normalization_score": round(social_normalization, 4),
+        "anti_fantasy_score": round(anti_fantasy, 4),
+        "concrete_object_score": round(concrete_object, 4),
+        "symbolic_pressure_score": round(symbolic_pressure, 4),
+        "ordinary_continuity_score": round(ordinary_continuity, 4),
+        "restraint_score": round(restraint, 4),
+        "fantasy_lore_penalty": round(fantasy_lore_penalty, 4),
+        "dream_reveal_penalty": round(dream_reveal_penalty, 4),
+        "cosmic_explanation_penalty": round(cosmic_explanation_penalty, 4),
+        "purple_abstraction_penalty": round(purple_abstraction_penalty, 4),
+        "explanation_density_score": round(explanation_density, 4),
+        "magic_realism_reward": round(magic_reward, 4),
+    }
+
+
 def candidate_symbols_from_text(text: str) -> Counter[str]:
     counts: Counter[str] = Counter()
     for raw in QUOTE_RE.findall(text):
@@ -1177,6 +1448,18 @@ def make_control_notes(metrics: Dict[str, float], symbols: Sequence[str], constr
     if collapse > constraints.max_collapse:
         notes.append("Collapse risk is high: expand sensory grounding and avoid short, generic abstraction.")
 
+    if "magic_realism_reward" in metrics:
+        if metrics.get("mundane_grounding_score", 1.0) < 0.45:
+            notes.append("Magic realism prior: restore a mundane social setting, concrete object, or routine action.")
+        if metrics.get("quiet_impossibility_score", 1.0) < 0.35:
+            notes.append("Magic realism prior: add one small material impossibility without explaining it.")
+        if metrics.get("social_normalization_score", 1.0) < 0.35:
+            notes.append("Magic realism prior: show a person, office, shop, rule, or habit adapting to the impossible fact.")
+        if metrics.get("non_explanation_score", 1.0) < 0.70:
+            notes.append("Magic realism prior: remove explanation, dream logic, magic-system language, or interpretive summary.")
+        if metrics.get("ordinary_continuity_score", 1.0) < 0.35:
+            notes.append("Magic realism prior: let work, travel, paperwork, food, or another ordinary task continue after the impossible fact.")
+
     if constraints.required_prefix and not text.startswith(constraints.required_prefix):
         notes.append(f"Required prefix was missing: future controlled outputs should begin with {constraints.required_prefix!r}.")
 
@@ -1195,6 +1478,15 @@ RPM_METRIC_KEYS: Tuple[str, ...] = (
     "entropy_score",
     "collapse_score",
     "compression_ratio",
+    "mundane_grounding_score",
+    "quiet_impossibility_score",
+    "non_explanation_score",
+    "social_normalization_score",
+    "anti_fantasy_score",
+    "concrete_object_score",
+    "symbolic_pressure_score",
+    "ordinary_continuity_score",
+    "magic_realism_reward",
 )
 
 
@@ -1219,7 +1511,22 @@ def operator_effects_from_delta(delta: Dict[str, float], reward: Optional[Proces
     effects = {key: sign_label(value) for key, value in delta.items()}
     if reward:
         effects["reward"] = "high" if reward.score >= 0.72 else "medium" if reward.score >= 0.55 else "low"
-        for axis in ("grounding", "symbol_recurrence", "drift_control", "integration", "closure"):
+        for axis in (
+            "grounding",
+            "symbol_recurrence",
+            "drift_control",
+            "integration",
+            "closure",
+            "mundane_grounding",
+            "quiet_impossibility",
+            "non_explanation",
+            "social_normalization",
+            "anti_fantasy",
+            "concrete_object",
+            "symbolic_pressure",
+            "ordinary_continuity",
+            "magic_realism",
+        ):
             if axis in reward.metric_scores:
                 effects[f"reward_axis:{axis}"] = "high" if reward.metric_scores[axis] >= 0.72 else "medium" if reward.metric_scores[axis] >= 0.5 else "low"
     return effects
@@ -1305,6 +1612,14 @@ def resolve_existing_conflicts(trace: RPMTrace, candidate: CandidateStep, constr
         elif conflict.type == "operator_mismatch" and candidate.reward and candidate.reward.score >= 0.68:
             conflict.resolved = True
         elif conflict.type == "weak_closure" and candidate.reward and candidate.reward.metric_scores.get("closure", 0.0) >= 0.45:
+            conflict.resolved = True
+        elif conflict.type == "weak_mundane_grounding" and candidate.metrics.get("mundane_grounding_score", 0.0) >= 0.45:
+            conflict.resolved = True
+        elif conflict.type == "weak_impossibility" and candidate.metrics.get("quiet_impossibility_score", 0.0) >= 0.35:
+            conflict.resolved = True
+        elif conflict.type == "over_explanation" and candidate.metrics.get("non_explanation_score", 0.0) >= 0.78:
+            conflict.resolved = True
+        elif conflict.type == "fantasy_drift" and candidate.metrics.get("anti_fantasy_score", 0.0) >= 0.90:
             conflict.resolved = True
 
 
@@ -1405,6 +1720,40 @@ def detect_rpm_conflicts(
             {"closure": reward.metric_scores.get("closure"), "operator": stage.operator},
             "Make the final image return to the seed in transformed form without direct explanation.",
         )
+
+    if "magic_realism_reward" in metrics:
+        if metrics.get("mundane_grounding_score", 1.0) < 0.38:
+            add(
+                "weak_mundane_grounding",
+                clamp01(1.0 - metrics.get("mundane_grounding_score", 0.0) / 0.38),
+                "The magic-realism prior lost its ordinary social ground.",
+                {"mundane_grounding_score": metrics.get("mundane_grounding_score"), "operator": stage.operator},
+                "Restore a concrete social place, object, routine, or procedure before adding more impossibility.",
+            )
+        if metrics.get("quiet_impossibility_score", 1.0) < 0.30 and stage.role in ("expander", "symbolizer", "integrator"):
+            add(
+                "weak_impossibility",
+                clamp01(1.0 - metrics.get("quiet_impossibility_score", 0.0) / 0.30),
+                "The step did not materialize a small impossible fact strongly enough.",
+                {"quiet_impossibility_score": metrics.get("quiet_impossibility_score"), "operator": stage.operator},
+                "Add one material impossibility inside a mundane object or procedure, without naming a magic system.",
+            )
+        if metrics.get("non_explanation_score", 1.0) < 0.70:
+            add(
+                "over_explanation",
+                clamp01(1.0 - metrics.get("non_explanation_score", 0.0) / 0.70),
+                "The step explained or interpreted the impossible fact too directly.",
+                {"non_explanation_score": metrics.get("non_explanation_score"), "operator": stage.operator},
+                "Remove explanation, revelation, dream logic, and direct interpretation; keep material consequences.",
+            )
+        if metrics.get("anti_fantasy_score", 1.0) < 0.80:
+            add(
+                "fantasy_drift",
+                clamp01(1.0 - metrics.get("anti_fantasy_score", 0.0) / 0.80),
+                "The step drifted toward fantasy lore rather than magic realism.",
+                {"anti_fantasy_score": metrics.get("anti_fantasy_score"), "operator": stage.operator},
+                "Remove fantasy-lore language and return to ordinary people, errands, work, food, documents, or weather.",
+            )
 
     return conflicts
 
@@ -1778,7 +2127,28 @@ class HeuristicPRM:
         }
 
         weights = stage_weights(stage.role)
-        score = sum(weights.get(k, 0.0) * metric_scores.get(k, 0.0) for k in weights)
+        base_score = sum(weights.get(k, 0.0) * metric_scores.get(k, 0.0) for k in weights)
+        if state.magic_prior:
+            magic_metric_map = {
+                "mundane_grounding": "mundane_grounding_score",
+                "quiet_impossibility": "quiet_impossibility_score",
+                "non_explanation": "non_explanation_score",
+                "social_normalization": "social_normalization_score",
+                "anti_fantasy": "anti_fantasy_score",
+                "concrete_object": "concrete_object_score",
+                "symbolic_pressure": "symbolic_pressure_score",
+                "ordinary_continuity": "ordinary_continuity_score",
+                "restraint": "restraint_score",
+                "magic_realism": "magic_realism_reward",
+            }
+            for axis, metric_key in magic_metric_map.items():
+                if metric_key in metrics:
+                    metric_scores[axis] = round(float(metrics[metric_key]), 4)
+            magic_score = float(metrics.get("magic_realism_reward", 0.0) or 0.0)
+            score = 0.68 * base_score + 0.32 * magic_score
+        else:
+            magic_score = None
+            score = base_score
         score = round(clamp01(score), 4)
 
         reasons: List[str] = []
@@ -1796,6 +2166,17 @@ class HeuristicPRM:
             reasons.append(f"collapse risk high ({collapse:.3f})")
         if self.constraints.required_prefix and not text.startswith(self.constraints.required_prefix):
             reasons.append("required prefix missing")
+        if state.magic_prior:
+            if metrics.get("mundane_grounding_score", 1.0) < 0.40:
+                reasons.append(f"mundane grounding weak ({metrics.get('mundane_grounding_score', 0.0):.3f})")
+            if stage.role in ("expander", "symbolizer", "integrator") and metrics.get("quiet_impossibility_score", 1.0) < 0.30:
+                reasons.append(f"quiet impossibility weak ({metrics.get('quiet_impossibility_score', 0.0):.3f})")
+            if metrics.get("non_explanation_score", 1.0) < 0.70:
+                reasons.append(f"over-explained magic ({metrics.get('non_explanation_score', 0.0):.3f})")
+            if metrics.get("anti_fantasy_score", 1.0) < 0.80:
+                reasons.append(f"fantasy drift ({metrics.get('anti_fantasy_score', 0.0):.3f})")
+            if metrics.get("ordinary_continuity_score", 1.0) < 0.25 and stage.role in ("stabilizer", "compressor", "integrator", "recursive"):
+                reasons.append(f"ordinary continuity weak ({metrics.get('ordinary_continuity_score', 0.0):.3f})")
 
         accept = score >= self.accept_threshold and not (self.constraints.required_prefix and not text.startswith(self.constraints.required_prefix))
         repairable = score >= self.repair_threshold or bool(reasons)
@@ -1809,7 +2190,7 @@ class HeuristicPRM:
             reasons=reasons,
             repair_prompt=repair_prompt,
             judge="heuristic",
-            raw={"weights": weights},
+            raw={"weights": weights, "base_score": round(base_score, 4), "magic_score": round(magic_score, 4) if magic_score is not None else None},
         )
 
 
@@ -1992,8 +2373,10 @@ def parse_role_provider_overrides(items: Sequence[str]) -> Dict[str, str]:
     return role_map
 
 
-def load_stages(path: Optional[str]) -> List[StageSpec]:
+def load_stages(path: Optional[str], preset: str = "default") -> List[StageSpec]:
     if not path:
+        if preset == "seed-independent-magic":
+            return list(SEED_INDEPENDENT_MAGIC_STAGES)
         return list(DEFAULT_STAGES)
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     if not isinstance(data, list):
@@ -2031,6 +2414,148 @@ def read_seed(args: argparse.Namespace) -> str:
     if not seed:
         raise ValueError("Prompt is empty.")
     return seed
+
+
+def default_magic_realism_prior() -> MagicRealismPrior:
+    return MagicRealismPrior()
+
+
+def has_any(text: str, terms: Iterable[str]) -> bool:
+    lower = text.lower()
+    return any(term.lower() in lower for term in terms if term)
+
+
+def unique_keep_order(items: Iterable[str], limit: int = 12) -> List[str]:
+    out: List[str] = []
+    seen = set()
+    for item in items:
+        value = str(item or "").strip()
+        if not value or value in seen:
+            continue
+        out.append(value)
+        seen.add(value)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def extract_prompt_anchor_profile(seed: str) -> PromptAnchorProfile:
+    text = str(seed or "")
+    anchors: List[str] = []
+    actions: List[str] = []
+    objects: List[str] = []
+    pressures: List[str] = []
+    setting = "日常の用事"
+
+    if has_any(text, ("会社", "職場", "出勤", "通勤", "office", "work")):
+        setting = "平日の通勤と会社"
+        anchors.extend(["朝", "会社", "通勤", "駅", "職場"])
+        actions.extend(["家を出る", "改札を通る", "エレベーターに乗る", "席に着く", "タイムカードを押す"])
+        objects.extend(["靴", "鞄", "社員証", "定期券", "改札", "エレベーター", "タイムカード", "机"])
+        pressures.extend(["遅刻しそう", "眠い", "会議がある"])
+    if has_any(text, ("朝", "morning")):
+        anchors.append("朝")
+        actions.extend(["顔を洗う", "時計を見る", "駅へ向かう"])
+        objects.extend(["目覚まし時計", "歯ブラシ", "弁当", "駅の時計"])
+        pressures.append("時間が少ない")
+    if has_any(text, ("学校", "授業", "school")):
+        setting = "学校の朝"
+        anchors.extend(["学校", "教室", "連絡帳"])
+        actions.extend(["登校する", "靴箱を開ける", "出席を取る"])
+        objects.extend(["上履き", "連絡帳", "黒板", "チャイム"])
+    if has_any(text, ("病院", "hospital")):
+        setting = "病院の待合"
+        anchors.extend(["病院", "待合室", "受付"])
+        actions.extend(["番号札を取る", "問診票を書く", "会計を待つ"])
+        objects.extend(["診察券", "問診票", "体温計", "領収書"])
+    if has_any(text, ("買", "店", "shop", "market")):
+        setting = "店と買い物"
+        anchors.extend(["商店街", "店", "レジ"])
+        actions.extend(["値札を見る", "支払う", "袋に入れる"])
+        objects.extend(["財布", "レシート", "値札", "買い物袋"])
+    if has_any(text, ("雨", "傘", "rain")):
+        anchors.append("雨")
+        objects.extend(["傘", "濡れた床", "窓"])
+        actions.append("傘をたたむ")
+
+    if not anchors:
+        anchors.extend(tokenize_text(text)[:4])
+    if not actions:
+        actions.extend(["家を出る", "用事を済ませる", "窓口で待つ"])
+    if not objects:
+        objects.extend(["靴", "鞄", "時計", "書類", "財布", "傘"])
+    if not pressures:
+        pressures.extend(["時間が少ない", "用事が残っている"])
+
+    anchors = unique_keep_order(anchors, limit=12)
+    actions = unique_keep_order(actions, limit=10)
+    objects = unique_keep_order(objects, limit=12)
+    pressures = unique_keep_order(pressures, limit=6)
+    slot_objects = objects[:5] or ["書類", "時計", "靴"]
+    impossible_slots = unique_keep_order(
+        [
+            f"{slot_objects[0]}が前日の声を薄く残している",
+            "改札が通る人の名前を一文字だけ先に印字する",
+            "エレベーターが存在しない階を一度だけ通過する",
+            "社員証の写真が午前中だけ昨日の顔になる",
+            "時計の針が雨の日だけ押印の音に合わせて進む",
+            f"{slot_objects[-1]}の端に、まだ起きていない用事の跡がつく",
+        ],
+        limit=8,
+    )
+    return PromptAnchorProfile(
+        mundane_anchors=anchors,
+        social_setting=setting,
+        routine_actions=actions,
+        ordinary_objects=objects,
+        emotional_pressure=pressures,
+        impossible_fact_slots=impossible_slots,
+    )
+
+
+def anchor_seed_symbols(profile: Optional[PromptAnchorProfile], limit: int = 8) -> List[str]:
+    if not profile:
+        return []
+    return unique_keep_order(
+        list(profile.mundane_anchors) + list(profile.ordinary_objects) + list(profile.routine_actions),
+        limit=limit,
+    )
+
+
+def format_anchor_profile(profile: Optional[PromptAnchorProfile]) -> str:
+    if not profile:
+        return "PromptAnchorProfile: inactive."
+    payload = {
+        "mundane_anchors": profile.mundane_anchors,
+        "social_setting": profile.social_setting,
+        "routine_actions": profile.routine_actions,
+        "ordinary_objects": profile.ordinary_objects,
+        "emotional_pressure": profile.emotional_pressure,
+        "impossible_fact_slots": profile.impossible_fact_slots,
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2)
+
+
+def format_magic_realism_prior(prior: Optional[MagicRealismPrior], profile: Optional[PromptAnchorProfile] = None) -> str:
+    if not prior:
+        return "MagicRealismPrior: inactive."
+    profile_block = format_anchor_profile(profile)
+    return f"""
+MagicRealismPrior:
+- Treat magic realism as ontology, not style: the impossible fact is materially real inside ordinary social life.
+- Keep the scene in a mundane setting: kitchen, station, office, street, apartment, school, shop, hospital, town hall, bus stop, market, or family home.
+- Do not make the scene fantasy, science fiction, horror, myth, dream logic, hallucination, or metaphor-only lyricism.
+- Characters may notice, avoid, adapt to, or quietly disagree about the impossible fact, but they should not explain it with a magic system.
+- Social reality continues: routines, paperwork, food, clocks, family habits, local customs, procedures, transport, work, and weather still matter.
+- Prefer one small impossible fact, ordinary people, restrained tone, concrete objects, recurring gestures, unresolved symbolic pressure, and no explicit explanation.
+- Avoid wizards, spells, portals, chosen ones, fantasy races, cosmic prophecy, dream reveal, hallucination reveal, and over-explaining the supernatural.
+
+Prior weights:
+{json.dumps(dataclasses.asdict(prior), ensure_ascii=False, indent=2)}
+
+Anchor profile:
+{profile_block}
+""".strip()
 
 
 class RoleRouter:
@@ -2073,6 +2598,12 @@ def format_metrics(metrics: Dict[str, float]) -> str:
         "entropy_score",
         "collapse_score",
         "compression_ratio",
+        "magic_realism_reward",
+        "mundane_grounding_score",
+        "quiet_impossibility_score",
+        "non_explanation_score",
+        "social_normalization_score",
+        "ordinary_continuity_score",
     ]
     return ", ".join(f"{key}={metrics[key]}" for key in keys if key in metrics)
 
@@ -2121,6 +2652,9 @@ def build_stage_prompt(
     prefix = state.constraints.get("required_prefix")
     if prefix:
         prefix_line = f"\nRequired prefix constraint: begin the visible output exactly with {prefix!r}."
+    magic_context = ""
+    if state.magic_prior:
+        magic_context = f"\n\nMagic realism ontology and anchor profile:\n{format_magic_realism_prior(state.magic_prior, state.anchor_profile)}"
 
     variant_lines = {
         1: "Candidate variant: 1\nBias: balanced; preserve continuity and produce a strong default transition.",
@@ -2141,6 +2675,7 @@ Current ChainState:
 - symbols: {symbols}
 - metrics: {format_metrics(state.metrics)}
 - constraints: {json.dumps(state.constraints, ensure_ascii=False)}
+{magic_context}
 
 RPM matrix context:
 {format_rpm_context(state.rpm_trace)}
@@ -2181,12 +2716,16 @@ def build_repair_prompt(
     reasons = "\n".join(f"- {r}" for r in reward.reasons) if reward.reasons else "- reward below target"
     metric_scores = json.dumps(reward.metric_scores, ensure_ascii=False, indent=2)
     repair_instruction = reward.repair_prompt or build_reward_repair_instruction(stage, reward.metric_scores, reward.reasons)
+    magic_context = ""
+    if state.magic_prior:
+        magic_context = f"\n\nMagic realism ontology and anchor profile:\n{format_magic_realism_prior(state.magic_prior, state.anchor_profile)}"
     return f"""
 Seed:
 {clip_text(state.seed, max_context_chars // 3)}
 
 Previous stable visible text:
 {clip_text(state.text, max_context_chars)}
+{magic_context}
 
 Rejected candidate output:
 {clip_text(failed.output, max_context_chars)}
@@ -2216,6 +2755,9 @@ Return only the repaired literary output. Do not mention metrics, scoring, PRM, 
 def build_aggregation_prompt(state: ChainState, max_context_chars: int) -> str:
     stage_outputs = format_stage_outputs(state.step_history, max_chars=max_context_chars)
     symbols = ", ".join(state.symbols) if state.symbols else "(none)"
+    magic_context = ""
+    if state.magic_prior:
+        magic_context = f"\n\nMagic realism ontology and anchor profile:\n{format_magic_realism_prior(state.magic_prior, state.anchor_profile)}"
     return f"""
 Seed:
 {clip_text(state.seed, max_context_chars // 3)}
@@ -2227,6 +2769,7 @@ Final ChainState summary:
 - symbols: {symbols}
 - latest metrics: {format_metrics(state.metrics)}
 - constraints: {json.dumps(state.constraints, ensure_ascii=False)}
+{magic_context}
 
 RPM matrix context:
 {format_rpm_context(state.rpm_trace, max_rules=10, max_conflicts=8, max_rows=8)}
@@ -2239,6 +2782,7 @@ Task:
 Reintegrate all accepted process steps into a single finished short prose piece or opening scene.
 Do not simply continue the last stage. Select the strongest material from the entire accepted path.
 Keep the impossible fact ordinary, preserve symbolic recurrence, and reduce over-explanation.
+If a magic realism prior is active, treat the impossible fact as materially real inside ordinary social life, not as fantasy, dream, revelation, consolation, or lore.
 Target length: 700〜1200 Japanese characters, or an equivalent compact length in the requested language.
 
 Return only the finished literary draft. Do not include analysis notes or hidden chain-of-thought.
@@ -2247,6 +2791,9 @@ Return only the finished literary draft. Do not include analysis notes or hidden
 
 def build_recursive_closure_prompt(state: ChainState, aggregate_text: str, max_context_chars: int) -> str:
     symbols = ", ".join(state.symbols) if state.symbols else "(none)"
+    magic_context = ""
+    if state.magic_prior:
+        magic_context = f"\n\nMagic realism ontology and anchor profile:\n{format_magic_realism_prior(state.magic_prior, state.anchor_profile)}"
     return f"""
 Original seed:
 {clip_text(state.seed, max_context_chars // 3)}
@@ -2256,6 +2803,7 @@ Integrated draft:
 
 State symbols:
 {symbols}
+{magic_context}
 
 RPM matrix context:
 {format_rpm_context(state.rpm_trace, max_rules=10, max_conflicts=8, max_rows=8)}
@@ -2269,6 +2817,7 @@ Close the loop. Rewrite the integrated draft so that the original seed returns i
 The return should feel inevitable, not explained. Keep the strongest concrete images.
 Preserve continuity, reduce drift if the draft wandered, and avoid mechanical repetition.
 The final paragraph or final image should echo the seed without copying it flatly.
+If a magic realism prior is active, close through ordinary continuity: work, errands, paperwork, transport, food, weather, or another routine continues after the impossible fact.
 
 Return only the final literary output. Do not include analysis notes or hidden chain-of-thought.
 """.strip()
@@ -2281,7 +2830,7 @@ Return JSON only with this schema:
   "score": 0.0,
   "accept": false,
   "repairable": true,
-  "metric_scores": {{
+    "metric_scores": {{
     "grounding": 0.0,
     "controlled_perturbation": 0.0,
     "symbol_recurrence": 0.0,
@@ -2290,7 +2839,16 @@ Return JSON only with this schema:
     "repetition_control": 0.0,
     "collapse_control": 0.0,
     "integration": 0.0,
-    "closure": 0.0
+    "closure": 0.0,
+    "mundane_grounding": 0.0,
+    "quiet_impossibility": 0.0,
+    "non_explanation": 0.0,
+    "social_normalization": 0.0,
+    "anti_fantasy": 0.0,
+    "concrete_object": 0.0,
+    "symbolic_pressure": 0.0,
+    "ordinary_continuity": 0.0,
+    "magic_realism": 0.0
   }},
   "reasons": ["brief visible reason"],
   "repair_prompt": "brief repair instruction or null"
@@ -2300,6 +2858,9 @@ Evaluation target:
 Score the candidate as a visible process step, not as hidden reasoning.
 A good step should satisfy the stage role, preserve seed-linked symbols, control drift, avoid generic abstraction,
 and move the state forward.
+If MagicRealismPrior is active, additionally reward mundane grounding, one quiet material impossibility,
+social normalization, concrete objects, ordinary continuity, and restraint; penalize fantasy lore,
+dream reveal, hallucination reveal, cosmic explanation, and over-explained supernatural logic.
 
 Seed:
 {clip_text(state.seed, 2200)}
@@ -2309,6 +2870,9 @@ Previous visible text:
 
 Current symbols:
 {', '.join(state.symbols) if state.symbols else '(none)'}
+
+Magic realism context:
+{format_magic_realism_prior(state.magic_prior, state.anchor_profile) if state.magic_prior else 'inactive'}
 
 Stage:
 - name: {stage.name}
@@ -2363,6 +2927,8 @@ class SpiralRpmPrmRunnerV5:
         save_memory_profile_path: Optional[str] = None,
         memory_weight: float = 0.25,
         memory_update: bool = True,
+        magic_prior: Optional[MagicRealismPrior] = None,
+        anchor_profile: Optional[PromptAnchorProfile] = None,
     ) -> None:
         self.provider_names = list(providers)
         self.models = models
@@ -2397,6 +2963,8 @@ class SpiralRpmPrmRunnerV5:
         self.save_memory_profile_path = save_memory_profile_path or memory_profile_path
         self.memory_weight = clamp01(memory_weight)
         self.memory_update = memory_update
+        self.magic_prior = magic_prior
+        self.anchor_profile = anchor_profile
         self.memory_profile = load_memory_profile(memory_profile_path)
         self.memory_profile_before = profile_snapshot(self.memory_profile, limit=12)
         self.beam_archive_snapshots: List[BeamPathSnapshot] = []
@@ -2496,6 +3064,8 @@ class SpiralRpmPrmRunnerV5:
     ) -> CandidateStep:
         symbols_after = merge_symbols(state.symbols, result.text, limit=self.constraints.symbol_limit)
         metrics = observe_transition(previous=state.text, current=result.text, symbols=symbols_after)
+        if state.magic_prior:
+            metrics.update(compute_magic_realism_metrics(result.text, state=state, stage=stage, transition_metrics=metrics))
         return CandidateStep(
             candidate_id=candidate_id,
             stage_index=index,
@@ -2598,6 +3168,7 @@ class SpiralRpmPrmRunnerV5:
         recurrence = state.metrics.get("recurrence_score", 0.0)
         collapse = state.metrics.get("collapse_score", 0.0)
         drift = state.metrics.get("drift_score", 0.0)
+        magic = state.metrics.get("magic_realism_reward", 0.0)
         unresolved = len([c for c in state.rpm_trace.conflicts if not c.resolved])
         drift_penalty = max(0.0, drift - self.constraints.max_drift)
         score = (
@@ -2605,6 +3176,7 @@ class SpiralRpmPrmRunnerV5:
             + 0.26 * last_reward
             + 0.10 * recurrence
             + 0.06 * state.metrics.get("entropy_score", 0.0)
+            + (0.07 * magic if self.magic_prior else 0.0)
             - 0.08 * collapse
             - 0.06 * drift_penalty
             - 0.025 * unresolved
@@ -2775,6 +3347,17 @@ class SpiralRpmPrmRunnerV5:
 
     def run(self, seed: str, language: str, seed_symbols: Sequence[str]) -> ChainRun:
         initial_symbols = merge_symbols(seed_symbols, seed, limit=self.constraints.symbol_limit)
+        rpm_trace = RPMTrace()
+        if self.magic_prior:
+            rpm_trace.axes = list(rpm_trace.axes) + [
+                "mundane_anchor",
+                "quiet_impossibility",
+                "non_explanation",
+                "social_normalization",
+                "fantasy_drift",
+                "symbolic_pressure",
+                "ordinary_continuity",
+            ]
         state = ChainState(
             seed=seed,
             text=seed,
@@ -2786,7 +3369,9 @@ class SpiralRpmPrmRunnerV5:
                 f"memory_profile_runs={self.memory_profile.get('run_count', 0)}",
                 f"beam_width={self.beam_width}",
             ],
-            rpm_trace=RPMTrace(),
+            magic_prior=self.magic_prior,
+            anchor_profile=self.anchor_profile,
+            rpm_trace=rpm_trace,
             step_history=[],
             path_id="root",
             path_score=0.0,
@@ -2858,6 +3443,8 @@ class SpiralRpmPrmRunnerV5:
             role_providers={role: self.role_providers[role] for role in ROLES if role in self.role_providers},
             models={name: self.models[name] for name in self.provider_names},
             constraints=json_safe(dataclasses.asdict(self.constraints)),
+            magic_prior=self.magic_prior,
+            anchor_profile=self.anchor_profile,
             prm=prm_config,
             beam=beam_config,
             beam_archive=list(self.beam_archive_snapshots),
@@ -2891,6 +3478,7 @@ def render_markdown(run: ChainRun, show_stages: bool = True, show_candidates: bo
     lines.append(f"- Routing: `{run.routing}`")
     lines.append(f"- PRM: `{run.prm.mode}` / candidates per stage: `{run.prm.candidates}`")
     lines.append(f"- Beam: `enabled={run.beam.enabled}, width={run.beam.beam_width}, branching={run.beam.beam_branching}`")
+    lines.append(f"- Magic realism prior: `{'enabled' if run.magic_prior else 'disabled'}`")
     lines.append(f"- Path score: `{run.final_state.path_score}`")
     lines.append(f"- Memory profile: `{run.memory_profile_path or '(not saved)'}` / runs before→after: `{run.memory_profile_before.get('run_count', 0)}`→`{run.memory_profile_after.get('run_count', 0)}`")
     lines.append(f"- Final symbols: `{', '.join(run.final_state.symbols) if run.final_state.symbols else '(none)'}`")
@@ -2902,6 +3490,14 @@ def render_markdown(run: ChainRun, show_stages: bool = True, show_candidates: bo
     lines.append("")
     lines.append(run.seed)
     lines.append("")
+
+    if run.anchor_profile:
+        lines.append("## Prompt anchor profile")
+        lines.append("")
+        lines.append("```json")
+        lines.append(format_anchor_profile(run.anchor_profile))
+        lines.append("```")
+        lines.append("")
 
     if show_rpm:
         lines.append(format_rpm_markdown(run.rpm_trace))
@@ -3017,6 +3613,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--prompt", "-p", help="Seed prompt text.")
     parser.add_argument("--prompt-file", help="Read seed prompt from a UTF-8 file.")
     parser.add_argument("--stages-file", help="JSON list of custom stages: [{name, role, operator, instruction}, ...].")
+    parser.add_argument("--stage-preset", choices=("default", "seed-independent-magic"), default="default", help="Built-in stage preset to use when --stages-file is omitted.")
+    parser.add_argument("--magic-realism-prior", action="store_true", help="Inject the ontology-level magic realism prior into system, stage, repair, and aggregation prompts.")
+    parser.add_argument("--anchor-profile", choices=("off", "auto"), default="off", help="Build a PromptAnchorProfile from an ordinary prompt and use it as seed-independent mundane grounding.")
     parser.add_argument("--language", default="Japanese", help="Output language instruction.")
     parser.add_argument("--temperature", type=float, default=0.8, help="Sampling temperature. Use --no-temperature to omit.")
     parser.add_argument("--no-temperature", action="store_true", help="Do not send temperature to providers.")
@@ -3074,10 +3673,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         providers = args.providers or ([args.provider] if args.provider else ["openai"])
         models = parse_model_overrides(args.model)
         role_providers = parse_role_provider_overrides(args.role_provider)
-        stages = load_stages(args.stages_file)
+        stages = load_stages(args.stages_file, preset=args.stage_preset)
         temperature = None if args.no_temperature else args.temperature
         judge_temperature = None if args.no_temperature else args.judge_temperature
         system = DEFAULT_SYSTEM_TEMPLATE.format(language=args.language)
+        magic_prior = default_magic_realism_prior() if args.magic_realism_prior or args.stage_preset == "seed-independent-magic" else None
+        anchor_profile = extract_prompt_anchor_profile(seed) if args.anchor_profile == "auto" else None
+        if magic_prior:
+            system = f"{system}\n\n{format_magic_realism_prior(magic_prior, anchor_profile)}"
+        seed_symbols = list(args.seed_symbol)
+        if anchor_profile and not seed_symbols:
+            seed_symbols = anchor_seed_symbols(anchor_profile, limit=args.symbol_limit)
         constraints = ChainConstraints(
             max_drift=args.max_drift,
             min_drift=args.min_drift,
@@ -3121,8 +3727,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             save_memory_profile_path=args.save_memory_profile,
             memory_weight=args.memory_weight,
             memory_update=not args.no_memory_update,
+            magic_prior=magic_prior,
+            anchor_profile=anchor_profile,
         )
-        run = runner.run(seed=seed, language=args.language, seed_symbols=args.seed_symbol)
+        run = runner.run(seed=seed, language=args.language, seed_symbols=seed_symbols)
         save_outputs(
             run,
             args.output_json,

@@ -56,6 +56,35 @@ python chain_of_magic_realism.py \
 
 ---
 
+## Seed-Independent Magic Realism
+
+Use this when the input is ordinary but the output should enter a magic-realism field.
+The harness injects a `MagicRealismPrior`, extracts a mundane anchor profile from the prompt, and scores candidates against magic-realism reward axes such as quiet impossibility, non-explanation, social normalization, anti-fantasy drift, and ordinary continuity.
+
+```bash
+python chain_of_magic_realism.py \
+  --provider openai \
+  --no-temperature \
+  --magic-realism-prior \
+  --anchor-profile auto \
+  --stage-preset seed-independent-magic \
+  --no-recursive-closure \
+  --prompt "朝、会社に行く。" \
+  --beam-width 2 \
+  --beam-branching 2 \
+  --candidates 3 \
+  --memory-profile openai_seed_independent_memory.json \
+  --output-md openai_seed_independent_run.md \
+  --output-json openai_seed_independent_run.json \
+  --show-stages \
+  --show-candidates \
+  --show-rpm
+```
+
+The prior treats magic realism as ontology rather than style: one small impossible fact is materially real inside ordinary social life, while fantasy lore, dream reveal, cosmic explanation, and over-explained supernatural logic are penalized.
+
+---
+
 ## Beam search
 
 The important controls are:
@@ -152,6 +181,8 @@ The JSON trace includes:
 - `rpm_trace`
 - `beam`
 - `beam_archive`
+- `magic_prior`
+- `anchor_profile`
 - `memory_profile_before`
 - `memory_profile_after`
 

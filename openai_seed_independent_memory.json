@@ -1,0 +1,199 @@
+{
+  "version": "5-memory-1.0",
+  "created_at_utc": "2026-04-27T03:32:14+00:00",
+  "updated_at_utc": "2026-04-27T03:39:45+00:00",
+  "run_count": 1,
+  "provider_role_scores": {
+    "grounder": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7269,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "expander": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8179,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "stabilizer": {
+      "openai": {
+        "count": 2,
+        "mean_reward": 0.8678,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "symbolizer": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.7602,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "compressor": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8206,
+        "last_model": "gpt-5.5"
+      }
+    },
+    "integrator": {
+      "openai": {
+        "count": 1,
+        "mean_reward": 0.8746,
+        "last_model": "gpt-5.5"
+      }
+    }
+  },
+  "stage_scores": {
+    "日常アンカー抽出": {
+      "count": 1,
+      "mean_reward": 0.7269,
+      "last_role": "grounder"
+    },
+    "静かな不可能性": {
+      "count": 1,
+      "mean_reward": 0.8179,
+      "last_role": "expander"
+    },
+    "社会的な馴化": {
+      "count": 1,
+      "mean_reward": 0.8747,
+      "last_role": "stabilizer"
+    },
+    "象徴圧の変奏": {
+      "count": 1,
+      "mean_reward": 0.7602,
+      "last_role": "symbolizer"
+    },
+    "説明抑制": {
+      "count": 1,
+      "mean_reward": 0.8206,
+      "last_role": "compressor"
+    },
+    "リアリズム修復": {
+      "count": 1,
+      "mean_reward": 0.8609,
+      "last_role": "stabilizer"
+    },
+    "再統合：PRM accepted pathから最終稿へ": {
+      "count": 1,
+      "mean_reward": 0.8746,
+      "last_role": "integrator"
+    }
+  },
+  "operator_scores": {
+    "mundane_anchor_extraction": {
+      "count": 1,
+      "mean_reward": 0.7269,
+      "last_role": "grounder"
+    },
+    "quiet_impossibility_injection": {
+      "count": 1,
+      "mean_reward": 0.8179,
+      "last_role": "expander"
+    },
+    "social_normalization": {
+      "count": 1,
+      "mean_reward": 0.8747,
+      "last_role": "stabilizer"
+    },
+    "symbolic_recurrence": {
+      "count": 1,
+      "mean_reward": 0.7602,
+      "last_role": "symbolizer"
+    },
+    "explanation_suppression": {
+      "count": 1,
+      "mean_reward": 0.8206,
+      "last_role": "compressor"
+    },
+    "realism_repair": {
+      "count": 1,
+      "mean_reward": 0.8609,
+      "last_role": "stabilizer"
+    },
+    "aggregate_high_reward_path": {
+      "count": 1,
+      "mean_reward": 0.8746,
+      "last_role": "integrator"
+    }
+  },
+  "symbol_scores": {
+    "定期券": {
+      "count": 7,
+      "mean_reward": 0.8194,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "エレベーター": {
+      "count": 7,
+      "mean_reward": 0.8194,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "タイムカード": {
+      "count": 7,
+      "mean_reward": 0.8194,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "社員証": {
+      "count": 7,
+      "mean_reward": 0.8194,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "通勤": {
+      "count": 2,
+      "mean_reward": 0.7724,
+      "last_seen_stage": "静かな不可能性"
+    },
+    "改札": {
+      "count": 7,
+      "mean_reward": 0.8194,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "会社": {
+      "count": 7,
+      "mean_reward": 0.8194,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "職場": {
+      "count": 5,
+      "mean_reward": 0.80006,
+      "last_seen_stage": "説明抑制"
+    },
+    "鞄": {
+      "count": 6,
+      "mean_reward": 0.82927,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "朝": {
+      "count": 3,
+      "mean_reward": 0.8065,
+      "last_seen_stage": "社会的な馴化"
+    },
+    "駅": {
+      "count": 3,
+      "mean_reward": 0.83193,
+      "last_seen_stage": "リアリズム修復"
+    },
+    "昨日": {
+      "count": 4,
+      "mean_reward": 0.82908,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "靴": {
+      "count": 4,
+      "mean_reward": 0.82908,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    },
+    "写真": {
+      "count": 1,
+      "mean_reward": 0.8746,
+      "last_seen_stage": "再統合：PRM accepted pathから最終稿へ"
+    }
+  },
+  "notes": [
+    "run 1: mean_reward=0.8194; final_symbols=昨日, タイムカード, 社員証, 定期券, 写真, 会社"
+  ]
+}
