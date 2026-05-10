@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chain-of-magic-realism-thought"
+version = "0.1.0"
+description = "Visible-state RPM/PRM harness for magic-realism generation."
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.scripts]
+chain-of-magic-realism = "magic_realism_thought.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

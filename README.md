@@ -17,6 +17,23 @@ The script still avoids private chain-of-thought exposure. It treats only **visi
 
 ---
 
+## Repository layout
+
+```text
+chain_of_magic_realism.py          # compatibility wrapper
+src/magic_realism_thought/         # package code and CLI implementation
+examples/stages/                   # reusable stage presets
+examples/memory/                   # sample run-memory profiles
+examples/runs/                     # generated trace examples
+docs/                              # design notes
+tests/                             # trace contract tests
+```
+
+See [`docs/repository_structure.md`](docs/repository_structure.md) for the current file map.
+`examples/runs/dry_run.*` is the current no-API schema example; provider-named examples preserve historical live-provider runs.
+
+---
+
 ## Install
 
 ```bash
@@ -46,9 +63,9 @@ python chain_of_magic_realism.py \
   --beam-width 2 \
   --beam-branching 2 \
   --candidates 3 \
-  --memory-profile chain_of_magic_realism_memory.json \
-  --output-md chain_of_magic_realism.md \
-  --output-json chain_of_magic_realism.json \
+  --memory-profile examples/memory/chain_of_magic_realism_memory.json \
+  --output-md examples/runs/chain_of_magic_realism.md \
+  --output-json examples/runs/chain_of_magic_realism.json \
   --show-stages \
   --show-candidates \
   --show-rpm
@@ -73,9 +90,9 @@ python chain_of_magic_realism.py \
   --beam-width 2 \
   --beam-branching 2 \
   --candidates 3 \
-  --memory-profile openai_seed_independent_memory.json \
-  --output-md openai_seed_independent_run.md \
-  --output-json openai_seed_independent_run.json \
+  --memory-profile examples/memory/openai_seed_independent_memory.json \
+  --output-md examples/runs/openai_seed_independent_run.md \
+  --output-json examples/runs/openai_seed_independent_run.json \
   --show-stages \
   --show-candidates \
   --show-rpm
@@ -120,7 +137,7 @@ Load and update a memory profile:
 python chain_of_magic_realism.py \
   --providers openai,google,anthropic,mistral \
   --prompt "駅の時計は3時17分で止まったのに、誰もがまだ秒針の音を聞いていた。" \
-  --memory-profile chain_of_magic_realism_memory.json \
+  --memory-profile examples/memory/chain_of_magic_realism_memory.json \
   --beam-width 2 \
   --candidates 3
 ```
@@ -128,13 +145,13 @@ python chain_of_magic_realism.py \
 Use one profile as input and save to another path:
 
 ```bash
---memory-profile old_profile.json --save-memory-profile new_profile.json
+--memory-profile examples/memory/old_profile.json --save-memory-profile examples/memory/new_profile.json
 ```
 
 Load memory but do not update it:
 
 ```bash
---memory-profile chain_of_magic_realism_memory.json --no-memory-update
+--memory-profile examples/memory/chain_of_magic_realism_memory.json --no-memory-update
 ```
 
 Adjust the prompt/provider influence of memory:
@@ -179,20 +196,38 @@ The JSON trace includes:
 - `final_state`
 - `steps`
 - `rpm_trace`
+  - `decision_landscape`
+  - `ontology_ledger`
 - `beam`
 - `beam_archive`
 - `magic_prior`
 - `anchor_profile`
 - `memory_profile_before`
 - `memory_profile_after`
+- `reward_surface_audit`
 
 The Markdown trace includes:
 
 - RPM matrix
+- Decision landscape
+- Ontology ledger
 - Beam archive
 - Run memory snapshot
+- Reward surface audit
 - PRM-scored visible process path
 - Final output
+
+---
+
+## Design-risk instrumentation
+
+The harness now reports the three main risks that appear in long-running visible-state systems.
+
+- Ontology inflation: `rpm_trace.ontology_ledger` lists active axes, operators, conflict types, and rule kinds, plus pressure warnings when the local vocabulary gets too large.
+- Reward surface overfitting: `reward_surface_audit` flags saturated axes, low selection margins, and near-duplicate candidate sets. Run memory also tells providers not to imitate prior rewarded style.
+- Visible-only limits: `rpm_trace.decision_landscape` records accepted, rejected, repaired, and unresolved candidate decisions without exposing hidden chain-of-thought.
+
+See [`docs/design_risks.md`](docs/design_risks.md).
 
 ---
 
@@ -203,6 +238,9 @@ PRM = scores visible state transitions
 RPM = records what each transition changed in the state matrix
 Beam = keeps multiple possible state paths alive
 Memory = learns soft priors across runs
+Decision landscape = records accepted/rejected/repaired visible candidates
+Ontology ledger = audits the vocabulary used by the trace itself
+Reward surface audit = checks whether scoring has become too flat or imitable
 Recursive closure = returns the final output to the seed
 ```
 
