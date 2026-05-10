@@ -1,16 +1,18 @@
 # Chain of Magic Realism Thought
 
-- Started UTC: `2026-04-26T18:00:36+00:00`
+- Started UTC: `2026-05-10T10:38:35+00:00`
 - Language: `Japanese`
-- Providers: `openai, google, anthropic, mistral`
+- Providers: `openai`
 - Routing: `role`
-- PRM: `heuristic` / candidates per stage: `3`
+- PRM: `heuristic` / candidates per stage: `2`
 - Beam: `enabled=True, width=2, branching=2`
-- Path score: `0.5769`
-- Memory profile: `memory_profile_example.json` / runs before→after: `0`→`1`
+- Magic realism prior: `disabled`
+- Path score: `0.55172`
+- Memory profile: `examples/memory/memory_profile_example.json` / runs before→after: `1`→`1`
 - Final symbols: `祖母, 筆跡, 障子, 硯箱, 戸棚, 雨, 食器棚, 台所, 夕方, 木箱, 雨粒, 家族`
-- Final metrics: `drift_score=0.7682, novelty_score=0.6154, repetition_score=0.1154, recurrence_score=0.375, entropy_score=0.9881, collapse_score=0.2799, compression_ratio=0.8649`
-- RPM rows/rules/conflicts: `7` / `28` / `4` total, `1` unresolved
+- Final metrics: `drift_score=0.6138, novelty_score=0.5, repetition_score=0.1154, recurrence_score=0.375, entropy_score=0.9881, collapse_score=0.2799, compression_ratio=0.8533`
+- RPM rows/rules/conflicts: `7` / `28` / `4` total, `2` unresolved
+- Reward surface audit: `risk=medium`
 
 ## Seed
 
@@ -21,8 +23,8 @@
 - Axes: `text, symbols, constraints, drift, recurrence, reward, operator`
 - Stable symbols: `祖母, 筆跡, 雨, 食器棚, 夕方, 台所, 木箱, 硯箱, 戸棚, 雨粒, 障子, 家族`
 - Unstable symbols: `(none)`
-- Drift vector: `{"mean_drift": 0.7217, "last_drift": 0.7682, "mean_recurrence": 0.3135, "last_recurrence": 0.375, "mean_reward": 0.6465, "last_reward": 0.5866}`
-- Conflicts: `4` total / `1` unresolved
+- Drift vector: `{"mean_drift": 0.6849, "last_drift": 0.6138, "mean_recurrence": 0.3194, "last_recurrence": 0.375, "mean_reward": 0.6462, "last_reward": 0.5866}`
+- Conflicts: `4` total / `2` unresolved
 
 ### Matrix cells
 
@@ -33,8 +35,20 @@
 | 3 | symbolizer | `amplify_symbolic_recurrence_by_variation` | openai | 0.495 | 0.719 | 0.292 | + - / - 食器棚, 夕方, 台所, 木箱 | c03-01-symbol_loss |
 | 4 | stabilizer | `reduce_drift_while_preserving_magic` | openai | 0.704 | 0.670 | 0.208 | + - / - 筆跡, 硯箱, 食器棚, 夕方 | - |
 | 5 | compressor | `compress_to_dense_visible_bone_structure` | openai | 0.664 | 0.645 | 0.208 | + - / - 台所, 食器棚, 硯箱, 夕方 | - |
-| 6 | integrator | `aggregate_high_reward_path` | anthropic | 0.644 | 0.702 | 0.208 | + - / - 戸棚, 食器棚, 台所, 夕方 | c06-01-symbol_loss |
-| 7 | recursive | `close_loop_to_seed` | google | 0.587 | 0.768 | 0.375 | + - / - 食器棚, 台所, 夕方, 木箱 | c07-01-symbol_loss |
+| 6 | integrator | `aggregate_high_reward_path` | openai | 0.642 | 0.599 | 0.250 | + - / - 食器棚, 台所, 夕方, 木箱 | c06-01-symbol_loss |
+| 7 | recursive | `close_loop_to_seed` | openai | 0.587 | 0.614 | 0.375 | + - / - 食器棚, 台所, 夕方, 木箱 | c07-01-symbol_loss |
+
+### Decision landscape
+
+| decision | stage | accepted | score | margin | rejected/repair candidates | deferred |
+|---|---:|---|---:|---:|---|---|
+| `d01-01` | 1 | `b1-s1-c2-openai` | 0.742 | 0.014 | b1-s1-c1-openai:rejected:0.7281 | c01-01-high_drift:high_drift |
+| `d02-01` | 2 | `b2-s2-c2-openai` | 0.690 | 0.123 | b2-s2-c1-openai:rejected:0.5665 | - |
+| `d03-01` | 3 | `b1-s3-c2-openai` | 0.495 | 0.089 | b1-s3-c1-openai:rejected:0.4064 | c03-01-symbol_loss:symbol_loss |
+| `d04-01` | 4 | `b1-s4-c2-openai` | 0.704 | 0.049 | b1-s4-c1-openai:rejected:0.655 | - |
+| `d05-01` | 5 | `b1-s5-c2-openai` | 0.664 | 0.016 | b1-s5-c1-openai:rejected:0.6477 | - |
+| `d06-01` | 6 | `s6-c2-openai` | 0.642 | 0.008 | s6-c1-openai:rejected:0.6343 | c06-01-symbol_loss:symbol_loss |
+| `d07-01` | 7 | `s7-c2-openai` | 0.587 | 0.044 | s7-c1-openai:rejected:0.5428, s7-c2-openai-r1:rejected_repair:0.5428 | c06-01-symbol_loss:symbol_loss, c07-01-symbol_loss:symbol_loss |
 
 ### Rule hypotheses
 
@@ -42,11 +56,11 @@
 - `r04-04` **operator_effect** `0.837` - Operator 'reduce_drift_while_preserving_magic' acts on the state as collapse_score:decrease, compression_ratio:increase, drift_score:decrease, entropy_score:stable, novelty_score:decrease, recurrence_score:decrease, repetition_score:decrease.
 - `r02-04` **operator_effect** `0.829` - Operator 'inject_one_impossible_fact_without_explanation' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:decrease, entropy_score:stable, novelty_score:stable, recurrence_score:decrease, repetition_score:decrease.
 - `r05-04` **operator_effect** `0.815` - Operator 'compress_to_dense_visible_bone_structure' acts on the state as collapse_score:stable, compression_ratio:decrease, drift_score:stable, entropy_score:stable, novelty_score:decrease, recurrence_score:stable, repetition_score:stable.
-- `r06-04` **operator_effect** `0.804` - Operator 'aggregate_high_reward_path' acts on the state as collapse_score:stable, compression_ratio:increase, drift_score:increase, entropy_score:stable, novelty_score:increase, recurrence_score:stable, repetition_score:stable.
+- `r06-04` **operator_effect** `0.803` - Operator 'aggregate_high_reward_path' acts on the state as collapse_score:stable, compression_ratio:increase, drift_score:decrease, entropy_score:stable, novelty_score:stable, recurrence_score:increase, repetition_score:stable.
 - `r01-01` **symbolic_recurrence** `0.787` - '祖母' anchors the scene in concrete reality during 現実の足場.
 - `r01-02` **symbolic_recurrence** `0.787` - '筆跡' anchors the scene in concrete reality during 現実の足場.
 - `r01-03` **symbolic_recurrence** `0.787` - '雨' anchors the scene in concrete reality during 現実の足場.
-- `r07-04` **operator_effect** `0.773` - Operator 'close_loop_to_seed' acts on the state as collapse_score:increase, compression_ratio:decrease, drift_score:increase, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:increase.
+- `r07-04` **operator_effect** `0.773` - Operator 'close_loop_to_seed' acts on the state as collapse_score:increase, compression_ratio:decrease, drift_score:stable, entropy_score:stable, novelty_score:decrease, recurrence_score:increase, repetition_score:increase.
 - `r03-04` **operator_effect** `0.722` - Operator 'amplify_symbolic_recurrence_by_variation' acts on the state as collapse_score:increase, compression_ratio:increase, drift_score:stable, entropy_score:stable, novelty_score:stable, recurrence_score:stable, repetition_score:increase.
 - `r02-01` **symbolic_recurrence** `0.659` - '祖母' survives an impossible perturbation during 摂動：ありえない事実.
 - `r02-02` **symbolic_recurrence** `0.659` - '戸棚' survives an impossible perturbation during 摂動：ありえない事実.
@@ -57,12 +71,12 @@
 - `r04-01` **symbolic_recurrence** `0.634` - '台所' helps keep the drift legible during 安定化：語りの重力.
 - `r04-02` **symbolic_recurrence** `0.634` - '障子' helps keep the drift legible during 安定化：語りの重力.
 - `r04-03` **symbolic_recurrence** `0.634` - '祖母' helps keep the drift legible during 安定化：語りの重力.
+- `r06-01` **symbolic_recurrence** `0.630` - '障子' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.
+- `r06-02` **symbolic_recurrence** `0.630` - '祖母' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.
+- `r06-03` **symbolic_recurrence** `0.630` - '筆跡' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.
 - `r05-01` **symbolic_recurrence** `0.622` - '障子' remains after compression during 圧縮：骨格を残す.
 - `r05-02` **symbolic_recurrence** `0.622` - '祖母' remains after compression during 圧縮：骨格を残す.
 - `r05-03` **symbolic_recurrence** `0.622` - '筆跡' remains after compression during 圧縮：骨格を残す.
-- `r06-01` **symbolic_recurrence** `0.616` - '障子' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.
-- `r06-02` **symbolic_recurrence** `0.616` - '祖母' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.
-- `r06-03` **symbolic_recurrence** `0.616` - '筆跡' connects multiple accepted stages during 再統合：PRM accepted pathから最終稿へ.
 - `r03-01` **symbolic_recurrence** `0.601` - '筆跡' becomes a recurring symbolic circuit during 象徴の反復.
 - `r03-02` **symbolic_recurrence** `0.601` - '硯箱' becomes a recurring symbolic circuit during 象徴の反復.
 - `r03-03` **symbolic_recurrence** `0.601` - '祖母' becomes a recurring symbolic circuit during 象徴の反復.
@@ -73,24 +87,49 @@
   - repair: Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.
 - `c03-01-symbol_loss` **symbol_loss** `resolved` severity `0.583`: Symbols that should recur disappeared during a recurrence-sensitive stage.
   - repair: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.
-- `c06-01-symbol_loss` **symbol_loss** `resolved` severity `0.583`: Symbols that should recur disappeared during a recurrence-sensitive stage.
+- `c06-01-symbol_loss` **symbol_loss** `open` severity `0.500`: Symbols that should recur disappeared during a recurrence-sensitive stage.
   - repair: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.
 - `c07-01-symbol_loss` **symbol_loss** `open` severity `0.500`: Symbols that should recur disappeared during a recurrence-sensitive stage.
   - repair: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.
+
+### Ontology ledger
+
+- Entry counts: `axis=7, conflict_type=2, operator=7, rule_kind=2`
+
+| kind | name | producer | observed | status |
+|---|---|---|---:|---|
+| axis | `text` | `RPMTrace.axes` | 7 | active |
+| axis | `symbols` | `RPMTrace.axes` | 7 | active |
+| axis | `constraints` | `RPMTrace.axes` | 7 | active |
+| axis | `drift` | `RPMTrace.axes` | 7 | active |
+| axis | `recurrence` | `RPMTrace.axes` | 7 | active |
+| axis | `reward` | `RPMTrace.axes` | 7 | active |
+| axis | `operator` | `RPMTrace.axes` | 7 | active |
+| conflict_type | `high_drift` | `detect_rpm_conflicts` | 1 | active |
+| conflict_type | `symbol_loss` | `detect_rpm_conflicts` | 3 | active |
+| operator | `aggregate_high_reward_path` | `StageSpec.operator` | 1 | active |
+| operator | `amplify_symbolic_recurrence_by_variation` | `StageSpec.operator` | 1 | active |
+| operator | `close_loop_to_seed` | `StageSpec.operator` | 1 | active |
+| operator | `compress_to_dense_visible_bone_structure` | `StageSpec.operator` | 1 | active |
+| operator | `increase_grounding_and_stabilize_viewpoint` | `StageSpec.operator` | 1 | active |
+| operator | `inject_one_impossible_fact_without_explanation` | `StageSpec.operator` | 1 | active |
+| operator | `reduce_drift_while_preserving_magic` | `StageSpec.operator` | 1 | active |
+| rule_kind | `operator_effect` | `infer_rules_for_cell` | 7 | active |
+| rule_kind | `symbolic_recurrence` | `infer_rules_for_cell` | 21 | active |
 
 
 ## Beam archive
 
 | score | stage | path | providers | symbols | unresolved |
 |---:|---:|---|---|---|---:|
-| 0.71254 | 1 | `root>b1-s1-c1-anthropic` | `anthropic` | `祖母, 筆跡, 雨, 食器棚, 夕方, 台所` | 0 |
+| 0.71254 | 1 | `root>b1-s1-c1-openai` | `openai` | `祖母, 筆跡, 雨, 食器棚, 夕方, 台所` | 0 |
 | 0.69965 | 1 | `root>b1-s1-c2-openai` | `openai` | `祖母, 筆跡, 雨, 食器棚, 夕方, 台所` | 1 |
 | 0.66580 | 2 | `root>b1-s1-c2-openai>b2-s2-c2-openai` | `openai → openai` | `祖母, 戸棚, 雨, 食器棚, 筆跡, 夕方` | 0 |
 | 0.62782 | 4 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-s3-c2-openai>b1-s4-c2-openai` | `openai → openai → openai → openai` | `台所, 障子, 祖母, 戸棚, 雨, 食器棚` | 0 |
 | 0.61789 | 5 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-  ...[clipped]...  2-openai>b1-s4-c2-openai>b1-s5-c2-openai` | `openai → openai → openai → openai → openai` | `障子, 祖母, 筆跡, 戸棚, 雨, 食器棚` | 0 |
-| 0.61752 | 5 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-  ...[clipped]...  2-openai>b1-s4-c3-google>b2-s5-c2-openai` | `openai → openai → openai → google → openai` | `障子, 祖母, 筆跡, 戸棚, 雨, 食器棚` | 0 |
-| 0.60834 | 4 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-s3-c2-openai>b1-s4-c3-google` | `openai → openai → openai → google` | `台所, 障子, 祖母, 雨, 食器棚, 筆跡` | 0 |
-| 0.58870 | 2 | `root>b1-s1-c1-anthropic>b1-s2-c3-google` | `anthropic → google` | `祖母, 雨, 食器棚, 筆跡, 夕方, 台所` | 1 |
+| 0.60878 | 5 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-  ...[clipped]...  penai-r1>b2-s4-c1-openai>b2-s5-c2-openai` | `openai → openai → openai → openai → openai` | `障子, 祖母, 筆跡, 戸棚, 雨, 食器棚` | 0 |
+| 0.60034 | 4 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-s3-c1-openai-r1>b2-s4-c1-openai` | `openai → openai → openai → openai` | `台所, 障子, 祖母, 雨, 食器棚, 筆跡` | 0 |
+| 0.58973 | 6 | `root>b1-s1-c2-openai>b2-s2-c2-openai>b1-  ...[clipped]...  4-c2-openai>b1-s5-c2-openai>s6-c2-openai` | `openai → openai → openai → openai → openai → openai` | `障子, 祖母, 筆跡, 硯箱, 戸棚, 雨` | 1 |
 
 ## Run memory snapshot
 
@@ -277,6 +316,16 @@
 }
 ```
 
+## Reward surface audit
+
+- Risk level: `medium`
+- Accepted rewards: `count=7, mean=0.6462, stdev=0.0767`
+- Axis saturation: `drift_control:mean=0.997`
+- Low-margin stages: `1:現実の足場 margin=0.0142, 5:圧縮：骨格を残す margin=0.0162, 6:再統合：PRM accepted pathから最終稿へ margin=0.0078`
+- Recommendations:
+  - Inspect saturated axes before increasing their weight; saturated axes stop discriminating candidates.
+  - Keep low-margin rejected candidates in review; selection may be judge-noise rather than a clear transition.
+
 ## PRM-scored visible process path
 
 ### 1. 現実の足場
@@ -296,9 +345,7 @@ Control notes for next stage:
 
 #### Rejected candidates
 
-- `b1-s1-c1-anthropic` by `anthropic` score `0.7281`
-- `b1-s1-c3-google` by `google` score `0.7083`
-  - reasons: drift too high (0.834)
+- `b1-s1-c1-openai` by `openai` score `0.7281`
 
 ### 2. 摂動：ありえない事実
 
@@ -313,10 +360,8 @@ Symbols: `祖母, 戸棚, 雨, 食器棚, 筆跡, 夕方, 台所, 木箱, 硯箱
 
 #### Rejected candidates
 
-- `b2-s2-c1-mistral` by `mistral` score `0.5665`
+- `b2-s2-c1-openai` by `openai` score `0.5665`
   - reasons: drift too high (0.880)
-- `b2-s2-c3-google` by `google` score `0.5825`
-  - reasons: drift too high (0.866)
 
 ### 3. 象徴の反復
 
@@ -334,10 +379,8 @@ Control notes for next stage:
 
 #### Rejected candidates
 
-- `b1-s3-c1-mistral` by `mistral` score `0.4064`
+- `b1-s3-c1-openai` by `openai` score `0.4064`
   - reasons: drift too high (0.889)
-- `b1-s3-c3-google` by `google` score `0.475`
-  - reasons: drift too high (0.850)
 
 ### 4. 安定化：語りの重力
 
@@ -352,9 +395,8 @@ Symbols: `台所, 障子, 祖母, 戸棚, 雨, 食器棚, 筆跡, 硯箱, 夕方
 
 #### Rejected candidates
 
-- `b1-s4-c1-anthropic` by `anthropic` score `0.655`
+- `b1-s4-c1-openai` by `openai` score `0.655`
   - reasons: drift too high (0.833)
-- `b1-s4-c3-google` by `google` score `0.6714`
 
 ### 5. 圧縮：骨格を残す
 
@@ -369,38 +411,37 @@ Symbols: `障子, 祖母, 筆跡, 戸棚, 雨, 食器棚, 台所, 硯箱, 夕方
 
 #### Rejected candidates
 
-- `b1-s5-c1-google` by `google` score `0.6477`
-- `b1-s5-c3-anthropic` by `anthropic` score `0.6299`
+- `b1-s5-c1-openai` by `openai` score `0.6477`
 
 ### 6. 再統合：PRM accepted pathから最終稿へ
 
 Role: `integrator`  
 Operator: `aggregate_high_reward_path`  
-Selected: `s6-c3-anthropic` by `anthropic` / `claude-opus-4-7`  
-Reward: `score=0.6442 | accept=True | repairable=True | judge=heuristic | axes=[closure=0.38, collapse_control=0.63, controlled_perturbation=0.53, drift_control=1.00, grounding=0.66, integration=0.62, novelty=0.70, repetition_control=1.00, symbol_recurrence=0.27]`  
-Metrics: `drift_score=0.7024, novelty_score=0.7, repetition_score=0.0, recurrence_score=0.2083, entropy_score=1.0, collapse_score=0.2013, compression_ratio=1.265`  
-Symbols: `障子, 祖母, 筆跡, 硯箱, 雨, 食器棚, 戸棚, 台所, 夕方, 木箱, 雨粒, 家族`
+Selected: `s6-c2-openai` by `openai` / `gpt-5.5`  
+Reward: `score=0.6421 | accept=True | repairable=True | judge=heuristic | axes=[closure=0.40, collapse_control=0.60, controlled_perturbation=0.72, drift_control=1.00, grounding=0.66, integration=0.64, novelty=0.59, repetition_control=0.88, symbol_recurrence=0.33]`  
+Metrics: `drift_score=0.5989, novelty_score=0.5862, repetition_score=0.0345, recurrence_score=0.25, entropy_score=0.9962, collapse_score=0.2195, compression_ratio=1.2821`  
+Symbols: `障子, 祖母, 筆跡, 硯箱, 戸棚, 雨, 食器棚, 台所, 夕方, 木箱, 雨粒, 家族`
 
 Control notes for next stage:
 - RPM conflict c06-01-symbol_loss: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.
 
-雨が降る夜、障子には祖母の筆跡が戻った。夕飯の匂い、止まった時計、硯箱の湿り気がひとつの部屋に集まり、誰もそれを奇跡とは呼ばなかった。母は茶碗を伏せ、私は読めそうで読めない線を見ていた。朝になると文字は消え、畳の縁だけが、墨を吸ったように少し暗かった。灯りの下だけ、時間は乾かないまま残っていた。
+雨が降る夜、障子には祖母の筆跡が戻った。夕飯の匂い、止まった時計、硯箱の湿り気がひとつの部屋に集まり、誰もそれを奇跡とは呼ばなかった。母は茶碗を伏せ、私は読めそうで読めない線を見ていた。朝になると文字は消え、畳の縁だけが、墨を吸ったように少し暗かった。その音は、誰かが戸棚の奥で紙を折る音に似ていた。
 
 #### Rejected candidates
 
 - `s6-c1-openai` by `openai` score `0.6343`
-- `s6-c2-google` by `google` score `0.6421`
 
 ### 7. 再帰クロージャ：Seedへの帰還
 
 Role: `recursive`  
 Operator: `close_loop_to_seed`  
-Selected: `s7-c2-google` by `google` / `gemini-3-flash-preview`  
-Reward: `score=0.5866 | accept=False | repairable=True | judge=heuristic | axes=[closure=0.51, collapse_control=0.49, controlled_perturbation=0.41, drift_control=1.00, grounding=0.60, integration=0.65, novelty=0.62, repetition_control=0.59, symbol_recurrence=0.41]`  
-Metrics: `drift_score=0.7682, novelty_score=0.6154, repetition_score=0.1154, recurrence_score=0.375, entropy_score=0.9881, collapse_score=0.2799, compression_ratio=0.8649`  
+Selected: `s7-c2-openai` by `openai` / `gpt-5.5`  
+Reward: `score=0.5866 | accept=False | repairable=True | judge=heuristic | axes=[closure=0.51, collapse_control=0.49, controlled_perturbation=0.70, drift_control=1.00, grounding=0.60, integration=0.65, novelty=0.50, repetition_control=0.59, symbol_recurrence=0.41]`  
+Metrics: `drift_score=0.6138, novelty_score=0.5, repetition_score=0.1154, recurrence_score=0.375, entropy_score=0.9881, collapse_score=0.2799, compression_ratio=0.8533`  
 Symbols: `祖母, 筆跡, 障子, 硯箱, 戸棚, 雨, 食器棚, 台所, 夕方, 木箱, 雨粒, 家族`
 
 Control notes for next stage:
+- RPM conflict c06-01-symbol_loss: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.
 - RPM conflict c07-01-symbol_loss: Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.
 
 雨が降ると、祖母の筆跡は障子ではなく家そのものに戻ってきた。三時十七分の時計、湯気の立つ茶碗、硯箱の匂いが、黙ったまま同じ線を描いた。朝、私は乾いた畳を指でなぞり、雨がまだ祖母の筆跡を覚えていることを知った。その音は、誰かが戸棚の奥で紙を折る音に似ていた。
@@ -408,12 +449,11 @@ Control notes for next stage:
 #### Rejected candidates
 
 - `s7-c1-openai` by `openai` score `0.5428`
-- `s7-c3-anthropic` by `anthropic` score `0.5598`
-- `s7-c2-google-r1` by `google` score `0.5428`
+- `s7-c2-openai-r1` by `openai` score `0.5428`
 
 #### Repair candidates
 
-- `s7-c2-google-r1` from `s7-c2-google` by `google` score `0.5428`
+- `s7-c2-openai-r1` from `s7-c2-openai` by `openai` score `0.5428`
 
 ## Final
 
