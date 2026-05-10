@@ -1,7 +1,7 @@
 {
   "script": "chain_of_magic_realism.py",
   "version": "5.1",
-  "started_at_utc": "2026-05-10T10:38:35+00:00",
+  "started_at_utc": "2026-05-10T14:32:34+00:00",
   "language": "Japanese",
   "seed": "雨が祖母の筆跡を覚えていた。",
   "providers": [
@@ -1953,6 +1953,7 @@
       ],
       "decision_landscape": [
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d01-01",
           "stage_index": 1,
           "stage_name": "現実の足場",
@@ -1982,15 +1983,53 @@
               "repaired_from": null
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d01-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "b1-s1-c1-openai",
+              "status": "abandoned",
+              "reason": "lower ranked visible candidate",
+              "next_action": "preserve as review evidence",
+              "score": 0.7281
+            },
+            {
+              "frontier_id": "d01-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "b1-s1-c2-openai",
+              "status": "active",
+              "reason": "drift too high (0.824)",
+              "next_action": "continue accepted path",
+              "score": 0.7423
+            },
+            {
+              "frontier_id": "d01-01-f03",
+              "kind": "deferred_judgment",
+              "source_id": "c01-01-high_drift",
+              "status": "open",
+              "reason": "high_drift: The accepted transition moved too far from the previous state.",
+              "next_action": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+              "score": 0.0244
+            }
+          ],
           "unresolved_conflict_ids": [
             "c01-01-high_drift"
           ],
           "deferred_judgments": [
             "c01-01-high_drift:high_drift"
           ],
+          "abandoned_path_ids": [
+            "b1-s1-c1-openai"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [
+            "low_selection_margin=0.0142"
+          ],
+          "frontier_reason": "open conflicts keep the next transition provisional",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         },
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d02-01",
           "stage_index": 2,
           "stage_name": "摂動：ありえない事実",
@@ -2020,11 +2059,38 @@
               "repaired_from": null
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d02-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "b2-s2-c1-openai",
+              "status": "abandoned",
+              "reason": "drift too high (0.880)",
+              "next_action": "preserve as review evidence",
+              "score": 0.5665
+            },
+            {
+              "frontier_id": "d02-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "b2-s2-c2-openai",
+              "status": "active",
+              "reason": "selected visible transition",
+              "next_action": "continue accepted path",
+              "score": 0.6899
+            }
+          ],
           "unresolved_conflict_ids": [],
           "deferred_judgments": [],
+          "abandoned_path_ids": [
+            "b2-s2-c1-openai"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [],
+          "frontier_reason": "accepted path is clear under current visible criteria",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         },
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d03-01",
           "stage_index": 3,
           "stage_name": "象徴の反復",
@@ -2054,15 +2120,54 @@
               "repaired_from": null
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d03-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "b1-s3-c1-openai",
+              "status": "abandoned",
+              "reason": "drift too high (0.889)",
+              "next_action": "preserve as review evidence",
+              "score": 0.4064
+            },
+            {
+              "frontier_id": "d03-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "b1-s3-c2-openai",
+              "status": "active",
+              "reason": "selected visible transition",
+              "next_action": "continue accepted path",
+              "score": 0.495
+            },
+            {
+              "frontier_id": "d03-01-f03",
+              "kind": "deferred_judgment",
+              "source_id": "c03-01-symbol_loss",
+              "status": "open",
+              "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+              "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+              "score": 0.5833
+            }
+          ],
           "unresolved_conflict_ids": [
             "c03-01-symbol_loss"
           ],
           "deferred_judgments": [
             "c03-01-symbol_loss:symbol_loss"
           ],
+          "abandoned_path_ids": [
+            "b1-s3-c1-openai"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [
+            "accepted_below_threshold=0.4950",
+            "open_structural_conflict"
+          ],
+          "frontier_reason": "open conflicts keep the next transition provisional",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         },
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d04-01",
           "stage_index": 4,
           "stage_name": "安定化：語りの重力",
@@ -2092,11 +2197,38 @@
               "repaired_from": null
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d04-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "b1-s4-c1-openai",
+              "status": "abandoned",
+              "reason": "drift too high (0.833)",
+              "next_action": "preserve as review evidence",
+              "score": 0.655
+            },
+            {
+              "frontier_id": "d04-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "b1-s4-c2-openai",
+              "status": "active",
+              "reason": "selected visible transition",
+              "next_action": "continue accepted path",
+              "score": 0.7038
+            }
+          ],
           "unresolved_conflict_ids": [],
           "deferred_judgments": [],
+          "abandoned_path_ids": [
+            "b1-s4-c1-openai"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [],
+          "frontier_reason": "accepted path is clear under current visible criteria",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         },
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d05-01",
           "stage_index": 5,
           "stage_name": "圧縮：骨格を残す",
@@ -2124,11 +2256,40 @@
               "repaired_from": null
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d05-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "b1-s5-c1-openai",
+              "status": "abandoned",
+              "reason": "lower ranked visible candidate",
+              "next_action": "preserve as review evidence",
+              "score": 0.6477
+            },
+            {
+              "frontier_id": "d05-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "b1-s5-c2-openai",
+              "status": "active",
+              "reason": "selected visible transition",
+              "next_action": "continue accepted path",
+              "score": 0.6639
+            }
+          ],
           "unresolved_conflict_ids": [],
           "deferred_judgments": [],
+          "abandoned_path_ids": [
+            "b1-s5-c1-openai"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [
+            "low_selection_margin=0.0162"
+          ],
+          "frontier_reason": "selection is accepted but carries review pressure",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         },
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d06-01",
           "stage_index": 6,
           "stage_name": "再統合：PRM accepted pathから最終稿へ",
@@ -2156,15 +2317,54 @@
               "repaired_from": null
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d06-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "s6-c1-openai",
+              "status": "abandoned",
+              "reason": "lower ranked visible candidate",
+              "next_action": "preserve as review evidence",
+              "score": 0.6343
+            },
+            {
+              "frontier_id": "d06-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "s6-c2-openai",
+              "status": "active",
+              "reason": "selected visible transition",
+              "next_action": "continue accepted path",
+              "score": 0.6421
+            },
+            {
+              "frontier_id": "d06-01-f03",
+              "kind": "deferred_judgment",
+              "source_id": "c06-01-symbol_loss",
+              "status": "open",
+              "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+              "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+              "score": 0.5
+            }
+          ],
           "unresolved_conflict_ids": [
             "c06-01-symbol_loss"
           ],
           "deferred_judgments": [
             "c06-01-symbol_loss:symbol_loss"
           ],
+          "abandoned_path_ids": [
+            "s6-c1-openai"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [
+            "low_selection_margin=0.0078",
+            "open_structural_conflict"
+          ],
+          "frontier_reason": "open conflicts keep the next transition provisional",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         },
         {
+          "contract_version": "decision-landscape-2.0",
           "decision_id": "d07-01",
           "stage_index": 7,
           "stage_name": "再帰クロージャ：Seedへの帰還",
@@ -2201,6 +2401,53 @@
               "repaired_from": "s7-c2-openai"
             }
           ],
+          "frontier_items": [
+            {
+              "frontier_id": "d07-01-f01",
+              "kind": "rejected_candidate",
+              "source_id": "s7-c1-openai",
+              "status": "abandoned",
+              "reason": "lower ranked visible candidate",
+              "next_action": "preserve as review evidence",
+              "score": 0.5428
+            },
+            {
+              "frontier_id": "d07-01-f02",
+              "kind": "accepted_candidate",
+              "source_id": "s7-c2-openai",
+              "status": "active",
+              "reason": "selected visible transition",
+              "next_action": "continue accepted path",
+              "score": 0.5866
+            },
+            {
+              "frontier_id": "d07-01-f03",
+              "kind": "repair_candidate",
+              "source_id": "s7-c2-openai-r1",
+              "status": "abandoned",
+              "reason": "lower ranked visible candidate",
+              "next_action": "preserve as review evidence",
+              "score": 0.5428
+            },
+            {
+              "frontier_id": "d07-01-f04",
+              "kind": "deferred_judgment",
+              "source_id": "c06-01-symbol_loss",
+              "status": "open",
+              "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+              "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+              "score": 0.5
+            },
+            {
+              "frontier_id": "d07-01-f05",
+              "kind": "deferred_judgment",
+              "source_id": "c07-01-symbol_loss",
+              "status": "open",
+              "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+              "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+              "score": 0.5
+            }
+          ],
           "unresolved_conflict_ids": [
             "c06-01-symbol_loss",
             "c07-01-symbol_loss"
@@ -2209,6 +2456,16 @@
             "c06-01-symbol_loss:symbol_loss",
             "c07-01-symbol_loss:symbol_loss"
           ],
+          "abandoned_path_ids": [
+            "s7-c1-openai",
+            "s7-c2-openai-r1"
+          ],
+          "operator_conflicts": [],
+          "architectural_hesitations": [
+            "accepted_below_threshold=0.5866",
+            "open_structural_conflict"
+          ],
+          "frontier_reason": "open conflicts keep the next transition provisional",
           "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
         }
       ],
@@ -5181,6 +5438,7 @@
     ],
     "decision_landscape": [
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d01-01",
         "stage_index": 1,
         "stage_name": "現実の足場",
@@ -5210,15 +5468,53 @@
             "repaired_from": null
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d01-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "b1-s1-c1-openai",
+            "status": "abandoned",
+            "reason": "lower ranked visible candidate",
+            "next_action": "preserve as review evidence",
+            "score": 0.7281
+          },
+          {
+            "frontier_id": "d01-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "b1-s1-c2-openai",
+            "status": "active",
+            "reason": "drift too high (0.824)",
+            "next_action": "continue accepted path",
+            "score": 0.7423
+          },
+          {
+            "frontier_id": "d01-01-f03",
+            "kind": "deferred_judgment",
+            "source_id": "c01-01-high_drift",
+            "status": "open",
+            "reason": "high_drift: The accepted transition moved too far from the previous state.",
+            "next_action": "Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material.",
+            "score": 0.0244
+          }
+        ],
         "unresolved_conflict_ids": [
           "c01-01-high_drift"
         ],
         "deferred_judgments": [
           "c01-01-high_drift:high_drift"
         ],
+        "abandoned_path_ids": [
+          "b1-s1-c1-openai"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [
+          "low_selection_margin=0.0142"
+        ],
+        "frontier_reason": "open conflicts keep the next transition provisional",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       },
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d02-01",
         "stage_index": 2,
         "stage_name": "摂動：ありえない事実",
@@ -5248,11 +5544,38 @@
             "repaired_from": null
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d02-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "b2-s2-c1-openai",
+            "status": "abandoned",
+            "reason": "drift too high (0.880)",
+            "next_action": "preserve as review evidence",
+            "score": 0.5665
+          },
+          {
+            "frontier_id": "d02-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "b2-s2-c2-openai",
+            "status": "active",
+            "reason": "selected visible transition",
+            "next_action": "continue accepted path",
+            "score": 0.6899
+          }
+        ],
         "unresolved_conflict_ids": [],
         "deferred_judgments": [],
+        "abandoned_path_ids": [
+          "b2-s2-c1-openai"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [],
+        "frontier_reason": "accepted path is clear under current visible criteria",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       },
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d03-01",
         "stage_index": 3,
         "stage_name": "象徴の反復",
@@ -5282,15 +5605,54 @@
             "repaired_from": null
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d03-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "b1-s3-c1-openai",
+            "status": "abandoned",
+            "reason": "drift too high (0.889)",
+            "next_action": "preserve as review evidence",
+            "score": 0.4064
+          },
+          {
+            "frontier_id": "d03-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "b1-s3-c2-openai",
+            "status": "active",
+            "reason": "selected visible transition",
+            "next_action": "continue accepted path",
+            "score": 0.495
+          },
+          {
+            "frontier_id": "d03-01-f03",
+            "kind": "deferred_judgment",
+            "source_id": "c03-01-symbol_loss",
+            "status": "open",
+            "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+            "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+            "score": 0.5833
+          }
+        ],
         "unresolved_conflict_ids": [
           "c03-01-symbol_loss"
         ],
         "deferred_judgments": [
           "c03-01-symbol_loss:symbol_loss"
         ],
+        "abandoned_path_ids": [
+          "b1-s3-c1-openai"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [
+          "accepted_below_threshold=0.4950",
+          "open_structural_conflict"
+        ],
+        "frontier_reason": "open conflicts keep the next transition provisional",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       },
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d04-01",
         "stage_index": 4,
         "stage_name": "安定化：語りの重力",
@@ -5320,11 +5682,38 @@
             "repaired_from": null
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d04-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "b1-s4-c1-openai",
+            "status": "abandoned",
+            "reason": "drift too high (0.833)",
+            "next_action": "preserve as review evidence",
+            "score": 0.655
+          },
+          {
+            "frontier_id": "d04-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "b1-s4-c2-openai",
+            "status": "active",
+            "reason": "selected visible transition",
+            "next_action": "continue accepted path",
+            "score": 0.7038
+          }
+        ],
         "unresolved_conflict_ids": [],
         "deferred_judgments": [],
+        "abandoned_path_ids": [
+          "b1-s4-c1-openai"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [],
+        "frontier_reason": "accepted path is clear under current visible criteria",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       },
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d05-01",
         "stage_index": 5,
         "stage_name": "圧縮：骨格を残す",
@@ -5352,11 +5741,40 @@
             "repaired_from": null
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d05-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "b1-s5-c1-openai",
+            "status": "abandoned",
+            "reason": "lower ranked visible candidate",
+            "next_action": "preserve as review evidence",
+            "score": 0.6477
+          },
+          {
+            "frontier_id": "d05-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "b1-s5-c2-openai",
+            "status": "active",
+            "reason": "selected visible transition",
+            "next_action": "continue accepted path",
+            "score": 0.6639
+          }
+        ],
         "unresolved_conflict_ids": [],
         "deferred_judgments": [],
+        "abandoned_path_ids": [
+          "b1-s5-c1-openai"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [
+          "low_selection_margin=0.0162"
+        ],
+        "frontier_reason": "selection is accepted but carries review pressure",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       },
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d06-01",
         "stage_index": 6,
         "stage_name": "再統合：PRM accepted pathから最終稿へ",
@@ -5384,15 +5802,54 @@
             "repaired_from": null
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d06-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "s6-c1-openai",
+            "status": "abandoned",
+            "reason": "lower ranked visible candidate",
+            "next_action": "preserve as review evidence",
+            "score": 0.6343
+          },
+          {
+            "frontier_id": "d06-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "s6-c2-openai",
+            "status": "active",
+            "reason": "selected visible transition",
+            "next_action": "continue accepted path",
+            "score": 0.6421
+          },
+          {
+            "frontier_id": "d06-01-f03",
+            "kind": "deferred_judgment",
+            "source_id": "c06-01-symbol_loss",
+            "status": "open",
+            "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+            "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+            "score": 0.5
+          }
+        ],
         "unresolved_conflict_ids": [
           "c06-01-symbol_loss"
         ],
         "deferred_judgments": [
           "c06-01-symbol_loss:symbol_loss"
         ],
+        "abandoned_path_ids": [
+          "s6-c1-openai"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [
+          "low_selection_margin=0.0078",
+          "open_structural_conflict"
+        ],
+        "frontier_reason": "open conflicts keep the next transition provisional",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       },
       {
+        "contract_version": "decision-landscape-2.0",
         "decision_id": "d07-01",
         "stage_index": 7,
         "stage_name": "再帰クロージャ：Seedへの帰還",
@@ -5429,6 +5886,53 @@
             "repaired_from": "s7-c2-openai"
           }
         ],
+        "frontier_items": [
+          {
+            "frontier_id": "d07-01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "s7-c1-openai",
+            "status": "abandoned",
+            "reason": "lower ranked visible candidate",
+            "next_action": "preserve as review evidence",
+            "score": 0.5428
+          },
+          {
+            "frontier_id": "d07-01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "s7-c2-openai",
+            "status": "active",
+            "reason": "selected visible transition",
+            "next_action": "continue accepted path",
+            "score": 0.5866
+          },
+          {
+            "frontier_id": "d07-01-f03",
+            "kind": "repair_candidate",
+            "source_id": "s7-c2-openai-r1",
+            "status": "abandoned",
+            "reason": "lower ranked visible candidate",
+            "next_action": "preserve as review evidence",
+            "score": 0.5428
+          },
+          {
+            "frontier_id": "d07-01-f04",
+            "kind": "deferred_judgment",
+            "source_id": "c06-01-symbol_loss",
+            "status": "open",
+            "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+            "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+            "score": 0.5
+          },
+          {
+            "frontier_id": "d07-01-f05",
+            "kind": "deferred_judgment",
+            "source_id": "c07-01-symbol_loss",
+            "status": "open",
+            "reason": "symbol_loss: Symbols that should recur disappeared during a recurrence-sensitive stage.",
+            "next_action": "Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition.",
+            "score": 0.5
+          }
+        ],
         "unresolved_conflict_ids": [
           "c06-01-symbol_loss",
           "c07-01-symbol_loss"
@@ -5437,6 +5941,16 @@
           "c06-01-symbol_loss:symbol_loss",
           "c07-01-symbol_loss:symbol_loss"
         ],
+        "abandoned_path_ids": [
+          "s7-c1-openai",
+          "s7-c2-openai-r1"
+        ],
+        "operator_conflicts": [],
+        "architectural_hesitations": [
+          "accepted_below_threshold=0.5866",
+          "open_structural_conflict"
+        ],
+        "frontier_reason": "open conflicts keep the next transition provisional",
         "note": "visible decision only: records accepted, rejected, repaired, and unresolved state transitions without hidden reasoning"
       }
     ],
