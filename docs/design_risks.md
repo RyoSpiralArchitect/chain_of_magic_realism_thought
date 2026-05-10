@@ -20,6 +20,7 @@ Risk: repeated scoring can teach the system to imitate high-reward-looking prose
 Mitigation:
 
 - `reward_surface_audit` reports saturated axes, low selection margins, and near-duplicate candidate sets.
+- `examples/evals/reward_audit_cases.json` fixes small high/medium/low risk cases so heuristic changes can be regression-tested.
 - Run memory now reminds providers that memory is continuity evidence, not a style target.
 - Memory notes record the audit risk level, making reward pressure visible across runs.
 
@@ -35,7 +36,8 @@ Risk: hidden CoT is avoided correctly, but important judgment can live in reject
 
 Mitigation:
 
-- `rpm_trace.decision_landscape` records accepted, rejected, and repaired candidates with scores and visible reasons.
+- `rpm_trace.decision_landscape` records accepted, rejected, repaired, abandoned, and deferred candidates with scores and visible reasons.
+- `decision-landscape-2.0` adds `frontier_items`, `frontier_reason`, `abandoned_path_ids`, `operator_conflicts`, and `architectural_hesitations`.
 - Unresolved conflicts are carried as deferred judgments in the decision record.
 - The trace records decision terrain without asking any model to reveal private reasoning.
 

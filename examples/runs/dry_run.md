@@ -1,6 +1,6 @@
 # Chain of Magic Realism Thought
 
-- Started UTC: `2026-05-10T10:38:35+00:00`
+- Started UTC: `2026-05-10T14:32:34+00:00`
 - Language: `Japanese`
 - Providers: `openai`
 - Routing: `role`
@@ -40,15 +40,51 @@
 
 ### Decision landscape
 
-| decision | stage | accepted | score | margin | rejected/repair candidates | deferred |
-|---|---:|---|---:|---:|---|---|
-| `d01-01` | 1 | `b1-s1-c2-openai` | 0.742 | 0.014 | b1-s1-c1-openai:rejected:0.7281 | c01-01-high_drift:high_drift |
-| `d02-01` | 2 | `b2-s2-c2-openai` | 0.690 | 0.123 | b2-s2-c1-openai:rejected:0.5665 | - |
-| `d03-01` | 3 | `b1-s3-c2-openai` | 0.495 | 0.089 | b1-s3-c1-openai:rejected:0.4064 | c03-01-symbol_loss:symbol_loss |
-| `d04-01` | 4 | `b1-s4-c2-openai` | 0.704 | 0.049 | b1-s4-c1-openai:rejected:0.655 | - |
-| `d05-01` | 5 | `b1-s5-c2-openai` | 0.664 | 0.016 | b1-s5-c1-openai:rejected:0.6477 | - |
-| `d06-01` | 6 | `s6-c2-openai` | 0.642 | 0.008 | s6-c1-openai:rejected:0.6343 | c06-01-symbol_loss:symbol_loss |
-| `d07-01` | 7 | `s7-c2-openai` | 0.587 | 0.044 | s7-c1-openai:rejected:0.5428, s7-c2-openai-r1:rejected_repair:0.5428 | c06-01-symbol_loss:symbol_loss, c07-01-symbol_loss:symbol_loss |
+| decision | stage | accepted | score | margin | frontier | rejected/repair candidates | deferred |
+|---|---:|---|---:|---:|---|---|---|
+| `d01-01` | 1 | `b1-s1-c2-openai` | 0.742 | 0.014 | open conflicts keep the next transition provisional | b1-s1-c1-openai:rejected:0.7281 | c01-01-high_drift:high_drift |
+| `d02-01` | 2 | `b2-s2-c2-openai` | 0.690 | 0.123 | accepted path is clear under current visible criteria | b2-s2-c1-openai:rejected:0.5665 | - |
+| `d03-01` | 3 | `b1-s3-c2-openai` | 0.495 | 0.089 | open conflicts keep the next transition provisional | b1-s3-c1-openai:rejected:0.4064 | c03-01-symbol_loss:symbol_loss |
+| `d04-01` | 4 | `b1-s4-c2-openai` | 0.704 | 0.049 | accepted path is clear under current visible criteria | b1-s4-c1-openai:rejected:0.655 | - |
+| `d05-01` | 5 | `b1-s5-c2-openai` | 0.664 | 0.016 | selection is accepted but carries review pressure | b1-s5-c1-openai:rejected:0.6477 | - |
+| `d06-01` | 6 | `s6-c2-openai` | 0.642 | 0.008 | open conflicts keep the next transition provisional | s6-c1-openai:rejected:0.6343 | c06-01-symbol_loss:symbol_loss |
+| `d07-01` | 7 | `s7-c2-openai` | 0.587 | 0.044 | open conflicts keep the next transition provisional | s7-c1-openai:rejected:0.5428, s7-c2-openai-r1:rejected_repair:0.5428 | c06-01-symbol_loss:symbol_loss, c07-01-symbol_loss:symbol_loss |
+
+#### Frontier items
+
+| frontier | kind | source | status | score | next action |
+|---|---|---|---|---:|---|
+| `d01-01-f01` | rejected_candidate | `b1-s1-c1-openai` | abandoned | 0.728 | preserve as review evidence |
+| `d01-01-f02` | accepted_candidate | `b1-s1-c2-openai` | active | 0.742 | continue accepted path |
+| `d01-01-f03` | deferred_judgment | `c01-01-high_drift` | open | 0.024 | Re-anchor the next transition in the seed scene and reuse one stable symbol before adding new material. |
+| `d02-01-f01` | rejected_candidate | `b2-s2-c1-openai` | abandoned | 0.567 | preserve as review evidence |
+| `d02-01-f02` | accepted_candidate | `b2-s2-c2-openai` | active | 0.690 | continue accepted path |
+| `d03-01-f01` | rejected_candidate | `b1-s3-c1-openai` | abandoned | 0.406 | preserve as review evidence |
+| `d03-01-f02` | accepted_candidate | `b1-s3-c2-openai` | active | 0.495 | continue accepted path |
+| `d03-01-f03` | deferred_judgment | `c03-01-symbol_loss` | open | 0.583 | Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition. |
+| `d04-01-f01` | rejected_candidate | `b1-s4-c1-openai` | abandoned | 0.655 | preserve as review evidence |
+| `d04-01-f02` | accepted_candidate | `b1-s4-c2-openai` | active | 0.704 | continue accepted path |
+| `d05-01-f01` | rejected_candidate | `b1-s5-c1-openai` | abandoned | 0.648 | preserve as review evidence |
+| `d05-01-f02` | accepted_candidate | `b1-s5-c2-openai` | active | 0.664 | continue accepted path |
+| `d06-01-f01` | rejected_candidate | `s6-c1-openai` | abandoned | 0.634 | preserve as review evidence |
+| `d06-01-f02` | accepted_candidate | `s6-c2-openai` | active | 0.642 | continue accepted path |
+| `d06-01-f03` | deferred_judgment | `c06-01-symbol_loss` | open | 0.500 | Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition. |
+| `d07-01-f01` | rejected_candidate | `s7-c1-openai` | abandoned | 0.543 | preserve as review evidence |
+| `d07-01-f02` | accepted_candidate | `s7-c2-openai` | active | 0.587 | continue accepted path |
+| `d07-01-f03` | repair_candidate | `s7-c2-openai-r1` | abandoned | 0.543 | preserve as review evidence |
+| `d07-01-f04` | deferred_judgment | `c06-01-symbol_loss` | open | 0.500 | Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition. |
+| `d07-01-f05` | deferred_judgment | `c07-01-symbol_loss` | open | 0.500 | Bring one lost symbol back as a changed object or sound, not as a flat keyword repetition. |
+
+#### Architectural hesitations
+
+- d01-01:low_selection_margin=0.0142
+- d03-01:accepted_below_threshold=0.4950
+- d03-01:open_structural_conflict
+- d05-01:low_selection_margin=0.0162
+- d06-01:low_selection_margin=0.0078
+- d06-01:open_structural_conflict
+- d07-01:accepted_below_threshold=0.5866
+- d07-01:open_structural_conflict
 
 ### Rule hypotheses
 
