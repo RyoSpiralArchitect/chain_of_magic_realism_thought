@@ -12,6 +12,7 @@ readme = "README.md"
 [project.scripts]
 chain-of-magic-realism = "magic_realism_thought.cli:main"
 chain-reward-audit-evals = "magic_realism_thought.evals:main"
+chain-frontier-replay = "magic_realism_thought.frontier_replay:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
