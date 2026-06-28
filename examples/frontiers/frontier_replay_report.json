@@ -1,0 +1,310 @@
+{
+  "contract_version": "frontier-replay-1.0",
+  "run_count": 2,
+  "seed_consistency": true,
+  "seed": "雨が祖母の筆跡を覚えていた。",
+  "runs": [
+    {
+      "run_id": "frontier-replay-a",
+      "path": "examples/frontiers/replay_run_a.json",
+      "seed": "雨が祖母の筆跡を覚えていた。",
+      "started_at_utc": "2026-06-28T00:00:00+00:00",
+      "final_preview": "雨は祖母の筆跡を覚えたまま、駅の掲示板に小さな訂正を残した。",
+      "counts": {
+        "decisions": 2,
+        "frontier_items": 5,
+        "active": 2,
+        "abandoned": 1,
+        "deferred": 2,
+        "hesitations": 3,
+        "operator_conflicts": 1
+      },
+      "accepted_path": [
+        {
+          "decision_id": "d01-01",
+          "stage_index": 1,
+          "stage_name": "ordinary anchor",
+          "accepted_candidate_id": "s01-c01",
+          "selected_score": 0.72,
+          "selection_margin": 0.03,
+          "frontier_reason": "open conflicts keep the next transition provisional"
+        },
+        {
+          "decision_id": "d02-01",
+          "stage_index": 2,
+          "stage_name": "quiet impossibility",
+          "accepted_candidate_id": "s02-c01",
+          "selected_score": 0.66,
+          "selection_margin": 0.08,
+          "frontier_reason": "open conflicts keep the next transition provisional"
+        }
+      ],
+      "open_deferred": [
+        {
+          "key": "stage:1:deferred:symbol_loss",
+          "decision_id": "d01-01",
+          "stage_index": 1,
+          "stage_name": "ordinary anchor",
+          "operator": "ground",
+          "source_id": "c01-01-symbol_loss",
+          "conflict_type": "symbol_loss",
+          "status": "open",
+          "score": 0.8,
+          "reason": "symbol_loss: umbrella disappeared from the visible state",
+          "next_action": "restore one concrete symbol without explaining it"
+        },
+        {
+          "key": "stage:2:deferred:operator_mismatch",
+          "decision_id": "d02-01",
+          "stage_index": 2,
+          "stage_name": "quiet impossibility",
+          "operator": "perturb",
+          "source_id": "c02-01-operator_mismatch",
+          "conflict_type": "operator_mismatch",
+          "status": "open",
+          "score": 0.6,
+          "reason": "operator_mismatch: perturbation reads like explanation",
+          "next_action": "make the operator visible through objects rather than commentary"
+        }
+      ],
+      "ontology_terms": {
+        "axis": [
+          "text"
+        ],
+        "operator": [
+          "ground",
+          "perturb"
+        ],
+        "conflict_type": [
+          "operator_mismatch",
+          "symbol_loss"
+        ]
+      },
+      "ontology_warnings": []
+    },
+    {
+      "run_id": "frontier-replay-b",
+      "path": "examples/frontiers/replay_run_b.json",
+      "seed": "雨が祖母の筆跡を覚えていた。",
+      "started_at_utc": "2026-06-28T00:05:00+00:00",
+      "final_preview": "雨は傘の内側に祖母の筆跡を残し、駅員はそれを時刻表の訂正として扱った。",
+      "counts": {
+        "decisions": 3,
+        "frontier_items": 6,
+        "active": 3,
+        "abandoned": 1,
+        "deferred": 2,
+        "hesitations": 3,
+        "operator_conflicts": 2
+      },
+      "accepted_path": [
+        {
+          "decision_id": "d01-01",
+          "stage_index": 1,
+          "stage_name": "ordinary anchor",
+          "accepted_candidate_id": "s01-c02",
+          "selected_score": 0.74,
+          "selection_margin": 0.05,
+          "frontier_reason": "accepted path is clear under current visible criteria"
+        },
+        {
+          "decision_id": "d02-01",
+          "stage_index": 2,
+          "stage_name": "quiet impossibility",
+          "accepted_candidate_id": "s02-c01",
+          "selected_score": 0.7,
+          "selection_margin": 0.09,
+          "frontier_reason": "open conflicts keep the next transition provisional"
+        },
+        {
+          "decision_id": "d03-01",
+          "stage_index": 3,
+          "stage_name": "social normalization",
+          "accepted_candidate_id": "s03-c01",
+          "selected_score": 0.68,
+          "selection_margin": 0.04,
+          "frontier_reason": "open conflicts keep the next transition provisional"
+        }
+      ],
+      "open_deferred": [
+        {
+          "key": "stage:2:deferred:operator_mismatch",
+          "decision_id": "d02-01",
+          "stage_index": 2,
+          "stage_name": "quiet impossibility",
+          "operator": "perturb",
+          "source_id": "c02-01-operator_mismatch",
+          "conflict_type": "operator_mismatch",
+          "status": "open",
+          "score": 0.55,
+          "reason": "operator_mismatch: perturbation still leans toward explanation",
+          "next_action": "make the operator visible through objects rather than commentary"
+        },
+        {
+          "key": "stage:3:deferred:high_drift",
+          "decision_id": "d03-01",
+          "stage_index": 3,
+          "stage_name": "social normalization",
+          "operator": "normalize",
+          "source_id": "c03-01-high_drift",
+          "conflict_type": "high_drift",
+          "status": "open",
+          "score": 0.7,
+          "reason": "high_drift: station procedure may have displaced the seed too far",
+          "next_action": "re-anchor the rain and handwriting before the next transition"
+        }
+      ],
+      "ontology_terms": {
+        "axis": [
+          "text"
+        ],
+        "operator": [
+          "ground",
+          "normalize",
+          "perturb"
+        ],
+        "conflict_type": [
+          "high_drift",
+          "operator_mismatch"
+        ]
+      },
+      "ontology_warnings": [
+        "ontology_pressure: new operator and conflict type introduced during replay fixture"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from_run": "frontier-replay-a",
+      "to_run": "frontier-replay-b",
+      "from_path": "examples/frontiers/replay_run_a.json",
+      "to_path": "examples/frontiers/replay_run_b.json",
+      "events": [
+        {
+          "kind": "accepted_path",
+          "state": "contradicted_prior_abandonment",
+          "stage_key": "stage:1",
+          "stage_name": "ordinary anchor",
+          "previous_accepted": "s01-c01",
+          "current_accepted": "s01-c02",
+          "previous_candidate_statuses": {
+            "s01-c01": "accepted",
+            "s01-c02": "rejected",
+            "c01-01-symbol_loss": "open"
+          },
+          "current_candidate_statuses": {
+            "s01-c01": "rejected",
+            "s01-c02": "accepted"
+          },
+          "review_note": "a previously abandoned candidate became accepted"
+        },
+        {
+          "kind": "stage_presence",
+          "state": "added",
+          "stage_key": "stage:3",
+          "stage_name": "social normalization"
+        },
+        {
+          "kind": "deferred_judgment",
+          "state": "resolved",
+          "key": "stage:1:deferred:symbol_loss",
+          "conflict_type": "symbol_loss",
+          "stage_index": 1,
+          "previous_score": 0.8,
+          "current_score": null,
+          "score_delta": null,
+          "next_action": "mark as closed unless later runs reintroduce this conflict"
+        },
+        {
+          "kind": "deferred_judgment",
+          "state": "improved_but_open",
+          "key": "stage:2:deferred:operator_mismatch",
+          "conflict_type": "operator_mismatch",
+          "stage_index": 2,
+          "previous_score": 0.6,
+          "current_score": 0.55,
+          "score_delta": -0.05,
+          "next_action": "make the operator visible through objects rather than commentary"
+        },
+        {
+          "kind": "deferred_judgment",
+          "state": "new",
+          "key": "stage:3:deferred:high_drift",
+          "conflict_type": "high_drift",
+          "stage_index": 3,
+          "previous_score": null,
+          "current_score": 0.7,
+          "score_delta": null,
+          "next_action": "re-anchor the rain and handwriting before the next transition"
+        }
+      ],
+      "ontology_growth_gate": [
+        {
+          "kind": "conflict_type",
+          "added_terms": [
+            "high_drift"
+          ],
+          "status": "requires_rationale",
+          "rationale_prompt": "Explain which downstream decision, repair, score, or review path each new term changes."
+        },
+        {
+          "kind": "operator",
+          "added_terms": [
+            "normalize"
+          ],
+          "status": "requires_rationale",
+          "rationale_prompt": "Explain which downstream decision, repair, score, or review path each new term changes."
+        }
+      ]
+    }
+  ],
+  "latest_frontier": {
+    "open_items": [
+      {
+        "decision_id": "d02-01",
+        "stage_index": 2,
+        "stage_name": "quiet impossibility",
+        "kind": "deferred_judgment",
+        "source_id": "c02-01-operator_mismatch",
+        "score": 0.55,
+        "reason": "operator_mismatch: perturbation still leans toward explanation",
+        "next_action": "make the operator visible through objects rather than commentary"
+      },
+      {
+        "decision_id": "d03-01",
+        "stage_index": 3,
+        "stage_name": "social normalization",
+        "kind": "deferred_judgment",
+        "source_id": "c03-01-high_drift",
+        "score": 0.7,
+        "reason": "high_drift: station procedure may have displaced the seed too far",
+        "next_action": "re-anchor the rain and handwriting before the next transition"
+      }
+    ],
+    "architectural_hesitations": [
+      {
+        "decision_id": "d02-01",
+        "stage_index": 2,
+        "stage_name": "quiet impossibility",
+        "hesitation": "open_structural_conflict"
+      },
+      {
+        "decision_id": "d03-01",
+        "stage_index": 3,
+        "stage_name": "social normalization",
+        "hesitation": "low_selection_margin=0.0400"
+      },
+      {
+        "decision_id": "d03-01",
+        "stage_index": 3,
+        "stage_name": "social normalization",
+        "hesitation": "open_structural_conflict"
+      }
+    ]
+  },
+  "recommendations": [
+    "Review latest open deferred judgments before treating the path as settled.",
+    "Inspect revived abandoned candidates; the replay surfaced a visible ranking reversal.",
+    "Attach rationale for new ontology terms before promoting them into durable trace vocabulary."
+  ]
+}
