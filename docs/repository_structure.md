@@ -35,3 +35,5 @@ The implementation is split by responsibility:
 - `render.py`: Markdown/JSON output writing
 - `reward_audit.py` and `evals.py`: reward-surface audit logic and fixtures
 - `frontier_replay.py`: saved-run replay for decision landscapes and ontology growth
+- `story_reader.py` and `story_reader.html`: offline, read-only HTML export of saved
+  passages, candidate decisions, provenance, and existing frontier replay results

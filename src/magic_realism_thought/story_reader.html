@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'">
+<title>物語の分岐を読む · Chain of Magic Realism</title>
+<style>
+:root { color-scheme: light; --paper:#f6f4ed; --ink:#293b37; --muted:#5e6d65; --line:#cbd1c6; --accent:#315d4a; --selected:#e4ede2; --discarded:#f4ece0; --revived:#ede5f3; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:system-ui,-apple-system,"Noto Sans CJK JP",sans-serif; font-size:15px; line-height:1.7; }
+button,select { font:inherit; color:inherit; }
+button,select,summary { cursor:pointer; }
+button,select { min-height:44px; border:1px solid var(--line); border-radius:4px; background:transparent; padding:8px 13px; }
+button:hover,select:hover { background:#e7eadd; }
+button:disabled { opacity:.4; cursor:default; }
+:focus-visible { outline:3px solid #8b4d28; outline-offset:4px; }
+[hidden] { display:none!important; }
+header { max-width:1200px; margin:auto; padding:40px 40px 28px; border-bottom:1px solid var(--line); }
+.brand { display:flex; justify-content:space-between; gap:24px; color:var(--muted); font-size:12px; letter-spacing:.09em; }
+h1 { font-family:"Noto Serif CJK JP",YuMincho,serif; font-size:clamp(28px,3.4vw,43px); font-weight:500; line-height:1.5; margin:30px 0 12px; }
+.seed { font-family:"Noto Serif CJK JP",YuMincho,serif; font-size:21px; line-height:1.8; margin:0 0 18px; }
+.intro { font-size:13px; color:var(--muted); margin:0; max-width:860px; }
+.workspace { max-width:1200px; display:grid; grid-template-columns:238px minmax(0,1fr); margin:auto; padding:32px 40px 50px; gap:40px; }
+aside label { display:block; font-size:12px; margin-bottom:7px; color:var(--muted); }
+#run-select { width:100%; font-size:13px; }
+.rail-heading { font-size:12px; color:var(--muted); margin:28px 0 8px; }
+#stages { display:grid; gap:3px; }
+.stage-button { display:flex; text-align:left; width:100%; gap:12px; align-items:baseline; border:0; border-left:2px solid transparent; border-radius:0; font-size:13px; padding:10px; }
+.stage-button[aria-current="step"] { background:#e5eadf; border-left-color:var(--accent); font-weight:600; }
+.stage-number { font-size:11px; color:var(--muted); flex:none; }
+main { min-width:0; }
+.section-heading { display:flex; justify-content:space-between; align-items:center; gap:15px; margin-bottom:18px; }
+h2 { font-weight:550; font-size:22px; margin:0; line-height:1.6; }
+.pager { display:flex; gap:6px; flex:none; }
+.pager button { font-size:13px; }
+.filters { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:17px; }
+.filters button { font-size:12px; padding:5px 13px; min-height:38px; border-radius:20px; }
+.filters button[aria-pressed="true"] { background:var(--ink); color:white; border-color:var(--ink); }
+.count,.muted { color:var(--muted); font-size:12px; }
+#count { margin:0 0 20px; }
+.branch { margin:0 0 24px; padding:24px 26px; border:1px solid var(--line); border-left:3px solid var(--accent); background:#fcfbf6; }
+.branch.discarded { border-left-color:#95774d; }
+.branch.revived { border-left-color:#775689; }
+.branch-top { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; }
+.branch h3 { margin:0; font-size:13px; font-weight:500; overflow-wrap:anywhere; }
+.status { font-size:12px; background:var(--selected); padding:3px 9px; border-radius:2px; }
+.discarded .status { background:var(--discarded); }
+.revived .status { background:var(--revived); }
+.prose { font-family:"Noto Serif CJK JP",YuMincho,serif; font-size:17px; line-height:2.2; white-space:pre-wrap; overflow-wrap:anywhere; margin:18px 0; }
+.missing { padding:12px 0; color:var(--muted); font-size:14px; }
+.revival-note { font-size:13px; color:#67437a; }
+details { border-top:1px solid var(--line); margin-top:18px; padding-top:13px; }
+summary { font-size:13px; }
+.facts { font-size:12px; color:var(--muted); margin:12px 0 0; overflow-wrap:anywhere; }
+.facts p { margin:7px 0; }
+.empty { border:1px dashed var(--line); padding:28px; font-size:14px; }
+.evidence { margin-top:28px; }
+.evidence h3 { font-size:15px; margin:22px 0 10px; }
+.evidence ul { padding-left:20px; font-size:13px; }
+.evidence li { margin:8px 0; overflow-wrap:anywhere; }
+.transition { border-left:2px solid var(--line); padding-left:16px; margin:20px 0; }
+.transition h4 { margin:0 0 10px; font-weight:500; font-size:13px; overflow-wrap:anywhere; }
+footer { max-width:1120px; margin:0 auto 32px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+@media(max-width:760px) {
+ header { padding:24px 20px; } .brand { font-size:10px; gap:10px; } h1 { margin-top:24px; }
+ .workspace { grid-template-columns:1fr; padding:24px 20px; gap:25px; }
+ #stages { display:flex; overflow-x:auto; padding-bottom:10px; } .stage-button { width:auto; min-width:145px; max-width:200px; flex:none; }
+ .rail-heading { margin-top:16px; } .branch { padding:20px; } .section-heading { align-items:flex-start; }
+ h2 { font-size:19px; } .prose { font-size:16px; } footer { margin:10px 20px 24px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span>CHAIN OF MAGIC REALISM</span><span>保存された可視出力 / OFFLINE READER</span></div>
+  <h1>物語の分岐を読む</h1>
+  <p class="seed" id="seed"></p>
+  <p class="intro">同じ種から、選ばれた枝と見送られた枝をたどる。本文と判定は保存記録のまま。スコアは記録内の評価値で、文学的な優劣を示すものではありません。生成・通信は行いません。</p>
+</header>
+<div class="workspace">
+  <aside aria-label="記録と段階の選択">
+    <label for="run-select">読む記録</label><select id="run-select"></select>
+    <p class="rail-heading">物語の段階</p><nav id="stages" aria-label="物語の段階"></nav>
+  </aside>
+  <main>
+    <div class="section-heading"><h2 id="stage-title"></h2><div class="pager"><button id="previous" type="button">前へ</button><button id="next" type="button">次へ</button></div></div>
+    <div class="filters" role="group" aria-label="枝の絞り込み">
+      <button type="button" data-filter="all" aria-pressed="true">すべて</button>
+      <button type="button" data-filter="selected" aria-pressed="false">選ばれた枝</button>
+      <button type="button" data-filter="discarded" aria-pressed="false">見送られた枝</button>
+      <button type="button" data-filter="revived" aria-pressed="false">再浮上した枝</button>
+    </div>
+    <p class="count" id="count" role="status" aria-live="polite"></p>
+    <section id="branches" aria-label="候補の本文"></section>
+    <section class="evidence" aria-label="記録の補足">
+      <details><summary>この段階に残る判断・保留</summary><div id="frontier"></div></details>
+      <details><summary>保存された最終出力</summary><p id="final-text" class="prose"></p></details>
+      <details><summary>記録間の比較・再浮上</summary><div id="replay"></div></details>
+      <details><summary>出典と読み方</summary><div id="provenance" class="facts"></div></details>
+    </section>
+  </main>
+</div>
+<footer>選択は各段階の記録上の判定です。各候補は独立した全文の物語とは限りません。可視出力と保存された判定だけを表示します。</footer>
+<noscript>このリーダーの操作には JavaScript が必要です。元の JSON / Markdown 記録でも本文を読めます。</noscript>
+<script type="application/json" id="reader-data">__STORY_READER_DATA__</script>
+<script>
+"use strict";
+(() => {
+  const data = JSON.parse(document.getElementById("reader-data").textContent);
+  const byId = id => document.getElementById(id);
+  const node = (tag, text, className) => {
+    const element = document.createElement(tag);
+    if (text !== undefined) element.textContent = text;
+    if (className) element.className = className;
+    return element;
+  };
+  let runIndex = 0, stageIndex = 0, filter = "all";
+  const filters = [...document.querySelectorAll("[data-filter]")];
+  byId("seed").textContent = data.seed;
+  data.runs.forEach((run, index) => {
+    const option = node("option", `${index + 1}. ${run.file}`);
+    option.value = String(index); byId("run-select").append(option);
+  });
+  const provenanceName = value => ({"dry-run":"dry-run / 模擬出力", "fixture":"fixture / 比較用の固定記録"}[value] || "保存記録 / 生成方法は未検証");
+  const eventName = value => ({contradicted_prior_abandonment:"見送られた枝が再浮上",accepted_path_shift:"選ばれた枝が変更",resolved:"記録上は解消",improved_but_open:"値が改善・未解決",worsened:"値が悪化",new:"新しい保留",still_open:"保留が継続",added:"段階が追加",removed:"段階が削除"}[value] || value);
+  function showReplay() {
+    const target = byId("replay"); target.replaceChildren();
+    target.append(node("p", "既存の frontier-replay-1.0 による比較。入力順に隣接記録を比較します。再浮上は段階番号と候補 ID の一致に基づき、文章の同一性や質の向上を保証しません。", "muted"));
+    if (!data.replay.transitions.length) target.append(node("p", "この書き出しは 1 記録です。再浮上の判定には、同じ種の記録を順番に 2 件以上渡してください。", "missing"));
+    data.replay.transitions.forEach(transition => {
+      const section = node("div", undefined, "transition");
+      section.append(node("h4", `${transition.from_run} → ${transition.to_run}`));
+      const list = node("ul");
+      transition.events.forEach(event => {
+        const detail = event.kind === "accepted_path" ? `${event.previous_accepted} → ${event.current_accepted}` : (event.conflict_type || event.stage_name || "");
+        list.append(node("li", `${eventName(event.state)} · ${event.stage_key || `stage:${event.stage_index}`} · ${detail}`));
+      });
+      if (!transition.events.length) list.append(node("li", "記録上の変更はありません"));
+      transition.ontology_growth_gate.forEach(gate => list.append(node("li", `新しい語彙 / ${gate.kind}: ${gate.added_terms.join(", ")} · 根拠の確認が必要`)));
+      section.append(list); target.append(section);
+    });
+  }
+  function render() {
+    const run = data.runs[runIndex], stage = run.stages[stageIndex];
+    const focusedStage = document.activeElement?.dataset.stageIndex;
+    byId("run-select").value = String(runIndex);
+    byId("stages").replaceChildren();
+    run.stages.forEach((item, index) => {
+      const button = node("button", undefined, "stage-button"); button.type = "button";
+      button.dataset.stageIndex = String(index);
+      button.append(node("span", String(item.index).padStart(2,"0"), "stage-number"), node("span", item.name || "名称なし"));
+      if (index === stageIndex) button.setAttribute("aria-current", "step");
+      button.addEventListener("click", () => navigate(runIndex, index, filter));
+      byId("stages").append(button);
+    });
+    if (focusedStage !== undefined) byId("stages").children[Number(focusedStage)]?.focus({preventScroll:true});
+    byId("stage-title").textContent = stage ? stage.name || `段階 ${stage.index}` : "保存された段階はありません";
+    byId("previous").disabled = stageIndex <= 0;
+    byId("next").disabled = stageIndex >= run.stages.length - 1;
+    filters.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)));
+    const all = stage ? stage.candidates : [];
+    const visible = all.filter(candidate => filter === "all" || (filter === "revived" ? candidate.revived_from : candidate[filter]));
+    byId("count").textContent = `${runIndex + 1} / ${data.runs.length} 記録 · ${stage ? stageIndex + 1 : 0} / ${run.stages.length} 段階 · ${visible.length} / ${all.length} 枝を表示`;
+    const target = byId("branches"); target.replaceChildren();
+    visible.forEach(candidate => {
+      const article = node("article", undefined, `branch${candidate.discarded ? " discarded" : ""}${candidate.revived_from ? " revived" : ""}`);
+      const heading = node("div", undefined, "branch-top");
+      const label = candidate.revived_from ? "再浮上・選択" : candidate.selected ? "選択" : candidate.discarded ? "見送り" : `記録: ${candidate.status}`;
+      heading.append(node("h3", candidate.id || "候補 ID なし"), node("span", label, "status"));
+      article.append(heading);
+      if (candidate.revived_from) article.append(node("p", `${candidate.revived_from} で見送られ、今回選ばれた候補`, "revival-note"));
+      article.append(node("p", candidate.output || "この記録には候補の本文が保存されていません。ID・判定のみを表示しています。", candidate.output ? "prose" : "missing"));
+      article.append(node("p", provenanceName(candidate.provenance), "muted"));
+      const details = node("details"), facts = node("div", undefined, "facts");
+      details.append(node("summary", "判定と出典を見る"));
+      const lines = [
+        `記録上の状態: ${candidate.status}`, `記録内のスコア: ${candidate.score === null ? "未保存" : candidate.score}`,
+        `記録された provider / model: ${candidate.provider || "未保存"} / ${candidate.model || "未保存"}`,
+        `本文の出典: ${candidate.text_source ? `${run.file} → ${candidate.text_source}` : "候補本文なし"}`,
+        `保存された理由: ${candidate.reasons.length ? candidate.reasons.join(" / ") : "未保存"}`
+      ];
+      if (candidate.frontier_reason) lines.push(`frontier: ${candidate.frontier_reason}`);
+      if (candidate.repaired_from) lines.push(`修正元: ${candidate.repaired_from}`);
+      lines.forEach(line => facts.append(node("p", line))); details.append(facts); article.append(details); target.append(article);
+    });
+    if (!visible.length) target.append(node("p", "この段階に該当する枝はありません。「すべて」で保存された候補に戻れます。", "empty"));
+    const frontier = byId("frontier"); frontier.replaceChildren();
+    frontier.append(node("p", stage?.frontier_reason || "この段階の判断理由は保存されていません。", "muted"));
+    const list = node("ul");
+    (stage?.open_items || []).forEach(item => list.append(node("li", `${item.reason || item.source_id || "保留"}${item.next_action ? ` / 次の観点: ${item.next_action}` : ""}`)));
+    (stage?.hesitations || []).forEach(item => list.append(node("li", item)));
+    if (!list.children.length) list.append(node("li", "保留項目の記録なし（問題がないことの保証ではありません）"));
+    frontier.append(list);
+    byId("final-text").textContent = run.final || "最終出力は保存されていません。";
+    const provenance = byId("provenance"); provenance.replaceChildren();
+    [`ファイル: ${run.file}`, `run ID: ${run.id}`, `記録日時: ${run.started_at || "未保存"}`, `SHA-256: ${run.sha256}`,
+      "dry-run は模擬出力、fixture は比較用固定記録です。provider 名が OpenAI 等でも実際の API 呼び出しを示すとは限りません。",
+      "本文は保存された output のみ。見送りは候補の選択結果で、永久に削除されたことや文学的な劣位を意味しません。修正候補の状態も元の記録を保持しています。",
+      "この HTML は表示用の本文と判定を内包します。共有する前に内容を確認してください。入力 JSON は変更しません。"
+    ].forEach(line => provenance.append(node("p", line)));
+  }
+  function navigate(run, stage, selectedFilter) {
+    const nextHash = `#run=${run}&stage=${stage}&filter=${selectedFilter}`;
+    if (location.hash === nextHash) readHash(); else location.hash = nextHash;
+  }
+  function readHash() {
+    const parameters = new URLSearchParams(location.hash.slice(1));
+    const integer = (key, max) => {
+      const value = Number(parameters.get(key));
+      return Number.isInteger(value) && value >= 0 && value <= max ? value : 0;
+    };
+    runIndex = integer("run", data.runs.length - 1);
+    stageIndex = integer("stage", data.runs[runIndex].stages.length - 1);
+    filter = ["all","selected","discarded","revived"].includes(parameters.get("filter")) ? parameters.get("filter") : "all";
+    render();
+  }
+  byId("run-select").addEventListener("change", event => navigate(Number(event.target.value), 0, "all"));
+  byId("previous").addEventListener("click", () => navigate(runIndex, Math.max(0,stageIndex - 1), filter));
+  byId("next").addEventListener("click", () => navigate(runIndex, Math.min(data.runs[runIndex].stages.length - 1,stageIndex + 1), filter));
+  filters.forEach(button => button.addEventListener("click", () => navigate(runIndex, stageIndex, button.dataset.filter)));
+  window.addEventListener("hashchange", readHash);
+  showReplay(); readHash();
+})();
+</script>
+</body>
+</html>
