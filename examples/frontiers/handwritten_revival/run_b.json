@@ -1,0 +1,77 @@
+{
+  "run_id": "handwritten-revival-b",
+  "fixture": {
+    "kind": "handwritten",
+    "family": "umbrella-handwriting-v1",
+    "sequence": 2,
+    "authoring": "Assistant-authored example prose and selection decisions; not a captured provider run.",
+    "measurements": "None. No provider calls, scores, timings, or literary-quality measurements.",
+    "identity": "Both candidate passages are copied verbatim between A and B. Only the chosen branch and its visible selection notes change."
+  },
+  "seed": "朝の駅で、雨は祖母の買い物帳の続きを書いた。",
+  "final": "改札の手前で傘を閉じようとすると、内側に祖母の字があった。「牛乳」とだけ書かれていた。雨は黒い布にしみ込まず、字の曲がるところで小さく溜まっていた。\n\n駅員は私の定期券を確かめてから、傘を窓口の脇へ立てた。「お帰りまで乾かしておきます」。隣には「ねぎ」と書かれた傘もあった。私は預かり札を一枚受け取り、ポケットの硬貨と一緒にしまった。\n\n帰りの窓口で、駅員は字の残った傘を渡してくれた。売店の牛乳は最後の一本だった。家に着いて冷蔵庫へ入れると、傘の内側から一滴だけ水が落ち、買い物帳の牛乳の欄を丸く濡らした。",
+  "rpm_trace": {
+    "decision_landscape": [
+      {
+        "contract_version": "decision-landscape-2.0",
+        "decision_id": "handwritten-d01",
+        "stage_index": 1,
+        "stage_name": "朝の駅から、買い物の帰りまで",
+        "operator": "ground",
+        "accepted_candidate_id": "handwritten-s01-c02",
+        "candidates": [
+          {
+            "candidate_id": "handwritten-s01-c01",
+            "status": "rejected",
+            "provider": "handwritten-fixture",
+            "model": "fixture",
+            "output": "駅の掲示板は、朝だけ祖母の字になった。雨粒が「八時十二分」の二を一度消し、祖母が買い物帳で使っていた丸い三を書き足した。私は濡れた傘をたたみ、いつもの列の最後に並んだ。\n\n駅員は布巾で掲示板の縁を拭いた。数字には触れず、窓口の小さな時刻表にも同じ訂正をした。前にいた人が腕時計を見て、一分あれば牛乳を買えると言った。\n\n売店から戻ると、列はまだ同じ場所にあった。私は鞄の底から昨日の買い物帳を出した。牛乳の欄だけが空いていたので、そこに今日の時刻を書いた。",
+            "reasons": [
+              "手書きの見送り設定：掲示板の枝は書き換えず、比較できるように残す。"
+            ]
+          },
+          {
+            "candidate_id": "handwritten-s01-c02",
+            "status": "accepted",
+            "provider": "handwritten-fixture",
+            "model": "fixture",
+            "output": "改札の手前で傘を閉じようとすると、内側に祖母の字があった。「牛乳」とだけ書かれていた。雨は黒い布にしみ込まず、字の曲がるところで小さく溜まっていた。\n\n駅員は私の定期券を確かめてから、傘を窓口の脇へ立てた。「お帰りまで乾かしておきます」。隣には「ねぎ」と書かれた傘もあった。私は預かり札を一枚受け取り、ポケットの硬貨と一緒にしまった。\n\n帰りの窓口で、駅員は字の残った傘を渡してくれた。売店の牛乳は最後の一本だった。家に着いて冷蔵庫へ入れると、傘の内側から一滴だけ水が落ち、買い物帳の牛乳の欄を丸く濡らした。",
+            "reasons": [
+              "手書きの再選択設定：見送った本文を一字も変えず、傘が帰宅まで残る枝を選び直す。質の向上を測定した結果ではない。"
+            ]
+          }
+        ],
+        "frontier_items": [
+          {
+            "frontier_id": "handwritten-d01-f01",
+            "kind": "rejected_candidate",
+            "source_id": "handwritten-s01-c01",
+            "status": "abandoned",
+            "reason": "手書きの見送り設定：掲示板の枝は書き換えず、比較できるように残す。",
+            "next_action": "preserve the complete passage for comparison"
+          },
+          {
+            "frontier_id": "handwritten-d01-f02",
+            "kind": "accepted_candidate",
+            "source_id": "handwritten-s01-c02",
+            "status": "active",
+            "reason": "手書きの再選択設定：見送った本文を一字も変えず、傘が帰宅まで残る枝を選び直す。質の向上を測定した結果ではない。",
+            "next_action": "read the selected passage"
+          }
+        ],
+        "abandoned_path_ids": [
+          "handwritten-s01-c01"
+        ],
+        "unresolved_conflict_ids": [],
+        "deferred_judgments": [],
+        "operator_conflicts": [],
+        "architectural_hesitations": [],
+        "frontier_reason": "手書きの比較用設定。本文と選択は例示であり、実行履歴や実測の評価ではない。"
+      }
+    ],
+    "ontology_ledger": {
+      "entries": [],
+      "warnings": []
+    }
+  }
+}

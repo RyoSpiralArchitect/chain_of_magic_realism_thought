@@ -77,6 +77,7 @@ def _stages(payload: dict[str, Any]) -> list[dict[str, Any]]:
             provider = _text(candidate.get("provider")) or _text(source.get("provider"))
             model = _text(candidate.get("model")) or _text(source.get("model"))
             fixture = provider == "dry-run" or model == "fixture"
+            handwritten = provider == "handwritten-fixture" and model == "fixture"
             normalized.append({
                 "id": candidate_id, "status": status, "selected": selected, "discarded": discarded,
                 "output": output, "text_source": source_field if output else "",
@@ -84,7 +85,8 @@ def _stages(payload: dict[str, Any]) -> list[dict[str, Any]]:
                 "reasons": _strings(candidate.get("reasons", reward.get("reasons"))),
                 "frontier_reason": _text(frontier.get("reason")),
                 "provider": provider, "model": model,
-                "provenance": "dry-run" if is_dry_run else "fixture" if fixture else "saved / unverified",
+                "provenance": ("dry-run" if is_dry_run else "handwritten fixture" if handwritten
+                               else "fixture" if fixture else "saved / unverified"),
                 "repaired_from": candidate.get("repaired_from") or source.get("repaired_from"),
                 "revived_from": None,
             })

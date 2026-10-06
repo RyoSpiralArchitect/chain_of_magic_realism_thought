@@ -122,7 +122,7 @@ footer { max-width:1120px; margin:0 auto 32px; padding-top:18px; border-top:1px 
     const option = node("option", `${index + 1}. ${run.file}`);
     option.value = String(index); byId("run-select").append(option);
   });
-  const provenanceName = value => ({"dry-run":"dry-run / 模擬出力", "fixture":"fixture / 比較用の固定記録"}[value] || "保存記録 / 生成方法は未検証");
+  const provenanceName = value => ({"dry-run":"dry-run / 模擬出力", "fixture":"fixture / 比較用の固定記録", "handwritten fixture":"手書き fixture / 比較用に書き起こした本文・実測なし"}[value] || "保存記録 / 生成方法は未検証");
   const eventName = value => ({contradicted_prior_abandonment:"見送られた枝が再浮上",accepted_path_shift:"選ばれた枝が変更",resolved:"記録上は解消",improved_but_open:"値が改善・未解決",worsened:"値が悪化",new:"新しい保留",still_open:"保留が継続",added:"段階が追加",removed:"段階が削除"}[value] || value);
   function showReplay() {
     const target = byId("replay"); target.replaceChildren();
@@ -196,6 +196,7 @@ footer { max-width:1120px; margin:0 auto 32px; padding-top:18px; border-top:1px 
     const provenance = byId("provenance"); provenance.replaceChildren();
     [`ファイル: ${run.file}`, `run ID: ${run.id}`, `記録日時: ${run.started_at || "未保存"}`, `SHA-256: ${run.sha256}`,
       "dry-run は模擬出力、fixture は比較用固定記録です。provider 名が OpenAI 等でも実際の API 呼び出しを示すとは限りません。",
+      "手書き fixture は本文と選択設定を書き起こした例で、実行履歴や文学的評価の実測ではありません。",
       "本文は保存された output のみ。見送りは候補の選択結果で、永久に削除されたことや文学的な劣位を意味しません。修正候補の状態も元の記録を保持しています。",
       "この HTML は表示用の本文と判定を内包します。共有する前に内容を確認してください。入力 JSON は変更しません。"
     ].forEach(line => provenance.append(node("p", line)));

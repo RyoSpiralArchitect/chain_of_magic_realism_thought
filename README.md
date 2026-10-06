@@ -293,6 +293,32 @@ and expand a candidate's provenance. The existing dry-run contains mock prose,
 even where the saved provider field says `openai`. Scores are recorded harness
 values, not measurements of literary quality.
 
+### Read a discarded passage returning
+
+The separate **handwritten revival fixture** contains two complete Japanese
+passages in each record. Its prose and selection decisions were authored as an
+example by the assistant, not captured from a provider run. It has no scores,
+timings, or measured quality claims.
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.story_reader \
+  examples/frontiers/handwritten_revival/run_a.json \
+  examples/frontiers/handwritten_revival/run_b.json \
+  --output-html /tmp/handwritten-revival-reader.html
+```
+
+Open the HTML. In record A, choose **見送られた枝** to read
+`handwritten-s01-c02`: rain writes a shopping reminder inside an umbrella. In
+record B, choose **再浮上した枝** to read that exact same passage selected again.
+Both candidates retain their full text and identity across the records; only
+the chosen branch and its selection notes change. Each passage is visibly
+labeled **手書き fixture / 比較用に書き起こした本文・実測なし**. This illustrates
+a saved selection reversal, not a newly generated continuation or an automatic
+improvement. The original dry-run, replay fixtures, and historical runs remain
+unchanged. Export this independent family separately.
+
+### Inspect the original replay fixtures
+
 To inspect revival, unresolved tensions, and ontology changes in the existing
 replay fixtures:
 
