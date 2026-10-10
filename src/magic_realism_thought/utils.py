@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import dataclasses
 import json
+import os
 import re
 from datetime import datetime, timezone
-from typing import Any, Dict, Iterable, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -122,3 +123,4 @@ def extract_json_object(text: str) -> Dict[str, Any]:
     value = json.loads(match.group(0))
     if not isinstance(value, dict):
         raise ValueError("Judge JSON must be an object.")
+    return value
