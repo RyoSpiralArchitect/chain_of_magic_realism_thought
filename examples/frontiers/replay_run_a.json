@@ -1,0 +1,169 @@
+{
+  "run_id": "frontier-replay-a",
+  "started_at_utc": "2026-06-28T00:00:00+00:00",
+  "seed": "雨が祖母の筆跡を覚えていた。",
+  "final": "雨は祖母の筆跡を覚えたまま、駅の掲示板に小さな訂正を残した。",
+  "rpm_trace": {
+    "decision_landscape": [
+      {
+        "contract_version": "decision-landscape-2.0",
+        "decision_id": "d01-01",
+        "stage_index": 1,
+        "stage_name": "ordinary anchor",
+        "operator": "ground",
+        "accepted_candidate_id": "s01-c01",
+        "selected_score": 0.72,
+        "selection_margin": 0.03,
+        "candidates": [
+          {
+            "candidate_id": "s01-c01",
+            "status": "accepted",
+            "provider": "dry-run",
+            "model": "fixture",
+            "score": 0.72,
+            "reasons": ["keeps the commute visible"]
+          },
+          {
+            "candidate_id": "s01-c02",
+            "status": "rejected",
+            "provider": "dry-run",
+            "model": "fixture",
+            "score": 0.69,
+            "reasons": ["lower margin but stronger object recurrence"]
+          }
+        ],
+        "frontier_items": [
+          {
+            "frontier_id": "d01-01-f01",
+            "kind": "accepted_candidate",
+            "source_id": "s01-c01",
+            "status": "active",
+            "reason": "keeps the commute visible",
+            "next_action": "continue accepted path",
+            "score": 0.72
+          },
+          {
+            "frontier_id": "d01-01-f02",
+            "kind": "rejected_candidate",
+            "source_id": "s01-c02",
+            "status": "abandoned",
+            "reason": "lower margin but stronger object recurrence",
+            "next_action": "preserve as review evidence",
+            "score": 0.69
+          },
+          {
+            "frontier_id": "d01-01-f03",
+            "kind": "deferred_judgment",
+            "source_id": "c01-01-symbol_loss",
+            "status": "open",
+            "reason": "symbol_loss: umbrella disappeared from the visible state",
+            "next_action": "restore one concrete symbol without explaining it",
+            "score": 0.8
+          }
+        ],
+        "unresolved_conflict_ids": ["c01-01-symbol_loss"],
+        "deferred_judgments": ["c01-01-symbol_loss:symbol_loss"],
+        "abandoned_path_ids": ["s01-c02"],
+        "operator_conflicts": [],
+        "architectural_hesitations": ["low_selection_margin=0.0300", "open_structural_conflict"],
+        "frontier_reason": "open conflicts keep the next transition provisional"
+      },
+      {
+        "contract_version": "decision-landscape-2.0",
+        "decision_id": "d02-01",
+        "stage_index": 2,
+        "stage_name": "quiet impossibility",
+        "operator": "perturb",
+        "accepted_candidate_id": "s02-c01",
+        "selected_score": 0.66,
+        "selection_margin": 0.08,
+        "candidates": [
+          {
+            "candidate_id": "s02-c01",
+            "status": "accepted",
+            "provider": "dry-run",
+            "model": "fixture",
+            "score": 0.66,
+            "reasons": ["keeps the impossible fact small"]
+          }
+        ],
+        "frontier_items": [
+          {
+            "frontier_id": "d02-01-f01",
+            "kind": "accepted_candidate",
+            "source_id": "s02-c01",
+            "status": "active",
+            "reason": "keeps the impossible fact small",
+            "next_action": "continue accepted path",
+            "score": 0.66
+          },
+          {
+            "frontier_id": "d02-01-f02",
+            "kind": "deferred_judgment",
+            "source_id": "c02-01-operator_mismatch",
+            "status": "open",
+            "reason": "operator_mismatch: perturbation reads like explanation",
+            "next_action": "make the operator visible through objects rather than commentary",
+            "score": 0.6
+          }
+        ],
+        "unresolved_conflict_ids": ["c02-01-operator_mismatch"],
+        "deferred_judgments": ["c02-01-operator_mismatch:operator_mismatch"],
+        "abandoned_path_ids": [],
+        "operator_conflicts": ["c02-01-operator_mismatch"],
+        "architectural_hesitations": ["open_structural_conflict"],
+        "frontier_reason": "open conflicts keep the next transition provisional"
+      }
+    ],
+    "ontology_ledger": {
+      "entries": [
+        {
+          "kind": "axis",
+          "name": "text",
+          "description": "visible text state",
+          "producer": "RPMTrace.axes",
+          "status": "active",
+          "observed_count": 2,
+          "last_seen_stage": "quiet impossibility"
+        },
+        {
+          "kind": "operator",
+          "name": "ground",
+          "description": "ordinary grounding operator",
+          "producer": "fixture",
+          "status": "active",
+          "observed_count": 1,
+          "last_seen_stage": "ordinary anchor"
+        },
+        {
+          "kind": "operator",
+          "name": "perturb",
+          "description": "quiet impossible perturbation",
+          "producer": "fixture",
+          "status": "active",
+          "observed_count": 1,
+          "last_seen_stage": "quiet impossibility"
+        },
+        {
+          "kind": "conflict_type",
+          "name": "symbol_loss",
+          "description": "symbol disappeared from visible state",
+          "producer": "fixture",
+          "status": "active",
+          "observed_count": 1,
+          "last_seen_stage": "ordinary anchor"
+        },
+        {
+          "kind": "conflict_type",
+          "name": "operator_mismatch",
+          "description": "operator did not match transition",
+          "producer": "fixture",
+          "status": "active",
+          "observed_count": 1,
+          "last_seen_stage": "quiet impossibility"
+        }
+      ],
+      "warnings": []
+    }
+  }
+}

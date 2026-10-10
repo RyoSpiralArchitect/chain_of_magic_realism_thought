@@ -1,6 +1,6 @@
 # Chain of Magic Realism Thought
 
-`chain_of_magic_realism.py` packages the V5 RPM-PRM harness as a small repo for magical-realist visible-thought generation. It extends the V4 harness with two major mechanisms:
+`chain_of_magic_realism.py` packages the V5 RPM-PRM harness as a small repo for magical-realist visible-thought generation. It extends the V4 harness with three major mechanisms:
 
 1. **Beam search over visible process paths**
    - Each stage can generate multiple candidates.
@@ -12,6 +12,11 @@
    - A JSON memory profile records provider-role reward, stage reward, operator reward, and symbol reward.
    - Future runs can load that profile as a soft prior.
    - Memory can gently reorder provider candidates and add profile hints to stage prompts.
+
+3. **Frontier replay**
+   - Saved run JSON files can be replayed against each other.
+   - Deferred judgments are marked `resolved`, `still_open`, `improved_but_open`, `worsened`, or `new`.
+   - Reopened abandoned candidates and ontology-growth pressure are surfaced as review artifacts.
 
 The script still avoids private chain-of-thought exposure. It treats only **visible stage outputs** as process steps.
 
@@ -26,6 +31,7 @@ examples/stages/                   # reusable stage presets
 examples/memory/                   # sample run-memory profiles
 examples/runs/                     # generated trace examples
 examples/evals/                    # small reward-audit eval fixtures
+examples/frontiers/                # frontier replay fixtures and reports
 docs/                              # design notes
 tests/                             # trace contract tests
 ```
@@ -250,6 +256,28 @@ The fixture file is [`examples/evals/reward_audit_cases.json`](examples/evals/re
 
 ---
 
+## Frontier replay
+
+Replay saved decision-landscape traces in chronological order:
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.frontier_replay \
+  examples/frontiers/replay_run_a.json \
+  examples/frontiers/replay_run_b.json \
+  --output-json examples/frontiers/frontier_replay_report.json \
+  --output-md examples/frontiers/frontier_replay_report.md
+```
+
+Installed usage also exposes:
+
+```bash
+chain-frontier-replay examples/frontiers/replay_run_a.json examples/frontiers/replay_run_b.json
+```
+
+The replay artifact keeps the visible-state boundary: it compares accepted, rejected, abandoned, deferred, and ontology-ledger state without requesting hidden reasoning.
+
+---
+
 ## Conceptual map
 
 ```text
@@ -258,6 +286,7 @@ RPM = records what each transition changed in the state matrix
 Beam = keeps multiple possible state paths alive
 Memory = learns soft priors across runs
 Decision landscape = records accepted/rejected/repaired/abandoned/deferred visible candidates
+Frontier replay = compares decision landscapes across saved runs
 Ontology ledger = audits the vocabulary used by the trace itself
 Reward surface audit = checks whether scoring has become too flat or imitable
 Recursive closure = returns the final output to the seed

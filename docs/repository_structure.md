@@ -10,7 +10,8 @@ The repo keeps runnable code, reusable inputs, and generated examples separate.
 │   ├── stages/                        # reusable stage presets
 │   ├── memory/                        # sample run-memory profiles
 │   ├── runs/                          # generated JSON/Markdown traces
-│   └── evals/                         # small reward-audit eval fixtures
+│   ├── evals/                         # small reward-audit eval fixtures
+│   └── frontiers/                     # frontier replay fixtures and reports
 ├── docs/                              # design notes and operating guidance
 └── tests/                             # contract tests for trace shape
 ```
@@ -33,3 +34,4 @@ The implementation is split by responsibility:
 - `runner.py`: orchestration, beam search, memory updates
 - `render.py`: Markdown/JSON output writing
 - `reward_audit.py` and `evals.py`: reward-surface audit logic and fixtures
+- `frontier_replay.py`: saved-run replay for decision landscapes and ontology growth

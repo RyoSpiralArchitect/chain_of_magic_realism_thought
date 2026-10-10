@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from magic_realism_thought.cli import main
+from magic_realism_thought.frontier_replay import build_frontier_replay_report, format_frontier_replay_markdown
 from magic_realism_thought.reward_audit import evaluate_reward_audit_cases
 
 
@@ -71,6 +72,33 @@ class CliTraceContractTest(unittest.TestCase):
 
         self.assertTrue(results)
         self.assertTrue(all(result["passed"] for result in results), results)
+
+    def test_frontier_replay_fixture_tracks_judgment_changes(self) -> None:
+        report = build_frontier_replay_report(
+            [
+                ROOT / "examples" / "frontiers" / "replay_run_a.json",
+                ROOT / "examples" / "frontiers" / "replay_run_b.json",
+            ]
+        )
+
+        self.assertEqual(report["contract_version"], "frontier-replay-1.0")
+        self.assertTrue(report["seed_consistency"])
+        self.assertEqual(report["run_count"], 2)
+
+        events = report["transitions"][0]["events"]
+        states = {event["state"] for event in events}
+        self.assertIn("resolved", states)
+        self.assertIn("improved_but_open", states)
+        self.assertIn("new", states)
+        self.assertIn("contradicted_prior_abandonment", states)
+
+        growth = report["transitions"][0]["ontology_growth_gate"]
+        self.assertTrue(growth)
+        self.assertTrue(all(item["status"] == "requires_rationale" for item in growth))
+
+        markdown = format_frontier_replay_markdown(report)
+        self.assertIn("Frontier Replay Report", markdown)
+        self.assertIn("Ontology growth gate", markdown)
 
 
 if __name__ == "__main__":

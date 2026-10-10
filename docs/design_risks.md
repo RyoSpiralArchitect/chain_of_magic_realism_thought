@@ -39,6 +39,9 @@ Mitigation:
 - `rpm_trace.decision_landscape` records accepted, rejected, repaired, abandoned, and deferred candidates with scores and visible reasons.
 - `decision-landscape-2.0` adds `frontier_items`, `frontier_reason`, `abandoned_path_ids`, `operator_conflicts`, and `architectural_hesitations`.
 - Unresolved conflicts are carried as deferred judgments in the decision record.
+- `frontier_replay.py` compares saved runs so deferred judgments can become `resolved`, `improved_but_open`, `worsened`, `new`, or `still_open`.
+- The replay report also flags abandoned candidates that later become accepted, making ranking reversals visible.
+- Ontology growth between runs is reported as `requires_rationale` before a new term is treated as durable vocabulary.
 - The trace records decision terrain without asking any model to reveal private reasoning.
 
 This is a judgment-landscape log, not a thought log.
