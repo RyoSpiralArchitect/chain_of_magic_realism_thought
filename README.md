@@ -278,6 +278,74 @@ The replay artifact keeps the visible-state boundary: it compares accepted, reje
 
 ---
 
+## Offline story reader
+
+Read selected and discarded **visible passages** from an existing saved run,
+without API keys, provider calls, a server, or frontend dependencies:
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.story_reader \
+  examples/runs/dry_run.json --output-html /tmp/story-reader.html
+```
+
+Open `/tmp/story-reader.html` in your browser. Select a stage, filter branches,
+and expand a candidate's provenance. The existing dry-run contains mock prose,
+even where the saved provider field says `openai`. Scores are recorded harness
+values, not measurements of literary quality.
+
+### Read a discarded passage returning
+
+The separate **handwritten revival fixture** contains two complete Japanese
+passages in each record. Its prose and selection decisions were authored as an
+example by the assistant, not captured from a provider run. It has no scores,
+timings, or measured quality claims.
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.story_reader \
+  examples/frontiers/handwritten_revival/run_a.json \
+  examples/frontiers/handwritten_revival/run_b.json \
+  --output-html /tmp/handwritten-revival-reader.html
+```
+
+Open the HTML. In record A, choose **見送られた枝** to read
+`handwritten-s01-c02`: rain writes a shopping reminder inside an umbrella. In
+record B, choose **再浮上した枝** to read that exact same passage selected again.
+Both candidates retain their full text and identity across the records; only
+the chosen branch and its selection notes change. Each passage is visibly
+labeled **手書き fixture / 比較用に書き起こした本文・実測なし**. This illustrates
+a saved selection reversal, not a newly generated continuation or an automatic
+improvement. The original dry-run, replay fixtures, and historical runs remain
+unchanged. Export this independent family separately.
+
+### Inspect the original replay fixtures
+
+To inspect revival, unresolved tensions, and ontology changes in the existing
+replay fixtures:
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.story_reader \
+  examples/frontiers/replay_run_a.json \
+  examples/frontiers/replay_run_b.json --output-html /tmp/frontier-reader.html
+```
+
+These fixtures contain final prose and candidate decisions, **not candidate
+prose**. The reader labels the missing text instead of inventing passages.
+Choose the second record to see `s01-c02` marked as revived. Comparisons reuse
+`frontier_replay.py`; they match stage numbers and candidate IDs in the supplied
+order. Only compare runs with meaningful shared identities. Files must share a
+non-empty seed and have unique run IDs. Do not mix independent run families
+just because their seeds are equal.
+
+Installed usage exposes `chain-story-reader`. The generated HTML is standalone
+and includes the visible content it displays; review it before sharing. Original
+JSON files are not modified. Browser Back/Forward restores record, stage and
+filter. Older runs without a decision landscape can display their saved steps,
+but have no inferred revival history.
+
+See [`docs/story_reader.md`](docs/story_reader.md) for the data boundary and checks.
+
+---
+
 ## Conceptual map
 
 ```text
