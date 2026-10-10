@@ -25,6 +25,7 @@ src/magic_realism_thought/         # package code and CLI implementation
 examples/stages/                   # reusable stage presets
 examples/memory/                   # sample run-memory profiles
 examples/runs/                     # generated trace examples
+examples/evals/                    # small reward-audit eval fixtures
 docs/                              # design notes
 tests/                             # trace contract tests
 ```
@@ -225,9 +226,27 @@ The harness now reports the three main risks that appear in long-running visible
 
 - Ontology inflation: `rpm_trace.ontology_ledger` lists active axes, operators, conflict types, and rule kinds, plus pressure warnings when the local vocabulary gets too large.
 - Reward surface overfitting: `reward_surface_audit` flags saturated axes, low selection margins, and near-duplicate candidate sets. Run memory also tells providers not to imitate prior rewarded style.
-- Visible-only limits: `rpm_trace.decision_landscape` records accepted, rejected, repaired, and unresolved candidate decisions without exposing hidden chain-of-thought.
+- Visible-only limits: `rpm_trace.decision_landscape` records accepted, rejected, repaired, abandoned, and deferred candidate decisions without exposing hidden chain-of-thought. Version `decision-landscape-2.0` also emits `frontier_items`, `frontier_reason`, and `architectural_hesitations`.
 
 See [`docs/design_risks.md`](docs/design_risks.md).
+
+---
+
+## Reward-audit evals
+
+Run the small no-provider reward-surface fixtures:
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.evals
+```
+
+Installed usage also exposes:
+
+```bash
+chain-reward-audit-evals
+```
+
+The fixture file is [`examples/evals/reward_audit_cases.json`](examples/evals/reward_audit_cases.json).
 
 ---
 
@@ -238,7 +257,7 @@ PRM = scores visible state transitions
 RPM = records what each transition changed in the state matrix
 Beam = keeps multiple possible state paths alive
 Memory = learns soft priors across runs
-Decision landscape = records accepted/rejected/repaired visible candidates
+Decision landscape = records accepted/rejected/repaired/abandoned/deferred visible candidates
 Ontology ledger = audits the vocabulary used by the trace itself
 Reward surface audit = checks whether scoring has become too flat or imitable
 Recursive closure = returns the final output to the seed

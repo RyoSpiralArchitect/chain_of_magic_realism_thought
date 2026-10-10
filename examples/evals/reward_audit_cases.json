@@ -1,0 +1,34 @@
+[
+  {
+    "name": "flat high reward with saturated axes",
+    "expected_risk": "high",
+    "rewards": [0.86, 0.87, 0.85, 0.86],
+    "axis_values": {
+      "grounding": [0.95, 0.94, 0.96, 0.95],
+      "symbol_recurrence": [0.93, 0.94, 0.92, 0.95]
+    },
+    "selection_margins": [0.012, 0.018],
+    "candidate_similarities": [0.96]
+  },
+  {
+    "name": "low margin only",
+    "expected_risk": "medium",
+    "rewards": [0.72, 0.68, 0.76],
+    "axis_values": {
+      "grounding": [0.72, 0.71, 0.73]
+    },
+    "selection_margins": [0.02],
+    "candidate_similarities": [0.55]
+  },
+  {
+    "name": "diverse and unsaturated",
+    "expected_risk": "low",
+    "rewards": [0.61, 0.76, 0.68],
+    "axis_values": {
+      "grounding": [0.64, 0.72, 0.81],
+      "symbol_recurrence": [0.42, 0.68, 0.59]
+    },
+    "selection_margins": [0.09, 0.14],
+    "candidate_similarities": [0.43, 0.71]
+  }
+]

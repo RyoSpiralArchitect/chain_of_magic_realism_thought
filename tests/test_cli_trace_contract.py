@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from magic_realism_thought.cli import main
+from magic_realism_thought.reward_audit import evaluate_reward_audit_cases
 
 
 class CliTraceContractTest(unittest.TestCase):
@@ -49,8 +50,12 @@ class CliTraceContractTest(unittest.TestCase):
             self.assertIn("decision_landscape", trace)
             self.assertGreaterEqual(len(trace["decision_landscape"]), 1)
             first_decision = trace["decision_landscape"][0]
+            self.assertEqual(first_decision["contract_version"], "decision-landscape-2.0")
             self.assertIn("accepted_candidate_id", first_decision)
             self.assertIn("candidates", first_decision)
+            self.assertIn("frontier_items", first_decision)
+            self.assertTrue(any(item["kind"] == "accepted_candidate" for item in first_decision["frontier_items"]))
+            self.assertIn("frontier_reason", first_decision)
 
             self.assertIn("ontology_ledger", trace)
             ledger = trace["ontology_ledger"]
@@ -60,6 +65,12 @@ class CliTraceContractTest(unittest.TestCase):
             audit = payload["reward_surface_audit"]
             self.assertIn(audit["risk_level"], {"low", "medium", "high"})
             self.assertIn("recommendations", audit)
+
+    def test_reward_audit_eval_fixture(self) -> None:
+        results = evaluate_reward_audit_cases(ROOT / "examples" / "evals" / "reward_audit_cases.json")
+
+        self.assertTrue(results)
+        self.assertTrue(all(result["passed"] for result in results), results)
 
 
 if __name__ == "__main__":
