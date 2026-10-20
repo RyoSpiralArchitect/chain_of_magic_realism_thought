@@ -107,7 +107,7 @@ class FrontierStudyTest(unittest.TestCase):
         engine.stop_ids = [1]
         engine.params = lambda **kw: kw
         engine.batch_receipts = []
-        engine.tokenizer = SimpleNamespace(apply_chat_template=lambda *a, **kw: [1, 2],
+        engine.tokenizer = SimpleNamespace(apply_chat_template=lambda *a, **kw: {"input_ids": [1, 2]},
             decode=lambda ids, **kw: "<think>private</think>" if ids == [9] else "visible passage")
         completions = [SimpleNamespace(token_ids=ids, finish_reason=finish, stop_reason=None)
                        for ids, finish in (([3], "stop"), ([3], "length"), ([9], "stop"))]

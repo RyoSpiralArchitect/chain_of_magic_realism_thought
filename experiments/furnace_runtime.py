@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 import time
+from collections.abc import Mapping
 from concurrent.futures import Future, ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
@@ -109,7 +110,12 @@ class TrtEngine:
                 tokens = self.harmony.openai_to_harmony_tokens(messages, available_tools=None,
                             reasoning_effort=ReasoningEffort.LOW, tool_choice="none")
             else:
-                tokens = self.tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True)
+                tokens = self.tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True,
+                                                            return_dict=False)
+                if isinstance(tokens, Mapping):
+                    tokens = tokens["input_ids"]
+                if not isinstance(tokens, list) or any(type(token) is not int for token in tokens):
+                    raise ValueError("chat template must produce a flat integer token list")
             if len(tokens) > 8192:
                 raise ValueError("rendered prompt exceeds frozen context budget")
             prompts.append(tokens)
