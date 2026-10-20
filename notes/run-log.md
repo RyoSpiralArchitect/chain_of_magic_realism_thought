@@ -34,3 +34,17 @@
 - Frontier refresh: inspected README/docs, examples, tests, source references,
   and the current diff. No additional independent implementation task found in
   this scope. Remaining frontier is the two active design questions.
+
+## 2026-10-20 Run 1 (Final Checkpoint)
+- Completed: R001 (inspection), R002 (export), R003 (prompt integration), R004
+  (verification), R005 (documentation and PR publication).
+- PR: https://github.com/RyoSpiralArchitect/chain_of_magic_realism_thought/pull/5
+  against main; implementation commit 348cd3b. This final notes-only checkpoint
+  is included on the same branch.
+- Reservoir: 0 unstarted, 0 in progress, 2 active questions, 0 synchronization gaps.
+- Stop reason: authorized implementation and offline validation complete;
+  frontier refresh found no independent remaining task within scope.
+- Next frontier: R006/OQ001 asks how to evaluate and tune influence; R007/OQ002
+  asks how to establish cross-run candidate identity before automatic revival.
+- Publication is a review checkpoint, not a merge, release, or empirical quality
+  result. Live-provider effects remain unmeasured.
