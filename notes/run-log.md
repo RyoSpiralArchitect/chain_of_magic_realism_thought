@@ -197,3 +197,14 @@
   be verified after generation finishes and the isolated checkout is updated.
 - R015 is complete. R010-R012 remain active. Draft stacked PR #6 is open; PR #5
   remains open. No merge, automatic tuning, or candidate revival is authorized.
+
+## 2026-10-20 Run 2 (Resume Rejection Protection)
+- A CLI resume rejected before frozen-configuration admission now leaves the
+  previous status and manifest unchanged and never loads a model. Regression
+  compares every saved JSON byte before and after rejection. Local tests: 53 pass;
+  compilation and diff whitespace checks pass.
+- Negative pilot summaries now include terminal status, model/runtime identity,
+  manifest hashes, zero complete-pair denominators, and request completion counts.
+  They are checked in separately from the final effect measurements.
+- GPT-OSS generation remains at source 47e7dcd, unaffected by these local fixes.
+  At this checkpoint it is still evaluating; retain all candidate truncations.

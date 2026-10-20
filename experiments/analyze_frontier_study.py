@@ -127,6 +127,7 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
     active = [row for row in rows if row["dosed"]]
     empty = [row for row in rows if not row["dosed"]]
     return {"model_id": config["model_id"], "directory": study.name, "manifest_sha256": manifest_sha,
+            "terminal_status": json.loads((study / "status.json").read_text()),
             "frozen_sha256": digest(study / "frozen.json"), "model_identity": model_identity, "runtime": runtime,
             "source": config["source"], "backend": config["backend"], "max_tokens": config["max_tokens"],
             "fallback_receipt": config.get("fallback_receipt"),

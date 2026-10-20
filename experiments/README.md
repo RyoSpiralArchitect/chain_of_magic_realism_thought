@@ -31,6 +31,8 @@ and backend choice. Changing those values requires a new output directory.
 Completed trial files are reused only with identical trial metadata. Failure
 files remain failures; they are not silently resampled. Session receipts are
 separate on resume, so prior requests and canaries are retained.
+A rejected frozen-configuration resume leaves the existing status and manifest
+unchanged and does not load the model.
 If any calibration run fails, the paired evaluation is not admitted. A new
 resource configuration requires a new frozen directory, preserving the negative
 pilot. Successful visible calls before a later failure remain in `calls/`;

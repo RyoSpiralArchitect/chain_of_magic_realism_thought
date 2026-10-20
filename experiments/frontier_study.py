@@ -115,6 +115,7 @@ def run_generation(args) -> None:
               "sampling_pairing": "same seed and call ordinal; not identical random token trajectories",
               **check_backend(args), "canary_only": args.canary_only}
     config_sha = frozen(args.output / "frozen.json", config)
+    args._config_admitted = True
     session = args.output / "sessions" / uuid.uuid4().hex[:12]
     args._session = session
     state(args.output, "loading_model", planned_pairs=config["planned_pairs"])
@@ -230,6 +231,7 @@ def run_judge(args) -> None:
               "claim_limit": "model judgments, not human gold; invalid or order-inconsistent judgments remain unknown",
               **check_backend(args)}
     config_sha = frozen(args.output / "frozen.json", config)
+    args._config_admitted = True
     session = args.output / "sessions" / uuid.uuid4().hex[:12]
     args._session = session
     state(args.output, "loading_judge")
@@ -385,7 +387,7 @@ def main():
         else:
             run_summary(args)
     except Exception as exc:
-        if args.command != "summarize":
+        if args.command != "summarize" and getattr(args, "_config_admitted", False):
             state(args.output, "failed", error_type=type(exc).__name__, error=str(exc)[:600])
         raise
     finally:
@@ -395,7 +397,7 @@ def main():
             if session is not None and not (session / "requests.json").exists():
                 save(session / "requests.json", engine.batch_receipts)
             engine.close()
-        if args.command != "summarize":
+        if args.command != "summarize" and getattr(args, "_config_admitted", False):
             save_manifest(args.output)
 
 

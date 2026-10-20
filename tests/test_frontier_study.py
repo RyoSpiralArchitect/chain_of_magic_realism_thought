@@ -96,6 +96,20 @@ class FrontierStudyTest(unittest.TestCase):
         self.assertEqual(summary["mean"], 0)
         self.assertIsNone(frontier_study.cluster_interval({})["mean"])
 
+    def test_rejected_resume_does_not_modify_previous_evidence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            frontier_study.save(root / "frozen.json", {"previous": "configuration"})
+            frontier_study.save(root / "status.json", {"phase": "complete"})
+            frontier_study.save_manifest(root)
+            before = {path.name: path.read_bytes() for path in root.glob("*.json")}
+            argv = ["study", "generate", "--model-dir", str(root), "--model-id", "changed", "--output", str(root)]
+            with patch.object(sys, "argv", argv), patch.object(frontier_study, "TrtEngine") as engine:
+                with self.assertRaisesRegex(ValueError, "configuration changed"):
+                    frontier_study.main()
+                engine.assert_not_called()
+            self.assertEqual(before, {path.name: path.read_bytes() for path in root.glob("*.json")})
+
     def test_interrupted_temporary_write_does_not_overwrite_or_block_a_checkpoint(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
