@@ -65,3 +65,14 @@
 - Frozen design target: 8 Japanese prompt clusters x 4 independent sampling
   replicates, paired notes off/on per model, with independent calibration runs.
   Explore 4B/12B/20B cached models, then use a separate blind judge in both orders.
+
+## 2026-10-20 Run 2 (Runtime Preflight)
+- Remote CPU tests passed (42 at first transfer). TensorRT Gemma 3 4B and 12B
+  canaries failed with FlashInfer/TrtllmAttentionMetadata `kv_layout` mismatch.
+  Both failures and logs remain in the evidence directory.
+- Frozen vLLM 4B canary 1 reached kernel warmup but failed because `ninja` was
+  absent from the process PATH. The existing binary is in the frozen venv;
+  the retry uses that bin directory and /usr/local/cuda-13.1/bin in PATH, with
+  CUDA_HOME set per process. No package or system configuration changes.
+- Fallback keeps the stop/final-only completion gates and requires the hash of
+  the failed TRT status receipt. vLLM is restricted to text-only requests here.

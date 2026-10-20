@@ -6,8 +6,10 @@ import dataclasses
 import hashlib
 import json
 import math
+import os
 import random
 import statistics
+import shutil
 import subprocess
 import sys
 import time
@@ -86,6 +88,17 @@ def check_backend(args) -> dict:
     return {"backend": args.backend, "fallback_receipt": receipt}
 
 
+def runtime_receipt(backend: str) -> dict:
+    from importlib.metadata import distributions, version
+    versions = {name: version(name) for name in ("torch", "transformers", "tensorrt-llm" if backend == "trt" else "vllm")}
+    inventory = sorted((item.metadata.get("Name", ""), item.version) for item in distributions())
+    return {"versions": versions, "distribution_versions_sha256": canonical(inventory),
+            "python": sys.version, "executable": sys.executable,
+            "ninja": shutil.which("ninja"), "nvcc": shutil.which("nvcc"),
+            "environment": {name: os.environ.get(name) for name in
+                ("CUDA_HOME", "HF_HUB_OFFLINE", "DO_NOT_TRACK", "TRTLLM_NO_USAGE_STATS", "VLLM_NO_USAGE_STATS")}}
+
+
 def run_generation(args) -> None:
     pack = json.loads(args.prompts.read_text())
     prompts = pack["prompts"]
@@ -105,9 +118,7 @@ def run_generation(args) -> None:
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
     frozen(args.output / "model_identity.json", engine.identity)
-    from importlib.metadata import version
-    frozen(args.output / "runtime.json", {name: version(name) for name in
-           ("torch", "transformers", "tensorrt-llm" if args.backend == "trt" else "vllm")})
+    frozen(args.output / "runtime.json", runtime_receipt(args.backend))
     canary = engine.generate([(ChatRequest(model=args.model_id,
                 system="Write only a short Japanese literary passage. Do not include reasoning.",
                 prompt="Describe rain at a railway station in 80-120 Japanese characters.",
@@ -204,6 +215,7 @@ def run_judge(args) -> None:
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
     frozen(args.output / "model_identity.json", engine.identity)
+    frozen(args.output / "runtime.json", runtime_receipt(args.backend))
     tasks = []
     for study in args.studies:
         for study_config, item, replicate, paths, runs in complete_pairs(study):

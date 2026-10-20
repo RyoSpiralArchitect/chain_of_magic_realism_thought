@@ -187,7 +187,7 @@ class VllmEngine(TrtEngine):
         llm = LLM(model=str(path), tokenizer=str(path), trust_remote_code=False, dtype="auto",
                   tensor_parallel_size=1, max_model_len=8192 + max_tokens, max_num_seqs=batch_size,
                   max_num_batched_tokens=8192, gpu_memory_utilization=0.90, enforce_eager=True,
-                  enable_prefix_caching=False, disable_log_stats=True)
+                  enable_prefix_caching=False, disable_log_stats=True, limit_mm_per_prompt={"image": 0})
         self.load_seconds = time.monotonic() - started
         self.batch_receipts = []
 
