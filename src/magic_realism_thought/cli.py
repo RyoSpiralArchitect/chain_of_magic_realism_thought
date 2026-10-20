@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 from typing import Optional, Sequence
 
 from .prompts import (
@@ -83,6 +84,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--save-memory-profile", help="Write updated run-memory JSON here. Defaults to --memory-profile when provided.")
     parser.add_argument("--memory-weight", type=float, default=0.25, help="Soft influence of run memory in prompts/provider ordering.")
     parser.add_argument("--no-memory-update", action="store_true", help="Load memory if present but do not update/save it after the run.")
+    parser.add_argument("--frontier-control", help="Load exported frontier control JSON as optional, stage-matched generation reminders.")
     parser.add_argument("--output-json", help="Write the full run to JSON.")
     parser.add_argument("--output-md", help="Write a Markdown report.")
     parser.add_argument("--show-stages", action="store_true", help="Print all accepted visible state transitions, not only final.")
@@ -99,6 +101,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     try:
         seed = read_seed(args)
+        if args.frontier_control:
+            control_path = Path(args.frontier_control).resolve()
+            if any(Path(path).resolve() == control_path for path in
+                   (args.output_json, args.output_md, args.save_memory_profile, args.memory_profile) if path):
+                raise ValueError("frontier control input must be distinct from run and memory outputs")
         providers = args.providers or ([args.provider] if args.provider else ["openai"])
         models = parse_model_overrides(args.model)
         role_providers = parse_role_provider_overrides(args.role_provider)
@@ -158,6 +165,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             memory_update=not args.no_memory_update,
             magic_prior=magic_prior,
             anchor_profile=anchor_profile,
+            frontier_control_path=args.frontier_control,
         )
         run = runner.run(seed=seed, language=args.language, seed_symbols=seed_symbols)
         save_outputs(
@@ -179,7 +187,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(f"\nWrote: {', '.join(written)}", file=sys.stderr)
         return 0
 
-    except (ValueError, ProviderError, argparse.ArgumentTypeError) as exc:
+    except (OSError, ValueError, ProviderError, argparse.ArgumentTypeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     except KeyboardInterrupt:

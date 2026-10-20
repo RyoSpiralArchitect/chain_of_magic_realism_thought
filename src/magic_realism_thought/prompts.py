@@ -353,6 +353,7 @@ def build_stage_prompt(
     candidate_variant: int,
     max_context_chars: int,
     memory_context: str = "No prior run memory is active for this stage.",
+    frontier_context: str = "",
 ) -> str:
     symbols = ", ".join(state.symbols) if state.symbols else "(none yet)"
     notes = "\n".join(f"- {note}" for note in state.control_notes) if state.control_notes else "- No adaptive control note yet."
@@ -375,6 +376,7 @@ def build_stage_prompt(
         candidate_variant,
         f"Candidate variant: {candidate_variant}\nBias: make a distinct but controlled visible transition.",
     )
+    frontier_section = f"\n\n{frontier_context}" if frontier_context else ""
 
     return f"""
 Seed:
@@ -393,7 +395,7 @@ Adaptive control notes for this stage:
 {notes}
 
 Run memory context:
-{memory_context}
+{memory_context}{frontier_section}
 
 Path-local memory notes:
 {state_memory_notes}
@@ -421,6 +423,7 @@ def build_repair_prompt(
     failed: CandidateStep,
     reward: ProcessReward,
     max_context_chars: int,
+    frontier_context: str = "",
 ) -> str:
     reasons = "\n".join(f"- {r}" for r in reward.reasons) if reward.reasons else "- reward below target"
     metric_scores = json.dumps(reward.metric_scores, ensure_ascii=False, indent=2)
@@ -428,6 +431,7 @@ def build_repair_prompt(
     magic_context = ""
     if state.magic_prior:
         magic_context = f"\n\nMagic realism ontology and anchor profile:\n{format_magic_realism_prior(state.magic_prior, state.anchor_profile)}"
+    frontier_section = f"\n\n{frontier_context}" if frontier_context else ""
     return f"""
 Seed:
 {clip_text(state.seed, max_context_chars // 3)}
@@ -454,7 +458,7 @@ Instruction:
 {stage.instruction}
 
 Repair instruction:
-{repair_instruction}
+{repair_instruction}{frontier_section}
 
 Rewrite the rejected output as a stronger visible literary output.
 Return only the repaired literary output. Do not mention metrics, scoring, PRM, or this repair process.

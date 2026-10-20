@@ -1,0 +1,20 @@
+[
+  {
+    "name": "ordinary anchor",
+    "role": "grounder",
+    "operator": "ground",
+    "instruction": "Ground the seed in a concrete ordinary place and object."
+  },
+  {
+    "name": "quiet impossibility",
+    "role": "expander",
+    "operator": "perturb",
+    "instruction": "Introduce one small impossible fact inside the ordinary scene."
+  },
+  {
+    "name": "social normalization",
+    "role": "stabilizer",
+    "operator": "normalize",
+    "instruction": "Let ordinary routines continue around the impossible fact."
+  }
+]

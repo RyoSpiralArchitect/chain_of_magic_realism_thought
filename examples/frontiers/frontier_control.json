@@ -1,0 +1,132 @@
+{
+  "contract_version": "frontier-control-1.0",
+  "mode": "prompt_only",
+  "seed_sha256": "32f609b0ead558904d093f9663fd79905e92114565218b6e0fcd5b09e3d9435e",
+  "sources": [
+    {
+      "file": "replay_run_a.json",
+      "sha256": "bded22d6810fa712561b2fbfebf25159694ada2d1d621b5718a9b2da3484f444",
+      "run_id": "frontier-replay-a"
+    },
+    {
+      "file": "replay_run_b.json",
+      "sha256": "be937eaa087fad0f5347ca695bb0409954e70ec8e0d2cf2876474f154b527f0c",
+      "run_id": "frontier-replay-b"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "fc001",
+      "stage": {
+        "index": 1,
+        "name": "ordinary anchor",
+        "operator": "ground"
+      },
+      "conflict_type": "symbol_loss",
+      "state": "not_observed",
+      "guidance": "An earlier concern was absent from the latest observations; resolution is unverified. Check whether a seed-linked symbol can recur through changed action or sensation. Use only what fits this candidate.",
+      "evidence": [
+        {
+          "source": 0,
+          "decision_id": "d01-01",
+          "source_id": "c01-01-symbol_loss"
+        }
+      ]
+    },
+    {
+      "note_id": "fc002",
+      "stage": {
+        "index": 2,
+        "name": "quiet impossibility",
+        "operator": "perturb"
+      },
+      "conflict_type": "operator_mismatch",
+      "state": "improved_but_open",
+      "guidance": "The recorded severity decreased, but the concern remained open. Check that the visible transition fulfills the current stage instruction. Use only what fits this candidate.",
+      "evidence": [
+        {
+          "source": 0,
+          "decision_id": "d02-01",
+          "source_id": "c02-01-operator_mismatch"
+        },
+        {
+          "source": 1,
+          "decision_id": "d02-01",
+          "source_id": "c02-01-operator_mismatch"
+        }
+      ]
+    },
+    {
+      "note_id": "fc003",
+      "stage": {
+        "index": 3,
+        "name": "social normalization",
+        "operator": "normalize"
+      },
+      "conflict_type": "high_drift",
+      "state": "observed_open",
+      "guidance": "A saved decision recorded an open concern; its final resolution is unverified. Check continuity with the seed scene and its concrete objects. Use only what fits this candidate.",
+      "evidence": [
+        {
+          "source": 1,
+          "decision_id": "d03-01",
+          "source_id": "c03-01-high_drift"
+        }
+      ]
+    }
+  ],
+  "review_items": [
+    {
+      "state": "review_only",
+      "event": {
+        "kind": "accepted_path",
+        "state": "contradicted_prior_abandonment",
+        "stage_key": "stage:1",
+        "stage_name": "ordinary anchor",
+        "previous_accepted": "s01-c01",
+        "current_accepted": "s01-c02",
+        "previous_candidate_statuses": {
+          "s01-c01": "accepted",
+          "s01-c02": "rejected",
+          "c01-01-symbol_loss": "open"
+        },
+        "current_candidate_statuses": {
+          "s01-c01": "rejected",
+          "s01-c02": "accepted"
+        },
+        "review_note": "a previously abandoned candidate became accepted"
+      }
+    },
+    {
+      "state": "review_only",
+      "event": {
+        "kind": "stage_presence",
+        "state": "added",
+        "stage_key": "stage:3",
+        "stage_name": "social normalization"
+      }
+    },
+    {
+      "state": "review_only",
+      "ontology_growth": {
+        "kind": "conflict_type",
+        "added_terms": [
+          "high_drift"
+        ],
+        "status": "requires_rationale",
+        "rationale_prompt": "Explain which downstream decision, repair, score, or review path each new term changes."
+      }
+    },
+    {
+      "state": "review_only",
+      "ontology_growth": {
+        "kind": "operator",
+        "added_terms": [
+          "normalize"
+        ],
+        "status": "requires_rationale",
+        "rationale_prompt": "Explain which downstream decision, repair, score, or review path each new term changes."
+      }
+    }
+  ]
+}
