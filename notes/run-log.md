@@ -48,3 +48,20 @@
   asks how to establish cross-run candidate identity before automatic revival.
 - Publication is a review checkpoint, not a merge, release, or empirical quality
   result. Live-provider effects remain unmeasured.
+
+## 2026-10-20 Run 2 (Started)
+- Authorization: Ryō requested larger models and sample counts on Furnace, and
+  exploration of the remaining questions using the observations.
+- Started: R008-R012. Existing R006/OQ001 and R007/OQ002 remain open.
+- Local base: PR #5 head e3ea93f. New branch SpiralReality/furnace-frontier-study.
+- Remote checkout: /home/ryospiralarchitect/scratch/cmrt-frontier-study-20261020,
+  cloned in isolation at the same base, never modifying another research checkout.
+- Initial resources: RTX 5090 32 GB, no compute owner; about 119 GiB available RAM,
+  86 GB free disk. Existing cached weights only; no model downloads planned.
+- Runtime: managed TensorRT-LLM doctor passed, freeze SHA-256
+  691228a4ad195457253d2ab913b08a79332ad97f7365f0523e8ea22df8517ca8.
+  No managed environment changes. vLLM fallback requires an unsupported-model
+  result or a preserved failed canary.
+- Frozen design target: 8 Japanese prompt clusters x 4 independent sampling
+  replicates, paired notes off/on per model, with independent calibration runs.
+  Explore 4B/12B/20B cached models, then use a separate blind judge in both orders.

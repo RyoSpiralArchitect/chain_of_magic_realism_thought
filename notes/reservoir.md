@@ -1,8 +1,13 @@
 # Reservoir
 
 ## Unstarted
+- [ ] R009 Add a resumable, paired local-model study and independent blind review.
+- [ ] R010 Run the frozen study on available Furnace models at 32 pairs/model.
+- [ ] R011 Analyze measurements, inspect disagreements, and refresh design questions.
+- [ ] R012 Preserve receipts and publish a PR checkpoint.
 
 ## In Progress
+- [~] R008 Verify Furnace availability, runtime policy, cached weights, and isolated checkout.
 
 ## Completed This Run
 
