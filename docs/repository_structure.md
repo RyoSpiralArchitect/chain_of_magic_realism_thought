@@ -12,6 +12,7 @@ The repo keeps runnable code, reusable inputs, and generated examples separate.
 │   ├── runs/                          # generated JSON/Markdown traces
 │   ├── evals/                         # small reward-audit eval fixtures
 │   └── frontiers/                     # frontier replay fixtures and reports
+├── experiments/                       # frozen studies, runtime adapters, and result summaries
 ├── docs/                              # design notes and operating guidance
 └── tests/                             # contract tests for trace shape
 ```
@@ -41,3 +42,8 @@ The implementation is split by responsibility:
 
 `notes/reservoir.md`, `notes/run-log.md`, and `notes/open-questions/` track active
 implementation work and unresolved design decisions for continuation across runs.
+
+`experiments/results/` holds measured summaries, manifest references, failure
+denominators, and claim limits. Full local Furnace evidence is ignored under
+`artifacts/furnace/`; its archive hash and recovery paths live beside the report.
+Experiment-specific runtime dependencies do not become package requirements.

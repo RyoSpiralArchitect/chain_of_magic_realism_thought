@@ -1,0 +1,65 @@
+{
+  "canaries": [
+    {
+      "directory": "gemma3-12b-canary1",
+      "execution_manifest_present": false,
+      "files_sha256": {
+        "gemma3-12b-canary1.log": "80c9ab00a195d110afba0a8e3bdf94e344cba37d9bbb757d05882c72a5a11407",
+        "gemma3-12b-canary1/frozen.json": "b65a3ea0269b5e59aaa0bc75fcdd37f02eff7d2f0dc6e14befc372e4792c29cd",
+        "gemma3-12b-canary1/status.json": "a72f1ff0305f55793468b2607578b7ef496a28270049b684502d94dccba734b6"
+      },
+      "terminal_status": {
+        "error": "Executor worker returned error",
+        "error_type": "RuntimeError",
+        "phase": "failed"
+      }
+    },
+    {
+      "directory": "gemma3-4b-canary1",
+      "execution_manifest_present": false,
+      "files_sha256": {
+        "gemma3-4b-canary1.log": "a9ea79b1cffeed964641f1195fa9cd44f24b5d7b83f4f271434899e127bb398a",
+        "gemma3-4b-canary1/frozen.json": "b36d8ab67b45497e7baecb53a47ec02f6bbfdb34d63aa002394581682a4365e1",
+        "gemma3-4b-canary1/status.json": "a72f1ff0305f55793468b2607578b7ef496a28270049b684502d94dccba734b6"
+      },
+      "terminal_status": {
+        "error": "Executor worker returned error",
+        "error_type": "RuntimeError",
+        "phase": "failed"
+      }
+    },
+    {
+      "directory": "gemma3-4b-vllm-canary1",
+      "execution_manifest_present": false,
+      "files_sha256": {
+        "gemma3-4b-vllm-canary1.log": "c90b734aa6f235f0b1d3aa41cd012f65a823ac0ad3cd751e8f1ef619906d611d",
+        "gemma3-4b-vllm-canary1/frozen.json": "e4eb7891105524355b7aed26444fe5a0a39ff3028839bafc698ed5fde627ac47",
+        "gemma3-4b-vllm-canary1/status.json": "2de9f01d3615084ccb3c9821844d4d2a5ce69b5473a6d82d1a0d8023d76fc390"
+      },
+      "terminal_status": {
+        "error": "Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+        "error_type": "RuntimeError",
+        "phase": "failed"
+      }
+    },
+    {
+      "directory": "gemma3-4b-vllm-canary2",
+      "execution_manifest_present": false,
+      "files_sha256": {
+        "gemma3-4b-vllm-canary2.log": "314033ec1112145b1b68a28f51f4f258cb16ef602c28c62de91bb34bf569c445",
+        "gemma3-4b-vllm-canary2/frozen.json": "e4eb7891105524355b7aed26444fe5a0a39ff3028839bafc698ed5fde627ac47",
+        "gemma3-4b-vllm-canary2/model_identity.json": "e0c5de7a01bcd8e5c475173ed4b1bbb9879eb657e181608cbea256a2ef4822a0",
+        "gemma3-4b-vllm-canary2/runtime.json": "c6fcd5e52e72c9d1936d7ee967d43a0320cf24ddd52bee506927756cd0a445c2",
+        "gemma3-4b-vllm-canary2/status.json": "8e13c6e136cf42c2a7b6755cc74600c90799687d8929eb075351984e3dd10b5c"
+      },
+      "terminal_status": {
+        "error": "'>' not supported between instances of 'str' and 'int'",
+        "error_type": "TypeError",
+        "phase": "failed"
+      }
+    }
+  ],
+  "contract": "frontier-runtime-failure-index-1.0",
+  "missingness": "original canaries lack execution manifests; do not synthesize them",
+  "receipt_type": "retrospective recovery index, not an execution manifest"
+}

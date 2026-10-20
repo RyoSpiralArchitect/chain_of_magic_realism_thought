@@ -1,0 +1,431 @@
+{
+  "analysis_scope": "coverage and adherence are descriptive; no outcome-based case selection or reward tuning",
+  "claim_limits": [
+    "eight authored prompt clusters per model",
+    "model judgments are not human gold",
+    "model family, quantization, and backend confound size comparisons"
+  ],
+  "contract": "frontier-study-audit-1.0",
+  "judge": null,
+  "judge_manifest_sha256": null,
+  "models": [
+    {
+      "accepted_step_length_compliance": {
+        "off": {
+          "completed_paired_steps": 0,
+          "within_140_240": 0
+        },
+        "on": {
+          "completed_paired_steps": 0,
+          "within_140_240": 0
+        }
+      },
+      "backend": "vllm",
+      "blind_preference": null,
+      "blind_unknown_reasons": {},
+      "calibration_eligible_pairs": 0,
+      "calibration_eligible_prompt_clusters": 0,
+      "candidate_identity": {},
+      "completed_pairs": 0,
+      "completion_tokens_including_canary": 84369,
+      "directory": "gemma3-4b-study1",
+      "dosed_blind_preference": null,
+      "dosed_pairs": 0,
+      "dosed_path_delta": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null
+      },
+      "dosed_prompt_clusters": 0,
+      "engine_batch_seconds": 297.84663742408156,
+      "engine_completion_tokens_per_second": 283.2632281151903,
+      "fallback_receipt": {
+        "path": "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/gemma3-4b-canary1/status.json",
+        "sha256": "a72f1ff0305f55793468b2607578b7ef496a28270049b684502d94dccba734b6"
+      },
+      "final_chars": {
+        "off": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null
+        },
+        "on": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null
+        }
+      },
+      "frozen_sha256": "b7064d13e5f068d5614a3cb46c259e7e523c0f75712dd40d9c5f7256e80ff185",
+      "harmony_render_contract": null,
+      "identical_no_dose_finals": 0,
+      "judge_presented_prompts_verified": null,
+      "manifest_sha256": "69482b3d5e04584c4dfa0098900180ef055585410e4904bc0fa4aefd288db96b",
+      "max_tokens": 512,
+      "model_id": "google/gemma-3-4b-it",
+      "model_identity": {
+        "files": [
+          {
+            "bytes": 35,
+            "file": "added_tokens.json",
+            "sha256": "50b2f405ba56a26d4913fd772089992252d7f942123cc0a034d96424221ba946"
+          },
+          {
+            "bytes": 1615,
+            "file": "chat_template.json",
+            "sha256": "fe16baf728db49457cde32802cd7efc0ac8a7a9877dbe22fe3322b2d9dc6ccd9"
+          },
+          {
+            "bytes": 855,
+            "file": "config.json",
+            "sha256": "9059f680f4dbd1957f35cb44b9fdd6948f4792db7a7a35ee353ea42e68adf7ff"
+          },
+          {
+            "bytes": 215,
+            "file": "generation_config.json",
+            "sha256": "fd9324becc53c4be610db39e13a613006f09fd6ef71a95fb6320dc33157490a3"
+          },
+          {
+            "bytes": 4961251752,
+            "file": "model-00001-of-00002.safetensors",
+            "sha256": "eb5fd5e97ddd07b56778733e9653c07312529cb00980a318fc3e1c4e3b5a8f1f"
+          },
+          {
+            "bytes": 3639026128,
+            "file": "model-00002-of-00002.safetensors",
+            "sha256": "fdde0e5aa5ced0fa203b3d50f4ab78168b7e3a3e08c6349f5cc9326666e1bb13"
+          },
+          {
+            "bytes": 90558,
+            "file": "model.safetensors.index.json",
+            "sha256": "77f4b67de084c31c7bcd373b039908108eee6c6181607e6d53da730e5f0bc659"
+          },
+          {
+            "bytes": 570,
+            "file": "preprocessor_config.json",
+            "sha256": "f688d6bb20c5017601c4011de7ca656da8485b540b05013efdaf986c0fcc918d"
+          },
+          {
+            "bytes": 70,
+            "file": "processor_config.json",
+            "sha256": "3ffd5f11778dc73e2b69b3c00535e4121e1badf7018136263cd17b5b34fbaa53"
+          },
+          {
+            "bytes": 662,
+            "file": "special_tokens_map.json",
+            "sha256": "2f7b0adf4fb469770bb1490e3e35df87b1dc578246c5e7e6fc76ecf33213a397"
+          },
+          {
+            "bytes": 33384568,
+            "file": "tokenizer.json",
+            "sha256": "4667f2089529e8e7657cfb6d1c19910ae71ff5f28aa7ab2ff2763330affad795"
+          },
+          {
+            "bytes": 4689074,
+            "file": "tokenizer.model",
+            "sha256": "1299c11d7cf632ef3b4e11937501358ada021bbdf7c47638d13c0ee982f2e79c"
+          },
+          {
+            "bytes": 1156999,
+            "file": "tokenizer_config.json",
+            "sha256": "bfe25c2735e395407beb78456ea9a6984a1f00d8c16fa04a8b75f2a614cf53e1"
+          }
+        ],
+        "path": "/home/ryospiralarchitect/.cache/huggingface/hub/models--google--gemma-3-4b-it/snapshots/093f9f388b31de276ce2de164bdc2081324b9767",
+        "revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+        "sha256": "da7b1dba1132e652973102af1e07d5424bcd35cd78a8e88c031924f879170907"
+      },
+      "no_dose_pairs": 0,
+      "no_dose_path_delta": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null
+      },
+      "no_dose_root_replay": {},
+      "pairs": [],
+      "phase_statuses": {
+        "calibration": {
+          "failed": 8
+        },
+        "off": {
+          "complete": 1,
+          "failed": 31
+        },
+        "on": {
+          "failed": 32
+        }
+      },
+      "planned_pairs": 32,
+      "profile_note_counts": {},
+      "request_statuses": {
+        "complete": 200,
+        "incomplete": 39
+      },
+      "requests_including_canary": 239,
+      "runtime": {
+        "distribution_versions_sha256": "659fc114697e47a3dbde55c0859cbaf68b6b17bb4f434c4f7d86373dad61c47a",
+        "environment": {
+          "CUDA_HOME": "/usr/local/cuda-13.1",
+          "DO_NOT_TRACK": "1",
+          "HF_HUB_OFFLINE": "1",
+          "TRTLLM_NO_USAGE_STATS": null,
+          "VLLM_NO_USAGE_STATS": "1"
+        },
+        "executable": "/home/ryospiralarchitect/.venvs/aether-synth-vllm-0.27.1-cu130-py312/bin/python",
+        "ninja": "/home/ryospiralarchitect/.venvs/aether-synth-vllm-0.27.1-cu130-py312/bin/ninja",
+        "nvcc": "/usr/local/cuda-13.1/bin/nvcc",
+        "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+        "versions": {
+          "torch": "2.13.0+cu130",
+          "transformers": "5.16.1",
+          "vllm": "0.27.1"
+        }
+      },
+      "saved_call_statuses": {},
+      "source": {
+        "commit": "8467073c3ced6b0f4abcbb2b6a52aa54403b56b6",
+        "files": {
+          "experiments/frontier_study.py": "d192ccb86c1e067cbb9b0b75e99a78825357a398ec9eade4f5430e5561f5a161",
+          "experiments/furnace_runtime.py": "f5a81c8a92e279b03a6121878e5ba6929332f4421d93eee2549ac01e491a4f49",
+          "src/magic_realism_thought/__init__.py": "fea0df89dc0ab4f92c7f31939057984d10ca8653f682a53566ca215f94d5dad2",
+          "src/magic_realism_thought/cli.py": "1182d92f47556b4c1c121f4c381296e31375d29e4951019042b1b77866194349",
+          "src/magic_realism_thought/evals.py": "2f310a445268f222949d501958e8b571cacc09bcb3f5321c317802c6859f1984",
+          "src/magic_realism_thought/frontier_control.py": "477540533c522628dd39a808f7192dbe6932ebd3719b37dd714e7f1d9f583036",
+          "src/magic_realism_thought/frontier_replay.py": "b72773fae6414f848a7d95dff1a3f7ca17bcc01391fc9db143e3f5bb651886b0",
+          "src/magic_realism_thought/memory.py": "2de84b1e368bcaaf35ff179db08c64051a08ca5acfacdff37098e9731d0df6b7",
+          "src/magic_realism_thought/metrics.py": "745ad4365e13a769fcd26730c50e4388272b96355b43e62ee59f5b17137b1f90",
+          "src/magic_realism_thought/prm.py": "d4412695b3bef70e1abc766ef8d70555f78dff84e086a55c955ce95c3bdd6513",
+          "src/magic_realism_thought/prompts.py": "20d5406f089dbb0676de2ba040a76ae8a7eb4e264d26ac8a039df1df188bb07c",
+          "src/magic_realism_thought/providers.py": "47e30fdab3c7b03bcc324e4b7e73ae18946caf022663308f8126c64f2dd57817",
+          "src/magic_realism_thought/render.py": "3ec7ce1b2c2f6a40a6a5ab25d6a1b737d4ae8be88c8aea7eef91b73d3c27f8b4",
+          "src/magic_realism_thought/reward_audit.py": "8c84b6fe695606bccad74e08a00d77e230e15b3b3ab49fcab8de34ef329cebf4",
+          "src/magic_realism_thought/rpm.py": "a4efc34c7384e4081970f864635091f2b2d7d9013ed56b9db0bf2e230280eee4",
+          "src/magic_realism_thought/runner.py": "49dc6aadd8df61b459efed7438154d8513402517bdec1c6cd34d8a970ab4d8e6",
+          "src/magic_realism_thought/story_reader.py": "189755b98e639e016681db839196195ef9a62c224e4b0fe4c9f3b3230c34949f",
+          "src/magic_realism_thought/types.py": "47bf5c18b2675b14e32d13618e7c1cee858ce76a7b66a2fbd78b9b44fc5cdd83",
+          "src/magic_realism_thought/utils.py": "12d1aff873d80fb81d8bdde3dffd6935a7fb3cb34e400f8ba8e7225e35636180"
+        }
+      },
+      "terminal_status": {
+        "completed": 1,
+        "failed": 63,
+        "phase": "complete",
+        "planned": 64
+      }
+    },
+    {
+      "accepted_step_length_compliance": {
+        "off": {
+          "completed_paired_steps": 0,
+          "within_140_240": 0
+        },
+        "on": {
+          "completed_paired_steps": 0,
+          "within_140_240": 0
+        }
+      },
+      "backend": "trt",
+      "blind_preference": null,
+      "blind_unknown_reasons": {},
+      "calibration_eligible_pairs": 0,
+      "calibration_eligible_prompt_clusters": 0,
+      "candidate_identity": {},
+      "completed_pairs": 0,
+      "completion_tokens_including_canary": 9791,
+      "directory": "gptoss20b-study2",
+      "dosed_blind_preference": null,
+      "dosed_pairs": 0,
+      "dosed_path_delta": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null
+      },
+      "dosed_prompt_clusters": 0,
+      "engine_batch_seconds": 20.83282952848822,
+      "engine_completion_tokens_per_second": 469.97936533830534,
+      "fallback_receipt": null,
+      "final_chars": {
+        "off": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null
+        },
+        "on": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null
+        }
+      },
+      "frozen_sha256": "fdfa41394a2c0e25f7ca7e13fb8cea20c25cef16b2582c6b5c7f8be72ad6d835",
+      "harmony_render_contract": null,
+      "identical_no_dose_finals": 0,
+      "judge_presented_prompts_verified": null,
+      "manifest_sha256": "ed86ff0bbeb8c68981341604c98cdcd4176fc5a81dd571c2f279debb1fb019e0",
+      "max_tokens": 2048,
+      "model_id": "openai/gpt-oss-20b",
+      "model_identity": {
+        "files": [
+          {
+            "bytes": 2860,
+            "file": "MODEL_IDENTITY.json",
+            "sha256": "6ddf1ef642669cdb5e110b502c05bc2666aa34c0cbe2b4179f1aa90a2edb4bac"
+          },
+          {
+            "bytes": 16738,
+            "file": "chat_template.jinja",
+            "sha256": "a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146"
+          },
+          {
+            "bytes": 1806,
+            "file": "config.json",
+            "sha256": "3a2a26ded679375b7928ddeca59764df7cea83220c1961035f6d6e232659e9ce"
+          },
+          {
+            "bytes": 177,
+            "file": "generation_config.json",
+            "sha256": "f9970ada892d2d1f72e3ed0a6535ccebadd11897318794ca671d8c7014c957da"
+          },
+          {
+            "bytes": 4792272488,
+            "file": "model-00000-of-00002.safetensors",
+            "sha256": "16d0f997dcfc4462089d536bffe51b4bcea2f872f5c430be09ef8ed392312427"
+          },
+          {
+            "bytes": 4798702184,
+            "file": "model-00001-of-00002.safetensors",
+            "sha256": "4fbe328ab445455d6f58dc73852b85873bd626986310abd91cd4d2ce3245eaea"
+          },
+          {
+            "bytes": 4170342232,
+            "file": "model-00002-of-00002.safetensors",
+            "sha256": "a18106b209e9ab35c3406db4f6f12a927364a058b21e9d1373d682e20674b303"
+          },
+          {
+            "bytes": 36355,
+            "file": "model.safetensors.index.json",
+            "sha256": "0e085b977c4c9942f85938828e8c989ed7d5cdabf852e4da6a67c116cd502cd1"
+          },
+          {
+            "bytes": 98,
+            "file": "special_tokens_map.json",
+            "sha256": "dd5e191d20c12d2fee1da5bae14ca1db0f5f4215300af691f23cdee97120a293"
+          },
+          {
+            "bytes": 27868174,
+            "file": "tokenizer.json",
+            "sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3"
+          },
+          {
+            "bytes": 4200,
+            "file": "tokenizer_config.json",
+            "sha256": "9279e942392b742d633c7adbb89ebe002c98399db8926a7af5125c726f404070"
+          }
+        ],
+        "path": "/home/ryospiralarchitect/aether-nextnext-tooling/models/openai_gpt-oss-20b_6cee5e81ee83917806bbde320786a8fb61efebee",
+        "revision": "openai_gpt-oss-20b_6cee5e81ee83917806bbde320786a8fb61efebee",
+        "sha256": "4d9b033ebe369be77080062bc671991748aa50af0bfa840049825a564eb89f65"
+      },
+      "no_dose_pairs": 0,
+      "no_dose_path_delta": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null
+      },
+      "no_dose_root_replay": {},
+      "pairs": [],
+      "phase_statuses": {
+        "calibration": {
+          "complete": 1,
+          "failed": 7
+        },
+        "off": {},
+        "on": {}
+      },
+      "planned_pairs": 32,
+      "profile_note_counts": {
+        "p02": 0
+      },
+      "request_statuses": {
+        "complete": 37,
+        "final_gate_failed": 7
+      },
+      "requests_including_canary": 44,
+      "runtime": {
+        "distribution_versions_sha256": "de770ef65f9658893a7e98cde344002143d28318cc2486c26d1450793558e0bb",
+        "environment": {
+          "CUDA_HOME": "/usr/local/cuda-13.1",
+          "DO_NOT_TRACK": "1",
+          "HF_HUB_OFFLINE": "1",
+          "TRTLLM_NO_USAGE_STATS": "1",
+          "VLLM_NO_USAGE_STATS": null
+        },
+        "executable": "/home/ryospiralarchitect/.venvs/aether-synth-trtllm-1.2.1-cu131-py312/bin/python",
+        "ninja": "/home/ryospiralarchitect/.venvs/aether-synth-trtllm-1.2.1-cu131-py312/bin/ninja",
+        "nvcc": "/usr/local/cuda-13.1/bin/nvcc",
+        "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+        "versions": {
+          "tensorrt-llm": "1.2.1",
+          "torch": "2.9.1+cu130",
+          "transformers": "4.57.3"
+        }
+      },
+      "saved_call_statuses": {
+        "complete": 35,
+        "failed": 7
+      },
+      "source": {
+        "commit": "9e77ff65c26b9a3685db91b19f14b52502e6c62d",
+        "files": {
+          "experiments/frontier_study.py": "c454ee63736a7aea4adee1847d3d9f16abca5e19df9954045ed4078c55648f30",
+          "experiments/furnace_runtime.py": "11fefb6a8729f25b0623e2c9453fc0c0da4260fb2dfd67dc1863bd16293ac61a",
+          "src/magic_realism_thought/__init__.py": "fea0df89dc0ab4f92c7f31939057984d10ca8653f682a53566ca215f94d5dad2",
+          "src/magic_realism_thought/cli.py": "1182d92f47556b4c1c121f4c381296e31375d29e4951019042b1b77866194349",
+          "src/magic_realism_thought/evals.py": "2f310a445268f222949d501958e8b571cacc09bcb3f5321c317802c6859f1984",
+          "src/magic_realism_thought/frontier_control.py": "477540533c522628dd39a808f7192dbe6932ebd3719b37dd714e7f1d9f583036",
+          "src/magic_realism_thought/frontier_replay.py": "b72773fae6414f848a7d95dff1a3f7ca17bcc01391fc9db143e3f5bb651886b0",
+          "src/magic_realism_thought/memory.py": "2de84b1e368bcaaf35ff179db08c64051a08ca5acfacdff37098e9731d0df6b7",
+          "src/magic_realism_thought/metrics.py": "745ad4365e13a769fcd26730c50e4388272b96355b43e62ee59f5b17137b1f90",
+          "src/magic_realism_thought/prm.py": "d4412695b3bef70e1abc766ef8d70555f78dff84e086a55c955ce95c3bdd6513",
+          "src/magic_realism_thought/prompts.py": "20d5406f089dbb0676de2ba040a76ae8a7eb4e264d26ac8a039df1df188bb07c",
+          "src/magic_realism_thought/providers.py": "47e30fdab3c7b03bcc324e4b7e73ae18946caf022663308f8126c64f2dd57817",
+          "src/magic_realism_thought/render.py": "3ec7ce1b2c2f6a40a6a5ab25d6a1b737d4ae8be88c8aea7eef91b73d3c27f8b4",
+          "src/magic_realism_thought/reward_audit.py": "8c84b6fe695606bccad74e08a00d77e230e15b3b3ab49fcab8de34ef329cebf4",
+          "src/magic_realism_thought/rpm.py": "a4efc34c7384e4081970f864635091f2b2d7d9013ed56b9db0bf2e230280eee4",
+          "src/magic_realism_thought/runner.py": "49dc6aadd8df61b459efed7438154d8513402517bdec1c6cd34d8a970ab4d8e6",
+          "src/magic_realism_thought/story_reader.py": "189755b98e639e016681db839196195ef9a62c224e4b0fe4c9f3b3230c34949f",
+          "src/magic_realism_thought/types.py": "47bf5c18b2675b14e32d13618e7c1cee858ce76a7b66a2fbd78b9b44fc5cdd83",
+          "src/magic_realism_thought/utils.py": "12d1aff873d80fb81d8bdde3dffd6935a7fb3cb34e400f8ba8e7225e35636180"
+        }
+      },
+      "terminal_status": {
+        "admitted_pairs": 0,
+        "missing_prompts": [
+          "p01",
+          "p03",
+          "p04",
+          "p05",
+          "p06",
+          "p07",
+          "p08"
+        ],
+        "phase": "calibration_incomplete",
+        "planned_pairs": 32
+      }
+    }
+  ]
+}
