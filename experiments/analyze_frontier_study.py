@@ -134,6 +134,8 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
             "planned_pairs": config["planned_pairs"], "completed_pairs": len(rows), "phase_statuses": by_phase,
             "profile_note_counts": {key: len(value["notes"]) for key, value in sorted(profiles.items())},
             "dosed_pairs": len(active), "dosed_prompt_clusters": len({row["prompt_id"] for row in active}),
+            "dosed_path_delta": describe([row["path_delta"] for row in active]),
+            "no_dose_path_delta": describe([row["path_delta"] for row in empty]),
             "no_dose_pairs": len(empty), "identical_no_dose_finals": sum(row["identical_final"] for row in empty),
             "no_dose_root_replay": dict(root_replay),
             "final_chars": {key: describe(value) for key, value in lengths.items()},
