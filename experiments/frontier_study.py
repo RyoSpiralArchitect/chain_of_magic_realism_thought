@@ -33,7 +33,7 @@ def canonical(value) -> str:
 
 def save(path: Path, value) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
     with temporary.open("x", encoding="utf-8") as stream:
         json.dump(value, stream, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False)
         stream.write("\n")
@@ -42,7 +42,7 @@ def save(path: Path, value) -> None:
 
 def source_receipt() -> dict:
     files = [*sorted((ROOT / "src/magic_realism_thought").glob("*.py")),
-             Path(__file__), ROOT / "experiments/furnace_runtime.py"]
+             Path(__file__), ROOT / "experiments/furnace_runtime.py", ROOT / "examples/frontiers/control_stages.json"]
     return {"commit": subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip(),
             "files": {str(path.relative_to(ROOT)): digest(path) for path in files}}
 
@@ -109,6 +109,8 @@ def run_generation(args) -> None:
               "top_p": 0.95, "top_k": 40, "candidates": 2, "beam_width": 2, "stages": 3,
               "repairs": 0, "aggregation": False, "memory_update": False,
               "harmony_adapter_sha256": digest(args.harmony_adapter) if args.harmony_adapter else None,
+              "harmony_render_contract": "native-system-final-instruction-v2" if getattr(args, "harmony_final_instruction", False)
+                                         else "single-user-low-reasoning-v1",
               "calibration": "one independent run per prompt; profiles frozen before evaluation",
               "sampling_pairing": "same seed and call ordinal; not identical random token trajectories",
               **check_backend(args), "canary_only": args.canary_only}
@@ -119,6 +121,7 @@ def run_generation(args) -> None:
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
     args._engine = engine
+    engine.harmony_final_instruction = getattr(args, "harmony_final_instruction", False)
     frozen(args.output / "model_identity.json", engine.identity)
     frozen(args.output / "runtime.json", runtime_receipt(args.backend))
     canary = engine.generate([(ChatRequest(model=args.model_id,
@@ -341,7 +344,7 @@ def run_summary(args) -> None:
         models.append({"model_id": config["model_id"], "study": str(study), "planned_pairs": config["planned_pairs"],
                        "completed_pairs": len(paired), "dose_pairs": sum(row["applied_notes"] > 0 for row in paired),
                        "effects": {key: cluster_interval(value) for key, value in deltas.items()},
-                       "candidate_id_reuse": identity, "blind_preferences": tally, "pairs": paired})
+                       "candidate_id_reuse": identity, "blind_preferences": tally if args.judge else None, "pairs": paired})
     save(args.output, {"contract": "frontier-study-summary-1.0", "models": models,
          "claim_limit": "8 authored prompt clusters; model, quantization, and backend are confounded with size; no training or policy promotion"})
     print(json.dumps({"models": [{key: model[key] for key in ("model_id", "planned_pairs", "completed_pairs", "dose_pairs", "effects", "blind_preferences")}
@@ -359,6 +362,7 @@ def main():
         child.add_argument("--max-tokens", type=int, default=512)
         child.add_argument("--concurrency", type=int, default=8)
         child.add_argument("--harmony-adapter", type=Path)
+        child.add_argument("--harmony-final-instruction", action="store_true")
         child.add_argument("--backend", choices=("trt", "vllm"), default="trt")
         child.add_argument("--fallback-receipt", type=Path)
         if command == "generate":

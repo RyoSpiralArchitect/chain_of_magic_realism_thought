@@ -79,6 +79,10 @@ class FrontierStudyTest(unittest.TestCase):
             self.assertEqual(len(pairs), 1)
             self.assertEqual(pairs[0][-1][0]["study"]["sampling_seed"], pairs[0][-1][1]["study"]["sampling_seed"])
             self.assertEqual(json.loads((args.output / "status.json").read_text())["completed"], 2)
+            summary = argparse.Namespace(studies=[args.output], judge=None, output=root / "summary.json")
+            with contextlib.redirect_stdout(io.StringIO()):
+                frontier_study.run_summary(summary)
+            self.assertIsNone(json.loads(summary.output.read_text())["models"][0]["blind_preferences"])
 
     def test_frozen_configuration_and_prompt_cluster_interval(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -91,6 +95,17 @@ class FrontierStudyTest(unittest.TestCase):
         self.assertEqual(summary["prompt_clusters"], 2)
         self.assertEqual(summary["mean"], 0)
         self.assertIsNone(frontier_study.cluster_interval({})["mean"])
+
+    def test_interrupted_temporary_write_does_not_overwrite_or_block_a_checkpoint(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            old = root / "status.json.tmp"
+            old.write_bytes(b"incomplete previous write")
+            frontier_study.save(root / "status.json", {"phase": "complete"})
+            self.assertEqual(old.read_bytes(), b"incomplete previous write")
+            self.assertEqual(json.loads((root / "status.json").read_text())["phase"], "complete")
+        receipt = frontier_study.source_receipt()
+        self.assertIn("examples/frontiers/control_stages.json", receipt["files"])
 
     def test_fallback_requires_a_preserved_failure(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -172,6 +187,32 @@ class FrontierStudyTest(unittest.TestCase):
             self.assertEqual(len(list((args.output / "runs").glob("*.failure.json"))), 1)
             self.assertEqual(len(list((args.output / "calls").glob("*.json"))), 1)
             self.assertFalse(list((args.output / "runs").glob("*-off-*.json")))
+
+    def test_native_harmony_instruction_keeps_system_role_and_records_channels_only(self):
+        engine = TrtEngine.__new__(TrtEngine)
+        engine.harmony_final_instruction = True
+        engine.stop_ids = [1]
+        engine.params = lambda **kw: kw
+        engine.batch_receipts = []
+        observed = []
+        def render(messages, **kwargs):
+            observed.extend(messages)
+            return [1, 2]
+        engine.harmony = SimpleNamespace(openai_to_harmony_tokens=render,
+            encoding=SimpleNamespace(parse_messages_from_completion_tokens=lambda *a, **kw:
+                                     [SimpleNamespace(channel="final")]))
+        engine.adapter = SimpleNamespace(route_completion_tokens=lambda ids:
+            SimpleNamespace(status="accepted", reason_codes=(), accepted_final_text="visible passage",
+                            public_receipt=lambda: {"status": "accepted"}))
+        engine.llm = SimpleNamespace(generate=lambda *a, **kw:
+            [SimpleNamespace(outputs=[SimpleNamespace(token_ids=[3], finish_reason="stop", stop_reason=None)])])
+        harmony = SimpleNamespace(ReasoningEffort=SimpleNamespace(LOW="low"), Role=SimpleNamespace(ASSISTANT="assistant"))
+        with patch.dict(sys.modules, {"openai_harmony": harmony}):
+            result = engine.generate([(ChatRequest("fake", "system directions", "visible prompt", 0.8, 10), 1)])[0]
+        self.assertEqual([message["role"] for message in observed], ["system", "user"])
+        self.assertIn("final-channel", observed[0]["content"])
+        self.assertEqual(result.text, "visible passage")
+        self.assertEqual(result.usage["channel_names"], ["final"])
 
 
 if __name__ == "__main__":

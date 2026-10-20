@@ -1,0 +1,1410 @@
+{
+  "claim_limit": "8 authored prompt clusters; model, quantization, and backend are confounded with size; no training or policy promotion",
+  "contract": "frontier-study-summary-1.0",
+  "models": [
+    {
+      "blind_preferences": null,
+      "candidate_id_reuse": {
+        "different_text": 101,
+        "same_text": 25,
+        "shared_candidate_ids": 126
+      },
+      "completed_pairs": 32,
+      "dose_pairs": 8,
+      "effects": {
+        "final_chars": {
+          "ci95": [
+            -27.75,
+            77.0625
+          ],
+          "mean": 29.375,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "final_drift": {
+          "ci95": [
+            -0.049915625,
+            0.04425
+          ],
+          "mean": 0.0010312499999999974,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "magic_reward": {
+          "ci95": [
+            -0.028256249999999997,
+            0.004893750000000009
+          ],
+          "mean": -0.011946874999999996,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "path_score": {
+          "ci95": [
+            -0.0054100000000000155,
+            0.009989374999999977
+          ],
+          "mean": 0.0025559374999999905,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "unresolved": {
+          "ci95": [
+            -0.40625,
+            0.1875
+          ],
+          "mean": -0.09375,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        }
+      },
+      "model_id": "google/gemma-3-4b-it",
+      "pairs": [
+        {
+          "applied_notes": 2,
+          "delta_on_minus_off": {
+            "final_chars": -276,
+            "final_drift": -0.12519999999999998,
+            "magic_reward": -0.13069999999999993,
+            "path_score": 0.018380000000000063,
+            "unresolved": -1
+          },
+          "prompt_id": "p01",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-on-r00.json"
+          ],
+          "run_sha256": [
+            "a4b1d2112600e522f7f05c91b28b84e9ddd0ea04ac48f55c9d3a9fed8692d6f6",
+            "dcd572bb04e9263f9546d3b3a287bb52ea4713ab10844606f8f7f1fba0389469"
+          ]
+        },
+        {
+          "applied_notes": 2,
+          "delta_on_minus_off": {
+            "final_chars": -284,
+            "final_drift": 0.020299999999999985,
+            "magic_reward": -0.04480000000000006,
+            "path_score": -0.04244000000000003,
+            "unresolved": 0
+          },
+          "prompt_id": "p01",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-on-r01.json"
+          ],
+          "run_sha256": [
+            "aae23a3dd3d58bc112ff76d88abb413d671d7070644a18bf397a99be4961a1a5",
+            "a03ec7c22ba837ddf3bfde55b7eb8b19a0f8f48d5b5c4ccd6f2fdbdaa7fa5c9d"
+          ]
+        },
+        {
+          "applied_notes": 2,
+          "delta_on_minus_off": {
+            "final_chars": -64,
+            "final_drift": 0.066,
+            "magic_reward": -0.010000000000000009,
+            "path_score": 0.01373000000000002,
+            "unresolved": -1
+          },
+          "prompt_id": "p01",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-on-r02.json"
+          ],
+          "run_sha256": [
+            "5c2333918e9b0f734e17f9bf3aed63d04f7f53fe660613373b501872b1e87250",
+            "463b8834364016c222bf727d80d7609425582ca83c732bfab59fd259dde06b63"
+          ]
+        },
+        {
+          "applied_notes": 2,
+          "delta_on_minus_off": {
+            "final_chars": 96,
+            "final_drift": 0.04440000000000002,
+            "magic_reward": -0.010500000000000065,
+            "path_score": 0.04813999999999996,
+            "unresolved": -1
+          },
+          "prompt_id": "p01",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p01-on-r03.json"
+          ],
+          "run_sha256": [
+            "73af7e008b751a4be69f2752613311d898cd341e26b6edd7cea18e62b7120147",
+            "424ed093677c4a2ae92faacef4feac09188a03cac136198b9ba19d3236506779"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -88,
+            "final_drift": -0.36510000000000004,
+            "magic_reward": -0.10289999999999999,
+            "path_score": -0.01762000000000008,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-on-r00.json"
+          ],
+          "run_sha256": [
+            "10e800b6b9e8eabcdacfd1aa4bc99a9997356d2b48d534f9f1c53cd9406c5291",
+            "71a162290db61c3fe8d3afcc57686b2998120a17603458ad28a99b4f18bf821d"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 304,
+            "final_drift": 0.018199999999999994,
+            "magic_reward": -0.042200000000000015,
+            "path_score": 0.024779999999999913,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-on-r01.json"
+          ],
+          "run_sha256": [
+            "3640af865df9acc699eb64f0f1da57e8ead3520cc58e2513b2240173d83f108f",
+            "026ecc18a527edba5f539aa11d06c9f78e4c2539d0acc0e626c2232565219421"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -210,
+            "final_drift": 0.37239999999999995,
+            "magic_reward": 0.10099999999999998,
+            "path_score": 0.017099999999999893,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-on-r02.json"
+          ],
+          "run_sha256": [
+            "54753e46f07e83e3fc26ecfa9cd9fa7a3f25994c7b0ad5bf6bb763d90f959f6a",
+            "648cb429eec2cf50a0b69c04442165dc4acef5d9498916957a555d57c7aac0f9"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 208,
+            "final_drift": 0.0446,
+            "magic_reward": 0.012199999999999989,
+            "path_score": 0.023600000000000065,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p02-on-r03.json"
+          ],
+          "run_sha256": [
+            "ab0a60c5a70fc9b6197a00ee89c9fce491c5aea73b287d35bde57302b871ad5d",
+            "70e9d17f5cac7eabc8dff09a9935fa8efdaed6f60876bd421a039de0f607483c"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -125,
+            "final_drift": 0.23090000000000002,
+            "magic_reward": -0.03390000000000004,
+            "path_score": 0.01307999999999998,
+            "unresolved": -1
+          },
+          "prompt_id": "p03",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-on-r00.json"
+          ],
+          "run_sha256": [
+            "6600620087c7d2e71fa11a9b35062d673c20b952b9e5cd06f505d1da78e4b60f",
+            "de8dd79fb6e535e035b9a6a88ac8ddddc167772de715a561bbdc45dd17cab398"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -59,
+            "final_drift": 0.13689999999999997,
+            "magic_reward": 0.00550000000000006,
+            "path_score": 0.017959999999999976,
+            "unresolved": 0
+          },
+          "prompt_id": "p03",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-on-r01.json"
+          ],
+          "run_sha256": [
+            "e7cbe00d6c99df969e4306814c929383f2d8b1e00a3801072d132f0c80cffdf1",
+            "782539e79b5c223468dfcfde2e66f7eccdf75074af35040d902e791010159904"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 397,
+            "final_drift": -0.09039999999999998,
+            "magic_reward": 0.057700000000000085,
+            "path_score": -0.008560000000000012,
+            "unresolved": 2
+          },
+          "prompt_id": "p03",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-on-r02.json"
+          ],
+          "run_sha256": [
+            "973a504b168b94ff7acfe21b387d90f99bb9619bbd9a94233ce8b8d0f879908a",
+            "85f30fc4ed10790fb7ca6be4fd8eaac51561a1866fd50a3e7ecbdabfe24a78a4"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 85,
+            "final_drift": 0.08960000000000001,
+            "magic_reward": -0.12320000000000009,
+            "path_score": 0.03756999999999999,
+            "unresolved": -2
+          },
+          "prompt_id": "p03",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p03-on-r03.json"
+          ],
+          "run_sha256": [
+            "a2fb37fa2bbcb31d99c9464266c1e63af4fffb32500bbf038fa2727535cb17ab",
+            "cb913237b98a417d07c6c2d48c23db91567eee7cf8c2c0ccd10e3a1d98ea3028"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -729,
+            "final_drift": 0.04459999999999997,
+            "magic_reward": -0.05929999999999991,
+            "path_score": -0.0027399999999999647,
+            "unresolved": -1
+          },
+          "prompt_id": "p04",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-on-r00.json"
+          ],
+          "run_sha256": [
+            "d1169bd7bff7c17c5b20c6ffde16c0d81fcf48ef5fbdd9b19663c7fd086218c6",
+            "9a2e7332a489cd5ce2b6cb23f76e77ad3f95952feb64eaacf7764e23ac635452"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 520,
+            "final_drift": -0.0368,
+            "magic_reward": -0.11360000000000003,
+            "path_score": -0.08073000000000008,
+            "unresolved": 2
+          },
+          "prompt_id": "p04",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-on-r01.json"
+          ],
+          "run_sha256": [
+            "b2d59b2759ed3b19e0a7194b9dcf3ce0e8702b7c3e309fec3224e2f1bb5fed7b",
+            "e5f492fe5850fc1306ced7b8270c56b91c633af0fb83ee72779cf3dbd99f6b01"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 330,
+            "final_drift": 0.12999999999999998,
+            "magic_reward": 0.02850000000000008,
+            "path_score": 0.03442999999999996,
+            "unresolved": 0
+          },
+          "prompt_id": "p04",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-on-r02.json"
+          ],
+          "run_sha256": [
+            "678f6f3cffa50a73ccbdf805df681e8539eef1064605dc832327c6166496c846",
+            "7bb91342c67d8504ffe53eb788ab6df3cb237c03ac11203373a8ee569ba160f4"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 5,
+            "final_drift": 0.02260000000000001,
+            "magic_reward": 0.04689999999999994,
+            "path_score": 0.02132999999999996,
+            "unresolved": 0
+          },
+          "prompt_id": "p04",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p04-on-r03.json"
+          ],
+          "run_sha256": [
+            "27f3ab0bea75ccaa83ca21bdcbc9f918e977cf453b6f2f0812e9d1f26ed11c86",
+            "a2ab05f4d779cc9b67f4b743378369b84f25fa4c9e621aaa2e0769347aba85d4"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 112,
+            "final_drift": 0.003700000000000009,
+            "magic_reward": -0.09099999999999997,
+            "path_score": -0.006469999999999976,
+            "unresolved": 0
+          },
+          "prompt_id": "p05",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-on-r00.json"
+          ],
+          "run_sha256": [
+            "bca70fbe7463e81371df0179e7dbcce57cd75204914d3d19d20c8e4749f180ca",
+            "65a83541a765b311af78695fea2afce086af66528ff8961427ca7384fc2e699a"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 69,
+            "final_drift": 0.058900000000000036,
+            "magic_reward": 0.015499999999999958,
+            "path_score": 0.003790000000000071,
+            "unresolved": -1
+          },
+          "prompt_id": "p05",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-on-r01.json"
+          ],
+          "run_sha256": [
+            "0ed244a41c50b31660bf98b6cf35dde9f1f028f861369fbf627f1499f47a9efa",
+            "abebc452e9df3949a3297636a79c2849eee1eec58b06725bca80643fa1687374"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 200,
+            "final_drift": -0.1466,
+            "magic_reward": -0.0013999999999999568,
+            "path_score": 9.999999999998899e-05,
+            "unresolved": 0
+          },
+          "prompt_id": "p05",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-on-r02.json"
+          ],
+          "run_sha256": [
+            "5e306cff207025f3c16728eebf5fae6ba452809fb473f217a47eb6d78fac91e3",
+            "43757a7b7d483c7a14373bfafe55d7002bacd465634762fd7922a44c25cbcf9e"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -199,
+            "final_drift": -0.06540000000000001,
+            "magic_reward": 0.0686,
+            "path_score": 0.039490000000000025,
+            "unresolved": -2
+          },
+          "prompt_id": "p05",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p05-on-r03.json"
+          ],
+          "run_sha256": [
+            "c297e4c9c0ff57586731e2ef9e1b474d67426c492abea947bcf32ecac5625f87",
+            "a05da542d9b4c13fdd7221d6df7d9b05ecc4fbbf1bc8f8ed8b7d1350bbc71783"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 95,
+            "final_drift": -0.03109999999999999,
+            "magic_reward": -0.11099999999999999,
+            "path_score": -0.10485,
+            "unresolved": 2
+          },
+          "prompt_id": "p06",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-on-r00.json"
+          ],
+          "run_sha256": [
+            "0873d013a93cebc39048e5ced8581a55180c457ab5693a8712c25556a49bf95c",
+            "68247e971fa0c996c0ba99b19c101e3a12f1e0ec030db16cf08ead0656044f80"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 128,
+            "final_drift": 0.1709,
+            "magic_reward": -0.02410000000000001,
+            "path_score": -0.0018799999999999928,
+            "unresolved": -1
+          },
+          "prompt_id": "p06",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-on-r01.json"
+          ],
+          "run_sha256": [
+            "9738666b4d0c3c0cf238fcb99791692a762f6eb25dc5a7dd728f6465f1c95edb",
+            "1e8c869ab58f1d5b85fe495b82c4cfa7ed7eda52cc8119c661afc9ef744b2820"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 29,
+            "final_drift": -0.04290000000000002,
+            "magic_reward": -0.03939999999999999,
+            "path_score": 0.017710000000000004,
+            "unresolved": -1
+          },
+          "prompt_id": "p06",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-on-r02.json"
+          ],
+          "run_sha256": [
+            "75abf02958655ce1e509bfbaf4d539689e2a17c49ad7b51e5772587bc21c06f7",
+            "59e7eac4169aee4ab9502c6357574c28e0ceb270afa93f7fca00ea8500ee794a"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 172,
+            "final_drift": 0.12979999999999997,
+            "magic_reward": 0.0343,
+            "path_score": 0.02577000000000007,
+            "unresolved": 0
+          },
+          "prompt_id": "p06",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p06-on-r03.json"
+          ],
+          "run_sha256": [
+            "543e2aa8a090e4c7bf0be9f580823f6a275c8071f18a5d74c78c88a67c3ba2d1",
+            "ebe86d0b2c40666907afb135de4497493177926895f581e0ec334c57715367e2"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 547,
+            "final_drift": -0.5501,
+            "magic_reward": 0.045600000000000085,
+            "path_score": -0.00036000000000002697,
+            "unresolved": 1
+          },
+          "prompt_id": "p07",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-on-r00.json"
+          ],
+          "run_sha256": [
+            "34d03d21da4eee62d0d5c01b2356c4d76f410f204596bb9637babe77700df543",
+            "1d6d0dfdb38e0231b1a85142b821fa98c6c5186dabb9694e2c22489d88e370b5"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -303,
+            "final_drift": -0.0688,
+            "magic_reward": -0.021499999999999964,
+            "path_score": 0.023599999999999954,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-on-r01.json"
+          ],
+          "run_sha256": [
+            "d32068ec44247e999dd7bb66a3a827875a7a87b48302240dbced8c556f3bc4f9",
+            "d3436932b2e3a09ccd68eb9fc01bddd5a65695ba2bdc6bc57b0a339de449ba61"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 73,
+            "final_drift": 0.021100000000000008,
+            "magic_reward": 0.03359999999999996,
+            "path_score": -0.01041000000000003,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-on-r02.json"
+          ],
+          "run_sha256": [
+            "c3b8ab1c414db9ffbe196ab7d44107bea8362c8ca2166689ffad1da6cb454584",
+            "113a5e01dc12bb3e556fc213585e558974df5f4c6dae7d9b8c684feec07dabcb"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 95,
+            "final_drift": -0.017299999999999982,
+            "magic_reward": 0.008299999999999974,
+            "path_score": 0.02176,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p07-on-r03.json"
+          ],
+          "run_sha256": [
+            "1862cc24e9a1d46b0c9a991fb4f1eb6cbc27482840e9766425246c269d68b766",
+            "38b054dbb9aa49c45250d22785dc70a485e6cb7deb9933b33cad5bc85cb53bf4"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": -46,
+            "final_drift": -0.044399999999999995,
+            "magic_reward": 0.006299999999999972,
+            "path_score": -0.03156999999999999,
+            "unresolved": 1
+          },
+          "prompt_id": "p08",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-on-r00.json"
+          ],
+          "run_sha256": [
+            "17a9d12eeaf09213ed26c95c7dba0754b8d4bcf4c62a448fa5fa50b4259f9f44",
+            "d5170b86c4974ea7483fe1e0a0a0c7fa18930f2618db39f4fccff5c158a56bf2"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": -13,
+            "final_drift": 0.11080000000000001,
+            "magic_reward": 0.06569999999999998,
+            "path_score": -0.027390000000000025,
+            "unresolved": 1
+          },
+          "prompt_id": "p08",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-on-r01.json"
+          ],
+          "run_sha256": [
+            "67aed90f2a9f8e8ae928119739b402c33384faa556a1ee7a28525ff0c6c4d7b3",
+            "1efc746998e9e95730fc60830b3b7ed0711fbd7d4df98ca6ecc3572a382c0d92"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": -187,
+            "final_drift": -0.0965,
+            "magic_reward": 0.05510000000000004,
+            "path_score": 0.03237000000000001,
+            "unresolved": -1
+          },
+          "prompt_id": "p08",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-on-r02.json"
+          ],
+          "run_sha256": [
+            "b6ec1bdad84c1cc671be65f90eb34bc08ba9499af7d06028028c1717524a0633",
+            "59bb04ae1462a3afcf69e3ca37d5f785720c6e2e39601037ad3a5599cdba3ed8"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": 58,
+            "final_drift": -0.0020999999999999908,
+            "magic_reward": -0.00759999999999994,
+            "path_score": -0.017880000000000007,
+            "unresolved": 1
+          },
+          "prompt_id": "p08",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-4b-study2/runs/p08-on-r03.json"
+          ],
+          "run_sha256": [
+            "2b0b20f99021a170e569980e866497aa602c5539f74960ca46d6c5fbe5cb5d23",
+            "035d4b6876508a9b3775404f35bec6662ae17d44e65e6f0720703d4f3ffd4d3d"
+          ]
+        }
+      ],
+      "planned_pairs": 32,
+      "study": "artifacts/furnace/20261020/gemma3-4b-study2"
+    },
+    {
+      "blind_preferences": null,
+      "candidate_id_reuse": {
+        "different_text": 103,
+        "same_text": 31,
+        "shared_candidate_ids": 134
+      },
+      "completed_pairs": 32,
+      "dose_pairs": 4,
+      "effects": {
+        "final_chars": {
+          "ci95": [
+            -9.1875,
+            33.65625
+          ],
+          "mean": 12.5,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "final_drift": {
+          "ci95": [
+            -0.063725,
+            0.025599999999999998
+          ],
+          "mean": -0.0181125,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "magic_reward": {
+          "ci95": [
+            -0.035203125,
+            0.01611875
+          ],
+          "mean": -0.009909374999999998,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "path_score": {
+          "ci95": [
+            -0.01298249999999999,
+            0.011893125000000022
+          ],
+          "mean": -0.0011146874999999924,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        },
+        "unresolved": {
+          "ci95": [
+            -0.25,
+            0.21875
+          ],
+          "mean": 0.0,
+          "method": "percentile bootstrap over prompt means; exploratory",
+          "prompt_clusters": 8
+        }
+      },
+      "model_id": "google/gemma-3-12b-it",
+      "pairs": [
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 133,
+            "final_drift": 0.0611,
+            "magic_reward": 0.006800000000000028,
+            "path_score": 0.05776999999999999,
+            "unresolved": 0
+          },
+          "prompt_id": "p01",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-on-r00.json"
+          ],
+          "run_sha256": [
+            "360cc5c0b891cf831ba466eecf7cdfba5851626b9c3616b8da16b35eecf75226",
+            "16cdfa4dede4b0b27b82a7f38200686e3942e721df343e24c27eb06f9cc80adf"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 0,
+            "final_drift": 0.06459999999999999,
+            "magic_reward": -0.011199999999999988,
+            "path_score": -0.0028399999999999537,
+            "unresolved": 0
+          },
+          "prompt_id": "p01",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-on-r01.json"
+          ],
+          "run_sha256": [
+            "013a096e978d664f35aa5caa1bbc152e26b7b57fd4ea31508bc39e32fe286b39",
+            "f9112f13a86e02efb55199a3f5c7d95c11ffc521feef7e39ef1f788360680593"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 14,
+            "final_drift": 0.23979999999999996,
+            "magic_reward": 0.08179999999999998,
+            "path_score": 0.05840000000000001,
+            "unresolved": 0
+          },
+          "prompt_id": "p01",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-on-r02.json"
+          ],
+          "run_sha256": [
+            "e2ac5e0a4d6ad697906d6ff41ec1f376159878077822a7d6df4c85d2ef294682",
+            "328420a3b109bd355f46be6d38d1d48fa3f10b8c4a87eab9fb1c0c5aceb68649"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 60,
+            "final_drift": 0.029599999999999987,
+            "magic_reward": -0.06869999999999998,
+            "path_score": 0.011500000000000066,
+            "unresolved": 0
+          },
+          "prompt_id": "p01",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p01-on-r03.json"
+          ],
+          "run_sha256": [
+            "aff4258fc72189c0a64122374ccd82bf9a625e1a2d0a0828ea42b06e857dacda",
+            "4cfe62a473d9e8493e61627ebd8f9e9fe3577aa9565453fbe88574f8da6bb97f"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -79,
+            "final_drift": -0.10669999999999999,
+            "magic_reward": 0.01739999999999997,
+            "path_score": -0.06324999999999992,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-on-r00.json"
+          ],
+          "run_sha256": [
+            "eeeffad99d5c3bae0073aa1f43ff0f2a68260e1215301ebd532434f18884c4a1",
+            "be9dbb5b488a59a08d3473927bbc12877ab93a37795ae918ac2a119d0f8824de"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 67,
+            "final_drift": 0.003799999999999998,
+            "magic_reward": -0.0019000000000000128,
+            "path_score": -0.01149,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-on-r01.json"
+          ],
+          "run_sha256": [
+            "741fc4430e8e9c6975b6e715b2158710b1c47f9a41cb62be20e51dc86ab758fc",
+            "211831e29011a5a173f7954d29857dc630b8714894dffb615564ab8f51db48a0"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 36,
+            "final_drift": -0.016699999999999993,
+            "magic_reward": 0.0774999999999999,
+            "path_score": 0.006530000000000036,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-on-r02.json"
+          ],
+          "run_sha256": [
+            "8975f01511aa55122788becd46109f0a7fb8f31667b5c2170031ba5d2188ccc3",
+            "b5cab12576115168a6ce9004c76a4bfd621060a546e4a26a4985b65fbb9ed1d4"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -10,
+            "final_drift": 0.051100000000000007,
+            "magic_reward": -0.04469999999999996,
+            "path_score": 0.022620000000000084,
+            "unresolved": 0
+          },
+          "prompt_id": "p02",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p02-on-r03.json"
+          ],
+          "run_sha256": [
+            "6b86270516e71944101208fcd818d8d607d8f74ee75a307c708328c033c2cf00",
+            "3cf54d1929f640399e728ce1b0aa2a82c4c273b57dfff9c0776785ca8371fec3"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 38,
+            "final_drift": 0.031299999999999994,
+            "magic_reward": -0.015599999999999947,
+            "path_score": 0.024349999999999983,
+            "unresolved": 0
+          },
+          "prompt_id": "p03",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-on-r00.json"
+          ],
+          "run_sha256": [
+            "710ea6c6f7911b9ed8ae47adc5351544c31c0e81308a5a3cc443cae311b3a635",
+            "f5d86bbdafcf23c1dcf4cb623d83228c85c98c2e898dfeeef8e135a747f36f4a"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -26,
+            "final_drift": 0.022400000000000003,
+            "magic_reward": -0.021399999999999975,
+            "path_score": -0.0301499999999999,
+            "unresolved": 1
+          },
+          "prompt_id": "p03",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-on-r01.json"
+          ],
+          "run_sha256": [
+            "cc8e9c6b7165d8477c78c513c3412586c438ae26a3de5768e19ef739647c3e59",
+            "751abc303ce796619fdb788ac275c7df55ed325cffd33ee66fb3d961d49a69ff"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 0,
+            "final_drift": 0.0,
+            "magic_reward": 0.0,
+            "path_score": 0.0,
+            "unresolved": 0
+          },
+          "prompt_id": "p03",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-on-r02.json"
+          ],
+          "run_sha256": [
+            "0e436776ad5ebd3645fb4167f0494b868c67f8807ddfbdb0354ae63fd7223a0e",
+            "d0bcd6960139adf59710884b25b83ae7ae1cffb5f64123af9b60f1eacb03c25f"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -72,
+            "final_drift": 0.0059000000000000025,
+            "magic_reward": -0.1815,
+            "path_score": -0.10211000000000003,
+            "unresolved": 0
+          },
+          "prompt_id": "p03",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p03-on-r03.json"
+          ],
+          "run_sha256": [
+            "a5e73cec72d6bfb7290704073186c5e0c57a2748af1c07714185f2dce53d1159",
+            "d2eb2d2981ef712e5d1571073c2102a10b03a7f2ba3a2f128c5fc749f160406e"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 90,
+            "final_drift": 0.0121,
+            "magic_reward": -0.03820000000000001,
+            "path_score": -0.03490000000000004,
+            "unresolved": 1
+          },
+          "prompt_id": "p04",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-on-r00.json"
+          ],
+          "run_sha256": [
+            "cde2af932ebc205b9437890778b43283d584972e1aeee9bf596bd5abb892c266",
+            "f429502fc2f14655526591e2757e2568c0307b537f28ff49116de7bf87ef3237"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 92,
+            "final_drift": -0.3701,
+            "magic_reward": 0.08589999999999998,
+            "path_score": 0.07540999999999998,
+            "unresolved": 0
+          },
+          "prompt_id": "p04",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-on-r01.json"
+          ],
+          "run_sha256": [
+            "f8eceedcc8a792be0906636346e6b46ba59c3216b45607a6ec54019491330334",
+            "f64b49fb8e47ea4dd8a629ecbc6171b7b155d8d3a3d94075d25950959578495e"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 0,
+            "final_drift": -0.023000000000000007,
+            "magic_reward": -0.1352,
+            "path_score": -0.08792,
+            "unresolved": 1
+          },
+          "prompt_id": "p04",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-on-r02.json"
+          ],
+          "run_sha256": [
+            "c10c9cdbcf206afd39308468a93629cdc6003e0ca2f3ffb1b3351289776e8e87",
+            "35950d0c07c3f1582c5a46d47eb71180b8d767c06cb84896ee55a7b50e0d53ba"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 26,
+            "final_drift": 0.1038,
+            "magic_reward": -0.12270000000000003,
+            "path_score": 0.007019999999999915,
+            "unresolved": 0
+          },
+          "prompt_id": "p04",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p04-on-r03.json"
+          ],
+          "run_sha256": [
+            "6d9f6b151ba37bc6a05bc7c5c529bd5d11e85396bc6653244cf9d88c18be3ac7",
+            "d54c855ad4287d7640f24b364d2bf5847870ef1057fbd83e743d30da3a885178"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 47,
+            "final_drift": 0.08430000000000001,
+            "magic_reward": 0.054400000000000004,
+            "path_score": 0.05478000000000005,
+            "unresolved": 0
+          },
+          "prompt_id": "p05",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-on-r00.json"
+          ],
+          "run_sha256": [
+            "f511f976046c2dc71ecdaedba3bd4e3e05eab50c0ed98c4be11c2af22d57c6e6",
+            "cbf85fe13b7cfa80b3ce5249f5f4360d2d610ba9b0190121df55c1401e38f347"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 12,
+            "final_drift": 0.009699999999999986,
+            "magic_reward": -0.04279999999999995,
+            "path_score": -9.99999999995449e-06,
+            "unresolved": 0
+          },
+          "prompt_id": "p05",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-on-r01.json"
+          ],
+          "run_sha256": [
+            "03433bf24db4e46825885bda25a9453bc5cbc19f844db73dc3d7bfd486c3509d",
+            "b6cc330488512439980fa78032776220c1d37a5300bfa439535066343523733b"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 70,
+            "final_drift": -0.6084,
+            "magic_reward": 0.0797,
+            "path_score": 0.0514,
+            "unresolved": 0
+          },
+          "prompt_id": "p05",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-on-r02.json"
+          ],
+          "run_sha256": [
+            "815a6a1dac1f676976a4049b77dd235b574a7b02691a713427283d7536752e3a",
+            "354eea0765252cf499434a57bbfa1af565e857aafa660034a892e69053b9df1e"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -33,
+            "final_drift": -0.03599999999999999,
+            "magic_reward": 0.10880000000000001,
+            "path_score": -0.01911000000000007,
+            "unresolved": 0
+          },
+          "prompt_id": "p05",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p05-on-r03.json"
+          ],
+          "run_sha256": [
+            "d3075b51dd0af62daed31f6a1b301d93a3cf2b45ce2391e089f9c5a0c9a8aed2",
+            "30e656eae99a6489cdc4ca47f4b15ce84ac904df01bc1dc8630f1ad05b31c2a8"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -38,
+            "final_drift": -0.036000000000000004,
+            "magic_reward": 0.05249999999999999,
+            "path_score": -0.007469999999999977,
+            "unresolved": -1
+          },
+          "prompt_id": "p06",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-on-r00.json"
+          ],
+          "run_sha256": [
+            "a658e410f201a165b585122ab93907d80dd87f356d853d765b37bc24d7b4490a",
+            "dbb910e8039f35ee01892d1445b5579388c6eded3da76c79705a45e17f087bfc"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 29,
+            "final_drift": -0.0696,
+            "magic_reward": 0.1523,
+            "path_score": 0.030409999999999937,
+            "unresolved": -1
+          },
+          "prompt_id": "p06",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-on-r01.json"
+          ],
+          "run_sha256": [
+            "f0f987e5a4aaff3a7d80877d5202a29f21498acc7644663235f01baa39e728bd",
+            "11d2d71834ba0bb1ed6582fb354c273eab6c201d314a9a81f280c0e3ed1c4209"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -74,
+            "final_drift": 0.08250000000000002,
+            "magic_reward": -0.04269999999999996,
+            "path_score": 0.01081999999999994,
+            "unresolved": -1
+          },
+          "prompt_id": "p06",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-on-r02.json"
+          ],
+          "run_sha256": [
+            "f19f98f3d7b77d6937cbbbac404f3e8f0de1164173b2f2527c3f20fa05016154",
+            "461197990ccff14212ac76878351c4d7906a06428aa2be575b0d1d75989a17eb"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -20,
+            "final_drift": -0.066,
+            "magic_reward": -0.056499999999999995,
+            "path_score": -0.04464999999999997,
+            "unresolved": 0
+          },
+          "prompt_id": "p06",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p06-on-r03.json"
+          ],
+          "run_sha256": [
+            "006d1a031279411dac3f36a75ac03cb7eb929dac5f83fa50cb6339a665f35d84",
+            "96793ab76c59f95429dc8016599b4d9604731e7d71e4624ab8dd67be1dbb07c7"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -80,
+            "final_drift": 0.08519999999999998,
+            "magic_reward": -0.0798000000000001,
+            "path_score": -0.009580000000000033,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-on-r00.json"
+          ],
+          "run_sha256": [
+            "7137f5157fe072454cb40bc4134c7ee29915b45c329521c5ea6baafcb4848583",
+            "3021abee9916278748a26f8a95d5b69fd93eacf8e2a069de6a590182103786ea"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": 25,
+            "final_drift": 0.0519,
+            "magic_reward": 0.03979999999999995,
+            "path_score": 0.04086000000000001,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-on-r01.json"
+          ],
+          "run_sha256": [
+            "516b4b6452881fa7a96ea6f5c67956a6d52f85a0a722d929a5960b76a10873cc",
+            "5600a659094be972ebbe8ee06743e0351b886f47187f5a7c77ad8f420640120c"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -15,
+            "final_drift": -0.03040000000000001,
+            "magic_reward": -0.02189999999999992,
+            "path_score": -0.009649999999999936,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-on-r02.json"
+          ],
+          "run_sha256": [
+            "2f5c8ea7a637ee861d446ea12ccf9003583697363e52ede1bd9117b4a06c16ba",
+            "0407aeee7266d9d7b866eaf364f52fa348e5eb6ddaa59d60188c6f174471a049"
+          ]
+        },
+        {
+          "applied_notes": 0,
+          "delta_on_minus_off": {
+            "final_chars": -38,
+            "final_drift": -0.016199999999999992,
+            "magic_reward": -0.0049000000000000155,
+            "path_score": -0.014229999999999965,
+            "unresolved": 0
+          },
+          "prompt_id": "p07",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p07-on-r03.json"
+          ],
+          "run_sha256": [
+            "d51689fd5dd587855f96cf02cea1cf19449fe0d739b36636175030900cdc1c1d",
+            "4599816945def362d905a7304ec1f220191bce35cb49d120872310ce69b356ff"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": 66,
+            "final_drift": -0.0021999999999999797,
+            "magic_reward": -0.08289999999999997,
+            "path_score": -0.026270000000000016,
+            "unresolved": 1
+          },
+          "prompt_id": "p08",
+          "replicate": 0,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-off-r00.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-on-r00.json"
+          ],
+          "run_sha256": [
+            "88bb9585a62ec663bd33543f396c90245fd1f84558bea1653a6bdee0c32588c2",
+            "e88e11fc31da8a05f74ea5856797c9a2679c1f7fafb188f2218d5073df21228a"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": 18,
+            "final_drift": 0.009899999999999992,
+            "magic_reward": -0.0024999999999999467,
+            "path_score": 0.030869999999999953,
+            "unresolved": -1
+          },
+          "prompt_id": "p08",
+          "replicate": 1,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-off-r01.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-on-r01.json"
+          ],
+          "run_sha256": [
+            "e7a2273735f97ac636bc0ef6e40b4bc32eccb41e9afe8b7cd5a74a7f0c84d740",
+            "db121bdb28d5a0aaff4ebf5cdd3197cab36327421f640986f8fead18706b4e0d"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": 27,
+            "final_drift": -0.08709999999999998,
+            "magic_reward": -0.016100000000000003,
+            "path_score": 0.013900000000000023,
+            "unresolved": -1
+          },
+          "prompt_id": "p08",
+          "replicate": 2,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-off-r02.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-on-r02.json"
+          ],
+          "run_sha256": [
+            "cd1ee91a5b9bd764dbcb9fc3ae00866df129cef400d2ad88a0d9ec81b7626fb7",
+            "ab56028c39d3ddb1cc0b15f422f2bccd0ae703d433d4f81527844065434a3e76"
+          ]
+        },
+        {
+          "applied_notes": 1,
+          "delta_on_minus_off": {
+            "final_chars": 35,
+            "final_drift": -0.060200000000000004,
+            "magic_reward": -0.08279999999999998,
+            "path_score": -0.06867999999999996,
+            "unresolved": 1
+          },
+          "prompt_id": "p08",
+          "replicate": 3,
+          "run_files": [
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-off-r03.json",
+            "artifacts/furnace/20261020/gemma3-12b-study2/runs/p08-on-r03.json"
+          ],
+          "run_sha256": [
+            "d93a866785f9097f07d178e379c546ba2afcc4d6437272ec8eb5d9330738b2dc",
+            "84509d968aef6d91e17883885015afef3c4127af81037c5c7eb695cd8b13db21"
+          ]
+        }
+      ],
+      "planned_pairs": 32,
+      "study": "artifacts/furnace/20261020/gemma3-12b-study2"
+    }
+  ]
+}

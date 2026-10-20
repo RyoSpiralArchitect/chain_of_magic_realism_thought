@@ -63,6 +63,7 @@ class TrtEngine:
         self.identity = model_identity(path)
         self.adapter = None
         self.harmony = None
+        self.harmony_final_instruction = False
         if harmony_adapter:
             expected = "579c0672eeb7837690540e7ed670cf612bda07440d37ba4e9cdaa57ed362eedc"
             if digest(harmony_adapter) != expected:
@@ -81,7 +82,8 @@ class TrtEngine:
         from tensorrt_llm import LLM, SamplingParams
         from tensorrt_llm.llmapi.llm_args import MoeConfig
         self.params = SamplingParams
-        self.tokenizer = AutoTokenizer.from_pretrained(str(path), local_files_only=True, trust_remote_code=False)
+        options = {"fix_mistral_regex": True} if json.loads((path / "config.json").read_text()).get("model_type") == "mistral" else {}
+        self.tokenizer = AutoTokenizer.from_pretrained(str(path), local_files_only=True, trust_remote_code=False, **options)
         self.max_tokens = max_tokens
         generation = json.loads((path / "generation_config.json").read_text())
         stop = generation.get("eos_token_id", self.tokenizer.eos_token_id)
@@ -109,6 +111,12 @@ class TrtEngine:
             content = f"{request.system}\n\n{request.prompt}"
             messages = [{"role": "user", "content": content}]
             if self.harmony:
+                if self.harmony_final_instruction:
+                    messages = [
+                        {"role": "system", "content": request.system +
+                         "\nRespond with exactly one final-channel message containing the requested visible artifact."},
+                        {"role": "user", "content": request.prompt},
+                    ]
                 from openai_harmony import ReasoningEffort
                 tokens = self.harmony.openai_to_harmony_tokens(messages, available_tools=None,
                             reasoning_effort=ReasoningEffort.LOW, tool_choice="none")
@@ -147,6 +155,12 @@ class TrtEngine:
                         and completion.stop_reason in self.stop_ids):
                     route = self.adapter.route_completion_tokens([*ids, completion.stop_reason])
                 receipt["final_gate"] = route.public_receipt()
+                try:
+                    from openai_harmony import Role
+                    parsed = self.harmony.encoding.parse_messages_from_completion_tokens(ids, role=Role.ASSISTANT)
+                    receipt["channel_names"] = [getattr(message, "channel", None) for message in parsed]
+                except Exception:
+                    receipt["channel_names"] = None
                 if route.status == "accepted":
                     text = route.accepted_final_text or ""
             else:

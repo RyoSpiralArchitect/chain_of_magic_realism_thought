@@ -41,6 +41,10 @@ the existing harness. A failed candidate blocks that run even if it might have
 been rejected later. For GPT-OSS the pinned Harmony adapter admits only its
 accepted final channel; analysis stays out of saved passages and prompts.
 Content-blind channel counts/hashes can appear in request receipts.
+GPT-OSS can opt into `--harmony-final-instruction`, which preserves the native
+system role and explicitly requests one final-channel artifact. Its render
+contract is frozen separately. This does not relax the pinned output gate;
+failed earlier render contracts remain separate negative pilots.
 
 Every profile records the calibration file hash. Every controlled run records
 profile and note application receipts. `manifest.json` hashes saved artifacts.
@@ -64,3 +68,8 @@ also counted to inform the cross-run identity question.
 Raw evidence is kept outside Git in a task-owned Furnace directory and pulled
 to the Mac. Checked-in summaries must include manifests, denominators, runtime
 fallbacks, and claim limits. No model download is needed.
+
+`analyze_frontier_study.py` verifies the saved manifests before describing
+coverage, soft length adherence, candidate-ID reuse, and no-dose output identity.
+`--plot` optionally uses matplotlib for a static figure. Unrun blind judgments
+are null; attempted invalid or order-inconsistent judgments are unknown.
