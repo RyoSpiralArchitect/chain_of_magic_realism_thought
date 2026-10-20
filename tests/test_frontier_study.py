@@ -62,7 +62,7 @@ class FrontierStudyTest(unittest.TestCase):
             frontier_study.save(prompt_path, pack)
             args = argparse.Namespace(prompts=prompt_path, model_id="fake", model_dir=root,
                 replicates=1, concurrency=2, max_tokens=512, harmony_adapter=None,
-                canary_only=False, output=root / "study")
+                canary_only=False, output=root / "study", backend="trt", fallback_receipt=None)
             with patch.object(frontier_study, "TrtEngine", FakeEngine), patch("importlib.metadata.version", return_value="fake"):
                 with contextlib.redirect_stdout(io.StringIO()):
                     frontier_study.run_generation(args)

@@ -165,6 +165,38 @@ class Pending:
     future: Future
 
 
+class VllmEngine(TrtEngine):
+    """Use only after a preserved TRT canary failure; share completion gates."""
+    def __init__(self, path: Path, batch_size: int, max_tokens: int, harmony_adapter=None):
+        if harmony_adapter:
+            raise ValueError("this fallback supports non-Harmony models only")
+        owners = subprocess.check_output(["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"], text=True).strip()
+        if owners:
+            raise RuntimeError("GPU compute owner exists; do not launch over another workload")
+        self.identity = model_identity(path)
+        from transformers import AutoTokenizer
+        from vllm import LLM, SamplingParams
+        self.tokenizer = AutoTokenizer.from_pretrained(str(path), local_files_only=True, trust_remote_code=False)
+        self.adapter = self.harmony = None
+        self.max_tokens = max_tokens
+        stop = json.loads((path / "generation_config.json").read_text()).get("eos_token_id", self.tokenizer.eos_token_id)
+        self.stop_ids = stop if isinstance(stop, list) else [stop]
+        self.params = lambda **kwargs: SamplingParams(**{key: value for key, value in kwargs.items()
+                            if key not in {"exclude_input_from_output", "add_special_tokens"}})
+        started = time.monotonic()
+        llm = LLM(model=str(path), tokenizer=str(path), trust_remote_code=False, dtype="auto",
+                  tensor_parallel_size=1, max_model_len=8192 + max_tokens, max_num_seqs=batch_size,
+                  max_num_batched_tokens=8192, gpu_memory_utilization=0.90, enforce_eager=True,
+                  enable_prefix_caching=False, disable_log_stats=True)
+        self.load_seconds = time.monotonic() - started
+        self.batch_receipts = []
+
+        class TokenBatch:
+            def generate(self, prompts, **kwargs):
+                return llm.generate([{"prompt_token_ids": tokens} for tokens in prompts], **kwargs)
+        self.llm = TokenBatch()
+
+
 class QueuedProvider:
     def __init__(self, inbox: queue.Queue, seed: int):
         self.inbox = inbox

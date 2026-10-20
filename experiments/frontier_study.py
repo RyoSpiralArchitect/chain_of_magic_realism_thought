@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from furnace_runtime import QueuedProvider, TrtEngine, digest, execute_tasks
+from furnace_runtime import QueuedProvider, TrtEngine, VllmEngine, digest, execute_tasks
 from magic_realism_thought.frontier_control import build_frontier_control_artifacts
 from magic_realism_thought.prompts import extract_prompt_anchor_profile, format_magic_realism_prior, load_stages
 from magic_realism_thought.runner import SpiralRpmPrmRunnerV5
@@ -77,6 +77,15 @@ def make_runner(args, item, provider, control):
     return runner
 
 
+def check_backend(args) -> dict:
+    receipt = None
+    if args.backend == "vllm":
+        if not args.fallback_receipt or json.loads(args.fallback_receipt.read_text()).get("phase") != "failed":
+            raise ValueError("vLLM fallback requires a preserved failed TRT canary receipt")
+        receipt = {"path": str(args.fallback_receipt), "sha256": digest(args.fallback_receipt)}
+    return {"backend": args.backend, "fallback_receipt": receipt}
+
+
 def run_generation(args) -> None:
     pack = json.loads(args.prompts.read_text())
     prompts = pack["prompts"]
@@ -89,14 +98,16 @@ def run_generation(args) -> None:
               "harmony_adapter_sha256": digest(args.harmony_adapter) if args.harmony_adapter else None,
               "calibration": "one independent run per prompt; profiles frozen before evaluation",
               "sampling_pairing": "same seed and call ordinal; not identical random token trajectories",
-              "backend": "tensorrt_llm_pytorch", "canary_only": args.canary_only}
+              **check_backend(args), "canary_only": args.canary_only}
     config_sha = frozen(args.output / "frozen.json", config)
     session = args.output / "sessions" / uuid.uuid4().hex[:12]
     state(args.output, "loading_model", planned_pairs=config["planned_pairs"])
-    engine = TrtEngine(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
+    engine_class = TrtEngine if args.backend == "trt" else VllmEngine
+    engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
     frozen(args.output / "model_identity.json", engine.identity)
     from importlib.metadata import version
-    frozen(args.output / "runtime.json", {name: version(name) for name in ("torch", "transformers", "tensorrt-llm")})
+    frozen(args.output / "runtime.json", {name: version(name) for name in
+           ("torch", "transformers", "tensorrt-llm" if args.backend == "trt" else "vllm")})
     canary = engine.generate([(ChatRequest(model=args.model_id,
                 system="Write only a short Japanese literary passage. Do not include reasoning.",
                 prompt="Describe rain at a railway station in 80-120 Japanese characters.",
@@ -185,11 +196,13 @@ def run_judge(args) -> None:
     config = {"contract": "frontier-blind-review-1.0", "source": source_receipt(), "studies": identities,
               "judge_model": args.model_id, "model_path": str(args.model_dir), "max_tokens": args.max_tokens,
               "concurrency": args.concurrency, "orders": ["off_on", "on_off"], "temperature": 0.0,
-              "claim_limit": "model judgments, not human gold; invalid or order-inconsistent judgments remain unknown"}
+              "claim_limit": "model judgments, not human gold; invalid or order-inconsistent judgments remain unknown",
+              **check_backend(args)}
     config_sha = frozen(args.output / "frozen.json", config)
     session = args.output / "sessions" / uuid.uuid4().hex[:12]
     state(args.output, "loading_judge")
-    engine = TrtEngine(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
+    engine_class = TrtEngine if args.backend == "trt" else VllmEngine
+    engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
     frozen(args.output / "model_identity.json", engine.identity)
     tasks = []
     for study in args.studies:
@@ -315,6 +328,8 @@ def main():
         child.add_argument("--max-tokens", type=int, default=512)
         child.add_argument("--concurrency", type=int, default=8)
         child.add_argument("--harmony-adapter", type=Path)
+        child.add_argument("--backend", choices=("trt", "vllm"), default="trt")
+        child.add_argument("--fallback-receipt", type=Path)
         if command == "generate":
             child.add_argument("--prompts", type=Path, default=ROOT / "experiments/frontier_prompts.json")
             child.add_argument("--replicates", type=int, default=4)
