@@ -43,5 +43,9 @@ Mitigation:
 - The replay report also flags abandoned candidates that later become accepted, making ranking reversals visible.
 - Ontology growth between runs is reported as `requires_rationale` before a new term is treated as durable vocabulary.
 - The trace records decision terrain without asking any model to reveal private reasoning.
+- Optional frontier control exports source-linked reminders for the next run's
+  generation prompts. It preserves disappearance as `not_observed`, respects
+  final conflict flags, and records applied/unused note IDs. The PRM judge and
+  scoring weights receive no new control input. See [frontier control](frontier_control.md).
 
 This is a judgment-landscape log, not a thought log.
