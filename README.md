@@ -315,6 +315,15 @@ See [the control contract](docs/frontier_control.md) and the
 
 The replay artifact keeps the visible-state boundary: it compares accepted, rejected, abandoned, deferred, and ontology-ledger state without requesting hidden reasoning.
 
+### Furnace measurements
+
+The [frozen study protocol](experiments/README.md) evaluates opt-in reminders
+on cached 4B, 12B, and 20B generators, with separate calibration and a
+generator-independent, order-reversed model judge. The
+[measurement report](experiments/results/furnace-20261020/REPORT.md) retains
+completion denominators, runtime failures, artifact hashes, and claim limits.
+These measurements do not enable automatic influence tuning or candidate revival.
+
 ---
 
 ## Offline story reader

@@ -164,6 +164,17 @@ class FrontierStudyTest(unittest.TestCase):
             model = json.loads(summary.output.read_text())["models"][0]
             self.assertEqual(model["completed_pairs"], 1)
             self.assertEqual(model["blind_preferences"], {"on": 0, "off": 0, "tie": 0, "unknown": 1})
+            from analyze_frontier_study import analyze, verify_manifest
+            verify_manifest(judge.output)
+            self.assertEqual(analyze(args.output, judge.output)["blind_preference"], {"unknown": 1})
+            record_path = next((judge.output / "judgments").glob("*.json"))
+            record = json.loads(record_path.read_text())
+            record["study"]["input_sha256"] = ["different", "passages"]
+            frontier_study.save(record_path, record)
+            frontier_study.save_manifest(judge.output)
+            verify_manifest(judge.output)
+            with self.assertRaisesRegex(ValueError, "passage provenance mismatch"):
+                analyze(args.output, judge.output)
 
     def test_incomplete_calibration_blocks_the_entire_paired_study(self):
         class IncompleteCalibration(FakeEngine):

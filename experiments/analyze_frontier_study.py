@@ -15,11 +15,21 @@ def verify_manifest(root: Path) -> str:
     manifest = json.loads((root / "manifest.json").read_text())
     if canonical(manifest["files"]) != manifest["sha256"]:
         raise ValueError(f"manifest identity mismatch: {root.name}")
+    inventory = {str(path.relative_to(root)) for path in root.rglob("*.json") if path.name != "manifest.json"}
+    if inventory != set(manifest["files"]):
+        raise ValueError(f"manifest inventory mismatch: {root.name}")
     for relative, expected in manifest["files"].items():
         path = (root / relative).resolve()
         if not path.is_relative_to(root.resolve()) or not path.is_file() or digest(path) != expected:
             raise ValueError(f"artifact integrity failure: {root.name}/{relative}")
     return digest(root / "manifest.json")
+
+
+def verify_judge_source(judge: Path, study: Path, manifest_sha: str) -> None:
+    config = json.loads((judge / "frozen.json").read_text())
+    sources = [value for name, value in config["studies"].items() if Path(name).name == study.name]
+    if sources != [manifest_sha]:
+        raise ValueError(f"judge source manifest mismatch: {study.name}")
 
 
 def describe(values: list[float]) -> dict:
@@ -30,7 +40,11 @@ def describe(values: list[float]) -> dict:
 
 def analyze(study: Path, judge: Path | None = None) -> dict:
     manifest_sha = verify_manifest(study)
+    if judge:
+        verify_judge_source(judge, study, manifest_sha)
     config = json.loads((study / "frozen.json").read_text())
+    model_identity = json.loads((study / "model_identity.json").read_text()) if (study / "model_identity.json").exists() else None
+    runtime = json.loads((study / "runtime.json").read_text()) if (study / "runtime.json").exists() else None
     trials = [json.loads(path.read_text()) for path in (study / "runs").glob("*.json")]
     by_phase = {}
     for phase in ("calibration", "off", "on"):
@@ -90,7 +104,14 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
             records = []
             for order in (0, 1):
                 path = judge / "judgments" / f"{study.name}-{item['id']}-r{replicate:02d}-o{order}.json"
-                records.append(json.loads(path.read_text()) if path.exists() else {})
+                record = json.loads(path.read_text()) if path.exists() else {}
+                if record:
+                    spec = record["study"]
+                    if (spec["input_sha256"] != row["run_sha256"] or spec["generator"] != study.name
+                            or spec["prompt_id"] != item["id"] or spec["replicate"] != replicate
+                            or spec["a_phase"] != ("on" if order else "off")):
+                        raise ValueError("judge passage provenance mismatch")
+                records.append(record)
             orders = [record.get("preferred_phase") if record.get("status") == "complete" else None for record in records]
             if any(value is None for value in orders):
                 preference = "unknown"
@@ -106,7 +127,10 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
     active = [row for row in rows if row["dosed"]]
     empty = [row for row in rows if not row["dosed"]]
     return {"model_id": config["model_id"], "directory": study.name, "manifest_sha256": manifest_sha,
+            "frozen_sha256": digest(study / "frozen.json"), "model_identity": model_identity, "runtime": runtime,
             "source": config["source"], "backend": config["backend"], "max_tokens": config["max_tokens"],
+            "fallback_receipt": config.get("fallback_receipt"),
+            "harmony_render_contract": config.get("harmony_render_contract"),
             "planned_pairs": config["planned_pairs"], "completed_pairs": len(rows), "phase_statuses": by_phase,
             "profile_note_counts": {key: len(value["notes"]) for key, value in sorted(profiles.items())},
             "dosed_pairs": len(active), "dosed_prompt_clusters": len({row["prompt_id"] for row in active}),

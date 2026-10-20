@@ -184,3 +184,16 @@
 - Local tests now 50 pass, including native role boundaries. Gemma generator
   observations remain at source 9e77ff6; the GPT rerun source will be recorded
   by its own frozen.json. Production scoring and prompt builders are unchanged.
+
+## 2026-10-20 Run 2 (Evidence Integrity Checkpoint)
+- Native-system GPT-OSS study3 passed all eight calibration runs and is in
+  paired evaluation at source 47e7dcd. At least one evaluated on-arm run was
+  blocked by a length-truncated candidate. It remains a failed run, not a
+  replacement/resampling opportunity. Re-read terminal status for final counts.
+- Local analysis now rejects unlisted JSON evidence and verifies judge-to-source
+  manifests plus per-order passage hashes. Added regressions for extra files,
+  mismatched source manifests, and substituted passage inputs. Local tests: 52
+  pass; reward-audit fixtures: 3/3 pass. Remote current-head CPU tests remain to
+  be verified after generation finishes and the isolated checkout is updated.
+- R015 is complete. R010-R012 remain active. Draft stacked PR #6 is open; PR #5
+  remains open. No merge, automatic tuning, or candidate revival is authorized.
