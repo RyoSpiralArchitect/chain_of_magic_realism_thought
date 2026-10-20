@@ -6,7 +6,179 @@
     "model family, quantization, and backend confound size comparisons"
   ],
   "contract": "frontier-study-audit-1.0",
-  "judge_manifest_sha256": null,
+  "judge": {
+    "claim_limit": "valid JSON is not judge qualification; evaluate order consistency separately",
+    "frozen": {
+      "backend": "trt",
+      "claim_limit": "model judgments, not human gold; invalid or order-inconsistent judgments remain unknown",
+      "concurrency": 8,
+      "contract": "frontier-blind-review-1.0",
+      "fallback_receipt": null,
+      "judge_model": "mistralai/Mistral-Nemo-Instruct-2407",
+      "max_tokens": 512,
+      "model_path": "/home/ryospiralarchitect/.cache/huggingface/hub/models--mistralai--Mistral-Nemo-Instruct-2407/snapshots/04d8a90549d23fc6bd7f642064003592df51e9b3",
+      "orders": [
+        "off_on",
+        "on_off"
+      ],
+      "source": {
+        "commit": "3d36150ec06a47da4cacb9491bd5daac3eb476fd",
+        "files": {
+          "examples/frontiers/control_stages.json": "41ad1dd8e35b8ca1c156b4e9e2a20f25b938b6d60eef16c7cc96248883774d7b",
+          "experiments/frontier_study.py": "7d169f0fcdf204dec0d4d634a77cbd4274ff8db9895b5575b371b372374d61bc",
+          "experiments/furnace_runtime.py": "a015f7b3eb399617f2a729d44ed07f961f1a58d20cabafb28639683d8950c91a",
+          "src/magic_realism_thought/__init__.py": "fea0df89dc0ab4f92c7f31939057984d10ca8653f682a53566ca215f94d5dad2",
+          "src/magic_realism_thought/cli.py": "1182d92f47556b4c1c121f4c381296e31375d29e4951019042b1b77866194349",
+          "src/magic_realism_thought/evals.py": "2f310a445268f222949d501958e8b571cacc09bcb3f5321c317802c6859f1984",
+          "src/magic_realism_thought/frontier_control.py": "477540533c522628dd39a808f7192dbe6932ebd3719b37dd714e7f1d9f583036",
+          "src/magic_realism_thought/frontier_replay.py": "b72773fae6414f848a7d95dff1a3f7ca17bcc01391fc9db143e3f5bb651886b0",
+          "src/magic_realism_thought/memory.py": "2de84b1e368bcaaf35ff179db08c64051a08ca5acfacdff37098e9731d0df6b7",
+          "src/magic_realism_thought/metrics.py": "745ad4365e13a769fcd26730c50e4388272b96355b43e62ee59f5b17137b1f90",
+          "src/magic_realism_thought/prm.py": "d4412695b3bef70e1abc766ef8d70555f78dff84e086a55c955ce95c3bdd6513",
+          "src/magic_realism_thought/prompts.py": "20d5406f089dbb0676de2ba040a76ae8a7eb4e264d26ac8a039df1df188bb07c",
+          "src/magic_realism_thought/providers.py": "47e30fdab3c7b03bcc324e4b7e73ae18946caf022663308f8126c64f2dd57817",
+          "src/magic_realism_thought/render.py": "3ec7ce1b2c2f6a40a6a5ab25d6a1b737d4ae8be88c8aea7eef91b73d3c27f8b4",
+          "src/magic_realism_thought/reward_audit.py": "8c84b6fe695606bccad74e08a00d77e230e15b3b3ab49fcab8de34ef329cebf4",
+          "src/magic_realism_thought/rpm.py": "a4efc34c7384e4081970f864635091f2b2d7d9013ed56b9db0bf2e230280eee4",
+          "src/magic_realism_thought/runner.py": "49dc6aadd8df61b459efed7438154d8513402517bdec1c6cd34d8a970ab4d8e6",
+          "src/magic_realism_thought/story_reader.py": "189755b98e639e016681db839196195ef9a62c224e4b0fe4c9f3b3230c34949f",
+          "src/magic_realism_thought/types.py": "47bf5c18b2675b14e32d13618e7c1cee858ce76a7b66a2fbd78b9b44fc5cdd83",
+          "src/magic_realism_thought/utils.py": "12d1aff873d80fb81d8bdde3dffd6935a7fb3cb34e400f8ba8e7225e35636180"
+        }
+      },
+      "studies": {
+        "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/gemma3-12b-study2": "998eea7dc601e50d88821bb1b4c6b5a1692c116a28057f53975d86a2520203ca",
+        "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/gemma3-4b-study2": "36b07ddde2d77931e6183524925f9663c43a01785742da5100833618e3b16a64",
+        "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/gptoss20b-study3": "25e93395d792eae9370a7e3084157bc324d4aa52cf6616e3c8b267560447309a"
+      },
+      "temperature": 0.0
+    },
+    "label_counts": {
+      "continuity": {
+        "A": 181,
+        "B": 1
+      },
+      "freshness": {
+        "A": 164,
+        "B": 18
+      },
+      "restraint": {
+        "A": 181,
+        "B": 1
+      },
+      "winner": {
+        "A": 181,
+        "B": 1
+      }
+    },
+    "model_identity": {
+      "files": [
+        {
+          "bytes": 622,
+          "file": "config.json",
+          "sha256": "8a42669219f4caadedb891be88c34712572573d42b3d02d665d527f92d94ddfe"
+        },
+        {
+          "bytes": 116,
+          "file": "generation_config.json",
+          "sha256": "c052c7f6082ca59fbee5478371f6dd18cbd9ec059b657f8081ff165deb9ea0fa"
+        },
+        {
+          "bytes": 4865522496,
+          "file": "model-00001-of-00005.safetensors",
+          "sha256": "37597b50c825674e56ff1b058f0d148b57dcbc1c39727b641a87ffbf247886ec"
+        },
+        {
+          "bytes": 4907529424,
+          "file": "model-00002-of-00005.safetensors",
+          "sha256": "cec7e36f1451270477569401d5c06af9df8f12da341ff446322796979a30d88b"
+        },
+        {
+          "bytes": 4907529456,
+          "file": "model-00003-of-00005.safetensors",
+          "sha256": "fd68cdd7584ed9bdb5d891cd72fe05abbb50b6ad2860d147786d27a15f764aaa"
+        },
+        {
+          "bytes": 4907529456,
+          "file": "model-00004-of-00005.safetensors",
+          "sha256": "02a05716064ca298c767b7accf9aed9153f9e090eff4605b871de005ce7ce3a9"
+        },
+        {
+          "bytes": 4907496272,
+          "file": "model-00005-of-00005.safetensors",
+          "sha256": "f41f0dd6989345ad1f29d6ab341cbf965bec0954bd90884913ff4cb1b8cc8402"
+        },
+        {
+          "bytes": 29894,
+          "file": "model.safetensors.index.json",
+          "sha256": "f14ac27ce39aa8652e83b8e3a9c59babba2831711e5b31512c1f96bfeeee09cf"
+        },
+        {
+          "bytes": 243,
+          "file": "params.json",
+          "sha256": "c280a2d7e402aa5bbd88b09d9c85fd63ca7699d6b742c182e9b55121564e30fd"
+        },
+        {
+          "bytes": 414,
+          "file": "special_tokens_map.json",
+          "sha256": "6fa06efa2785e450051989a6f8fb4416b10149ded485ddd3f127a40734f5cfd0"
+        },
+        {
+          "bytes": 14801223,
+          "file": "tekken.json",
+          "sha256": "eccd1665d2e477697c33cb7f0daa6f6dfefc57a0a6bceb66d4be52952f827516"
+        },
+        {
+          "bytes": 9264445,
+          "file": "tokenizer.json",
+          "sha256": "e11c71726323d33da7b8d6f6f269f1988931c0a52b7122bcdd8c05042974e0db"
+        },
+        {
+          "bytes": 181297,
+          "file": "tokenizer_config.json",
+          "sha256": "67f3aeef765b7d78012a081dba98efd4900cd2bac24eac182296841c7e2aef2a"
+        },
+        {
+          "bytes": 2472536,
+          "file": "vocab.json",
+          "sha256": "8572e8853a6b2f2d830de4afa15d43c49257d367abf3c5fd2f6f7687bcd8f63d"
+        }
+      ],
+      "path": "/home/ryospiralarchitect/.cache/huggingface/hub/models--mistralai--Mistral-Nemo-Instruct-2407/snapshots/04d8a90549d23fc6bd7f642064003592df51e9b3",
+      "revision": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+      "sha256": "55b9643b905393746995333427790c7f184fdf9dd79e99e0abdb96e98ee8ef6c"
+    },
+    "presented_prompts_verified_for_requested_studies": 182,
+    "record_statuses": {
+      "complete": 182
+    },
+    "runtime": {
+      "distribution_versions_sha256": "de770ef65f9658893a7e98cde344002143d28318cc2486c26d1450793558e0bb",
+      "environment": {
+        "CUDA_HOME": "/usr/local/cuda-13.1",
+        "DO_NOT_TRACK": "1",
+        "HF_HUB_OFFLINE": "1",
+        "TRTLLM_NO_USAGE_STATS": "1",
+        "VLLM_NO_USAGE_STATS": null
+      },
+      "executable": "/home/ryospiralarchitect/.venvs/aether-synth-trtllm-1.2.1-cu131-py312/bin/python",
+      "ninja": "/home/ryospiralarchitect/.venvs/aether-synth-trtllm-1.2.1-cu131-py312/bin/ninja",
+      "nvcc": "/usr/local/cuda-13.1/bin/nvcc",
+      "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+      "versions": {
+        "tensorrt-llm": "1.2.1",
+        "torch": "2.9.1+cu130",
+        "transformers": "4.57.3"
+      }
+    },
+    "status": {
+      "completed": 182,
+      "phase": "complete",
+      "planned": 182,
+      "unknown": 0
+    }
+  },
+  "judge_manifest_sha256": "3cfb0b4b90b56ec5a03d3341ccaba07c3dc685a7986e2f487049ecba4a95aeb8",
   "models": [
     {
       "accepted_step_length_compliance": {
@@ -20,8 +192,15 @@
         }
       },
       "backend": "vllm",
-      "blind_preference": null,
-      "blind_unknown_reasons": {},
+      "blind_preference": {
+        "off": 1,
+        "unknown": 31
+      },
+      "blind_unknown_reasons": {
+        "order_disagreement": 31
+      },
+      "calibration_eligible_pairs": 8,
+      "calibration_eligible_prompt_clusters": 2,
       "candidate_identity": {
         "different_text": 101,
         "same_text": 25,
@@ -30,11 +209,24 @@
       "completed_pairs": 32,
       "completion_tokens_including_canary": 331718,
       "directory": "gemma3-4b-study2",
-      "dosed_blind_preference": null,
+      "dosed_blind_preference": {
+        "unknown": 8
+      },
       "dosed_pairs": 8,
+      "dosed_path_delta": {
+        "count": 8,
+        "max": 0.04813999999999996,
+        "mean": -0.0008324999999999999,
+        "median": -0.0020749999999999935,
+        "min": -0.04244000000000003
+      },
       "dosed_prompt_clusters": 2,
       "engine_batch_seconds": 999.2263352032751,
       "engine_completion_tokens_per_second": 331.97483724497494,
+      "fallback_receipt": {
+        "path": "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/gemma3-4b-canary1/status.json",
+        "sha256": "a72f1ff0305f55793468b2607578b7ef496a28270049b684502d94dccba734b6"
+      },
       "final_chars": {
         "off": {
           "count": 32,
@@ -51,11 +243,93 @@
           "min": 574
         }
       },
+      "frozen_sha256": "8463ae5c69bb4d27a5c77b3730ca974e1763452231a9af55ea038f9fa322ed9e",
+      "harmony_render_contract": null,
       "identical_no_dose_finals": 0,
+      "judge_presented_prompts_verified": 64,
       "manifest_sha256": "36b07ddde2d77931e6183524925f9663c43a01785742da5100833618e3b16a64",
       "max_tokens": 2048,
       "model_id": "google/gemma-3-4b-it",
+      "model_identity": {
+        "files": [
+          {
+            "bytes": 35,
+            "file": "added_tokens.json",
+            "sha256": "50b2f405ba56a26d4913fd772089992252d7f942123cc0a034d96424221ba946"
+          },
+          {
+            "bytes": 1615,
+            "file": "chat_template.json",
+            "sha256": "fe16baf728db49457cde32802cd7efc0ac8a7a9877dbe22fe3322b2d9dc6ccd9"
+          },
+          {
+            "bytes": 855,
+            "file": "config.json",
+            "sha256": "9059f680f4dbd1957f35cb44b9fdd6948f4792db7a7a35ee353ea42e68adf7ff"
+          },
+          {
+            "bytes": 215,
+            "file": "generation_config.json",
+            "sha256": "fd9324becc53c4be610db39e13a613006f09fd6ef71a95fb6320dc33157490a3"
+          },
+          {
+            "bytes": 4961251752,
+            "file": "model-00001-of-00002.safetensors",
+            "sha256": "eb5fd5e97ddd07b56778733e9653c07312529cb00980a318fc3e1c4e3b5a8f1f"
+          },
+          {
+            "bytes": 3639026128,
+            "file": "model-00002-of-00002.safetensors",
+            "sha256": "fdde0e5aa5ced0fa203b3d50f4ab78168b7e3a3e08c6349f5cc9326666e1bb13"
+          },
+          {
+            "bytes": 90558,
+            "file": "model.safetensors.index.json",
+            "sha256": "77f4b67de084c31c7bcd373b039908108eee6c6181607e6d53da730e5f0bc659"
+          },
+          {
+            "bytes": 570,
+            "file": "preprocessor_config.json",
+            "sha256": "f688d6bb20c5017601c4011de7ca656da8485b540b05013efdaf986c0fcc918d"
+          },
+          {
+            "bytes": 70,
+            "file": "processor_config.json",
+            "sha256": "3ffd5f11778dc73e2b69b3c00535e4121e1badf7018136263cd17b5b34fbaa53"
+          },
+          {
+            "bytes": 662,
+            "file": "special_tokens_map.json",
+            "sha256": "2f7b0adf4fb469770bb1490e3e35df87b1dc578246c5e7e6fc76ecf33213a397"
+          },
+          {
+            "bytes": 33384568,
+            "file": "tokenizer.json",
+            "sha256": "4667f2089529e8e7657cfb6d1c19910ae71ff5f28aa7ab2ff2763330affad795"
+          },
+          {
+            "bytes": 4689074,
+            "file": "tokenizer.model",
+            "sha256": "1299c11d7cf632ef3b4e11937501358ada021bbdf7c47638d13c0ee982f2e79c"
+          },
+          {
+            "bytes": 1156999,
+            "file": "tokenizer_config.json",
+            "sha256": "bfe25c2735e395407beb78456ea9a6984a1f00d8c16fa04a8b75f2a614cf53e1"
+          }
+        ],
+        "path": "/home/ryospiralarchitect/.cache/huggingface/hub/models--google--gemma-3-4b-it/snapshots/093f9f388b31de276ce2de164bdc2081324b9767",
+        "revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+        "sha256": "da7b1dba1132e652973102af1e07d5424bcd35cd78a8e88c031924f879170907"
+      },
       "no_dose_pairs": 24,
+      "no_dose_path_delta": {
+        "count": 24,
+        "max": 0.039490000000000025,
+        "mean": 0.003685416666666654,
+        "median": 0.015089999999999937,
+        "min": -0.10485
+      },
       "no_dose_root_replay": {
         "identical_output": 19,
         "matching_input_and_seed": 48,
@@ -67,9 +341,14 @@
             "fc001",
             "fc002"
           ],
+          "blind_preference": "unknown",
           "char_delta": -276,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.018380000000000063,
           "prompt_id": "p01",
           "replicate": 0,
@@ -87,9 +366,14 @@
             "fc001",
             "fc002"
           ],
+          "blind_preference": "unknown",
           "char_delta": -284,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.04244000000000003,
           "prompt_id": "p01",
           "replicate": 1,
@@ -107,9 +391,14 @@
             "fc001",
             "fc002"
           ],
+          "blind_preference": "unknown",
           "char_delta": -64,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.01373000000000002,
           "prompt_id": "p01",
           "replicate": 2,
@@ -127,9 +416,14 @@
             "fc001",
             "fc002"
           ],
+          "blind_preference": "unknown",
           "char_delta": 96,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.04813999999999996,
           "prompt_id": "p01",
           "replicate": 3,
@@ -144,9 +438,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -88,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.01762000000000008,
           "prompt_id": "p02",
           "replicate": 0,
@@ -161,9 +460,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 304,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.024779999999999913,
           "prompt_id": "p02",
           "replicate": 1,
@@ -178,9 +482,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -210,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.017099999999999893,
           "prompt_id": "p02",
           "replicate": 2,
@@ -195,9 +504,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 208,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.023600000000000065,
           "prompt_id": "p02",
           "replicate": 3,
@@ -212,9 +526,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -125,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.01307999999999998,
           "prompt_id": "p03",
           "replicate": 0,
@@ -229,9 +548,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -59,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.017959999999999976,
           "prompt_id": "p03",
           "replicate": 1,
@@ -246,9 +570,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 397,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.008560000000000012,
           "prompt_id": "p03",
           "replicate": 2,
@@ -263,9 +592,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 85,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.03756999999999999,
           "prompt_id": "p03",
           "replicate": 3,
@@ -280,9 +614,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -729,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.0027399999999999647,
           "prompt_id": "p04",
           "replicate": 0,
@@ -297,9 +636,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 520,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.08073000000000008,
           "prompt_id": "p04",
           "replicate": 1,
@@ -314,9 +658,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 330,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.03442999999999996,
           "prompt_id": "p04",
           "replicate": 2,
@@ -331,9 +680,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 5,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.02132999999999996,
           "prompt_id": "p04",
           "replicate": 3,
@@ -348,9 +702,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 112,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.006469999999999976,
           "prompt_id": "p05",
           "replicate": 0,
@@ -365,9 +724,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 69,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.003790000000000071,
           "prompt_id": "p05",
           "replicate": 1,
@@ -382,9 +746,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 200,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 9.999999999998899e-05,
           "prompt_id": "p05",
           "replicate": 2,
@@ -399,9 +768,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -199,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.039490000000000025,
           "prompt_id": "p05",
           "replicate": 3,
@@ -416,9 +790,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 95,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.10485,
           "prompt_id": "p06",
           "replicate": 0,
@@ -433,9 +812,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 128,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.0018799999999999928,
           "prompt_id": "p06",
           "replicate": 1,
@@ -450,9 +834,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 29,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.017710000000000004,
           "prompt_id": "p06",
           "replicate": 2,
@@ -467,9 +856,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "off",
           "char_delta": 172,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "off"
+          ],
           "path_delta": 0.02577000000000007,
           "prompt_id": "p06",
           "replicate": 3,
@@ -484,9 +878,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 547,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.00036000000000002697,
           "prompt_id": "p07",
           "replicate": 0,
@@ -501,9 +900,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -303,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.023599999999999954,
           "prompt_id": "p07",
           "replicate": 1,
@@ -518,9 +922,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 73,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.01041000000000003,
           "prompt_id": "p07",
           "replicate": 2,
@@ -535,9 +944,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 95,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.02176,
           "prompt_id": "p07",
           "replicate": 3,
@@ -554,9 +968,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": -46,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.03156999999999999,
           "prompt_id": "p08",
           "replicate": 0,
@@ -573,9 +992,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": -13,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.027390000000000025,
           "prompt_id": "p08",
           "replicate": 1,
@@ -592,9 +1016,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": -187,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.03237000000000001,
           "prompt_id": "p08",
           "replicate": 2,
@@ -611,9 +1040,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": 58,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.017880000000000007,
           "prompt_id": "p08",
           "replicate": 3,
@@ -653,6 +1087,25 @@
         "complete": 722
       },
       "requests_including_canary": 722,
+      "runtime": {
+        "distribution_versions_sha256": "659fc114697e47a3dbde55c0859cbaf68b6b17bb4f434c4f7d86373dad61c47a",
+        "environment": {
+          "CUDA_HOME": "/usr/local/cuda-13.1",
+          "DO_NOT_TRACK": "1",
+          "HF_HUB_OFFLINE": "1",
+          "TRTLLM_NO_USAGE_STATS": null,
+          "VLLM_NO_USAGE_STATS": "1"
+        },
+        "executable": "/home/ryospiralarchitect/.venvs/aether-synth-vllm-0.27.1-cu130-py312/bin/python",
+        "ninja": "/home/ryospiralarchitect/.venvs/aether-synth-vllm-0.27.1-cu130-py312/bin/ninja",
+        "nvcc": "/usr/local/cuda-13.1/bin/nvcc",
+        "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+        "versions": {
+          "torch": "2.13.0+cu130",
+          "transformers": "5.16.1",
+          "vllm": "0.27.1"
+        }
+      },
       "saved_call_statuses": {
         "complete": 720
       },
@@ -679,6 +1132,12 @@
           "src/magic_realism_thought/types.py": "47bf5c18b2675b14e32d13618e7c1cee858ce76a7b66a2fbd78b9b44fc5cdd83",
           "src/magic_realism_thought/utils.py": "12d1aff873d80fb81d8bdde3dffd6935a7fb3cb34e400f8ba8e7225e35636180"
         }
+      },
+      "terminal_status": {
+        "completed": 64,
+        "failed": 0,
+        "phase": "complete",
+        "planned": 64
       }
     },
     {
@@ -693,8 +1152,14 @@
         }
       },
       "backend": "vllm",
-      "blind_preference": null,
-      "blind_unknown_reasons": {},
+      "blind_preference": {
+        "unknown": 32
+      },
+      "blind_unknown_reasons": {
+        "order_disagreement": 32
+      },
+      "calibration_eligible_pairs": 4,
+      "calibration_eligible_prompt_clusters": 1,
       "candidate_identity": {
         "different_text": 103,
         "same_text": 31,
@@ -703,11 +1168,24 @@
       "completed_pairs": 32,
       "completion_tokens_including_canary": 145351,
       "directory": "gemma3-12b-study2",
-      "dosed_blind_preference": null,
+      "dosed_blind_preference": {
+        "unknown": 4
+      },
       "dosed_pairs": 4,
+      "dosed_path_delta": {
+        "count": 4,
+        "max": 0.030869999999999953,
+        "mean": -0.012545,
+        "median": -0.006184999999999996,
+        "min": -0.06867999999999996
+      },
       "dosed_prompt_clusters": 1,
       "engine_batch_seconds": 980.549210427329,
       "engine_completion_tokens_per_second": 148.23427366450605,
+      "fallback_receipt": {
+        "path": "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/gemma3-12b-canary1/status.json",
+        "sha256": "a72f1ff0305f55793468b2607578b7ef496a28270049b684502d94dccba734b6"
+      },
       "final_chars": {
         "off": {
           "count": 32,
@@ -724,11 +1202,108 @@
           "min": 288
         }
       },
+      "frozen_sha256": "edbde1df2af99242df0336a6d3cde63f903a85e6453ebc600236550a58b77cd7",
+      "harmony_render_contract": null,
       "identical_no_dose_finals": 1,
+      "judge_presented_prompts_verified": 64,
       "manifest_sha256": "998eea7dc601e50d88821bb1b4c6b5a1692c116a28057f53975d86a2520203ca",
       "max_tokens": 2048,
       "model_id": "google/gemma-3-12b-it",
+      "model_identity": {
+        "files": [
+          {
+            "bytes": 35,
+            "file": "added_tokens.json",
+            "sha256": "50b2f405ba56a26d4913fd772089992252d7f942123cc0a034d96424221ba946"
+          },
+          {
+            "bytes": 1615,
+            "file": "chat_template.json",
+            "sha256": "fe16baf728db49457cde32802cd7efc0ac8a7a9877dbe22fe3322b2d9dc6ccd9"
+          },
+          {
+            "bytes": 916,
+            "file": "config.json",
+            "sha256": "39172c4124d3470341bbbb25f2926fd97edf68f0fe3a9fa4cde6acb9b7ed2cc6"
+          },
+          {
+            "bytes": 215,
+            "file": "generation_config.json",
+            "sha256": "fd9324becc53c4be610db39e13a613006f09fd6ef71a95fb6320dc33157490a3"
+          },
+          {
+            "bytes": 4979902192,
+            "file": "model-00001-of-00005.safetensors",
+            "sha256": "4847447e92599833e8dbaa3067cd201c3bb5c052efa91f11ba891e43234f7832"
+          },
+          {
+            "bytes": 4931296592,
+            "file": "model-00002-of-00005.safetensors",
+            "sha256": "891bd54eed03cba9ee1e705533a02a8217fcc29f356e4a1f53e5fd0d178883ad"
+          },
+          {
+            "bytes": 4931296656,
+            "file": "model-00003-of-00005.safetensors",
+            "sha256": "7cee411d9d57324e50ce064a192cc5a858276d508611b12fc599e0c9767112e0"
+          },
+          {
+            "bytes": 4931296656,
+            "file": "model-00004-of-00005.safetensors",
+            "sha256": "8bc75a29a730c9e743cad013feda3b0991a913fafe787c58a1c6e20afad97723"
+          },
+          {
+            "bytes": 4601000928,
+            "file": "model-00005-of-00005.safetensors",
+            "sha256": "ed14bd4908c98fed9f61e8cd410167e0846de9abd78e0452ab092072e5d9252d"
+          },
+          {
+            "bytes": 108605,
+            "file": "model.safetensors.index.json",
+            "sha256": "788cc42a1a92835df62d9a3791f47105f63504c7c404637a73288e9b11bc7b82"
+          },
+          {
+            "bytes": 570,
+            "file": "preprocessor_config.json",
+            "sha256": "f688d6bb20c5017601c4011de7ca656da8485b540b05013efdaf986c0fcc918d"
+          },
+          {
+            "bytes": 70,
+            "file": "processor_config.json",
+            "sha256": "3ffd5f11778dc73e2b69b3c00535e4121e1badf7018136263cd17b5b34fbaa53"
+          },
+          {
+            "bytes": 662,
+            "file": "special_tokens_map.json",
+            "sha256": "2f7b0adf4fb469770bb1490e3e35df87b1dc578246c5e7e6fc76ecf33213a397"
+          },
+          {
+            "bytes": 33384568,
+            "file": "tokenizer.json",
+            "sha256": "4667f2089529e8e7657cfb6d1c19910ae71ff5f28aa7ab2ff2763330affad795"
+          },
+          {
+            "bytes": 4689074,
+            "file": "tokenizer.model",
+            "sha256": "1299c11d7cf632ef3b4e11937501358ada021bbdf7c47638d13c0ee982f2e79c"
+          },
+          {
+            "bytes": 1156999,
+            "file": "tokenizer_config.json",
+            "sha256": "bfe25c2735e395407beb78456ea9a6984a1f00d8c16fa04a8b75f2a614cf53e1"
+          }
+        ],
+        "path": "/home/ryospiralarchitect/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "sha256": "3b4f47c558906bfb546209553020b68503dc181b1a82b25e1fd001922813e9f6"
+      },
       "no_dose_pairs": 28,
+      "no_dose_path_delta": {
+        "count": 28,
+        "max": 0.07540999999999998,
+        "mean": 0.0005182142857142945,
+        "median": -4.999999999977245e-06,
+        "min": -0.10211000000000003
+      },
       "no_dose_root_replay": {
         "identical_output": 25,
         "matching_input_and_seed": 56,
@@ -737,9 +1312,14 @@
       "pairs": [
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 133,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.05776999999999999,
           "prompt_id": "p01",
           "replicate": 0,
@@ -754,9 +1334,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 0,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.0028399999999999537,
           "prompt_id": "p01",
           "replicate": 1,
@@ -771,9 +1356,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 14,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.05840000000000001,
           "prompt_id": "p01",
           "replicate": 2,
@@ -788,9 +1378,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 60,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.011500000000000066,
           "prompt_id": "p01",
           "replicate": 3,
@@ -805,9 +1400,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -79,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.06324999999999992,
           "prompt_id": "p02",
           "replicate": 0,
@@ -822,9 +1422,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 67,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.01149,
           "prompt_id": "p02",
           "replicate": 1,
@@ -839,9 +1444,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 36,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.006530000000000036,
           "prompt_id": "p02",
           "replicate": 2,
@@ -856,9 +1466,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -10,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.022620000000000084,
           "prompt_id": "p02",
           "replicate": 3,
@@ -873,9 +1488,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 38,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.024349999999999983,
           "prompt_id": "p03",
           "replicate": 0,
@@ -890,9 +1510,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -26,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.0301499999999999,
           "prompt_id": "p03",
           "replicate": 1,
@@ -907,9 +1532,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 0,
           "dosed": false,
           "identical_final": true,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.0,
           "prompt_id": "p03",
           "replicate": 2,
@@ -924,9 +1554,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -72,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.10211000000000003,
           "prompt_id": "p03",
           "replicate": 3,
@@ -941,9 +1576,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 90,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.03490000000000004,
           "prompt_id": "p04",
           "replicate": 0,
@@ -958,9 +1598,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 92,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.07540999999999998,
           "prompt_id": "p04",
           "replicate": 1,
@@ -975,9 +1620,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 0,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.08792,
           "prompt_id": "p04",
           "replicate": 2,
@@ -992,9 +1642,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 26,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.007019999999999915,
           "prompt_id": "p04",
           "replicate": 3,
@@ -1009,9 +1664,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 47,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.05478000000000005,
           "prompt_id": "p05",
           "replicate": 0,
@@ -1026,9 +1686,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 12,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -9.99999999995449e-06,
           "prompt_id": "p05",
           "replicate": 1,
@@ -1043,9 +1708,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 70,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.0514,
           "prompt_id": "p05",
           "replicate": 2,
@@ -1060,9 +1730,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -33,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.01911000000000007,
           "prompt_id": "p05",
           "replicate": 3,
@@ -1077,9 +1752,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -38,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.007469999999999977,
           "prompt_id": "p06",
           "replicate": 0,
@@ -1094,9 +1774,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 29,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.030409999999999937,
           "prompt_id": "p06",
           "replicate": 1,
@@ -1111,9 +1796,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -74,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.01081999999999994,
           "prompt_id": "p06",
           "replicate": 2,
@@ -1128,9 +1818,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -20,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.04464999999999997,
           "prompt_id": "p06",
           "replicate": 3,
@@ -1145,9 +1840,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -80,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.009580000000000033,
           "prompt_id": "p07",
           "replicate": 0,
@@ -1162,9 +1862,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": 25,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.04086000000000001,
           "prompt_id": "p07",
           "replicate": 1,
@@ -1179,9 +1884,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -15,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.009649999999999936,
           "prompt_id": "p07",
           "replicate": 2,
@@ -1196,9 +1906,14 @@
         },
         {
           "applied_note_ids": [],
+          "blind_preference": "unknown",
           "char_delta": -38,
           "dosed": false,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.014229999999999965,
           "prompt_id": "p07",
           "replicate": 3,
@@ -1215,9 +1930,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": 66,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.026270000000000016,
           "prompt_id": "p08",
           "replicate": 0,
@@ -1234,9 +1954,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": 18,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.030869999999999953,
           "prompt_id": "p08",
           "replicate": 1,
@@ -1253,9 +1978,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": 27,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": 0.013900000000000023,
           "prompt_id": "p08",
           "replicate": 2,
@@ -1272,9 +2002,14 @@
           "applied_note_ids": [
             "fc001"
           ],
+          "blind_preference": "unknown",
           "char_delta": 35,
           "dosed": true,
           "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
           "path_delta": -0.06867999999999996,
           "prompt_id": "p08",
           "replicate": 3,
@@ -1314,6 +2049,25 @@
         "complete": 722
       },
       "requests_including_canary": 722,
+      "runtime": {
+        "distribution_versions_sha256": "659fc114697e47a3dbde55c0859cbaf68b6b17bb4f434c4f7d86373dad61c47a",
+        "environment": {
+          "CUDA_HOME": "/usr/local/cuda-13.1",
+          "DO_NOT_TRACK": "1",
+          "HF_HUB_OFFLINE": "1",
+          "TRTLLM_NO_USAGE_STATS": null,
+          "VLLM_NO_USAGE_STATS": "1"
+        },
+        "executable": "/home/ryospiralarchitect/.venvs/aether-synth-vllm-0.27.1-cu130-py312/bin/python",
+        "ninja": "/home/ryospiralarchitect/.venvs/aether-synth-vllm-0.27.1-cu130-py312/bin/ninja",
+        "nvcc": "/usr/local/cuda-13.1/bin/nvcc",
+        "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+        "versions": {
+          "torch": "2.13.0+cu130",
+          "transformers": "5.16.1",
+          "vllm": "0.27.1"
+        }
+      },
       "saved_call_statuses": {
         "complete": 720
       },
@@ -1340,6 +2094,866 @@
           "src/magic_realism_thought/types.py": "47bf5c18b2675b14e32d13618e7c1cee858ce76a7b66a2fbd78b9b44fc5cdd83",
           "src/magic_realism_thought/utils.py": "12d1aff873d80fb81d8bdde3dffd6935a7fb3cb34e400f8ba8e7225e35636180"
         }
+      },
+      "terminal_status": {
+        "completed": 64,
+        "failed": 0,
+        "phase": "complete",
+        "planned": 64
+      }
+    },
+    {
+      "accepted_step_length_compliance": {
+        "off": {
+          "completed_paired_steps": 81,
+          "within_140_240": 63
+        },
+        "on": {
+          "completed_paired_steps": 81,
+          "within_140_240": 53
+        }
+      },
+      "backend": "trt",
+      "blind_preference": {
+        "unknown": 27
+      },
+      "blind_unknown_reasons": {
+        "order_disagreement": 27
+      },
+      "calibration_eligible_pairs": 20,
+      "calibration_eligible_prompt_clusters": 5,
+      "candidate_identity": {
+        "different_text": 120,
+        "shared_ids": 120
+      },
+      "completed_pairs": 27,
+      "completion_tokens_including_canary": 329811,
+      "directory": "gptoss20b-study3",
+      "dosed_blind_preference": {
+        "unknown": 15
+      },
+      "dosed_pairs": 15,
+      "dosed_path_delta": {
+        "count": 15,
+        "max": 0.13788,
+        "mean": 0.013877999999999998,
+        "median": 0.010630000000000028,
+        "min": -0.053080000000000016
+      },
+      "dosed_prompt_clusters": 5,
+      "engine_batch_seconds": 694.6633894518018,
+      "engine_completion_tokens_per_second": 474.77815155952374,
+      "fallback_receipt": null,
+      "final_chars": {
+        "off": {
+          "count": 27,
+          "max": 299,
+          "mean": 194.5185185185185,
+          "median": 180,
+          "min": 135
+        },
+        "on": {
+          "count": 27,
+          "max": 292,
+          "mean": 189.5185185185185,
+          "median": 190,
+          "min": 126
+        }
+      },
+      "frozen_sha256": "e5d34402c4eabfc8e62f8569d20fb81ad8003780d75e03036856a34b54359404",
+      "harmony_render_contract": "native-system-final-instruction-v2",
+      "identical_no_dose_finals": 0,
+      "judge_presented_prompts_verified": 54,
+      "manifest_sha256": "25e93395d792eae9370a7e3084157bc324d4aa52cf6616e3c8b267560447309a",
+      "max_tokens": 2048,
+      "model_id": "openai/gpt-oss-20b",
+      "model_identity": {
+        "files": [
+          {
+            "bytes": 2860,
+            "file": "MODEL_IDENTITY.json",
+            "sha256": "6ddf1ef642669cdb5e110b502c05bc2666aa34c0cbe2b4179f1aa90a2edb4bac"
+          },
+          {
+            "bytes": 16738,
+            "file": "chat_template.jinja",
+            "sha256": "a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146"
+          },
+          {
+            "bytes": 1806,
+            "file": "config.json",
+            "sha256": "3a2a26ded679375b7928ddeca59764df7cea83220c1961035f6d6e232659e9ce"
+          },
+          {
+            "bytes": 177,
+            "file": "generation_config.json",
+            "sha256": "f9970ada892d2d1f72e3ed0a6535ccebadd11897318794ca671d8c7014c957da"
+          },
+          {
+            "bytes": 4792272488,
+            "file": "model-00000-of-00002.safetensors",
+            "sha256": "16d0f997dcfc4462089d536bffe51b4bcea2f872f5c430be09ef8ed392312427"
+          },
+          {
+            "bytes": 4798702184,
+            "file": "model-00001-of-00002.safetensors",
+            "sha256": "4fbe328ab445455d6f58dc73852b85873bd626986310abd91cd4d2ce3245eaea"
+          },
+          {
+            "bytes": 4170342232,
+            "file": "model-00002-of-00002.safetensors",
+            "sha256": "a18106b209e9ab35c3406db4f6f12a927364a058b21e9d1373d682e20674b303"
+          },
+          {
+            "bytes": 36355,
+            "file": "model.safetensors.index.json",
+            "sha256": "0e085b977c4c9942f85938828e8c989ed7d5cdabf852e4da6a67c116cd502cd1"
+          },
+          {
+            "bytes": 98,
+            "file": "special_tokens_map.json",
+            "sha256": "dd5e191d20c12d2fee1da5bae14ca1db0f5f4215300af691f23cdee97120a293"
+          },
+          {
+            "bytes": 27868174,
+            "file": "tokenizer.json",
+            "sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3"
+          },
+          {
+            "bytes": 4200,
+            "file": "tokenizer_config.json",
+            "sha256": "9279e942392b742d633c7adbb89ebe002c98399db8926a7af5125c726f404070"
+          }
+        ],
+        "path": "/home/ryospiralarchitect/aether-nextnext-tooling/models/openai_gpt-oss-20b_6cee5e81ee83917806bbde320786a8fb61efebee",
+        "revision": "openai_gpt-oss-20b_6cee5e81ee83917806bbde320786a8fb61efebee",
+        "sha256": "4d9b033ebe369be77080062bc671991748aa50af0bfa840049825a564eb89f65"
+      },
+      "no_dose_pairs": 12,
+      "no_dose_path_delta": {
+        "count": 12,
+        "max": 0.09427000000000008,
+        "mean": 0.012737500000000021,
+        "median": 0.01916000000000001,
+        "min": -0.04949999999999999
+      },
+      "no_dose_root_replay": {
+        "identical_output": 0,
+        "matching_input_and_seed": 24,
+        "paired_root_calls": 24
+      },
+      "pairs": [
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": -170,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.019789999999999974,
+          "prompt_id": "p01",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p01-off-r00.json",
+            "gptoss20b-study3/runs/p01-on-r00.json"
+          ],
+          "run_sha256": [
+            "dd6b2ed53dffd85486fedc95675589cb2e3619479fac3880792f6b4f7ca6fc6d",
+            "0a86839660e93da2032bee641b7816085f9b9bf7f0a3c0b763a325e8f835624c"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": -41,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.03129000000000004,
+          "prompt_id": "p01",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p01-off-r01.json",
+            "gptoss20b-study3/runs/p01-on-r01.json"
+          ],
+          "run_sha256": [
+            "1bb791b908f8a8157452f51d6b1f0ddb825a27cc40bcb6f2b466465f8ffa8de1",
+            "2045ebb7e345faef3b93bf36cdd422cebdbaffd3ca8a0f36246d2b9716baa78c"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": 5,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.021499999999999964,
+          "prompt_id": "p01",
+          "replicate": 2,
+          "run_files": [
+            "gptoss20b-study3/runs/p01-off-r02.json",
+            "gptoss20b-study3/runs/p01-on-r02.json"
+          ],
+          "run_sha256": [
+            "f38ddb40252b69ebbaebea66371c6724e1860fd1c4afa3511b6ad2d23676fb14",
+            "6baea632e8c0f08b4fea69ed23a16479fe6be4359368b6adf379e6ce5faf2530"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": -15,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.04631000000000007,
+          "prompt_id": "p01",
+          "replicate": 3,
+          "run_files": [
+            "gptoss20b-study3/runs/p01-off-r03.json",
+            "gptoss20b-study3/runs/p01-on-r03.json"
+          ],
+          "run_sha256": [
+            "4f4786d1f101fbfd292856e4e8365353e12cb1344bb26364f23d75df3ec5b4cf",
+            "8b0385cd6b31f4a7302e5035f165f80d97445531b484fe22013fa2c405b0046c"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001",
+            "fc002"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": -64,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.05149999999999999,
+          "prompt_id": "p02",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p02-off-r00.json",
+            "gptoss20b-study3/runs/p02-on-r00.json"
+          ],
+          "run_sha256": [
+            "d0b488a385375dd0ef60fe2991824548356762e3c5610a29a7c306466dd24798",
+            "8c083b7e8ff030aae48078421e4d4b7f02429af6a52ebba94a58c40de532a9ed"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001",
+            "fc002"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 2,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.05193000000000003,
+          "prompt_id": "p02",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p02-off-r01.json",
+            "gptoss20b-study3/runs/p02-on-r01.json"
+          ],
+          "run_sha256": [
+            "cae5db60bc2bd5bb3fd661e5192ac35c64d77a6308a642c98cd67c5002e885ca",
+            "16585716b8aa28a85540866100b7a4a78e6cd86a189999b1a2cc460188a27444"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001",
+            "fc002"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 29,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.08596999999999999,
+          "prompt_id": "p02",
+          "replicate": 2,
+          "run_files": [
+            "gptoss20b-study3/runs/p02-off-r02.json",
+            "gptoss20b-study3/runs/p02-on-r02.json"
+          ],
+          "run_sha256": [
+            "f29737ab5fbdac625ffddbd2f3f7065008cc7add542999dbb1696780cea5dabc",
+            "ab139c07463b4b9a0a4cf9007cbb70061ddcb5bcd479473a85913e91620cef58"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001",
+            "fc002"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 9,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.013780000000000014,
+          "prompt_id": "p02",
+          "replicate": 3,
+          "run_files": [
+            "gptoss20b-study3/runs/p02-off-r03.json",
+            "gptoss20b-study3/runs/p02-on-r03.json"
+          ],
+          "run_sha256": [
+            "430477c45c2a71a94f5051944e7846c9e03887cfe924648cf282996c73d2b24d",
+            "a675d5ea54e8d2b5e811e7eb7732a8ba1340e9b2dfacf27a50dd807b5555bc1d"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 31,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.04033999999999993,
+          "prompt_id": "p03",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p03-off-r00.json",
+            "gptoss20b-study3/runs/p03-on-r00.json"
+          ],
+          "run_sha256": [
+            "1623816b445aef5596372aa45f7e281a13f196003772906a1146236be740d506",
+            "6fc302a2103dae72ae344797ca32dbbd14ec7994d0578b153ea67f065694e522"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 8,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.13788,
+          "prompt_id": "p03",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p03-off-r01.json",
+            "gptoss20b-study3/runs/p03-on-r01.json"
+          ],
+          "run_sha256": [
+            "39b4e2afc9bd7d3ae41a0f429fefe8b583d806911f88b860fb6ad8fe83929180",
+            "cf740d791f266226f57cf35c5324cbabb36c67001b8664793d74f82e0e1bc1fd"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": -104,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.027260000000000062,
+          "prompt_id": "p03",
+          "replicate": 2,
+          "run_files": [
+            "gptoss20b-study3/runs/p03-off-r02.json",
+            "gptoss20b-study3/runs/p03-on-r02.json"
+          ],
+          "run_sha256": [
+            "f6c79277ccd529d7a7f7fbb19d9829ab1bcf9733d31984d5cfe31ae3869b5744",
+            "a6c1abcc7e5f453b75714ecce327c84c1e8c8b781a39dbf534695af8c0278fcb"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 2,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.023400000000000087,
+          "prompt_id": "p04",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p04-off-r00.json",
+            "gptoss20b-study3/runs/p04-on-r00.json"
+          ],
+          "run_sha256": [
+            "d8ab3a0d7ab8d5180b160425af880cbacafb054543fe3c1ea93c568ca177964c",
+            "416a06a86df4e04bb284402d38bc066dcb3a39d62c73755d39c43e2d66a81422"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 81,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.043910000000000005,
+          "prompt_id": "p04",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p04-off-r01.json",
+            "gptoss20b-study3/runs/p04-on-r01.json"
+          ],
+          "run_sha256": [
+            "978dec324da1db93f9f2561936d97300a1b2786d8f56d9ec294e96cd1726ac22",
+            "9fa5bddf827cbe617a6600780b8631479c4834942c518fae1f1e0310693d7295"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 7,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.021150000000000002,
+          "prompt_id": "p04",
+          "replicate": 2,
+          "run_files": [
+            "gptoss20b-study3/runs/p04-off-r02.json",
+            "gptoss20b-study3/runs/p04-on-r02.json"
+          ],
+          "run_sha256": [
+            "0ed0f231b7c35aecacde6bff588cfddb48fcb3437aeac4314a9b00d8a8f6fb86",
+            "3bd282c57d198430f456b2bcf8fb5264cab3ca0679bb9c7de2db006a313342ab"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 21,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.012349999999999972,
+          "prompt_id": "p05",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p05-off-r00.json",
+            "gptoss20b-study3/runs/p05-on-r00.json"
+          ],
+          "run_sha256": [
+            "2d77185ccbb04123af1a971936d3560088ff38bf22926d9cd0c869d616a19604",
+            "456edd88fdad466ff2248292628aefa155d85a7fdb195699a6842d46bec1a149"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 20,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.010630000000000028,
+          "prompt_id": "p05",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p05-off-r01.json",
+            "gptoss20b-study3/runs/p05-on-r01.json"
+          ],
+          "run_sha256": [
+            "99978f5e62c2b53d512f803c80bf5e9f2a95dfba40290b60a22f88f432f2285c",
+            "43f43a449ff0c3bae2da7db5583c03395dcc4ef6561fa6c0a1dc1d562afe1d08"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": 6,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.023370000000000002,
+          "prompt_id": "p06",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p06-off-r00.json",
+            "gptoss20b-study3/runs/p06-on-r00.json"
+          ],
+          "run_sha256": [
+            "dfbce3528311147b28ec2eead4214cb5d71a7b27fd21c1e3aeceaff5786253d0",
+            "e781ad09c55458c40bc0e2b08ec610d20c3fa98ecab65242f921a7a473bcf0c6"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": 7,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.06744000000000006,
+          "prompt_id": "p06",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p06-off-r01.json",
+            "gptoss20b-study3/runs/p06-on-r01.json"
+          ],
+          "run_sha256": [
+            "d115612007e532ad56c7a4ecfdcb51181074c037d34dcbb027ccecaaaf2a14dc",
+            "5387ab361b385dd43410874a4788ffb9b49ef8d3b6bd5eb211d8502fa3bfc1a2"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": 59,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.04949999999999999,
+          "prompt_id": "p06",
+          "replicate": 2,
+          "run_files": [
+            "gptoss20b-study3/runs/p06-off-r02.json",
+            "gptoss20b-study3/runs/p06-on-r02.json"
+          ],
+          "run_sha256": [
+            "6f17b4cdfd9d7dd9c908537c173d8853d893b77e6f37e0bad557c3bdc2405e8a",
+            "b3c0b07e58c367ceb3a7eafd8adfcebdff613b3066f88b918005318a24c68eb9"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": -53,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.03697000000000006,
+          "prompt_id": "p06",
+          "replicate": 3,
+          "run_files": [
+            "gptoss20b-study3/runs/p06-off-r03.json",
+            "gptoss20b-study3/runs/p06-on-r03.json"
+          ],
+          "run_sha256": [
+            "1875fc0fc02064cf61b3ec6363f121fb194c5c56873deb4029850d0af6f0b655",
+            "424cea43765b93fc72cb18e7ab72b5a5bb9cd19545e7f581a42905fc0854a3ee"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": 34,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.09427000000000008,
+          "prompt_id": "p07",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p07-off-r00.json",
+            "gptoss20b-study3/runs/p07-on-r00.json"
+          ],
+          "run_sha256": [
+            "4c3c216bd2f4ce616b0def4ffd1fef0ca7603109596fc6a7bd8edc6084b9ec53",
+            "adae52ef3af35e7d70a6da896ee5688f74f2db0f71bf5dac11c51d14b7605dd2"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": -6,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.01596999999999993,
+          "prompt_id": "p07",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p07-off-r01.json",
+            "gptoss20b-study3/runs/p07-on-r01.json"
+          ],
+          "run_sha256": [
+            "009e031b34f6f054bdf9374ddf44701190efc1c9e26db02aa947d411f59a7d7c",
+            "33d589a83445fdfdb6efe5fe3f38cf1a38b2afa2987fa08851bddb3972c5e444"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": 29,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.03762999999999994,
+          "prompt_id": "p07",
+          "replicate": 2,
+          "run_files": [
+            "gptoss20b-study3/runs/p07-off-r02.json",
+            "gptoss20b-study3/runs/p07-on-r02.json"
+          ],
+          "run_sha256": [
+            "5c485ec2f36f838bdbab712b986b1650d33d59d5f9f000af16dac4c7d33a1c10",
+            "65d213459a215eab56ba91ba04eee34adf109f9405dd7ee5cb9fd617b84607cb"
+          ]
+        },
+        {
+          "applied_note_ids": [],
+          "blind_preference": "unknown",
+          "char_delta": -24,
+          "dosed": false,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.014950000000000019,
+          "prompt_id": "p07",
+          "replicate": 3,
+          "run_files": [
+            "gptoss20b-study3/runs/p07-off-r03.json",
+            "gptoss20b-study3/runs/p07-on-r03.json"
+          ],
+          "run_sha256": [
+            "7ccc5d15b393dbf1f48372da6c4a9acbb51faed413a6c211d1c6b1f3b6a7205b",
+            "31790d6a3c69fd5bdf51b1f0ffd4c11d11cbd1a5d8d3d81e3692463325813c96"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": -95,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": -0.053080000000000016,
+          "prompt_id": "p08",
+          "replicate": 0,
+          "run_files": [
+            "gptoss20b-study3/runs/p08-off-r00.json",
+            "gptoss20b-study3/runs/p08-on-r00.json"
+          ],
+          "run_sha256": [
+            "36b962ce70d87b3cc35244ce389eb28b3e050afd4cab60d91011655a59f2ae42",
+            "ddd719e266af99300507d0ed4c29079bb37f6df639fda68b248235d73e57e263"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": -56,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.05616999999999994,
+          "prompt_id": "p08",
+          "replicate": 1,
+          "run_files": [
+            "gptoss20b-study3/runs/p08-off-r01.json",
+            "gptoss20b-study3/runs/p08-on-r01.json"
+          ],
+          "run_sha256": [
+            "c9fd6cbd06ffa7f9a9ba5a7c65ca0f13e8164ab880797e6f91843e121673edc0",
+            "61d87ff73d4e37ada9022be7f2907326d2d1677126d5281486835a93374623d9"
+          ]
+        },
+        {
+          "applied_note_ids": [
+            "fc001"
+          ],
+          "blind_preference": "unknown",
+          "char_delta": 143,
+          "dosed": true,
+          "identical_final": false,
+          "order_preferences": [
+            "off",
+            "on"
+          ],
+          "path_delta": 0.022240000000000038,
+          "prompt_id": "p08",
+          "replicate": 3,
+          "run_files": [
+            "gptoss20b-study3/runs/p08-off-r03.json",
+            "gptoss20b-study3/runs/p08-on-r03.json"
+          ],
+          "run_sha256": [
+            "700b9871e57d586eb8457f6e3b6a88de85ed7808178438d9145e1babc7b487e2",
+            "610129e3718a076fc8a337be5e2765069ea72336244e29265c6eb6faa121d6b2"
+          ]
+        }
+      ],
+      "phase_statuses": {
+        "calibration": {
+          "complete": 8
+        },
+        "off": {
+          "complete": 30,
+          "failed": 2
+        },
+        "on": {
+          "complete": 29,
+          "failed": 3
+        }
+      },
+      "planned_pairs": 32,
+      "profile_note_counts": {
+        "p01": 0,
+        "p02": 2,
+        "p03": 1,
+        "p04": 1,
+        "p05": 1,
+        "p06": 0,
+        "p07": 0,
+        "p08": 1
+      },
+      "request_statuses": {
+        "complete": 699,
+        "incomplete": 5
+      },
+      "requests_including_canary": 704,
+      "runtime": {
+        "distribution_versions_sha256": "de770ef65f9658893a7e98cde344002143d28318cc2486c26d1450793558e0bb",
+        "environment": {
+          "CUDA_HOME": "/usr/local/cuda-13.1",
+          "DO_NOT_TRACK": "1",
+          "HF_HUB_OFFLINE": "1",
+          "TRTLLM_NO_USAGE_STATS": "1",
+          "VLLM_NO_USAGE_STATS": null
+        },
+        "executable": "/home/ryospiralarchitect/.venvs/aether-synth-trtllm-1.2.1-cu131-py312/bin/python",
+        "ninja": "/home/ryospiralarchitect/.venvs/aether-synth-trtllm-1.2.1-cu131-py312/bin/ninja",
+        "nvcc": "/usr/local/cuda-13.1/bin/nvcc",
+        "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+        "versions": {
+          "tensorrt-llm": "1.2.1",
+          "torch": "2.9.1+cu130",
+          "transformers": "4.57.3"
+        }
+      },
+      "saved_call_statuses": {
+        "complete": 697,
+        "failed": 5
+      },
+      "source": {
+        "commit": "47e7dcd8593927265c5b71fb9bbc0fde84ec3189",
+        "files": {
+          "examples/frontiers/control_stages.json": "41ad1dd8e35b8ca1c156b4e9e2a20f25b938b6d60eef16c7cc96248883774d7b",
+          "experiments/frontier_study.py": "1bf1a333d1fcb671f18f801a93d0c2e153b3a44eab9d27024395f20fe2ef0503",
+          "experiments/furnace_runtime.py": "a015f7b3eb399617f2a729d44ed07f961f1a58d20cabafb28639683d8950c91a",
+          "src/magic_realism_thought/__init__.py": "fea0df89dc0ab4f92c7f31939057984d10ca8653f682a53566ca215f94d5dad2",
+          "src/magic_realism_thought/cli.py": "1182d92f47556b4c1c121f4c381296e31375d29e4951019042b1b77866194349",
+          "src/magic_realism_thought/evals.py": "2f310a445268f222949d501958e8b571cacc09bcb3f5321c317802c6859f1984",
+          "src/magic_realism_thought/frontier_control.py": "477540533c522628dd39a808f7192dbe6932ebd3719b37dd714e7f1d9f583036",
+          "src/magic_realism_thought/frontier_replay.py": "b72773fae6414f848a7d95dff1a3f7ca17bcc01391fc9db143e3f5bb651886b0",
+          "src/magic_realism_thought/memory.py": "2de84b1e368bcaaf35ff179db08c64051a08ca5acfacdff37098e9731d0df6b7",
+          "src/magic_realism_thought/metrics.py": "745ad4365e13a769fcd26730c50e4388272b96355b43e62ee59f5b17137b1f90",
+          "src/magic_realism_thought/prm.py": "d4412695b3bef70e1abc766ef8d70555f78dff84e086a55c955ce95c3bdd6513",
+          "src/magic_realism_thought/prompts.py": "20d5406f089dbb0676de2ba040a76ae8a7eb4e264d26ac8a039df1df188bb07c",
+          "src/magic_realism_thought/providers.py": "47e30fdab3c7b03bcc324e4b7e73ae18946caf022663308f8126c64f2dd57817",
+          "src/magic_realism_thought/render.py": "3ec7ce1b2c2f6a40a6a5ab25d6a1b737d4ae8be88c8aea7eef91b73d3c27f8b4",
+          "src/magic_realism_thought/reward_audit.py": "8c84b6fe695606bccad74e08a00d77e230e15b3b3ab49fcab8de34ef329cebf4",
+          "src/magic_realism_thought/rpm.py": "a4efc34c7384e4081970f864635091f2b2d7d9013ed56b9db0bf2e230280eee4",
+          "src/magic_realism_thought/runner.py": "49dc6aadd8df61b459efed7438154d8513402517bdec1c6cd34d8a970ab4d8e6",
+          "src/magic_realism_thought/story_reader.py": "189755b98e639e016681db839196195ef9a62c224e4b0fe4c9f3b3230c34949f",
+          "src/magic_realism_thought/types.py": "47bf5c18b2675b14e32d13618e7c1cee858ce76a7b66a2fbd78b9b44fc5cdd83",
+          "src/magic_realism_thought/utils.py": "12d1aff873d80fb81d8bdde3dffd6935a7fb3cb34e400f8ba8e7225e35636180"
+        }
+      },
+      "terminal_status": {
+        "completed": 59,
+        "failed": 5,
+        "phase": "complete",
+        "planned": 64
       }
     }
   ]

@@ -32,6 +32,7 @@ examples/memory/                   # sample run-memory profiles
 examples/runs/                     # generated trace examples
 examples/evals/                    # small reward-audit eval fixtures
 examples/frontiers/                # frontier replay fixtures and reports
+experiments/                      # frozen local-model studies and measured summaries
 docs/                              # design notes
 tests/                             # trace contract tests
 ```

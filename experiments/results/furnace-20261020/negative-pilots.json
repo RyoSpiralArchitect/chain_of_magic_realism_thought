@@ -6,6 +6,7 @@
     "model family, quantization, and backend confound size comparisons"
   ],
   "contract": "frontier-study-audit-1.0",
+  "judge": null,
   "judge_manifest_sha256": null,
   "models": [
     {
@@ -22,6 +23,8 @@
       "backend": "vllm",
       "blind_preference": null,
       "blind_unknown_reasons": {},
+      "calibration_eligible_pairs": 0,
+      "calibration_eligible_prompt_clusters": 0,
       "candidate_identity": {},
       "completed_pairs": 0,
       "completion_tokens_including_canary": 84369,
@@ -61,6 +64,7 @@
       "frozen_sha256": "b7064d13e5f068d5614a3cb46c259e7e523c0f75712dd40d9c5f7256e80ff185",
       "harmony_render_contract": null,
       "identical_no_dose_finals": 0,
+      "judge_presented_prompts_verified": null,
       "manifest_sha256": "69482b3d5e04584c4dfa0098900180ef055585410e4904bc0fa4aefd288db96b",
       "max_tokens": 512,
       "model_id": "google/gemma-3-4b-it",
@@ -230,6 +234,8 @@
       "backend": "trt",
       "blind_preference": null,
       "blind_unknown_reasons": {},
+      "calibration_eligible_pairs": 0,
+      "calibration_eligible_prompt_clusters": 0,
       "candidate_identity": {},
       "completed_pairs": 0,
       "completion_tokens_including_canary": 9791,
@@ -266,6 +272,7 @@
       "frozen_sha256": "fdfa41394a2c0e25f7ca7e13fb8cea20c25cef16b2582c6b5c7f8be72ad6d835",
       "harmony_render_contract": null,
       "identical_no_dose_finals": 0,
+      "judge_presented_prompts_verified": null,
       "manifest_sha256": "ed86ff0bbeb8c68981341604c98cdcd4176fc5a81dd571c2f279debb1fb019e0",
       "max_tokens": 2048,
       "model_id": "openai/gpt-oss-20b",

@@ -1,11 +1,11 @@
 # Statistical Pairing or Execution-Invariant Replay
 
 ## Context
-R016 arose from the no-dose controls in the 4B Furnace study. At an intermediate
-checkpoint, none of 20 empty-profile pairs had identical final text. Of 40 first
-stage candidate requests, all had matching request text and intended sampling
-seed, but only 17 had identical output text. These are interim counts; use the
-final audited report for the completed denominator.
+R016 arose from the no-dose controls in the Furnace study. Completed no-dose
+final identity: Gemma 4B 0/24, Gemma 12B 1/28, GPT-OSS 0/12. Their first-stage
+requests matched text and intended seed in 48/48, 56/56, and 24/24 comparisons;
+identical visible outputs were only 19/48, 25/56, and 0/24. These are observations
+under two backends, not a diagnosis of the same underlying runtime cause.
 
 The installed vLLM sampler explicitly routes seeded requests through its Gumbel
 path. The observations therefore do not establish that seeds were ignored.
@@ -37,6 +37,7 @@ R016 blocks only a future replay invariant. R010-R012 retain their frozen plan.
 - `experiments/frontier_study.py`: seed pairing and counterbalanced task order.
 - `experiments/furnace_runtime.py`: per-request seed receipts and batching.
 - `experiments/analyze_frontier_study.py`: no-dose root and final identity audit.
+- `experiments/results/furnace-20261020/audit.json`: completed denominators.
 - Installed vLLM 0.27.1 `v1/worker/gpu/sample/sampler.py`, seeded Gumbel branch.
 
 ## Related Questions

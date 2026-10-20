@@ -13,6 +13,11 @@ The experiment adds this short target for bounded inference. The production
 This is a potential objective mismatch introduced by the study configuration;
 the observations do not establish that the score caused the longer outputs.
 
+Completed paired accepted-step adherence (off/on): Gemma 4B 2/96 and 2/96;
+Gemma 12B 28/96 and 29/96; GPT-OSS 63/81 and 53/81. The GPT-OSS denominator
+contains only 27 complete pairs; its five truncated runs remain missing from
+paired quality measurements. Shorter output is not independently better prose.
+
 ## Question
 A: retain a soft prompt target and report adherence separately, or B: define
 stage-specific explicit length constraints for a future experiment?
@@ -44,4 +49,5 @@ OQ001 concerns reward feedback; OQ003 concerns the number of active intervention
 ## Portability
 The 512-token pilot is negative compatibility evidence, with zero complete pairs.
 The wider budget is a separate frozen configuration, not a replacement of failed
-samples. Final corpus-wide adherence remains to be measured in the report.
+samples. The report now records adherence on complete pairs, with all planned
+trials and incomplete candidates retained separately.

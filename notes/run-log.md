@@ -208,3 +208,43 @@
   They are checked in separately from the final effect measurements.
 - GPT-OSS generation remains at source 47e7dcd, unaffected by these local fixes.
   At this checkpoint it is still evaluating; retain all candidate truncations.
+
+## 2026-10-20 Run 2 (Final Checkpoint)
+- Completed: R008, R009, R010, R011, R012, R015. Frontier refresh found one
+  bounded documentation task, R018: add experiments and ignored evidence to the
+  README/file map. R018 is complete. Production `src/` is unchanged by PR #6.
+- Final generator attempts: 24/24 calibration runs; 192/192 evaluation attempts
+  finished, 187 complete and five failed. Complete pairs: Gemma 4B 32/32,
+  Gemma 12B 32/32, GPT-OSS 27/32. Actual dosed complete pairs: 8, 4, and 15.
+  All five missing GPT pairs were calibration-eligible; they are not resampled.
+- Gemma sources: 9e77ff6, frozen vLLM after preserved failed TRT canaries.
+  GPT native-system source: 47e7dcd, managed TRT. The GPT complete-case path
+  delta is +0.012658, exploratory prompt interval [+0.003033, +0.021565], but
+  no-dose mean variation is +0.012738 and missingness is selective. No causal
+  reminder or literary-quality effect follows.
+- Independent judge source 3d36150: Mistral-Nemo 12B / managed TRT returned
+  182/182 stop-complete valid JSON judgments, with A chosen 181 times. All 182
+  presented-prompt hashes were verified; 90/91 pairs disagree under order
+  reversal. All 27 dosed complete pairs have unknown preference. The other
+  pair preferred off, but does not qualify this judge. R017 -> OQ006 records
+  automated qualification versus human anchors; no follow-up is authorized.
+- Validation code checkpoint a997c830b03387ffa568955c9c04940bcce2060b: 53 tests
+  pass on both Mac Python 3.13 and Furnace system Python 3.14; reward-audit
+  fixtures pass 3/3 on both. Local compilation and diff checks pass. CI is not
+  asserted. The static measurement figure was visually inspected.
+- Full raw archive is on both machines, SHA-256
+  c64f92f49e62fe4d521b68a5aa5d068217ad64bfd55707a1be9ebb764caf0225;
+  all 2751 archived files match their Mac copies. Source root on Furnace:
+  /home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020/; Mac:
+  artifacts/furnace/20261020/. Four early failed canaries lack execution
+  manifests; retrospective file indices do not replace that missing proof.
+- Managed runtime doctor still passes with unchanged freeze SHA. No packages
+  or weights were modified/downloaded. All owned compute processes are closed;
+  final GPU observation: 10 MiB, 0% utilization, zero compute owners.
+- PR checkpoint: #6 stacked on open #5, neither merged. Results, method,
+  negative pilots, request/model/source hashes, and claim ceilings are committed.
+- Stop reason: authorized scope complete after one frontier refresh. Reservoir:
+  unstarted 0 / in progress 0 / questions 6 / synchronization gaps 0.
+- Unreached frontier: decisions OQ001-OQ006, especially judge qualification,
+  generative replay, and independently calibrated prompt diversity. Do not
+  launch a new experiment, tune weights, or revive candidates from a lean.

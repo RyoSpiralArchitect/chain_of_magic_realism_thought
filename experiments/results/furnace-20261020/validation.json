@@ -1,0 +1,90 @@
+{
+  "archive": {
+    "bytes": 9040359,
+    "furnace_sha256": "c64f92f49e62fe4d521b68a5aa5d068217ad64bfd55707a1be9ebb764caf0225",
+    "local_path": "artifacts/furnace/20261020/cmrt-frontier-evidence-20261020.tar.gz",
+    "mac_sha256": "c64f92f49e62fe4d521b68a5aa5d068217ad64bfd55707a1be9ebb764caf0225",
+    "name": "cmrt-frontier-evidence-20261020.tar.gz",
+    "remote_path": "/home/ryospiralarchitect/scratch/cmrt-frontier-evidence-20261020.tar.gz",
+    "sha256": "c64f92f49e62fe4d521b68a5aa5d068217ad64bfd55707a1be9ebb764caf0225",
+    "verified_file_copies_against_archive": 2751
+  },
+  "claim_limits": [
+    "raw corpus is not publicly deposited",
+    "archive receipt is collection-time proof, not a replacement execution manifest",
+    "no package mutation, model download, automatic policy promotion, merge, or release"
+  ],
+  "code_checkpoint": "a997c830b03387ffa568955c9c04940bcce2060b",
+  "code_files_sha256": {
+    "examples/frontiers/control_stages.json": "41ad1dd8e35b8ca1c156b4e9e2a20f25b938b6d60eef16c7cc96248883774d7b",
+    "experiments/analyze_frontier_study.py": "2a6c98da4fa215ec876633e396e48be8c9da36b6e4bf97b157a772316b4154b6",
+    "experiments/frontier_prompts.json": "35781dd9c3ec203127da0b2cd2b97d4860dcfb08f6077cd4b9da350fca5f92b1",
+    "experiments/frontier_study.py": "7d169f0fcdf204dec0d4d634a77cbd4274ff8db9895b5575b371b372374d61bc",
+    "experiments/furnace_runtime.py": "a015f7b3eb399617f2a729d44ed07f961f1a58d20cabafb28639683d8950c91a",
+    "tests/test_frontier_analysis.py": "7fabd0565e7120be086f0694a9f85aabd5310352b40dc7adeea44025387d666e",
+    "tests/test_frontier_study.py": "8720a89e0bca37165b14187472b2c9eb028b0a325e6e81235b21550dcb466d46"
+  },
+  "contract": "frontier-validation-1.0",
+  "date": "2026-10-20",
+  "doctor": {
+    "cuda_available": true,
+    "cuda_capability": [
+      12,
+      0
+    ],
+    "cuda_device": "NVIDIA GeForce RTX 5090",
+    "failure_codes": [],
+    "harmony_adapter_tests_passed": true,
+    "mode": "full",
+    "observed_versions": {
+      "cuda-python": "13.3.1",
+      "cuda-toolkit": "13.0.0",
+      "nvidia-cuda-runtime": "13.0.48",
+      "nvidia-modelopt": "0.37.0",
+      "openai-harmony": "0.0.4",
+      "tensorrt": "10.14.1.48.post1",
+      "tensorrt-llm": "1.2.1",
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1+cu130",
+      "transformers": "4.57.3",
+      "triton": "3.5.1"
+    },
+    "ok": true,
+    "pip_check_passed": true,
+    "pip_freeze_matches": true,
+    "pip_freeze_sha256": "691228a4ad195457253d2ab913b08a79332ad97f7365f0523e8ea22df8517ca8",
+    "python_matches": true,
+    "schema": "spiralreality.local_model_runtime_check.v1"
+  },
+  "doctor_stdout": {
+    "file": "artifacts/furnace/20261020/runtime-doctor-final.json",
+    "format": "raw stdout with TensorRT banner; parsed JSON is last line",
+    "sha256": "5cab05be148bd79df694fff27cceefe31dd9277473f43f8ff4373a2707affc3b"
+  },
+  "gpu_final": {
+    "compute_processes_observed": 0,
+    "csv": "name, driver_version, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 5090, 595.84, 10 MiB, 32607 MiB, 0 %\n",
+    "sha256": "221cdfe18fa8bdbc42d091dc23489cac71ded58c1ef0123c7fa826291c614db7"
+  },
+  "tests": {
+    "ci": "not verified; local/remote tests are not CI receipts",
+    "compileall_local": "passed",
+    "furnace": {
+      "command": "python3 -m unittest discover -s tests",
+      "passed": 53,
+      "python": "3.14.4",
+      "seconds": 2.156
+    },
+    "git_diff_check": "passed",
+    "local": {
+      "command": "python3 -m unittest discover -s tests",
+      "passed": 53,
+      "python": "3.13.13 (v3.13.13:01104ce1beb, Apr  7 2026, 14:43:30) [Clang 16.0.0 (clang-1600.0.26.6)]",
+      "seconds": 2.801
+    },
+    "reward_audit_fixtures": {
+      "furnace_passed": 3,
+      "local_passed": 3
+    }
+  }
+}
