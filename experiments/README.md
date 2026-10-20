@@ -74,6 +74,10 @@ fallbacks, and claim limits. No model download is needed.
 `analyze_frontier_study.py` verifies the saved manifests before describing
 coverage, soft length adherence, candidate-ID reuse, and no-dose output identity.
 It rejects unlisted JSON files, mismatched judge source manifests, and judgments
-whose passage hashes or condition order do not match the generated pair.
+whose passage hashes or presented-prompt hashes do not match the generated pair
+and declared A/B order. Valid JSON does not qualify a judge: aggregate label
+counts and order disagreements are retained separately in the audit. See
+[the Furnace report](results/furnace-20261020/REPORT.md) for the observed negative
+judge-qualification result and incomplete-trial denominators.
 `--plot` optionally uses matplotlib for a static figure. Unrun blind judgments
 are null; attempted invalid or order-inconsistent judgments are unknown.

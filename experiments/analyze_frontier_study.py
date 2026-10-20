@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import hashlib
 import json
 import statistics
 from pathlib import Path
@@ -68,6 +69,7 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
     order_unknown = collections.Counter()
     reuse = collections.Counter()
     root_replay = collections.Counter()
+    presented_prompts_verified = 0
     for _, item, replicate, paths, runs in complete_pairs(study):
         control = runs[1]["frontier_control"]
         if control["sha256"] != digest(study / "profiles" / f"{item['id']}.json"):
@@ -111,6 +113,12 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
                             or spec["prompt_id"] != item["id"] or spec["replicate"] != replicate
                             or spec["a_phase"] != ("on" if order else "off")):
                         raise ValueError("judge passage provenance mismatch")
+                    if record.get("status") == "complete":
+                        left, right = runs[::-1] if order else runs
+                        presented = f"Seed:\n{item['seed']}\n\nPassage A:\n{left['final']}\n\nPassage B:\n{right['final']}"
+                        if (record.get("usage") or {}).get("prompt_sha256") != hashlib.sha256(presented.encode()).hexdigest():
+                            raise ValueError("judge presented prompt mismatch")
+                        presented_prompts_verified += 1
                 records.append(record)
             orders = [record.get("preferred_phase") if record.get("status") == "complete" else None for record in records]
             if any(value is None for value in orders):
@@ -134,6 +142,8 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
             "harmony_render_contract": config.get("harmony_render_contract"),
             "planned_pairs": config["planned_pairs"], "completed_pairs": len(rows), "phase_statuses": by_phase,
             "profile_note_counts": {key: len(value["notes"]) for key, value in sorted(profiles.items())},
+            "calibration_eligible_pairs": sum(bool(value["notes"]) for value in profiles.values()) * config["replicates"],
+            "calibration_eligible_prompt_clusters": sum(bool(value["notes"]) for value in profiles.values()),
             "dosed_pairs": len(active), "dosed_prompt_clusters": len({row["prompt_id"] for row in active}),
             "dosed_path_delta": describe([row["path_delta"] for row in active]),
             "no_dose_path_delta": describe([row["path_delta"] for row in empty]),
@@ -143,6 +153,7 @@ def analyze(study: Path, judge: Path | None = None) -> dict:
             "accepted_step_length_compliance": {key: {"within_140_240": sum(140 <= value <= 240 for value in values),
                      "completed_paired_steps": len(values)} for key, values in step_lengths.items()},
             "candidate_identity": dict(reuse), "blind_preference": dict(preferences) if judge else None,
+            "judge_presented_prompts_verified": presented_prompts_verified if judge else None,
             "blind_unknown_reasons": dict(order_unknown),
             "dosed_blind_preference": dict(collections.Counter(row["blind_preference"] for row in active)) if judge else None,
             "requests_including_canary": len(requests), "request_statuses": dict(collections.Counter(row["status"] for row in requests)),
@@ -191,8 +202,25 @@ def main():
     args = parser.parse_args()
     judge_sha = verify_manifest(args.judge) if args.judge else None
     models = [analyze(path, args.judge) for path in args.studies]
+    judge_report = None
+    if args.judge:
+        records = [json.loads(path.read_text()) for path in sorted((args.judge / "judgments").glob("*.json"))]
+        judge_report = {
+            "frozen": json.loads((args.judge / "frozen.json").read_text()),
+            "model_identity": json.loads((args.judge / "model_identity.json").read_text())
+                              if (args.judge / "model_identity.json").exists() else None,
+            "runtime": json.loads((args.judge / "runtime.json").read_text())
+                       if (args.judge / "runtime.json").exists() else None,
+            "status": json.loads((args.judge / "status.json").read_text()),
+            "record_statuses": dict(collections.Counter(record.get("status") for record in records)),
+            "label_counts": {key: dict(collections.Counter(record["judgment"][key] for record in records
+                             if record.get("status") == "complete"))
+                             for key in ("winner", "continuity", "restraint", "freshness")},
+            "presented_prompts_verified_for_requested_studies": sum(model["judge_presented_prompts_verified"] for model in models),
+            "claim_limit": "valid JSON is not judge qualification; evaluate order consistency separately",
+        }
     save(args.output, {"contract": "frontier-study-audit-1.0", "judge_manifest_sha256": judge_sha,
-         "models": models, "analysis_scope": "coverage and adherence are descriptive; no outcome-based case selection or reward tuning",
+         "judge": judge_report, "models": models, "analysis_scope": "coverage and adherence are descriptive; no outcome-based case selection or reward tuning",
          "claim_limits": ["eight authored prompt clusters per model", "model judgments are not human gold",
                           "model family, quantization, and backend confound size comparisons"]})
     if args.plot:

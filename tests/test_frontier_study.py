@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import hashlib
 import io
 import json
 import queue
@@ -154,7 +155,9 @@ class FrontierStudyTest(unittest.TestCase):
             def generate(self, requests):
                 answer = json.dumps({"winner": "A", "continuity": "A", "restraint": "tie",
                                      "freshness": "B", "reason": "Observable comparison."})
-                return [ChatResult("local", request.model, answer) for request, _ in requests]
+                return [ChatResult("local", request.model, answer,
+                        usage={"prompt_sha256": hashlib.sha256(request.prompt.encode()).hexdigest()})
+                        for request, _ in requests]
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             pack = json.loads((ROOT / "experiments/frontier_prompts.json").read_text())
@@ -183,6 +186,13 @@ class FrontierStudyTest(unittest.TestCase):
             self.assertEqual(analyze(args.output, judge.output)["blind_preference"], {"unknown": 1})
             record_path = next((judge.output / "judgments").glob("*.json"))
             record = json.loads(record_path.read_text())
+            original_prompt_hash = record["usage"]["prompt_sha256"]
+            record["usage"]["prompt_sha256"] = "wrong presentation"
+            frontier_study.save(record_path, record)
+            frontier_study.save_manifest(judge.output)
+            with self.assertRaisesRegex(ValueError, "presented prompt mismatch"):
+                analyze(args.output, judge.output)
+            record["usage"]["prompt_sha256"] = original_prompt_hash
             record["study"]["input_sha256"] = ["different", "passages"]
             frontier_study.save(record_path, record)
             frontier_study.save_manifest(judge.output)
