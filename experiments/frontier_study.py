@@ -117,6 +117,7 @@ def run_generation(args) -> None:
     state(args.output, "loading_model", planned_pairs=config["planned_pairs"])
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
+    args._engine = engine
     frozen(args.output / "model_identity.json", engine.identity)
     frozen(args.output / "runtime.json", runtime_receipt(args.backend))
     canary = engine.generate([(ChatRequest(model=args.model_id,
@@ -214,6 +215,7 @@ def run_judge(args) -> None:
     state(args.output, "loading_judge")
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
+    args._engine = engine
     frozen(args.output / "model_identity.json", engine.identity)
     frozen(args.output / "runtime.json", runtime_receipt(args.backend))
     tasks = []
@@ -364,6 +366,10 @@ def main():
         if args.command != "summarize":
             state(args.output, "failed", error_type=type(exc).__name__, error=str(exc)[:600])
         raise
+    finally:
+        engine = getattr(args, "_engine", None)
+        if engine is not None:
+            engine.close()
 
 
 if __name__ == "__main__":

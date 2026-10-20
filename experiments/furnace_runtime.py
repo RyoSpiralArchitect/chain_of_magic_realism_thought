@@ -98,6 +98,9 @@ class TrtEngine:
         self.load_seconds = time.monotonic() - started
         self.batch_receipts = []
 
+    def close(self):
+        self.llm.shutdown()
+
     def generate(self, requests: list[tuple[ChatRequest, int]]) -> list[ChatResult | Exception]:
         prompts = []
         parameters = []
@@ -196,11 +199,15 @@ class VllmEngine(TrtEngine):
                   enable_prefix_caching=False, disable_log_stats=True, limit_mm_per_prompt={"image": 0})
         self.load_seconds = time.monotonic() - started
         self.batch_receipts = []
+        self._raw_llm = llm
 
         class TokenBatch:
             def generate(self, prompts, **kwargs):
                 return llm.generate([{"prompt_token_ids": tokens} for tokens in prompts], **kwargs)
         self.llm = TokenBatch()
+
+    def close(self):
+        self._raw_llm.llm_engine.engine_core.shutdown()
 
 
 class QueuedProvider:
