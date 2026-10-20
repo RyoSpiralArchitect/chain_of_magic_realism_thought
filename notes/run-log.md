@@ -76,3 +76,17 @@
   CUDA_HOME set per process. No package or system configuration changes.
 - Fallback keeps the stop/final-only completion gates and requires the hash of
   the failed TRT status receipt. vLLM is restricted to text-only requests here.
+
+## 2026-10-20 Run 2 (Pilot and Wider Output Budget)
+- vLLM warmup passed after the per-process PATH correction. A tokenizer return
+  shape mismatch in the experiment adapter was repaired and regression-tested;
+  failed canaries remain separate. All owned failed workers were shut down.
+- The 512-token 4B pilot completed its launch, but all eight calibration runs
+  failed on truncated completions. Its paired matrix is not evidence of a note
+  effect. The full pilot, requests, and negative results are retained.
+- The next frozen configuration uses 2048 output tokens. This change addresses
+  completion budget before comparing off/on outcomes; it does not tune quality
+  scores. The calibration gate now blocks evaluation if any source is missing.
+- Added successful per-call visible artifacts so later run failures do not erase
+  earlier visible outputs. Incomplete text is never admitted to the state path.
+- Current local tests: 46 passed. R008-R009 complete; R010 in progress.

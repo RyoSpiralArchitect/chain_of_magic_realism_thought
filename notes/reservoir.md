@@ -1,15 +1,15 @@
 # Reservoir
 
 ## Unstarted
-- [ ] R009 Add a resumable, paired local-model study and independent blind review.
-- [ ] R010 Run the frozen study on available Furnace models at 32 pairs/model.
 - [ ] R011 Analyze measurements, inspect disagreements, and refresh design questions.
 - [ ] R012 Preserve receipts and publish a PR checkpoint.
 
 ## In Progress
-- [~] R008 Verify Furnace availability, runtime policy, cached weights, and isolated checkout.
+- [~] R010 Run the frozen study on available Furnace models at 32 pairs/model.
 
 ## Completed This Run
+- [x] R008 Verified Furnace availability, runtime policy, cached weights, and isolated checkout.
+- [x] R009 Added resumable paired generation, independent blind review, and missingness gates.
 
 ## Open Questions
 - [?] R006 Automatically tune frontier influence -> OQ001 (`001-frontier-influence.md`).

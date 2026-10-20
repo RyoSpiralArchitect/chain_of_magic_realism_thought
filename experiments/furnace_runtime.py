@@ -211,18 +211,28 @@ class VllmEngine(TrtEngine):
 
 
 class QueuedProvider:
-    def __init__(self, inbox: queue.Queue, seed: int):
+    def __init__(self, inbox: queue.Queue, seed: int, on_result=None):
         self.inbox = inbox
         self.seed = seed
         self.ordinal = 0
+        self.on_result = on_result
 
     def generate(self, request: ChatRequest) -> ChatResult:
         raw = f"{self.seed}:{self.ordinal}".encode()
         seed = int.from_bytes(hashlib.sha256(raw).digest()[:4], "big") % (2**31 - 1)
+        ordinal = self.ordinal
         self.ordinal += 1
         future = Future()
         self.inbox.put(Pending(request, seed, future))
-        return future.result()
+        try:
+            result = future.result()
+        except Exception as exc:
+            if self.on_result:
+                self.on_result(ordinal, request, seed, None, exc)
+            raise
+        if self.on_result:
+            self.on_result(ordinal, request, seed, result, None)
+        return result
 
 
 def execute_tasks(engine, tasks, worker, concurrency: int, on_progress=None):

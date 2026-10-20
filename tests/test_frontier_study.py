@@ -18,7 +18,7 @@ sys.path[:0] = [str(ROOT / "src"), str(ROOT / "experiments")]
 import frontier_study
 from furnace_runtime import QueuedProvider, TrtEngine, execute_tasks
 from magic_realism_thought.providers import DryRunProvider
-from magic_realism_thought.types import ChatRequest, ProviderError
+from magic_realism_thought.types import ChatRequest, ChatResult, ProviderError
 
 
 class FakeEngine:
@@ -70,6 +70,7 @@ class FrontierStudyTest(unittest.TestCase):
                     saved = {path.name: path.read_bytes() for path in (args.output / "runs").glob("*.json")}
                     frontier_study.run_generation(args)
             self.assertEqual(len(saved), 3)
+            self.assertTrue(list((args.output / "calls").glob("*.json")))
             self.assertEqual(saved, {path.name: path.read_bytes() for path in (args.output / "runs").glob("*.json")})
             self.assertEqual(len(list((args.output / "sessions").glob("*/canary.json"))), 2)
             profile = json.loads((args.output / "profiles/p01.json").read_text())
@@ -118,6 +119,59 @@ class FrontierStudyTest(unittest.TestCase):
         self.assertTrue(all(isinstance(item, ProviderError) for item in results[1:]))
         self.assertNotIn("private", json.dumps(engine.batch_receipts))
         self.assertNotIn("visible passage", json.dumps(engine.batch_receipts))
+
+    def test_blind_review_order_disagreement_stays_unknown(self):
+        class AlwaysAJudge(FakeEngine):
+            def generate(self, requests):
+                answer = json.dumps({"winner": "A", "continuity": "A", "restraint": "tie",
+                                     "freshness": "B", "reason": "Observable comparison."})
+                return [ChatResult("local", request.model, answer) for request, _ in requests]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            pack = json.loads((ROOT / "experiments/frontier_prompts.json").read_text())
+            pack["prompts"] = pack["prompts"][:1]
+            prompts = root / "prompts.json"
+            frontier_study.save(prompts, pack)
+            args = argparse.Namespace(prompts=prompts, model_id="generator", model_dir=root,
+                replicates=1, concurrency=2, max_tokens=512, harmony_adapter=None,
+                canary_only=False, output=root / "study", backend="trt", fallback_receipt=None)
+            with patch.object(frontier_study, "TrtEngine", FakeEngine), patch("importlib.metadata.version", return_value="fake"):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    frontier_study.run_generation(args)
+            judge = argparse.Namespace(model_id="independent-judge", model_dir=root, concurrency=2, max_tokens=256,
+                harmony_adapter=None, backend="trt", fallback_receipt=None, studies=[args.output], output=root / "judge")
+            with patch.object(frontier_study, "TrtEngine", AlwaysAJudge), patch("importlib.metadata.version", return_value="fake"):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    frontier_study.run_judge(judge)
+            summary = argparse.Namespace(studies=[args.output], judge=judge.output, output=root / "summary.json")
+            with contextlib.redirect_stdout(io.StringIO()):
+                frontier_study.run_summary(summary)
+            model = json.loads(summary.output.read_text())["models"][0]
+            self.assertEqual(model["completed_pairs"], 1)
+            self.assertEqual(model["blind_preferences"], {"on": 0, "off": 0, "tie": 0, "unknown": 1})
+
+    def test_incomplete_calibration_blocks_the_entire_paired_study(self):
+        class IncompleteCalibration(FakeEngine):
+            def generate(self, requests):
+                if any("Stage:" in request.prompt for request, _ in requests):
+                    return [ProviderError("completion_not_accepted:incomplete:length") for _ in requests]
+                return super().generate(requests)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            pack = json.loads((ROOT / "experiments/frontier_prompts.json").read_text())
+            pack["prompts"] = pack["prompts"][:1]
+            prompts = root / "prompts.json"
+            frontier_study.save(prompts, pack)
+            args = argparse.Namespace(prompts=prompts, model_id="generator", model_dir=root, replicates=4,
+                concurrency=2, max_tokens=512, harmony_adapter=None, canary_only=False, output=root / "study",
+                backend="trt", fallback_receipt=None)
+            with patch.object(frontier_study, "TrtEngine", IncompleteCalibration), patch("importlib.metadata.version", return_value="fake"):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    self.assertIs(frontier_study.run_generation(args), False)
+            self.assertEqual(json.loads((args.output / "status.json").read_text())["admitted_pairs"], 0)
+            self.assertEqual(len(list((args.output / "runs").glob("*.failure.json"))), 1)
+            self.assertEqual(len(list((args.output / "calls").glob("*.json"))), 1)
+            self.assertFalse(list((args.output / "runs").glob("*-off-*.json")))
 
 
 if __name__ == "__main__":

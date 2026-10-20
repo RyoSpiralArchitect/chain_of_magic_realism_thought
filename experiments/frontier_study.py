@@ -114,6 +114,7 @@ def run_generation(args) -> None:
               **check_backend(args), "canary_only": args.canary_only}
     config_sha = frozen(args.output / "frozen.json", config)
     session = args.output / "sessions" / uuid.uuid4().hex[:12]
+    args._session = session
     state(args.output, "loading_model", planned_pairs=config["planned_pairs"])
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
@@ -152,7 +153,15 @@ def run_generation(args) -> None:
         try:
             if control and not control.exists():
                 raise ValueError("calibration profile unavailable")
-            provider = QueuedProvider(inbox, seed)
+            def record_call(ordinal, request, call_seed, result, error):
+                receipt = {"trial_id": trial_id, "ordinal": ordinal, "sampling_seed": call_seed,
+                           "request": dataclasses.asdict(request), "status": "complete" if result else "failed"}
+                if result:
+                    receipt["result"] = dataclasses.asdict(result)
+                else:
+                    receipt.update(error_type=type(error).__name__, error=str(error)[:600])
+                save(args.output / "calls" / f"{trial_id}-q{ordinal:02d}.json", receipt)
+            provider = QueuedProvider(inbox, seed, on_result=record_call)
             runner = make_runner(args, item, provider, control)
             started = time.monotonic()
             run = runner.run(item["seed"], "Japanese", item["symbols"])
@@ -174,6 +183,13 @@ def run_generation(args) -> None:
         if source.exists():
             _, profile = build_frontier_control_artifacts([source])
             frozen(target, profile)
+    missing = [item["id"] for item in prompts if not (args.output / "profiles" / f"{item['id']}.json").exists()]
+    if missing:
+        save(session / "requests.json", engine.batch_receipts)
+        state(args.output, "calibration_incomplete", missing_prompts=missing,
+              planned_pairs=config["planned_pairs"], admitted_pairs=0)
+        save_manifest(args.output)
+        return False
     tasks = []
     for index, item in enumerate(prompts):
         for replicate in range(args.replicates):
@@ -212,6 +228,7 @@ def run_judge(args) -> None:
               **check_backend(args)}
     config_sha = frozen(args.output / "frozen.json", config)
     session = args.output / "sessions" / uuid.uuid4().hex[:12]
+    args._session = session
     state(args.output, "loading_judge")
     engine_class = TrtEngine if args.backend == "trt" else VllmEngine
     engine = engine_class(args.model_dir, args.concurrency, args.max_tokens, args.harmony_adapter)
@@ -357,7 +374,8 @@ def main():
     args = parser.parse_args()
     try:
         if args.command == "generate":
-            run_generation(args)
+            if run_generation(args) is False:
+                return 2
         elif args.command == "judge":
             run_judge(args)
         else:
@@ -369,8 +387,13 @@ def main():
     finally:
         engine = getattr(args, "_engine", None)
         if engine is not None:
+            session = getattr(args, "_session", None)
+            if session is not None and not (session / "requests.json").exists():
+                save(session / "requests.json", engine.batch_receipts)
             engine.close()
+        if args.command != "summarize":
+            save_manifest(args.output)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

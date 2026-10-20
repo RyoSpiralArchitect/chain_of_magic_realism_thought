@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local copies of full Furnace experiment evidence; publish summaries and hashes.
+/artifacts/furnace/
