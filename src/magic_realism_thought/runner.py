@@ -4,6 +4,7 @@ import copy
 import dataclasses
 from typing import Dict, List, Optional, Sequence
 
+from .frontier_control import format_frontier_control_context, load_frontier_control, notes_for_stage
 from .memory import (
     best_memory_provider_for_role,
     format_memory_context,
@@ -78,6 +79,7 @@ class SpiralRpmPrmRunnerV5:
         memory_update: bool = True,
         magic_prior: Optional[MagicRealismPrior] = None,
         anchor_profile: Optional[PromptAnchorProfile] = None,
+        frontier_control_path: Optional[str] = None,
     ) -> None:
         self.provider_names = list(providers)
         self.models = models
@@ -114,6 +116,9 @@ class SpiralRpmPrmRunnerV5:
         self.memory_update = memory_update
         self.magic_prior = magic_prior
         self.anchor_profile = anchor_profile
+        self.frontier_control_path = frontier_control_path
+        self.frontier_control = None
+        self.frontier_applied_ids: set[str] = set()
         self.memory_profile = load_memory_profile(memory_profile_path)
         self.memory_profile_before = profile_snapshot(self.memory_profile, limit=12)
         self.beam_archive_snapshots: List[BeamPathSnapshot] = []
@@ -186,6 +191,11 @@ class SpiralRpmPrmRunnerV5:
             memory_weight=self.memory_weight,
         )
 
+    def frontier_context_for_stage(self, stage: StageSpec, index: int) -> str:
+        notes = notes_for_stage(self.frontier_control, stage, index)
+        self.frontier_applied_ids.update(note["note_id"] for note in notes)
+        return format_frontier_control_context(notes)
+
     def call_provider(self, provider_name: str, prompt: str) -> ChatResult:
         model = self.models[provider_name]
         request = ChatRequest(
@@ -232,6 +242,7 @@ class SpiralRpmPrmRunnerV5:
             usage=result.usage,
             repaired_from=repaired_from,
             repair_attempt=repair_attempt,
+            frontier_note_ids=[note["note_id"] for note in notes_for_stage(self.frontier_control, stage, index)],
         )
 
     def generate_candidates(
@@ -253,6 +264,7 @@ class SpiralRpmPrmRunnerV5:
                 candidate_variant=offset,
                 max_context_chars=self.max_context_chars,
                 memory_context=self.memory_context_for_stage(stage),
+                frontier_context=self.frontier_context_for_stage(stage, index),
             )
             result = self.call_provider(provider_name, prompt)
             candidate = self.make_candidate_from_result(
@@ -293,6 +305,7 @@ class SpiralRpmPrmRunnerV5:
             failed=failed,
             reward=failed.reward,
             max_context_chars=self.max_context_chars,
+            frontier_context=self.frontier_context_for_stage(stage, index),
         )
         result = self.call_provider(repair_provider, prompt)
         repaired = self.make_candidate_from_result(
@@ -486,6 +499,9 @@ class SpiralRpmPrmRunnerV5:
     def run_prompt_stage(self, state: ChainState, stage: StageSpec, index: int, prompt: str) -> ProcessStepRecord:
         providers = self.provider_candidates_for_stage(stage.role, index - 1, self.candidates)
         candidates: List[CandidateStep] = []
+        frontier_context = self.frontier_context_for_stage(stage, index)
+        if frontier_context:
+            prompt = f"{prompt}\n\n{frontier_context}"
         for offset, provider_name in enumerate(providers, start=1):
             prompt_with_variant = prompt + f"\n\nRun memory context:\n{self.memory_context_for_stage(stage)}\n\nCandidate variant: {offset}\nReturn a distinct but compatible version."
             result = self.call_provider(provider_name, prompt_with_variant)
@@ -505,6 +521,8 @@ class SpiralRpmPrmRunnerV5:
         return self.accept_step(state, stage, index, candidates)
 
     def run(self, seed: str, language: str, seed_symbols: Sequence[str]) -> ChainRun:
+        self.frontier_control = load_frontier_control(self.frontier_control_path, seed) if self.frontier_control_path else None
+        self.frontier_applied_ids = set()
         initial_symbols = merge_symbols(seed_symbols, seed, limit=self.constraints.symbol_limit)
         rpm_trace = RPMTrace()
         if self.magic_prior:
@@ -617,6 +635,13 @@ class SpiralRpmPrmRunnerV5:
             steps=state.step_history,
         )
         provisional_run.reward_surface_audit = compute_reward_surface_audit(provisional_run)
+        if self.frontier_control:
+            provisional_run.frontier_control = {
+                **self.frontier_control,
+                "applied_note_ids": sorted(self.frontier_applied_ids),
+                "unused_note_ids": [note["note_id"] for note in self.frontier_control["profile"]["notes"]
+                                    if note["note_id"] not in self.frontier_applied_ids],
+            }
         if self.memory_update:
             self.memory_profile = update_memory_profile_from_run(self.memory_profile, provisional_run)
             save_memory_profile(self.save_memory_profile_path, self.memory_profile)

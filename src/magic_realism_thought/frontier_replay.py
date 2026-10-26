@@ -406,6 +406,11 @@ def load_run_payload(path: str | Path) -> Tuple[Path, Dict[str, Any]]:
 
 def build_frontier_replay_report(paths: Iterable[str | Path]) -> Dict[str, Any]:
     loaded = [load_run_payload(path) for path in paths]
+    return replay_loaded_runs(loaded)
+
+
+def replay_loaded_runs(loaded: List[Tuple[Path, Dict[str, Any]]]) -> Dict[str, Any]:
+    """Compare an already loaded snapshot without reading its source files again."""
     if not loaded:
         raise ValueError("at least one run JSON is required")
 
@@ -527,6 +532,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("runs", nargs="+", help="Run JSON files to replay in chronological order.")
     parser.add_argument("--output-json", help="Write replay report JSON.")
     parser.add_argument("--output-md", help="Write replay report Markdown.")
+    parser.add_argument("--output-control", help="Export bounded soft control notes for an opt-in subsequent run.")
     parser.add_argument("--json", action="store_true", help="Print the JSON report instead of Markdown.")
     return parser
 
@@ -535,7 +541,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = build_arg_parser()
     args = parser.parse_args(argv)
     try:
-        report = build_frontier_replay_report(args.runs)
+        if args.output_control:
+            from .frontier_control import build_frontier_control_artifacts
+
+            inputs = {Path(path).resolve() for path in args.runs}
+            outputs = [Path(path).resolve() for path in (args.output_json, args.output_md, args.output_control) if path]
+            if inputs.intersection(outputs) or len(outputs) != len(set(outputs)):
+                raise ValueError("control export outputs must be distinct from inputs and each other")
+            report, control = build_frontier_control_artifacts(args.runs)
+            Path(args.output_control).parent.mkdir(parents=True, exist_ok=True)
+            Path(args.output_control).write_text(json.dumps(control, ensure_ascii=False, indent=2), encoding="utf-8")
+        else:
+            report = build_frontier_replay_report(args.runs)
         if args.output_json:
             Path(args.output_json).parent.mkdir(parents=True, exist_ok=True)
             Path(args.output_json).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

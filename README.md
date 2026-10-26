@@ -212,6 +212,8 @@ The JSON trace includes:
 - `memory_profile_before`
 - `memory_profile_after`
 - `reward_surface_audit`
+- `frontier_control` (loaded profile, source hashes, applied and unused note IDs;
+  `null` when not enabled)
 
 The Markdown trace includes:
 
@@ -273,6 +275,43 @@ Installed usage also exposes:
 ```bash
 chain-frontier-replay examples/frontiers/replay_run_a.json examples/frontiers/replay_run_b.json
 ```
+
+### Feed Observations Into the Next Run
+
+Export an optional prompt profile alongside the replay report:
+
+```bash
+PYTHONPATH=src python -m magic_realism_thought.frontier_replay \
+  examples/frontiers/replay_run_a.json \
+  examples/frontiers/replay_run_b.json \
+  --output-control /tmp/frontier-control.json
+
+python chain_of_magic_realism.py \
+  --dry-run --provider openai \
+  --prompt "雨が祖母の筆跡を覚えていた。" \
+  --stages-file examples/frontiers/control_stages.json \
+  --frontier-control /tmp/frontier-control.json \
+  --no-aggregate --no-recursive-closure --no-memory-update \
+  --include-prompts --output-json /tmp/frontier-controlled-run.json
+```
+
+The exporter hashes the saved source bytes and creates fixed, short reminders
+from deferred concerns. The next run applies them only when the stripped seed
+matches and the stage index, name, and operator agree. The profile contains up
+to three notes per stage and 24 overall; omitted evidence remains in
+`review_items`. Notes influence generation and repair prompts. They do not enter
+the PRM judge, change weights, reorder providers, or force candidate selection.
+
+The existing replay's `resolved` label means a concern was absent from a later
+snapshot. The control adapter calls this `not_observed` and retains uncertainty.
+Final conflict flags take precedence over historical open snapshots; candidate
+revivals and ontology growth remain review items. All source `next_action` and
+reason prose stays out of generated prompt instructions.
+
+The saved run records the profile hash and applied/unused IDs; each candidate
+records its `frontier_note_ids`. `--include-prompts` also saves the exact prompt.
+See [the control contract](docs/frontier_control.md) and the
+[deterministic example profile](examples/frontiers/frontier_control.json).
 
 The replay artifact keeps the visible-state boundary: it compares accepted, rejected, abandoned, deferred, and ontology-ledger state without requesting hidden reasoning.
 

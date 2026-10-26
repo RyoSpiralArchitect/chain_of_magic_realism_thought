@@ -35,6 +35,16 @@ def render_markdown(run: ChainRun, show_stages: bool = True, show_candidates: bo
     lines.append(run.seed)
     lines.append("")
 
+    if run.frontier_control:
+        receipt = run.frontier_control
+        lines.append("## Prior-run frontier control")
+        lines.append("")
+        lines.append(f"- Profile SHA-256: `{receipt['sha256']}`")
+        lines.append(f"- Applied notes: `{', '.join(receipt['applied_note_ids']) or '(none)'}`")
+        lines.append(f"- Unused notes: `{', '.join(receipt['unused_note_ids']) or '(none)'}`")
+        lines.append("- Influence: optional generation prompt context; scoring and routing are unchanged.")
+        lines.append("")
+
     if run.anchor_profile:
         lines.append("## Prompt anchor profile")
         lines.append("")

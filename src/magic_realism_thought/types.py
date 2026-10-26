@@ -326,6 +326,7 @@ class CandidateStep:
     usage: Dict[str, Any] = field(default_factory=dict)
     repaired_from: Optional[str] = None
     repair_attempt: int = 0
+    frontier_note_ids: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -544,6 +545,7 @@ class ChainRun:
     final_state: ChainState
     rpm_trace: RPMTrace
     steps: List[ProcessStepRecord]
+    frontier_control: Optional[Dict[str, Any]] = None
 
 
 @dataclass
