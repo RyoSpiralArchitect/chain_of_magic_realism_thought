@@ -6,6 +6,10 @@ stage-local candidate IDs across runs. The generator reuses ID shapes. The
 story-reader's handwritten revival fixture deliberately shares IDs and prose.
 The new control adapter keeps all revival events review-only.
 
+In completed Furnace pairs, reused IDs have different text in 101/126 cases
+for Gemma 4B, 103/134 for Gemma 12B, and 120/120 for GPT-OSS. These are shared
+stage-local IDs, not independent lineages. Their reuse is not passage identity.
+
 ## Question
 A: require identical visible-passage hashes for revival, or B: require an
 explicit cross-run lineage reference that can also describe revised passages?
@@ -30,6 +34,7 @@ None for static concern reminders. R007 blocks automatic candidate revival.
 - `src/magic_realism_thought/frontier_replay.py`: accepted-path comparison.
 - `examples/frontiers/handwritten_revival/`: authored equal-passage example.
 - `tests/test_handwritten_revival.py`: current report and reader contracts.
+- `experiments/results/furnace-20261020/audit.json`: measured identity counts.
 
 ## Related Questions
 OQ001 concerns automatic influence; neither requires automatic revival.
