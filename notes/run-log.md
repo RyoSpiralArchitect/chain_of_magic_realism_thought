@@ -298,3 +298,20 @@
   experiment protocol, tests, original result immutability, and active-question
   links are aligned. Remaining six questions are decision-bound. Publication
   and final PR confirmation remain before stopping.
+
+## 2026-10-27 Run 3 (Final PR Checkpoint)
+- Completed R019, R020, R021 in PR #7:
+  https://github.com/RyoSpiralArchitect/chain_of_magic_realism_thought/pull/7.
+  Base is the integrated frontier-soft-control branch containing merged #6;
+  main integration is a distinct operation. PR #7 is open, not merged.
+- All owned API execution/test sessions closed. Raw evidence is Mac-only under
+  artifacts/furnace/20261027/; no extra Furnace workload or credential write.
+- Final claim ceiling: a new API configuration substantially improved order
+  stability but did not establish human correctness or reminder benefit.
+  Retained unknowns and the five original generator missing pairs remain visible.
+- Reservoir transferred/cleared completed entries: unstarted 0 / in progress 0 /
+  active questions 6 / synchronization gaps 0. Stop: authorized scope complete
+  after one bounded frontier refresh, not merely because a PR exists.
+- Unreached frontier: OQ006 sentinel qualification versus human anchors;
+  OQ001 criterion disagreement before automatic influence tuning. No additional
+  study, judge selection, training, or automatic revival is authorized.
