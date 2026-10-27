@@ -1,12 +1,15 @@
 # Reservoir
 
 ## Unstarted
+- [ ] R020 Rejudge the same 91 fixed pairs through an authorized large API model.
+- [ ] R021 Compare API and Nemo orders, retain receipts, and publish a PR checkpoint.
 
 ## In Progress
+- [~] R019 Add a bounded, no-retry API judge using the existing rubric and passage hashes.
 
 ## Completed This Run
 
-Completion records are transferred to the final Run 2 entry in `run-log.md`.
+Prior completion records are in the final Run 2 entry in `run-log.md`.
 
 ## Open Questions
 - [?] R006 Automatically tune frontier influence -> OQ001 (`001-frontier-influence.md`).
@@ -28,8 +31,14 @@ All generation and judging processes are closed. Complete pairs: 4B 32/32,
 A in 181/182 responses, leaving 90/91 comparisons order-inconsistent and unknown.
 No literary-quality effect or automatic policy is established.
 
-The final report, machine-readable evidence, archive hash, and validation
-receipts are in `experiments/results/furnace-20261020/`. Unstarted 0, in progress
-0, open questions 6, synchronization gaps 0. One bounded frontier refresh found
-only the now-fixed structure-doc drift. Stop reason: authorized measurement,
-analysis, and PR checkpoint scope complete; remaining work needs decisions.
+Run 3 starts 2026-10-27: Ryō explicitly authorized replacing the judge with a
+large API model and reusing the existing process OPENAI_API_KEY. Scope: compare
+the same 91 complete pairs in both orders, no generation, no tuning, no human
+gold or automatic qualification claim. GPT-6 Astra is available; low reasoning,
+2048 output tokens, 182 calls, no retries, $30 modeled budget with a conservative
+$27.7359 plan bound. Initial two requests are operational checks retained in
+the final denominator, not new human-gold sentinels. The old report is immutable.
+
+PR #5 is merged to main; PR #6 merged into SpiralReality/frontier-soft-control,
+not yet into main. This work starts at that integrated branch's 690a3df and stays
+stacked there. Six active questions remain; no synchronization gaps.

@@ -50,3 +50,11 @@ The judge saw only seed and two final passages, not conditions, notes, or scores
 Raw observations remain on the Mac and Furnace; their hashes and denominators
 are published in the report. No winner was promoted to human gold, and no judge
 or generator was retrained or selected from these outcomes.
+
+## Authorized Diagnostic Follow-Up (2026-10-27)
+Ryō asked: "ジャッジをAPIの大モデルに素直に変えてどうなるか見てみよ!"
+and approved reusing the existing API key. This authorizes a direct comparison
+on the same 91 complete pairs through GPT-6 Astra, preserving reversed orders,
+rubric text, source hashes, failures, and the old negative result. It does not
+decide the broader A/B question, establish sentinel-bank qualification, or
+authorize automatic influence tuning. R019-R021 cover this bounded diagnostic.

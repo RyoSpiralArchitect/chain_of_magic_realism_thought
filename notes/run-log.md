@@ -248,3 +248,22 @@
 - Unreached frontier: decisions OQ001-OQ006, especially judge qualification,
   generative replay, and independently calibrated prompt diversity. Do not
   launch a new experiment, tune weights, or revive candidates from a lean.
+
+## 2026-10-27 Run 3 (API Judge Start)
+- Starting reservoir: unstarted 0 / questions 6 / synchronization gaps 0.
+  User explicitly requested a large API judge and then authorized reusing the
+  existing key. Added R019 implementation, R020 fixed-passage review, R021
+  comparison/publication. OQ006's full qualification decision remains open.
+- Verified checkout and raw sources. PR #6 merged into frontier-soft-control
+  (690a3df); main currently includes #5 but not #6. New branch:
+  SpiralReality/api-frontier-judge, based on the integrated frontier branch.
+- Official docs and live model listing confirm gpt-6-astra is available. Use
+  Responses instructions/user input, low reasoning, no temperature/seed/tools,
+  2048 output tokens, default tier, store=false, 30m caching. Semantic rubric
+  and presented passages are unchanged, but model/runtime/rendering/sampling
+  differences mean this is not a causal model-size-only comparison.
+- Plan: 182 calls on the same 91 complete pairs. Conservative byte-token plus
+  framing bound and output allowance: $27.7359, below the fixed $30 budget.
+  No automatic retries; pre-call issued markers prohibit ambiguous resends.
+  Existing source manifests are verified before calls; final-only API outputs
+  and safe request/usage metadata are retained, never hidden reasoning text.
