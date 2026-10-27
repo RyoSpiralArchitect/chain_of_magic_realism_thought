@@ -24,6 +24,12 @@ and 27/32 GPT-OSS pairs. GPT-OSS has a positive complete-case heuristic interval
 but comparable positive variation in no-dose controls and five missing eligible
 pairs. This is not a sufficient promotion criterion; see the measurement report.
 
+The authorized 2026-10-27 API follow-up reused those passages. GPT-6 Astra has
+75/91 order-consistent comparisons; among 27 dosed pairs, on wins 7, off wins
+15, and 5 remain unknown. Of 22 directional dosed preferences, 15 oppose the
+heuristic score direction (10/13 for GPT-OSS). This is criterion disagreement,
+not human-gold evidence or authorization to optimize against the new judge.
+
 ## Dependencies
 None for the authorized static adapter. R006 blocks only automatic adaptation.
 
@@ -31,6 +37,7 @@ None for the authorized static adapter. R006 blocks only automatic adaptation.
 - `docs/frontier_control.md`: evidence, prompt boundary, and verification limit.
 - `src/magic_realism_thought/reward_audit.py`: reward-surface overfitting signals.
 - `experiments/results/furnace-20261020/REPORT.md`: measured evidence and limits.
+- `experiments/results/api-judge-20261027/REPORT.md`: fixed-passage API comparison.
 
 ## Related Questions
 OQ002 concerns candidate identity, which must also be defined before automatic revival.

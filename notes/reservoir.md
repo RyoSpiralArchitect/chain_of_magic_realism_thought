@@ -1,15 +1,15 @@
 # Reservoir
 
 ## Unstarted
-- [ ] R020 Rejudge the same 91 fixed pairs through an authorized large API model.
-- [ ] R021 Compare API and Nemo orders, retain receipts, and publish a PR checkpoint.
 
 ## In Progress
-- [~] R019 Add a bounded, no-retry API judge using the existing rubric and passage hashes.
+- [~] R021 Finish comparison validation, evidence receipts, and the PR checkpoint.
 
 ## Completed This Run
 
 Prior completion records are in the final Run 2 entry in `run-log.md`.
+- [x] R019 Added bounded API judging, issued receipts, resume protection, and regression tests.
+- [x] R020 Completed all 182 fixed-passage requests, with no missing/invalid/incomplete responses.
 
 ## Open Questions
 - [?] R006 Automatically tune frontier influence -> OQ001 (`001-frontier-influence.md`).

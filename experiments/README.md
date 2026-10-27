@@ -105,3 +105,12 @@ Issued receipts are written before each call. An issued request lacking a
 terminal receipt blocks resumption; it is never silently sent twice. Failed,
 refused, incomplete, and invalid outputs remain unknown without resampling.
 Reuse or creation of an API key requires explicit user authorization.
+
+`compare_frontier_judges.py --previous OLD --current NEW --studies ... --output
+FILE` audits both judges on the same source manifests. It reports per-model and
+per-prompt order consistency, dosed/no-dose preferences, category-level order
+agreement, heuristic-sign alignment, and usage-based cost estimates. `--plot`
+adds an optional static figure. Rate-based costs are not invoices. Neither order
+agreement nor agreement with the heuristic establishes literary correctness.
+The [2026-10-27 API report](results/api-judge-20261027/REPORT.md) records all
+182 attempts, 75/91 order-consistent comparisons, and the retained unknowns.

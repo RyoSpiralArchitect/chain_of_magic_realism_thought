@@ -267,3 +267,34 @@
   No automatic retries; pre-call issued markers prohibit ambiguous resends.
   Existing source manifests are verified before calls; final-only API outputs
   and safe request/usage metadata are retained, never hidden reasoning text.
+
+## 2026-10-27 Run 3 (Measurements Complete)
+- R019 and R020 complete. R021 is final publication/PR checkpoint work.
+  Execution source dc003792616706979c2b1ba9be8313b5608cd6c4; analysis code
+  checkpoint fb586264adc46b86c16468115446fcbb4c3e0223.
+- All 182/182 API requests completed with valid final JSON. The first two calls
+  remain in the denominator; no retries or resampling. All input/payload hashes
+  checked; 182 unique provider response IDs and client request IDs. No key or
+  hidden reasoning text was persisted. API alias returned: gpt-6-astra.
+- Order consistency: 75/91 versus Nemo 1/91. Per generator: 27/32, 25/32, 23/27.
+  Labels A/B/tie: 82/98/2. Sixteen order-disagreement unknowns remain. Freshness
+  category agreement is 57/91, so overall stability is not blanket qualification.
+- Dosed complete pairs: on 7 / off 15 / unknown 5. No-dose comparisons also vary;
+  eight shared prompts and selective generator completion preclude a causal
+  intervention or size-only claim. Among 22 directional dosed preferences,
+  15 oppose heuristic score direction, including 10/13 for GPT-OSS.
+- Usage: 192808 input, 23586 output including 8392 reasoning tokens. The latter
+  are counted, never saved as text. Estimated published-rate cost $3.402755,
+  not an invoice. No additional key/env file, GPU run, or weight change.
+- Portable API-only archive on Mac:
+  artifacts/furnace/20261027/api-judge-evidence-portable.tar.gz, SHA-256
+  aa94773ed9638b58c038e743ca6b7359db8a0488da6afca713a53c5d78adc218.
+  All 369 archived files match local copies. Initial macOS-metadata pack is
+  retained separately; portable packaging did not change evidence files.
+- Validation: 59 tests pass locally; reward-audit fixtures 3/3; compilation,
+  diff, source hashes, archive, and presented-input checks pass. Figure visually
+  inspected. No CI claim. Results: experiments/results/api-judge-20261027/.
+- One bounded frontier refresh found no new independent task: current README,
+  experiment protocol, tests, original result immutability, and active-question
+  links are aligned. Remaining six questions are decision-bound. Publication
+  and final PR confirmation remain before stopping.

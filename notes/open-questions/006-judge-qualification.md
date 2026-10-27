@@ -58,3 +58,16 @@ on the same 91 complete pairs through GPT-6 Astra, preserving reversed orders,
 rubric text, source hashes, failures, and the old negative result. It does not
 decide the broader A/B question, establish sentinel-bank qualification, or
 authorize automatic influence tuning. R019-R021 cover this bounded diagnostic.
+
+## Observed Follow-Up
+All 182 API requests completed with valid final JSON; all presented-prompt
+hashes and source manifests were checked. GPT-6 Astra chose A/B/tie 82/98/2;
+75/91 overall preferences agree under reversal, compared with 1/91 for Nemo.
+Sixteen comparisons remain order-inconsistent and unknown. Freshness agrees
+under reversal in only 57/91, below overall winner agreement.
+
+This removes the observed extreme first-label fixation in this configuration;
+it does not establish human correctness or isolate model size from rendering,
+runtime, reasoning, sampling, and output allowance. No sentinel bank or human
+labels were added. The broader A/B choice remains unresolved. See
+`experiments/results/api-judge-20261027/REPORT.md` and `comparison.json`.
