@@ -17,6 +17,7 @@ sys.path[:0] = [str(ROOT / "src"), str(ROOT / "experiments")]
 import api_frontier_judge as api
 import frontier_study
 from analyze_frontier_study import verify_manifest
+from compare_frontier_judges import metered_cost, normalize
 
 
 def response(status="completed", content=None):
@@ -43,6 +44,22 @@ class FakeClient:
 
 
 class ApiFrontierJudgeTest(unittest.TestCase):
+    def test_order_normalization_and_metered_cost_do_not_double_count_reasoning(self):
+        self.assertEqual(normalize("A", "off"), "off")
+        self.assertEqual(normalize("B", "on"), "off")
+        self.assertEqual(normalize("tie", "on"), "tie")
+        usage = {"input_tokens": 100, "output_tokens": 20,
+                 "input_tokens_details": {"cached_tokens": 30, "cache_write_tokens": 50,
+                    "cache_write_tokens_details": {"ttl_30m_tokens": 50, "ttl_12h_tokens": 0}},
+                 "output_tokens_details": {"reasoning_tokens": 10}}
+        measured = metered_cost([{"usage": usage}])
+        self.assertAlmostEqual(measured["complete_estimated_usd"], 0.001855)
+        self.assertEqual(measured["token_totals"]["output_tokens"], 20)
+        self.assertEqual(measured["token_totals"]["reasoning_output_tokens"], 10)
+        self.assertIsNone(metered_cost([{}])["complete_estimated_usd"])
+        usage["input_tokens_details"]["cache_write_tokens"] = 60
+        self.assertIsNone(metered_cost([{"usage": usage}])["complete_estimated_usd"])
+
     def test_admits_only_completed_final_and_never_saves_reasoning(self):
         record = api.response_record(response(), "quoted passages")
         self.assertEqual(record["status"], "complete")
