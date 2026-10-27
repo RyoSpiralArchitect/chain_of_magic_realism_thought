@@ -48,3 +48,12 @@ addresses candidate identity independently of execution determinism.
 This is an observed reproducibility limit, not a runtime diagnosis or a claim
 that the note intervention is ineffective. The existing replay report compares
 saved observations; it does not promise to regenerate identical model outputs.
+
+## Pre-Dose Inspection (2026-10-27)
+Among dosed complete pairs, selected stage-1 texts are identical in 2/8 Gemma
+4B pairs, 0/4 Gemma 12B pairs, and 0/15 GPT-OSS pairs. All stage-1 candidates
+carry no frontier notes. GPT-OSS root calls match input and intended seed in
+30/30 comparisons but visible output in 0/30. The narratives therefore diverge
+before the tested reminder. This limits individual attribution without proving
+the absence of an average intervention effect. See `LOG_REVIEW.md` and its
+machine-readable counts under `experiments/results/api-judge-20261027/`.

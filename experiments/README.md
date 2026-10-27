@@ -114,3 +114,6 @@ adds an optional static figure. Rate-based costs are not invoices. Neither order
 agreement nor agreement with the heuristic establishes literary correctness.
 The [2026-10-27 API report](results/api-judge-20261027/REPORT.md) records all
 182 attempts, 75/91 order-consistent comparisons, and the retained unknowns.
+The subsequent [offline log scrutiny](results/api-judge-20261027/LOG_REVIEW.md)
+checks all visible reasons, metric recomputation, supplied imagery, pre-dose
+divergence, and joint category/winner stability without any new provider call.

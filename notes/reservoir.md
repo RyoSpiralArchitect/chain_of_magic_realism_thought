@@ -6,7 +6,7 @@
 
 ## Completed This Run
 
-Completion records are transferred to Run 2 and Run 3 entries in `run-log.md`.
+Completion records are transferred to Run 2-4 entries in `run-log.md`.
 
 ## Open Questions
 - [?] R006 Automatically tune frontier influence -> OQ001 (`001-frontier-influence.md`).
@@ -15,6 +15,7 @@ Completion records are transferred to Run 2 and Run 3 entries in `run-log.md`.
 - [?] R014 Align prompt length targets and evaluation -> OQ004 (`004-length-objective.md`).
 - [?] R016 Define replay granularity under sampling -> OQ005 (`005-replay-granularity.md`).
 - [?] R017 Qualify automated judging or establish human anchors -> OQ006 (`006-judge-qualification.md`).
+- [?] R024 Separate seed evidence from supplied imagery -> OQ007 (`007-anchor-provenance.md`).
 
 ## Needs Synchronization
 
@@ -38,7 +39,7 @@ the final denominator, not new human-gold sentinels. The old report is immutable
 
 PR #5 is merged to main; PR #6 merged into SpiralReality/frontier-soft-control,
 not yet into main. This work starts at that integrated branch's 690a3df and stays
-stacked there. Six active questions remain; no synchronization gaps.
+stacked there. The six prior questions are retained; no synchronization gaps.
 
 R019-R021 are complete in open PR #7. API comparisons: 182/182 valid final
 responses, 75/91 order-consistent pairs; dosed on/off/unknown 7/15/5. No claim
@@ -46,7 +47,12 @@ of literary correctness or causal benefit. Estimated API cost $3.402755.
 All owned API processes are closed. Source generator artifacts, production
 code, PRM weights, and the original report remain unchanged.
 
-One bounded frontier refresh found no new independent work. Unstarted 0 / in
-progress 0 / active questions 6 / synchronization gaps 0. Stop reason: authorized
-fixed-passage comparison, validation, and PR checkpoint complete. Further
-sentinel/human qualification or tuning requires a new decision, not an OQ lean.
+Run 4 (2026-10-27) completed offline log scrutiny requested by Ryō. R022-R023
+are complete in the PR #7 documentation checkpoint; R024 is externalized as
+OQ007. No source code, scores, old results, or provider behavior changed.
+
+One bounded frontier refresh checked report/protocol links, current code
+references, prior unreached decisions, and evidence immutability. No new
+independent task remains. Unstarted 0 / in progress 0 / active questions 7 /
+synchronization gaps 0. Stop: log scrutiny and its documentation are complete;
+further experiments and behavioral changes remain decision-bound.

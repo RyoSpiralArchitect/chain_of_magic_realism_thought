@@ -315,3 +315,54 @@
 - Unreached frontier: OQ006 sentinel qualification versus human anchors;
   OQ001 criterion disagreement before automatic influence tuning. No additional
   study, judge selection, training, or automatic revival is authorized.
+
+## 2026-10-27 Run 4 (Offline Log Scrutiny)
+- User requested closer log inspection. Started with unstarted 0 / questions 6 /
+  synchronization gaps 0. R022: read/verify saved logs; R023: preserve findings;
+  R024 -> OQ007: seed-derived anchors versus an explicit authored motif bank.
+- Read all 182 visible API reasons. Verified manifests, all 182 input/payload
+  hashes, parsed response JSON, condition/config mapping, and unique request IDs.
+  Recomputed transition/magic metrics and final candidate rewards for all 182
+  paired final passages with exact agreement. No wiring/calculation mismatch
+  found in this scope; no hidden reasoning was accessed or requested.
+- Repeated motifs originate in fixed impossible_fact_slots, already present
+  before reminders; scoring checks the same slots. Future-errand phrase occurs
+  in 36/54 GPT-OSS finals and 20/54 selected stage-1 passages. Only 4/54 finals
+  fully match a slot; literal motif reuse is not the same as the exact-match
+  bonus and does not prove learned reward hacking.
+- Semantic coverage: all 54 GPT-OSS final passages have restraint=1 and
+  non_explanation=1 despite observed chronology breaks, crowd reactions, and
+  unrelated anomalies. API reasons point to those concrete text features. This
+  diagnoses a metric-coverage limitation, not a human-gold error annotation.
+- Pre-dose root calls in dosed pairs: input/seed match 16/16, 8/8, 30/30;
+  output matches 5/16, 1/8, 0/30 for 4B/12B/GPT-OSS. Selected stage-1 text
+  matches 2/8, 0/4, 0/15 pairs before any frontier note. Individual differences
+  cannot be attributed directly to reminders; average effects remain unproven,
+  not logically excluded.
+- Winner stability is 75/91; all three categories stable 39/91; winner and all
+  categories jointly stable only 38/91. GPT-OSS p08 r00 flips winner despite
+  stable category preferences. The prompt leaves category aggregation unspecified;
+  no deterministic vote or tie-break rule was retrofitted.
+- Selected steps with reward.accept=false: 8/192, 23/192, 39/162. Beam selection
+  with zero repairs is not a hard reward-threshold admission gate. Original
+  transport completion and quality claims remain distinct.
+- Findings and exact counts: experiments/results/api-judge-20261027/LOG_REVIEW.md
+  and log_review.json. R022 complete; R023 is documentation checkpoint work.
+  No source code, metrics, weights, original summaries, or raw artifacts changed.
+  No API/GPU/provider call, regeneration, or new experiment. Existing PR #7 is open.
+
+## 2026-10-27 Run 4 (Documentation Checkpoint)
+- R022-R023 complete. Added LOG_REVIEW.md, exact descriptive log_review.json,
+  OQ007, and evidence updates to OQ005/OQ006. PR #7 remains the checkpoint;
+  no production or experiment-runner source changes, weight changes, or reruns.
+- All original manifests reverified after inspection; original reports and
+  comparison/audit/primary artifacts are unchanged. Only new derived review
+  artifacts and active documentation are added. Validation used offline
+  integrity/recalculation/assertion checks, not new provider or GPU calls.
+- One bounded frontier refresh checked current docs, code pointers, protocol,
+  preserved evidence, and active-question synchronization. No independent
+  remaining task found. Stop: authorized log inspection and documentation done.
+- Reservoir: unstarted 0 / in progress 0 / active questions 7 / sync gaps 0.
+  Next decision-bound frontier: OQ007 anchor provenance, OQ005 repeatable
+  pre-intervention state, and OQ006 category aggregation/qualification. No lean
+  authorizes implementing a policy or launching an experiment.

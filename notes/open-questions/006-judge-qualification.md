@@ -71,3 +71,10 @@ it does not establish human correctness or isolate model size from rendering,
 runtime, reasoning, sampling, and output allowance. No sentinel bank or human
 labels were added. The broader A/B choice remains unresolved. See
 `experiments/results/api-judge-20261027/REPORT.md` and `comparison.json`.
+
+## Joint Stability Inspection
+Winner stability remains 75/91, but winner plus all three category labels
+agree jointly in only 38/91. One pair (GPT-OSS p08 r00) changes its winner while
+continuity/freshness consistently prefer off and restraint prefers on. The
+current rubric leaves category aggregation unspecified. This does not authorize
+a posthoc weighted vote or tie-break policy. See `LOG_REVIEW.md` for evidence.
