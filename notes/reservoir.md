@@ -6,7 +6,7 @@
 
 ## Completed This Run
 
-Completion records are transferred to the final Run 2 entry in `run-log.md`.
+Completion records are transferred to Run 2-4 entries in `run-log.md`.
 
 ## Open Questions
 - [?] R006 Automatically tune frontier influence -> OQ001 (`001-frontier-influence.md`).
@@ -15,21 +15,44 @@ Completion records are transferred to the final Run 2 entry in `run-log.md`.
 - [?] R014 Align prompt length targets and evaluation -> OQ004 (`004-length-objective.md`).
 - [?] R016 Define replay granularity under sampling -> OQ005 (`005-replay-granularity.md`).
 - [?] R017 Qualify automated judging or establish human anchors -> OQ006 (`006-judge-qualification.md`).
+- [?] R024 Separate seed evidence from supplied imagery -> OQ007 (`007-anchor-provenance.md`).
 
 ## Needs Synchronization
 
 The previous checkout contained no reservoir, run log, or active questions. This
 run starts from main at ac60958, including merged PRs #2, #3, and #4.
 
-Run 1 completed R001-R005 in open PR #5. Run 2 completed R008-R012, R015,
-and the final structure-doc refresh R018 in stacked PR #6 (open, unmerged).
+Run 1 completed R001-R005 in PR #5 (now merged to main). Run 2 completed
+R008-R012, R015, and R018 in PR #6 (now merged to frontier-soft-control).
 All generation and judging processes are closed. Complete pairs: 4B 32/32,
 12B 32/32, GPT-OSS 27/32; all planned attempts are finished. The judge selected
 A in 181/182 responses, leaving 90/91 comparisons order-inconsistent and unknown.
 No literary-quality effect or automatic policy is established.
 
-The final report, machine-readable evidence, archive hash, and validation
-receipts are in `experiments/results/furnace-20261020/`. Unstarted 0, in progress
-0, open questions 6, synchronization gaps 0. One bounded frontier refresh found
-only the now-fixed structure-doc drift. Stop reason: authorized measurement,
-analysis, and PR checkpoint scope complete; remaining work needs decisions.
+Run 3 completed 2026-10-27: Ryō explicitly authorized replacing the judge with a
+large API model and reusing the existing process OPENAI_API_KEY. Scope: compare
+the same 91 complete pairs in both orders, no generation, no tuning, no human
+gold or automatic qualification claim. GPT-6 Astra is available; low reasoning,
+2048 output tokens, 182 calls, no retries, $30 modeled budget with a conservative
+$27.7359 plan bound. Initial two requests are operational checks retained in
+the final denominator, not new human-gold sentinels. The old report is immutable.
+
+PR #5 is merged to main; PR #6 merged into SpiralReality/frontier-soft-control,
+not yet into main. This work starts at that integrated branch's 690a3df and stays
+stacked there. The six prior questions are retained; no synchronization gaps.
+
+R019-R021 are complete in open PR #7. API comparisons: 182/182 valid final
+responses, 75/91 order-consistent pairs; dosed on/off/unknown 7/15/5. No claim
+of literary correctness or causal benefit. Estimated API cost $3.402755.
+All owned API processes are closed. Source generator artifacts, production
+code, PRM weights, and the original report remain unchanged.
+
+Run 4 (2026-10-27) completed offline log scrutiny requested by Ryō. R022-R023
+are complete in the PR #7 documentation checkpoint; R024 is externalized as
+OQ007. No source code, scores, old results, or provider behavior changed.
+
+One bounded frontier refresh checked report/protocol links, current code
+references, prior unreached decisions, and evidence immutability. No new
+independent task remains. Unstarted 0 / in progress 0 / active questions 7 /
+synchronization gaps 0. Stop: log scrutiny and its documentation are complete;
+further experiments and behavioral changes remain decision-bound.

@@ -1,0 +1,120 @@
+{
+  "claim_limits": [
+    "offline inspection only, no API calls or regeneration",
+    "literal motif counts are not semantic labels or effect estimates",
+    "all three judge axes stable is distinct from overall winner stable",
+    "pre-dose divergence limits individual attribution, not a proof of no average treatment effect",
+    "qualitative case review is posthoc, not human gold"
+  ],
+  "contract": "frontier-log-scrutiny-1.0",
+  "date": "2026-10-27",
+  "judge_manifest_sha256": "b825cf4a9aa67c848ebc3d459521eafe761aceb8bb399b97563b3fa3b545ccad",
+  "metric_and_final_reward_recalculations": 182,
+  "metric_or_final_reward_mismatches": 0,
+  "models": [
+    {
+      "counts": {
+        "dosed_pairs": 8,
+        "finals_with_full_slot_match": 9,
+        "full_slot_matches": 12,
+        "non_explanation_one": 64,
+        "paired_finals": 64,
+        "paired_root_calls": 16,
+        "restraint_one": 59,
+        "root_same_input_and_seed": 16,
+        "root_same_output": 5,
+        "same_selected_stage1_text": 2,
+        "selected_below_accept_threshold": 8,
+        "selected_steps": 192
+      },
+      "directory": "gemma3-4b-study2",
+      "literal_motif_counts": {
+        "まだ起きていない用事": {
+          "final_hits": 26,
+          "stage1_hits": 5
+        },
+        "押印": {
+          "final_hits": 27,
+          "stage1_hits": 7
+        },
+        "改札": {
+          "final_hits": 42,
+          "stage1_hits": 21
+        }
+      },
+      "manifest_sha256": "36b07ddde2d77931e6183524925f9663c43a01785742da5100833618e3b16a64"
+    },
+    {
+      "counts": {
+        "dosed_pairs": 4,
+        "finals_with_full_slot_match": 0,
+        "full_slot_matches": 0,
+        "non_explanation_one": 63,
+        "paired_finals": 64,
+        "paired_root_calls": 8,
+        "restraint_one": 63,
+        "root_same_input_and_seed": 8,
+        "root_same_output": 1,
+        "same_selected_stage1_text": 0,
+        "selected_below_accept_threshold": 23,
+        "selected_steps": 192
+      },
+      "directory": "gemma3-12b-study2",
+      "literal_motif_counts": {
+        "まだ起きていない用事": {
+          "final_hits": 5,
+          "stage1_hits": 3
+        },
+        "押印": {
+          "final_hits": 9,
+          "stage1_hits": 3
+        },
+        "改札": {
+          "final_hits": 42,
+          "stage1_hits": 19
+        }
+      },
+      "manifest_sha256": "998eea7dc601e50d88821bb1b4c6b5a1692c116a28057f53975d86a2520203ca"
+    },
+    {
+      "counts": {
+        "dosed_pairs": 15,
+        "finals_with_full_slot_match": 4,
+        "full_slot_matches": 4,
+        "non_explanation_one": 54,
+        "paired_finals": 54,
+        "paired_root_calls": 30,
+        "restraint_one": 54,
+        "root_same_input_and_seed": 30,
+        "root_same_output": 0,
+        "same_selected_stage1_text": 0,
+        "selected_below_accept_threshold": 39,
+        "selected_steps": 162
+      },
+      "directory": "gptoss20b-study3",
+      "literal_motif_counts": {
+        "まだ起きていない用事": {
+          "final_hits": 36,
+          "stage1_hits": 20
+        },
+        "押印": {
+          "final_hits": 16,
+          "stage1_hits": 14
+        },
+        "改札": {
+          "final_hits": 13,
+          "stage1_hits": 11
+        }
+      },
+      "manifest_sha256": "25e93395d792eae9370a7e3084157bc324d4aa52cf6616e3c8b267560447309a"
+    }
+  ],
+  "pair_stability": {
+    "all_three_axes_stable": 39,
+    "pairs": 91,
+    "same_winner": 75,
+    "winner_and_three_axes_stable": 38,
+    "winner_flip_with_stable_axes": 1
+  },
+  "verified_records": 182
+}

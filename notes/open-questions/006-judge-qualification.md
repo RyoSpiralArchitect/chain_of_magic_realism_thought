@@ -50,3 +50,31 @@ The judge saw only seed and two final passages, not conditions, notes, or scores
 Raw observations remain on the Mac and Furnace; their hashes and denominators
 are published in the report. No winner was promoted to human gold, and no judge
 or generator was retrained or selected from these outcomes.
+
+## Authorized Diagnostic Follow-Up (2026-10-27)
+Ryō asked: "ジャッジをAPIの大モデルに素直に変えてどうなるか見てみよ!"
+and approved reusing the existing API key. This authorizes a direct comparison
+on the same 91 complete pairs through GPT-6 Astra, preserving reversed orders,
+rubric text, source hashes, failures, and the old negative result. It does not
+decide the broader A/B question, establish sentinel-bank qualification, or
+authorize automatic influence tuning. R019-R021 cover this bounded diagnostic.
+
+## Observed Follow-Up
+All 182 API requests completed with valid final JSON; all presented-prompt
+hashes and source manifests were checked. GPT-6 Astra chose A/B/tie 82/98/2;
+75/91 overall preferences agree under reversal, compared with 1/91 for Nemo.
+Sixteen comparisons remain order-inconsistent and unknown. Freshness agrees
+under reversal in only 57/91, below overall winner agreement.
+
+This removes the observed extreme first-label fixation in this configuration;
+it does not establish human correctness or isolate model size from rendering,
+runtime, reasoning, sampling, and output allowance. No sentinel bank or human
+labels were added. The broader A/B choice remains unresolved. See
+`experiments/results/api-judge-20261027/REPORT.md` and `comparison.json`.
+
+## Joint Stability Inspection
+Winner stability remains 75/91, but winner plus all three category labels
+agree jointly in only 38/91. One pair (GPT-OSS p08 r00) changes its winner while
+continuity/freshness consistently prefer off and restraint prefers on. The
+current rubric leaves category aggregation unspecified. This does not authorize
+a posthoc weighted vote or tie-break policy. See `LOG_REVIEW.md` for evidence.

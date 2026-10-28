@@ -325,6 +325,10 @@ generator-independent, order-reversed model judge. The
 completion denominators, runtime failures, artifact hashes, and claim limits.
 These measurements do not enable automatic influence tuning or candidate revival.
 
+The [large API judge follow-up](experiments/results/api-judge-20261027/REPORT.md)
+reuses those fixed passages. GPT-6 Astra raised order-consistent judgments from
+1/91 to 75/91, but the dosed comparisons do not establish a quality benefit.
+
 ---
 
 ## Offline story reader

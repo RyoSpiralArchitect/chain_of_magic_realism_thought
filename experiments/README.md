@@ -81,3 +81,39 @@ counts and order disagreements are retained separately in the audit. See
 judge-qualification result and incomplete-trial denominators.
 `--plot` optionally uses matplotlib for a static figure. Unrun blind judgments
 are null; attempted invalid or order-inconsistent judgments are unknown.
+
+## API Judge Follow-Up
+
+`api_frontier_judge.py` reuses the same rubric and fixed source passages through
+OpenAI Responses. It verifies source manifests before sending visible passages,
+never regenerates trials, and saves its own frozen directory. The first two
+calls can be limited with `--limit 2`, then resumed with the same configuration;
+they remain part of the 182-call denominator. This is an operational check,
+not a separate gold-label qualification set.
+
+Default: `gpt-6-astra`, low reasoning, 2048 output tokens, four concurrent calls,
+180-second timeout, default tier, 30m caching, `store=false`, no tools, no SDK
+retries. The temperature/seed settings from local inference are unsupported
+under this reasoning mode and are omitted, so the backend/model comparison has
+explicit rendering and sampling confounds. No hidden reasoning text is saved.
+
+`--plan-only` performs no API call. A $30 modeled budget gates the whole plan
+using UTF-8 byte-token bounds plus 256 framing tokens and maximum output tokens,
+at conservative short-context cache-write/output rates. Rates are dated in the
+frozen config; this is a modeled bound, not an invoice or account spending cap.
+Issued receipts are written before each call. An issued request lacking a
+terminal receipt blocks resumption; it is never silently sent twice. Failed,
+refused, incomplete, and invalid outputs remain unknown without resampling.
+Reuse or creation of an API key requires explicit user authorization.
+
+`compare_frontier_judges.py --previous OLD --current NEW --studies ... --output
+FILE` audits both judges on the same source manifests. It reports per-model and
+per-prompt order consistency, dosed/no-dose preferences, category-level order
+agreement, heuristic-sign alignment, and usage-based cost estimates. `--plot`
+adds an optional static figure. Rate-based costs are not invoices. Neither order
+agreement nor agreement with the heuristic establishes literary correctness.
+The [2026-10-27 API report](results/api-judge-20261027/REPORT.md) records all
+182 attempts, 75/91 order-consistent comparisons, and the retained unknowns.
+The subsequent [offline log scrutiny](results/api-judge-20261027/LOG_REVIEW.md)
+checks all visible reasons, metric recomputation, supplied imagery, pre-dose
+divergence, and joint category/winner stability without any new provider call.

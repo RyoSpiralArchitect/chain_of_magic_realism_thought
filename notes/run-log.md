@@ -248,3 +248,121 @@
 - Unreached frontier: decisions OQ001-OQ006, especially judge qualification,
   generative replay, and independently calibrated prompt diversity. Do not
   launch a new experiment, tune weights, or revive candidates from a lean.
+
+## 2026-10-27 Run 3 (API Judge Start)
+- Starting reservoir: unstarted 0 / questions 6 / synchronization gaps 0.
+  User explicitly requested a large API judge and then authorized reusing the
+  existing key. Added R019 implementation, R020 fixed-passage review, R021
+  comparison/publication. OQ006's full qualification decision remains open.
+- Verified checkout and raw sources. PR #6 merged into frontier-soft-control
+  (690a3df); main currently includes #5 but not #6. New branch:
+  SpiralReality/api-frontier-judge, based on the integrated frontier branch.
+- Official docs and live model listing confirm gpt-6-astra is available. Use
+  Responses instructions/user input, low reasoning, no temperature/seed/tools,
+  2048 output tokens, default tier, store=false, 30m caching. Semantic rubric
+  and presented passages are unchanged, but model/runtime/rendering/sampling
+  differences mean this is not a causal model-size-only comparison.
+- Plan: 182 calls on the same 91 complete pairs. Conservative byte-token plus
+  framing bound and output allowance: $27.7359, below the fixed $30 budget.
+  No automatic retries; pre-call issued markers prohibit ambiguous resends.
+  Existing source manifests are verified before calls; final-only API outputs
+  and safe request/usage metadata are retained, never hidden reasoning text.
+
+## 2026-10-27 Run 3 (Measurements Complete)
+- R019 and R020 complete. R021 is final publication/PR checkpoint work.
+  Execution source dc003792616706979c2b1ba9be8313b5608cd6c4; analysis code
+  checkpoint fb586264adc46b86c16468115446fcbb4c3e0223.
+- All 182/182 API requests completed with valid final JSON. The first two calls
+  remain in the denominator; no retries or resampling. All input/payload hashes
+  checked; 182 unique provider response IDs and client request IDs. No key or
+  hidden reasoning text was persisted. API alias returned: gpt-6-astra.
+- Order consistency: 75/91 versus Nemo 1/91. Per generator: 27/32, 25/32, 23/27.
+  Labels A/B/tie: 82/98/2. Sixteen order-disagreement unknowns remain. Freshness
+  category agreement is 57/91, so overall stability is not blanket qualification.
+- Dosed complete pairs: on 7 / off 15 / unknown 5. No-dose comparisons also vary;
+  eight shared prompts and selective generator completion preclude a causal
+  intervention or size-only claim. Among 22 directional dosed preferences,
+  15 oppose heuristic score direction, including 10/13 for GPT-OSS.
+- Usage: 192808 input, 23586 output including 8392 reasoning tokens. The latter
+  are counted, never saved as text. Estimated published-rate cost $3.402755,
+  not an invoice. No additional key/env file, GPU run, or weight change.
+- Portable API-only archive on Mac:
+  artifacts/furnace/20261027/api-judge-evidence-portable.tar.gz, SHA-256
+  aa94773ed9638b58c038e743ca6b7359db8a0488da6afca713a53c5d78adc218.
+  All 369 archived files match local copies. Initial macOS-metadata pack is
+  retained separately; portable packaging did not change evidence files.
+- Validation: 59 tests pass locally; reward-audit fixtures 3/3; compilation,
+  diff, source hashes, archive, and presented-input checks pass. Figure visually
+  inspected. No CI claim. Results: experiments/results/api-judge-20261027/.
+- One bounded frontier refresh found no new independent task: current README,
+  experiment protocol, tests, original result immutability, and active-question
+  links are aligned. Remaining six questions are decision-bound. Publication
+  and final PR confirmation remain before stopping.
+
+## 2026-10-27 Run 3 (Final PR Checkpoint)
+- Completed R019, R020, R021 in PR #7:
+  https://github.com/RyoSpiralArchitect/chain_of_magic_realism_thought/pull/7.
+  Base is the integrated frontier-soft-control branch containing merged #6;
+  main integration is a distinct operation. PR #7 is open, not merged.
+- All owned API execution/test sessions closed. Raw evidence is Mac-only under
+  artifacts/furnace/20261027/; no extra Furnace workload or credential write.
+- Final claim ceiling: a new API configuration substantially improved order
+  stability but did not establish human correctness or reminder benefit.
+  Retained unknowns and the five original generator missing pairs remain visible.
+- Reservoir transferred/cleared completed entries: unstarted 0 / in progress 0 /
+  active questions 6 / synchronization gaps 0. Stop: authorized scope complete
+  after one bounded frontier refresh, not merely because a PR exists.
+- Unreached frontier: OQ006 sentinel qualification versus human anchors;
+  OQ001 criterion disagreement before automatic influence tuning. No additional
+  study, judge selection, training, or automatic revival is authorized.
+
+## 2026-10-27 Run 4 (Offline Log Scrutiny)
+- User requested closer log inspection. Started with unstarted 0 / questions 6 /
+  synchronization gaps 0. R022: read/verify saved logs; R023: preserve findings;
+  R024 -> OQ007: seed-derived anchors versus an explicit authored motif bank.
+- Read all 182 visible API reasons. Verified manifests, all 182 input/payload
+  hashes, parsed response JSON, condition/config mapping, and unique request IDs.
+  Recomputed transition/magic metrics and final candidate rewards for all 182
+  paired final passages with exact agreement. No wiring/calculation mismatch
+  found in this scope; no hidden reasoning was accessed or requested.
+- Repeated motifs originate in fixed impossible_fact_slots, already present
+  before reminders; scoring checks the same slots. Future-errand phrase occurs
+  in 36/54 GPT-OSS finals and 20/54 selected stage-1 passages. Only 4/54 finals
+  fully match a slot; literal motif reuse is not the same as the exact-match
+  bonus and does not prove learned reward hacking.
+- Semantic coverage: all 54 GPT-OSS final passages have restraint=1 and
+  non_explanation=1 despite observed chronology breaks, crowd reactions, and
+  unrelated anomalies. API reasons point to those concrete text features. This
+  diagnoses a metric-coverage limitation, not a human-gold error annotation.
+- Pre-dose root calls in dosed pairs: input/seed match 16/16, 8/8, 30/30;
+  output matches 5/16, 1/8, 0/30 for 4B/12B/GPT-OSS. Selected stage-1 text
+  matches 2/8, 0/4, 0/15 pairs before any frontier note. Individual differences
+  cannot be attributed directly to reminders; average effects remain unproven,
+  not logically excluded.
+- Winner stability is 75/91; all three categories stable 39/91; winner and all
+  categories jointly stable only 38/91. GPT-OSS p08 r00 flips winner despite
+  stable category preferences. The prompt leaves category aggregation unspecified;
+  no deterministic vote or tie-break rule was retrofitted.
+- Selected steps with reward.accept=false: 8/192, 23/192, 39/162. Beam selection
+  with zero repairs is not a hard reward-threshold admission gate. Original
+  transport completion and quality claims remain distinct.
+- Findings and exact counts: experiments/results/api-judge-20261027/LOG_REVIEW.md
+  and log_review.json. R022 complete; R023 is documentation checkpoint work.
+  No source code, metrics, weights, original summaries, or raw artifacts changed.
+  No API/GPU/provider call, regeneration, or new experiment. Existing PR #7 is open.
+
+## 2026-10-27 Run 4 (Documentation Checkpoint)
+- R022-R023 complete. Added LOG_REVIEW.md, exact descriptive log_review.json,
+  OQ007, and evidence updates to OQ005/OQ006. PR #7 remains the checkpoint;
+  no production or experiment-runner source changes, weight changes, or reruns.
+- All original manifests reverified after inspection; original reports and
+  comparison/audit/primary artifacts are unchanged. Only new derived review
+  artifacts and active documentation are added. Validation used offline
+  integrity/recalculation/assertion checks, not new provider or GPU calls.
+- One bounded frontier refresh checked current docs, code pointers, protocol,
+  preserved evidence, and active-question synchronization. No independent
+  remaining task found. Stop: authorized log inspection and documentation done.
+- Reservoir: unstarted 0 / in progress 0 / active questions 7 / sync gaps 0.
+  Next decision-bound frontier: OQ007 anchor provenance, OQ005 repeatable
+  pre-intervention state, and OQ006 category aggregation/qualification. No lean
+  authorizes implementing a policy or launching an experiment.

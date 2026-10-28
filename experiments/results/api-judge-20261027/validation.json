@@ -1,0 +1,57 @@
+{
+  "analysis_code_checkpoint": "fb586264adc46b86c16468115446fcbb4c3e0223",
+  "archive": {
+    "bytes": 153032,
+    "earlier_macos_metadata_pack_retained": {
+      "note": "includes AppleDouble metadata; portable pack omits it without changing evidence files",
+      "path": "artifacts/furnace/20261027/api-judge-evidence.tar.gz",
+      "sha256": "e9a705227d982671614c932e2cbfa26e953bc1745cc22466ff2ba30b334b2565"
+    },
+    "location": "Mac only; not transferred to Furnace",
+    "path": "artifacts/furnace/20261027/api-judge-evidence-portable.tar.gz",
+    "sha256": "aa94773ed9638b58c038e743ca6b7359db8a0488da6afca713a53c5d78adc218",
+    "verified_file_copies": 369
+  },
+  "checks": {
+    "automatic_retries": 0,
+    "complete_pairs": 91,
+    "credential_value_not_persisted_in_raw_json": true,
+    "dosed_complete_pairs": 27,
+    "expected_and_completed_requests": 182,
+    "figure_visually_inspected": true,
+    "issued_payload_hashes_verified": 182,
+    "new_key_or_env_file_written": false,
+    "order_disagreement_unknowns": 16,
+    "presented_prompts_verified_per_judge": 182,
+    "source_file_hashes_verified": 22,
+    "unique_client_request_ids": 182,
+    "unique_response_ids": 182,
+    "verified_judge_manifest": "b825cf4a9aa67c848ebc3d459521eafe761aceb8bb399b97563b3fa3b545ccad"
+  },
+  "claim_limit": "integrity and order consistency are not human-gold qualification, provider weight identity, or an invoice",
+  "contract": "frontier-api-validation-1.0",
+  "date": "2026-10-27",
+  "execution_code_checkpoint": "dc003792616706979c2b1ba9be8313b5608cd6c4",
+  "generator_sources_unchanged": {
+    "gemma3-12b-study2": "998eea7dc601e50d88821bb1b4c6b5a1692c116a28057f53975d86a2520203ca",
+    "gemma3-4b-study2": "36b07ddde2d77931e6183524925f9663c43a01785742da5100833618e3b16a64",
+    "gptoss20b-study3": "25e93395d792eae9370a7e3084157bc324d4aa52cf6616e3c8b267560447309a"
+  },
+  "source_files_sha256": {
+    "experiments/analyze_frontier_study.py": "2a6c98da4fa215ec876633e396e48be8c9da36b6e4bf97b157a772316b4154b6",
+    "experiments/api_frontier_judge.py": "bd832c17e6ecdb9afb3aeb13bff708b1fb5a0196b2d91619370d8a498343755f",
+    "experiments/compare_frontier_judges.py": "6922241fec3ee8a28ae71aa28b3f2f71bf1c07686c378b9038432e35fba8a04b",
+    "experiments/frontier_study.py": "94e166d83515718d69835cf0e308f18a4caa5154a60e9824b2251234a0cb5e81",
+    "tests/test_api_frontier_judge.py": "146887241128e20c9ac568d7bb20f6b33c15d770eae0adf0913f042cb466686b"
+  },
+  "tests": {
+    "ci": "not verified",
+    "command": "python3 -m unittest discover -s tests",
+    "compileall": "passed",
+    "git_diff_check": "passed",
+    "passed": 59,
+    "python": "3.13.13 (v3.13.13:01104ce1beb, Apr  7 2026, 14:43:30) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "reward_audit_fixtures_passed": 3,
+    "seconds": 2.856
+  }
+}
